@@ -11,11 +11,23 @@
 
 #import "XDPlanLocalDefault.h"
 
+@interface XDAllPlansCell()
+
+@property (nonatomic) UIView *progressView;
+
+@end
+
 @implementation XDAllPlansCell
 
-@synthesize index;
+@synthesize progressView = _progressView;
+
+@synthesize index = _index;
 @synthesize content;
 @synthesize action;
+//@synthesize finish;
+
+@synthesize progressValue = _progressValue;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -23,26 +35,29 @@
     if (self) {
         // Initialization code
         
-        _indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-        _indexLabel.layer.borderWidth = 3.0f;
-        _indexLabel.layer.cornerRadius = 20 / 2;
-        _indexLabel.layer.masksToBounds = YES;
-        _indexLabel.textAlignment = KTextAlignmentCenter;
-        _indexLabel.font = [UIFont boldSystemFontOfSize:14.0];
-        [self.contentView addSubview:_indexLabel];
+//        _mainView = [[UIView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)];
         
-        _contentTextView = [[UITextView alloc] initWithFrame:CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 10, 320 - 90, 40)];
-        _contentTextView.scrollEnabled = NO;
-        _contentTextView.userInteractionEnabled = NO;
-        _contentTextView.backgroundColor = [UIColor clearColor];
-        _contentTextView.textColor = [UIColor blackColor];
-        _contentTextView.font = [UIFont systemFontOfSize:17.0];
-        [self.contentView addSubview:_contentTextView];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 5)];
+        view.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:view];
+        
+        self.progressView.frame = CGRectMake(0, 0, 0, 5);
+        [self.contentView addSubview:self.progressView];
         
         _actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _actionButton.frame = CGRectMake(_contentTextView.frame.origin.x + _contentTextView.frame.size.width + 10, 10, 20, _contentTextView.frame.size.height);
-        _actionButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//        _actionButton.backgroundColor = [UIColor redColor];
+        _actionButton.frame = CGRectMake(0, 10, 40, 40);
+        _actionButton.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_actionButton];
+        
+        _contentTextView = [[UILabel alloc] initWithFrame:CGRectMake(_actionButton.frame.origin.x + _actionButton.frame.size.width + 10, 10, 320 - 90, 40)];
+        _contentTextView.numberOfLines = 0;
+        _contentTextView.backgroundColor = [UIColor clearColor];
+        _contentTextView.textColor = [UIColor blackColor];
+        _contentTextView.font = [UIFont systemFontOfSize:16.0];
+        [self.contentView addSubview:_contentTextView];
+        
+        _progressValue = 0.0;
     }
     return self;
 }
@@ -54,11 +69,23 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - get
+
+- (UIView *)progressView
+{
+    if (_progressView == nil) {
+        _progressView = [[UIView alloc] init];
+        _progressView.backgroundColor = [UIColor colorWithRed:225 / 255.0 green:103 / 255.0 blue:90 / 255.0 alpha:1.0];
+    }
+    
+    return _progressView;
+}
+
 #pragma mark - set
 
 - (void)setIndex:(NSInteger)aIndex
 {
-    _indexLabel.text = [NSString stringWithFormat:@"%i",aIndex];
+    _index = aIndex;
 }
 
 - (void)setContent:(NSString *)aContent
@@ -67,27 +94,40 @@
     CGSize size = [aContent sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByWordWrapping];
     CGFloat height = size.height > 40 ? size.height : 40;
     
-    _indexLabel.frame = CGRectMake(10, 10 + (height - 30) / 2, 30, 30);
-    _contentTextView.frame = CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 10, 320 - 90, height);
-    _actionButton.frame = CGRectMake(_contentTextView.frame.origin.x + _contentTextView.frame.size.width + 10, 10, 20, height);
+    _actionButton.frame = CGRectMake(0, 10, 40, height);
+    _contentTextView.frame = CGRectMake(_actionButton.frame.origin.x + _actionButton.frame.size.width + 10, 10, 320 - 90, height);
 }
 
 - (void)setAction:(BOOL)aAction
 {
     if (aAction) {
-        _indexLabel.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
-        _indexLabel.backgroundColor = [UIColor whiteColor];
-        _indexLabel.textColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        
         [_actionButton setImage:[UIImage imageNamed:@"plans_action.png"] forState:UIControlStateNormal];
         [_actionButton setTintColor:[UIColor redColor]];
     }
     else{
-        _indexLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
-        _indexLabel.backgroundColor = [UIColor colorWithRed:115 / 255.0 green:166 / 255.0 blue:184 / 255.0 alpha:1.0];
-        _indexLabel.textColor = [UIColor whiteColor];
-        
         [_actionButton setImage:[UIImage imageNamed:@"plans_unaction.png"] forState:UIControlStateNormal];
+    }
+}
+
+//- (void)setFinish:(BOOL)aFinish
+//{
+//    if (aFinish) {
+//        self.contentView.backgroundColor = [UIColor colorWithRed:200 / 255.0 green:200 / 255.0 blue:200 / 255.0 alpha:1.0];
+//    }
+//    else{
+//        self.contentView.backgroundColor = [UIColor whiteColor];
+//    }
+//}
+
+- (void)setProgressValue:(CGFloat)value
+{
+    _progressValue = value;
+    
+    if (_progressValue > 0) {
+        self.progressView.frame = CGRectMake(0, 0, self.frame.size.width * _progressValue, 5);
+    }
+    else{
+        self.progressView.frame = CGRectMake(0, 0, 0, 5);
     }
 }
 

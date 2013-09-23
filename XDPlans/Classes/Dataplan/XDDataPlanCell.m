@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "XDTodayPlanCell.h"
+#import "XDDataPlanCell.h"
 
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
@@ -58,7 +58,7 @@
 
 @end
 
-@interface XDTodayPlanCell()<XDSummaryViewDelegate>
+@interface XDDataPlanCell()<XDSummaryViewDelegate>
 {
     UIColor *_color;
 }
@@ -76,7 +76,7 @@
 
 @end
 
-@implementation XDTodayPlanCell
+@implementation XDDataPlanCell
 
 @synthesize delegate = _delegate;
 

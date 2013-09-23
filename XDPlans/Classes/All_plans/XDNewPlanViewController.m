@@ -10,20 +10,26 @@
 #import "XDNewPlanViewController.h"
 
 #import "RichTextEditor.h"
+#import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
 
-@interface XDNewPlanViewController ()<UITextViewDelegate>
+@interface XDNewPlanViewController ()<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     UILabel *_numberLabel;
+    UILabel *_dateLabel;
 }
 
-@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UITextView *contentTextView;
+@property (nonatomic, strong) UIButton *dateView;
 
 @end
 
 @implementation XDNewPlanViewController
 
-@synthesize textView = _textView;
+@synthesize tableView = _tableView;
+@synthesize contentTextView = _contentTextView;
+@synthesize dateView = _dateView;
 
 - (id)init
 {
@@ -36,8 +42,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];;
 	// Do any additional setup after loading the view.
+//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+    
     UIToolbar *topBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     topBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
     [self.view addSubview:topBar];
@@ -48,36 +57,100 @@
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
     [topBar setItems:[NSArray arrayWithObjects:backItem, flexibleItem, titleItem, flexibleItem, doneItem, nil] animated:YES];
     
-    self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+    [self.view addSubview:_tableView];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 10 - 40, 64, 40, 20)];
+    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 10 - 40, 10, 40, 20)];
     label.text = @" 个字";
-    label.font = [UIFont systemFontOfSize:16.0];
+    label.font = [UIFont systemFontOfSize:14.0];
     label.textColor = [UIColor grayColor];
     label.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:label];
+    [tableHeaderView addSubview:label];
     
-    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x - 40, 64, 40, 20)];
+    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(label.frame.origin.x - 30, 10, 30, 20)];
     _numberLabel.backgroundColor = [UIColor clearColor];
     _numberLabel.text = [NSString stringWithFormat:@"%i", KPLAN_CONTENT_MAXLENGHT];
     _numberLabel.textAlignment = KTextAlignmentRight;
-    [self.view addSubview:_numberLabel];
+    _numberLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    [tableHeaderView addSubview:_numberLabel];
     
-    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(_numberLabel.frame.origin.x - 40, 64, 40, 20)];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(_numberLabel.frame.origin.x - 30, 10, 40, 20)];
     label2.text = @"剩余 ";
-    label2.font = [UIFont systemFontOfSize:16.0];
+    label2.font = [UIFont systemFontOfSize:14.0];
     label2.textColor = [UIColor grayColor];
     label2.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:label2];
+    [tableHeaderView addSubview:label2];
     
-    [self.view addSubview:self.textView];
-    [self.textView becomeFirstResponder];
+    [self.tableView setTableHeaderView:tableHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+//    [self.contentTextView removeFromSuperview];
+    [self.dateView removeFromSuperview];
+    if (indexPath.row == 0) {
+        [cell.contentView addSubview:self.contentTextView];
+        [self.contentTextView becomeFirstResponder];
+    }
+    else if (indexPath.row == 1)
+    {
+        [cell.contentView addSubview:self.dateView];
+    }
+    
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 110;
+            break;
+        case 1:
+            return 60;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
 }
 
 #pragma mark - UITextViewDelegate
@@ -95,21 +168,57 @@
 
 #pragma mark - get
 
-- (UITextView *)textView
+- (UITextView *)contentTextView
 {
-    if (_textView == nil) {
-        _textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 90, self.view.frame.size.width - 20, 100)];
-        _textView.backgroundColor = [UIColor clearColor];
-        _textView.layer.borderWidth = 1.0;
-        _textView.layer.borderColor = [[UIColor grayColor] CGColor];
-        _textView.font = [UIFont systemFontOfSize:17.0];
-        _textView.delegate = self;
+    if (_contentTextView == nil) {
+        _contentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 100)];
+        _contentTextView.backgroundColor = [UIColor whiteColor];
+        _contentTextView.layer.borderWidth = 1.0;
+        _contentTextView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        _contentTextView.font = [UIFont systemFontOfSize:17.0];
+        _contentTextView.delegate = self;
     }
     
-    return _textView;
+    return _contentTextView;
+}
+
+- (UIButton *)dateView
+{
+    if (_dateView == nil) {
+        _dateView = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 20, 40)];
+        _dateView.layer.cornerRadius = 10;
+        _dateView.layer.masksToBounds = YES;
+        _dateView.layer.borderWidth = 1.0;
+        _dateView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        _dateView.backgroundColor = [UIColor whiteColor];
+        [_dateView addTarget:self action:@selector(dateAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, _dateView.frame.size.height)];
+        title.backgroundColor = [UIColor clearColor];
+        title.text = @"结束时间：";
+        title.font = [UIFont boldSystemFontOfSize:16.0];
+        [_dateView addSubview:title];
+        
+        _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(title.frame.origin.x + title.frame.size.width, 0, _dateView.frame.size.width - (title.frame.origin.x + title.frame.size.width + 10), _dateView.frame.size.height)];
+        _dateLabel.backgroundColor = [UIColor clearColor];
+        _dateLabel.textColor = [UIColor grayColor];
+        _dateLabel.font = [UIFont systemFontOfSize:14];
+        _dateLabel.textAlignment = KTextAlignmentRight;
+        _dateLabel.text = @"点击设置时间";
+        [_dateView addSubview:_dateLabel];
+    }
+    
+    return _dateView;
 }
 
 #pragma mark - items action
+
+- (void)dateAction:(id)sender
+{
+    [[XDManagerHelper shareHelper] showDatePickerToViewController:self completion:^(NSDate *date){
+        
+    }];
+}
 
 - (void)back:(id)sender
 {
@@ -118,7 +227,19 @@
 
 - (void)done:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:[self.textView text]];
+    if (self.contentTextView.text.length <= 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"对不起，请添加内容" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+    }
+    
+    if ([_dateLabel.text isEqualToString:@"点击设置时间"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"对不起，请设置结束时间" message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:[self.contentTextView text]];
     [self dismissModalViewControllerAnimated:YES];
 }
 

@@ -31,4 +31,10 @@
 - (NSString *)year_monthForDate:(NSDate *)date;
 - (NSString *)ymdForDate:(NSDate *)date;
 
+//显示菜单
+- (void)showMenuToViewController:(UIViewController *)viewController completion: (void (^)(NSDate *))completion;
+
+//显示datePicker
+- (void)showDatePickerToViewController:(UIViewController *)viewController completion: (void (^)(NSDate *))completion;
+
 @end

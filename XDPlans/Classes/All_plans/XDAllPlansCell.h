@@ -11,13 +11,16 @@
 @class RichTextEditor;
 @interface XDAllPlansCell : UITableViewCell
 {
-    UILabel *_indexLabel;
-    UITextView *_contentTextView;
+    UIView *_mainView;
+    UILabel *_contentTextView;
     UIButton *_actionButton;
 }
 
 @property (nonatomic) NSInteger index;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic) BOOL action;
+//@property (nonatomic) BOOL finish;
+
+@property (nonatomic) CGFloat progressValue;
 
 @end

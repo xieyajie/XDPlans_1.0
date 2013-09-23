@@ -17,6 +17,8 @@ static XDManagerHelper *helper = nil;
 @property (nonatomic, strong) NSDateFormatter *y_mFormatter;
 @property (nonatomic, strong) NSDateFormatter *ymdFormatter;
 
+@property (nonatomic, strong) UIDatePicker *datePicker;
+
 @end
 
 @implementation XDManagerHelper
@@ -26,6 +28,8 @@ static XDManagerHelper *helper = nil;
 @synthesize y_mFormatter = _y_mFormatter;
 @synthesize ymdFormatter = _ymdFormatter;
 
+@synthesize datePicker = _datePicker;
+
 + (id)shareHelper
 {
     static dispatch_once_t onceToken;
@@ -34,6 +38,17 @@ static XDManagerHelper *helper = nil;
     });
     
     return helper;
+}
+
+#pragma mark - get
+
+- (UIDatePicker *)datePicker
+{
+    if (_datePicker == nil) {
+        _datePicker = [[UIDatePicker alloc] init];
+    }
+    
+    return _datePicker;
 }
 
 #pragma mark - 正则表达式 验证格式
@@ -227,6 +242,18 @@ static int tagBase = 100;
 - (NSString *)ymdForDate:(NSDate *)date
 {
     return [self.ymdFormatter stringFromDate:date];
+}
+
+#pragma mark - 显示菜单
+- (void)showMenuToViewController:(UIViewController *)viewController completion: (void (^)(NSDate *))completion
+{
+    
+}
+
+#pragma mark - 显示datePicker
+- (void)showDatePickerToViewController:(UIViewController *)viewController completion: (void (^)(NSDate *))completion
+{
+    self.datePicker.datePickerMode = UIDatePickerModeDate;
 }
 
 @end

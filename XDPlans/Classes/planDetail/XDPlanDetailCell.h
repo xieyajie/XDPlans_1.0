@@ -1,5 +1,5 @@
 //
-//  XDActionPlanCell.h
+//  XDPlanDetailCell.h
 //  XDPlans
 //
 //  Created by xieyajie on 13-9-15.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDActionPlanCell : UITableViewCell
+@interface XDPlanDetailCell : UITableViewCell<UIScrollViewDelegate>
 {
     UILabel *_dayLabel;
+    UIView *_detailView;
     UIScrollView *_scrollView;
     UIPageControl *_pageControl;
 }

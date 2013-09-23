@@ -10,25 +10,34 @@
 
 #import "XDAllPlansCell.h"
 #import "XDNewPlanViewController.h"
+#import "XDPlanDetailViewController.h"
 #import "XDPlanLocalDefault.h"
 
 #define KPLANS_INDEX @"index"
 #define KPLANS_CONTENT @"content"
 #define KPLANS_ACTION @"action"
+#define KPLANS_FINISH @"finish"
 
 @interface XDAllPlansViewController ()<UIAlertViewDelegate>
 {
+    NSMutableDictionary *_actionSource;
     NSMutableDictionary *_dataSource;
 
+    UIBarButtonItem *_menuItem;
     UIBarButtonItem *_createItem;
     UIBarButtonItem *_moveItem;
+    UIView *_tableHeaderView;
     
     UILongPressGestureRecognizer *_longPress;
 }
 
+@property (nonatomic, strong) UIView *tableHeaderView;
+
 @end
 
 @implementation XDAllPlansViewController
+
+@synthesize tableHeaderView = _tableHeaderView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,14 +47,19 @@
         _dataSource = [NSMutableDictionary dictionary];
         
         //test
-        NSMutableDictionary *eventDic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"爬山", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
+        _actionSource = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"写一个自己的项目", KPLANS_CONTENT, [NSNumber numberWithBool:YES], KPLANS_ACTION, nil];
+        
+        NSMutableDictionary *eventDic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
         [_dataSource setObject:eventDic1 forKey:[NSString stringWithFormat:@"%i", 0]];
         
-        NSMutableDictionary *eventDic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"睡觉", KPLANS_CONTENT, [NSNumber numberWithBool:YES], KPLANS_ACTION, nil];
+        NSMutableDictionary *eventDic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
         [_dataSource setObject:eventDic2 forKey:[NSString stringWithFormat:@"%i", 1]];
         
-        NSMutableDictionary *eventDic3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"游乐园", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
+        NSMutableDictionary *eventDic3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"游乐园", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
         [_dataSource setObject:eventDic3 forKey:[NSString stringWithFormat:@"%i", 2]];
+        
+        NSMutableDictionary *eventDic4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"泰语", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:YES], KPLANS_FINISH, nil];
+        [_dataSource setObject:eventDic4 forKey:[NSString stringWithFormat:@"%i", 3]];
     }
     return self;
 }
@@ -58,8 +72,10 @@
     self.title = @"想做的事";
     [self layoutNavigationBar];
     
-    self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
-    self.tableView.separatorColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+//    self.tableView.separatorColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+//    self.tableView.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1.0];
+    [self.tableView setTableHeaderView:self.tableHeaderView];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.tableView addGestureRecognizer:_longPress];
@@ -71,6 +87,33 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIView *)tableHeaderView
+{
+    if (_tableHeaderView == nil) {
+        static NSString *CellIdentifier = @"ActionCell";
+        XDAllPlansCell *cell = [[XDAllPlansCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.content = [_actionSource objectForKey:KPLANS_CONTENT];
+        cell.action = [[_actionSource objectForKey:KPLANS_ACTION] boolValue];
+        cell.progressValue = 0.6;
+        
+        NSString *content = [_actionSource objectForKey:KPLANS_CONTENT];
+        CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
+        CGFloat height = size.height > 40 ? size.height : 40;
+        height += 20;
+        
+        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableHeaderView.frame.size.width, height)];
+        _tableHeaderView.backgroundColor = [UIColor colorWithRed:195 / 255.0 green:221 / 255.0 blue:223 / 255.0 alpha:1.0];
+        [_tableHeaderView addSubview:cell];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionPlan:)];
+        [_tableHeaderView addGestureRecognizer:tap];
+    }
+    
+    return _tableHeaderView;
 }
 
 #pragma mark - Table view data source
@@ -103,6 +146,8 @@
     cell.index = indexPath.row + 1;
     cell.content = [dic objectForKey:KPLANS_CONTENT];
     cell.action = [[dic objectForKey:KPLANS_ACTION] boolValue];
+//    cell.finish = [[dic objectForKey:KPLANS_FINISH] boolValue];
+    cell.progressValue = 0.4 * indexPath.row;
     
     return cell;
 }
@@ -124,7 +169,6 @@
 {
     NSString *fromKey = [NSString stringWithFormat:@"%i", fromIndexPath.row];
     NSString *toKey = [NSString stringWithFormat:@"%i", toIndexPath.row];
-    
     NSMutableDictionary *fromDic = [_dataSource objectForKey:fromKey];
     NSMutableDictionary *toDic = [_dataSource objectForKey:toKey];
     
@@ -153,20 +197,18 @@
 {
     NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
     NSString *content = [dic objectForKey:KPLANS_CONTENT];
-    CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
     CGFloat height = size.height > 40 ? size.height : 40;
     return height + 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
+    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+    XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
+    planDetailVC.planContent = content;
+    [self.navigationController pushViewController:planDetailVC animated:YES];
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -212,10 +254,24 @@
     }
 }
 
+- (void)tapActionPlan:(UITapGestureRecognizer *)tap
+{
+    if (tap.state == UIGestureRecognizerStateEnded) {
+        XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
+        planDetailVC.planContent = [_actionSource objectForKey:KPLANS_CONTENT];
+        [self.navigationController pushViewController:planDetailVC animated:YES];
+    }
+}
+
 #pragma mark - layout subviews
 
 - (void)layoutNavigationBar
 {
+    if (_menuItem == nil) {
+        _menuItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu.png"] style:UIBarButtonItemStylePlain target:self action:@selector(menuAction:)];
+    }
+    self.navigationItem.leftBarButtonItem = _menuItem;
+    
     if (_createItem == nil) {
         _createItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createEvent:)];
     }
@@ -225,12 +281,19 @@
 
 #pragma mrk - item/button action
 
+- (void)menuAction:(id)sender
+{
+    
+}
+
 - (void)createEvent:(id)sender
 {
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加想做的事" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
-//    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    
-//    [alertView show];
+    NSInteger count = [_dataSource count] + 1;
+    if (count > KPLAN_MAXEVENTCOUNT) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"对不起" message:@"你已经添加了20件想做的事，完成这些再添加吧" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+    }
     
     XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
     [self.navigationController presentModalViewController:newPlanVC animated:YES];

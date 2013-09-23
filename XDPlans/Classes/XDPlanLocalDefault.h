@@ -24,7 +24,8 @@
 #define KLineBreakModeClip NSLineBreakByClipping
 #endif
 
-#define KPLAN_CONTENT_MAXLENGHT 60
+#define KPLAN_MAXEVENTCOUNT 20
+#define KPLAN_CONTENT_MAXLENGHT 100
 
 //Notification
 #define KNOTIFICATION_LOGIN @"notification_login"

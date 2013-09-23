@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4B17EFD12D0059FBF2 /* Default.png */; };
+		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
+		3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */; };
+		3A5FEA6B17F0248B0059FBF2 /* XDSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */; };
+		3A5FEA6C17F0248B0059FBF2 /* XDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */; };
+		3A5FEA8C17F034B20059FBF2 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA7C17F034B20059FBF2 /* XDColor.plist */; };
+		3A5FEA8D17F034B20059FBF2 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */; };
+		3A5FEA8E17F034B20059FBF2 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8017F034B20059FBF2 /* XDMood.plist */; };
+		3A5FEA8F17F034B20059FBF2 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */; };
+		3A5FEA9017F034B20059FBF2 /* XDDataPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */; };
+		3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */; };
+		3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */; };
+		3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -14,8 +27,6 @@
 		3AE3A23917ED47A700DC05A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A23817ED47A700DC05A8 /* main.m */; };
 		3AE3A24117ED47A700DC05A8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A24017ED47A700DC05A8 /* Default@2x.png */; };
 		3AE3A24317ED47A700DC05A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A24217ED47A700DC05A8 /* Default-568h@2x.png */; };
-		3AE3A24617ED47A700DC05A8 /* XDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A24517ED47A700DC05A8 /* XDViewController.m */; };
-		3AE3A24917ED47A700DC05A8 /* XDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A24717ED47A700DC05A8 /* XDViewController.xib */; };
 		3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */; };
 		3AE3A26217ED5AB400DC05A8 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25D17ED5AB400DC05A8 /* XDAllPlansCell.m */; };
 		3AE3A26317ED5AB400DC05A8 /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */; };
@@ -98,26 +109,6 @@
 		3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2CA17ED5B1300DC05A8 /* RichTextEditorToolbar.m */; };
 		3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2CE17ED5B1300DC05A8 /* XDCutImageViewController.m */; };
 		3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */; };
-		3AE3A33917ED5B1300DC05A8 /* 中雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D417ED5B1300DC05A8 /* 中雨.png */; };
-		3AE3A33A17ED5B1300DC05A8 /* 中雨转晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D517ED5B1300DC05A8 /* 中雨转晴.png */; };
-		3AE3A33B17ED5B1300DC05A8 /* 中雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D617ED5B1300DC05A8 /* 中雪.png */; };
-		3AE3A33C17ED5B1300DC05A8 /* 冰.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D717ED5B1300DC05A8 /* 冰.png */; };
-		3AE3A33D17ED5B1300DC05A8 /* 多云.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D817ED5B1300DC05A8 /* 多云.png */; };
-		3AE3A33E17ED5B1300DC05A8 /* 大雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D917ED5B1300DC05A8 /* 大雨.png */; };
-		3AE3A33F17ED5B1300DC05A8 /* 大雨转晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DA17ED5B1300DC05A8 /* 大雨转晴.png */; };
-		3AE3A34017ED5B1300DC05A8 /* 大雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DB17ED5B1300DC05A8 /* 大雪.png */; };
-		3AE3A34117ED5B1300DC05A8 /* 天气预报.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DC17ED5B1300DC05A8 /* 天气预报.png */; };
-		3AE3A34217ED5B1300DC05A8 /* 天气预报@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DD17ED5B1300DC05A8 /* 天气预报@2x.gif */; };
-		3AE3A34317ED5B1300DC05A8 /* 小雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DE17ED5B1300DC05A8 /* 小雪.png */; };
-		3AE3A34417ED5B1300DC05A8 /* 晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2DF17ED5B1300DC05A8 /* 晴.png */; };
-		3AE3A34517ED5B1300DC05A8 /* 阴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E017ED5B1300DC05A8 /* 阴.png */; };
-		3AE3A34617ED5B1300DC05A8 /* 阴转晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E117ED5B1300DC05A8 /* 阴转晴.png */; };
-		3AE3A34717ED5B1300DC05A8 /* 雨夹雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E217ED5B1300DC05A8 /* 雨夹雪.png */; };
-		3AE3A34817ED5B1300DC05A8 /* 雷阵雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E317ED5B1300DC05A8 /* 雷阵雨.png */; };
-		3AE3A34917ED5B1300DC05A8 /* 雷雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E417ED5B1300DC05A8 /* 雷雨.png */; };
-		3AE3A34A17ED5B1300DC05A8 /* 雾.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E517ED5B1300DC05A8 /* 雾.png */; };
-		3AE3A34B17ED5B1300DC05A8 /* 风.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E617ED5B1300DC05A8 /* 风.png */; };
-		3AE3A34C17ED5B1300DC05A8 /* XDWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2E817ED5B1300DC05A8 /* XDWeatherManager.m */; };
 		3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */; };
 		3AE3A35317ED5C0400DC05A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A35217ED5C0400DC05A8 /* QuartzCore.framework */; };
 		3AE3A35517ED5C0C00DC05A8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A35417ED5C0C00DC05A8 /* CoreText.framework */; };
@@ -132,7 +123,6 @@
 		3AE3A3AA17ED5C4E00DC05A8 /* menu_actionPlanSelected2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36317ED5C4E00DC05A8 /* menu_actionPlanSelected2@2x.png */; };
 		3AE3A3AB17ED5C4E00DC05A8 /* menu_actionPlanSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36417ED5C4E00DC05A8 /* menu_actionPlanSelected@2x.png */; };
 		3AE3A3AC17ED5C4E00DC05A8 /* menu_allPlans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36517ED5C4E00DC05A8 /* menu_allPlans@2x.png */; };
-		3AE3A3AD17ED5C4E00DC05A8 /* menu_allPlansSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36617ED5C4E00DC05A8 /* menu_allPlansSelected@2x.png */; };
 		3AE3A3AE17ED5C4E00DC05A8 /* menu_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36717ED5C4E00DC05A8 /* menu_setting@2x.png */; };
 		3AE3A3AF17ED5C4E00DC05A8 /* menu_settingSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36817ED5C4E00DC05A8 /* menu_settingSelected@2x.png */; };
 		3AE3A3B017ED5C4E00DC05A8 /* menu_todayPlan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A36917ED5C4E00DC05A8 /* menu_todayPlan@2x.png */; };
@@ -192,6 +182,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A5FEA4B17EFD12D0059FBF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		3A5FEA5017F0248B0059FBF2 /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
+		3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAccountLoginViewController.m; sourceTree = "<group>"; };
+		3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSetting.plist; sourceTree = "<group>"; };
+		3A5FEA5917F0248B0059FBF2 /* XDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSettingViewController.h; sourceTree = "<group>"; };
+		3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSettingViewController.m; sourceTree = "<group>"; };
+		3A5FEA7C17F034B20059FBF2 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
+		3A5FEA7D17F034B20059FBF2 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
+		3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
+		3A5FEA8017F034B20059FBF2 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
+		3A5FEA8117F034B20059FBF2 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
+		3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
+		3A5FEA8317F034B20059FBF2 /* XDDataPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDataPlanCell.h; sourceTree = "<group>"; };
+		3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDataPlanCell.m; sourceTree = "<group>"; };
+		3A5FEA8517F034B20059FBF2 /* XDDataPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDataPlanViewController.h; sourceTree = "<group>"; };
+		3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDataPlanViewController.m; sourceTree = "<group>"; };
+		3A5FEA8817F034B20059FBF2 /* XDPlanDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailCell.h; sourceTree = "<group>"; };
+		3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailCell.m; sourceTree = "<group>"; };
+		3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailViewController.h; sourceTree = "<group>"; };
+		3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailViewController.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -202,9 +213,6 @@
 		3AE3A23A17ED47A700DC05A8 /* XDPlans-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XDPlans-Prefix.pch"; sourceTree = "<group>"; };
 		3AE3A24017ED47A700DC05A8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		3AE3A24217ED47A700DC05A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3AE3A24417ED47A700DC05A8 /* XDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XDViewController.h; sourceTree = "<group>"; };
-		3AE3A24517ED47A700DC05A8 /* XDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XDViewController.m; sourceTree = "<group>"; };
-		3AE3A24817ED47A700DC05A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XDViewController.xib; sourceTree = "<group>"; };
 		3AE3A25817ED59F300DC05A8 /* XDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDAppDelegate.h; path = Classes/XDAppDelegate.h; sourceTree = "<group>"; };
 		3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDAppDelegate.m; path = Classes/XDAppDelegate.m; sourceTree = "<group>"; };
 		3AE3A25C17ED5AB400DC05A8 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
@@ -311,27 +319,6 @@
 		3AE3A2CE17ED5B1300DC05A8 /* XDCutImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCutImageViewController.m; sourceTree = "<group>"; };
 		3AE3A2D017ED5B1300DC05A8 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
-		3AE3A2D417ED5B1300DC05A8 /* 中雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨.png"; sourceTree = "<group>"; };
-		3AE3A2D517ED5B1300DC05A8 /* 中雨转晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨转晴.png"; sourceTree = "<group>"; };
-		3AE3A2D617ED5B1300DC05A8 /* 中雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雪.png"; sourceTree = "<group>"; };
-		3AE3A2D717ED5B1300DC05A8 /* 冰.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "冰.png"; sourceTree = "<group>"; };
-		3AE3A2D817ED5B1300DC05A8 /* 多云.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "多云.png"; sourceTree = "<group>"; };
-		3AE3A2D917ED5B1300DC05A8 /* 大雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大雨.png"; sourceTree = "<group>"; };
-		3AE3A2DA17ED5B1300DC05A8 /* 大雨转晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大雨转晴.png"; sourceTree = "<group>"; };
-		3AE3A2DB17ED5B1300DC05A8 /* 大雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大雪.png"; sourceTree = "<group>"; };
-		3AE3A2DC17ED5B1300DC05A8 /* 天气预报.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天气预报.png"; sourceTree = "<group>"; };
-		3AE3A2DD17ED5B1300DC05A8 /* 天气预报@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "天气预报@2x.gif"; sourceTree = "<group>"; };
-		3AE3A2DE17ED5B1300DC05A8 /* 小雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小雪.png"; sourceTree = "<group>"; };
-		3AE3A2DF17ED5B1300DC05A8 /* 晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "晴.png"; sourceTree = "<group>"; };
-		3AE3A2E017ED5B1300DC05A8 /* 阴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "阴.png"; sourceTree = "<group>"; };
-		3AE3A2E117ED5B1300DC05A8 /* 阴转晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "阴转晴.png"; sourceTree = "<group>"; };
-		3AE3A2E217ED5B1300DC05A8 /* 雨夹雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雨夹雪.png"; sourceTree = "<group>"; };
-		3AE3A2E317ED5B1300DC05A8 /* 雷阵雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雷阵雨.png"; sourceTree = "<group>"; };
-		3AE3A2E417ED5B1300DC05A8 /* 雷雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雷雨.png"; sourceTree = "<group>"; };
-		3AE3A2E517ED5B1300DC05A8 /* 雾.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "雾.png"; sourceTree = "<group>"; };
-		3AE3A2E617ED5B1300DC05A8 /* 风.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "风.png"; sourceTree = "<group>"; };
-		3AE3A2E717ED5B1300DC05A8 /* XDWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDWeatherManager.h; sourceTree = "<group>"; };
-		3AE3A2E817ED5B1300DC05A8 /* XDWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDWeatherManager.m; sourceTree = "<group>"; };
 		3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDManagerHelper.h; sourceTree = "<group>"; };
 		3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDManagerHelper.m; sourceTree = "<group>"; };
 		3AE3A35217ED5C0400DC05A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -347,7 +334,6 @@
 		3AE3A36317ED5C4E00DC05A8 /* menu_actionPlanSelected2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlanSelected2@2x.png"; sourceTree = "<group>"; };
 		3AE3A36417ED5C4E00DC05A8 /* menu_actionPlanSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlanSelected@2x.png"; sourceTree = "<group>"; };
 		3AE3A36517ED5C4E00DC05A8 /* menu_allPlans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_allPlans@2x.png"; sourceTree = "<group>"; };
-		3AE3A36617ED5C4E00DC05A8 /* menu_allPlansSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_allPlansSelected@2x.png"; sourceTree = "<group>"; };
 		3AE3A36717ED5C4E00DC05A8 /* menu_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_setting@2x.png"; sourceTree = "<group>"; };
 		3AE3A36817ED5C4E00DC05A8 /* menu_settingSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_settingSelected@2x.png"; sourceTree = "<group>"; };
 		3AE3A36917ED5C4E00DC05A8 /* menu_todayPlan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_todayPlan@2x.png"; sourceTree = "<group>"; };
@@ -424,6 +410,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A5FEA4F17F0248B0059FBF2 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA5017F0248B0059FBF2 /* XDAccountLoginViewController.h */,
+				3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */,
+			);
+			name = Account;
+			path = Classes/Account;
+			sourceTree = "<group>";
+		};
+		3A5FEA5717F0248B0059FBF2 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */,
+				3A5FEA5917F0248B0059FBF2 /* XDSettingViewController.h */,
+				3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */,
+			);
+			name = Setting;
+			path = Classes/Setting;
+			sourceTree = "<group>";
+		};
+		3A5FEA7A17F034B20059FBF2 /* Dataplan */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA7B17F034B20059FBF2 /* color */,
+				3A5FEA7F17F034B20059FBF2 /* mood */,
+				3A5FEA8317F034B20059FBF2 /* XDDataPlanCell.h */,
+				3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */,
+				3A5FEA8517F034B20059FBF2 /* XDDataPlanViewController.h */,
+				3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */,
+			);
+			name = Dataplan;
+			path = Classes/Dataplan;
+			sourceTree = "<group>";
+		};
+		3A5FEA7B17F034B20059FBF2 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA7C17F034B20059FBF2 /* XDColor.plist */,
+				3A5FEA7D17F034B20059FBF2 /* XDColorViewController.h */,
+				3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		3A5FEA7F17F034B20059FBF2 /* mood */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA8017F034B20059FBF2 /* XDMood.plist */,
+				3A5FEA8117F034B20059FBF2 /* XDMoodPicker.h */,
+				3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */,
+			);
+			path = mood;
+			sourceTree = "<group>";
+		};
+		3A5FEA8717F034B20059FBF2 /* PlanDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3A5FEA8817F034B20059FBF2 /* XDPlanDetailCell.h */,
+				3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */,
+				3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */,
+				3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */,
+			);
+			name = PlanDetail;
+			path = Classes/PlanDetail;
+			sourceTree = "<group>";
+		};
 		3AE3A21D17ED47A700DC05A8 = {
 			isa = PBXGroup;
 			children = (
@@ -458,14 +511,15 @@
 		3AE3A23217ED47A700DC05A8 /* XDPlans */ = {
 			isa = PBXGroup;
 			children = (
+				3A5FEA7A17F034B20059FBF2 /* Dataplan */,
+				3A5FEA8717F034B20059FBF2 /* PlanDetail */,
+				3A5FEA4F17F0248B0059FBF2 /* Account */,
+				3A5FEA5717F0248B0059FBF2 /* Setting */,
 				3AE3A26617ED5B1300DC05A8 /* CustomControls */,
 				3AE3A2CB17ED5B1300DC05A8 /* Manager */,
 				3AE3A25B17ED5AB400DC05A8 /* All_plans */,
 				3AE3A25817ED59F300DC05A8 /* XDAppDelegate.h */,
 				3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */,
-				3AE3A24417ED47A700DC05A8 /* XDViewController.h */,
-				3AE3A24517ED47A700DC05A8 /* XDViewController.m */,
-				3AE3A24717ED47A700DC05A8 /* XDViewController.xib */,
 				3AE3A23317ED47A700DC05A8 /* Supporting Files */,
 			);
 			path = XDPlans;
@@ -474,6 +528,7 @@
 		3AE3A23317ED47A700DC05A8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A5FEA4B17EFD12D0059FBF2 /* Default.png */,
 				3AE3A35A17ED5C4E00DC05A8 /* Images */,
 				3AE3A26517ED5AFC00DC05A8 /* XDPlanLocalDefault.h */,
 				3AE3A23417ED47A700DC05A8 /* XDPlans-Info.plist */,
@@ -662,7 +717,6 @@
 			children = (
 				3AE3A2CC17ED5B1300DC05A8 /* cutImage */,
 				3AE3A2CF17ED5B1300DC05A8 /* UIColor */,
-				3AE3A2D217ED5B1300DC05A8 /* Weather */,
 				3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */,
 				3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */,
 			);
@@ -686,42 +740,6 @@
 				3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */,
 			);
 			path = UIColor;
-			sourceTree = "<group>";
-		};
-		3AE3A2D217ED5B1300DC05A8 /* Weather */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2D317ED5B1300DC05A8 /* weather_images */,
-				3AE3A2E717ED5B1300DC05A8 /* XDWeatherManager.h */,
-				3AE3A2E817ED5B1300DC05A8 /* XDWeatherManager.m */,
-			);
-			path = Weather;
-			sourceTree = "<group>";
-		};
-		3AE3A2D317ED5B1300DC05A8 /* weather_images */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2D417ED5B1300DC05A8 /* 中雨.png */,
-				3AE3A2D517ED5B1300DC05A8 /* 中雨转晴.png */,
-				3AE3A2D617ED5B1300DC05A8 /* 中雪.png */,
-				3AE3A2D717ED5B1300DC05A8 /* 冰.png */,
-				3AE3A2D817ED5B1300DC05A8 /* 多云.png */,
-				3AE3A2D917ED5B1300DC05A8 /* 大雨.png */,
-				3AE3A2DA17ED5B1300DC05A8 /* 大雨转晴.png */,
-				3AE3A2DB17ED5B1300DC05A8 /* 大雪.png */,
-				3AE3A2DC17ED5B1300DC05A8 /* 天气预报.png */,
-				3AE3A2DD17ED5B1300DC05A8 /* 天气预报@2x.gif */,
-				3AE3A2DE17ED5B1300DC05A8 /* 小雪.png */,
-				3AE3A2DF17ED5B1300DC05A8 /* 晴.png */,
-				3AE3A2E017ED5B1300DC05A8 /* 阴.png */,
-				3AE3A2E117ED5B1300DC05A8 /* 阴转晴.png */,
-				3AE3A2E217ED5B1300DC05A8 /* 雨夹雪.png */,
-				3AE3A2E317ED5B1300DC05A8 /* 雷阵雨.png */,
-				3AE3A2E417ED5B1300DC05A8 /* 雷雨.png */,
-				3AE3A2E517ED5B1300DC05A8 /* 雾.png */,
-				3AE3A2E617ED5B1300DC05A8 /* 风.png */,
-			);
-			path = weather_images;
 			sourceTree = "<group>";
 		};
 		3AE3A35A17ED5C4E00DC05A8 /* Images */ = {
@@ -751,12 +769,12 @@
 		3AE3A36017ED5C4E00DC05A8 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */,
 				3AE3A36117ED5C4E00DC05A8 /* menu_actionPlan2@2x.png */,
 				3AE3A36217ED5C4E00DC05A8 /* menu_actionPlan@2x.png */,
 				3AE3A36317ED5C4E00DC05A8 /* menu_actionPlanSelected2@2x.png */,
 				3AE3A36417ED5C4E00DC05A8 /* menu_actionPlanSelected@2x.png */,
 				3AE3A36517ED5C4E00DC05A8 /* menu_allPlans@2x.png */,
-				3AE3A36617ED5C4E00DC05A8 /* menu_allPlansSelected@2x.png */,
 				3AE3A36717ED5C4E00DC05A8 /* menu_setting@2x.png */,
 				3AE3A36817ED5C4E00DC05A8 /* menu_settingSelected@2x.png */,
 				3AE3A36917ED5C4E00DC05A8 /* menu_todayPlan@2x.png */,
@@ -907,16 +925,20 @@
 			files = (
 				3AE3A23717ED47A700DC05A8 /* InfoPlist.strings in Resources */,
 				3AE3A24117ED47A700DC05A8 /* Default@2x.png in Resources */,
+				3A5FEA6B17F0248B0059FBF2 /* XDSetting.plist in Resources */,
 				3AE3A24317ED47A700DC05A8 /* Default-568h@2x.png in Resources */,
-				3AE3A24917ED47A700DC05A8 /* XDViewController.xib in Resources */,
 				3AE3A2ED17ED5B1300DC05A8 /* backcolor.png in Resources */,
+				3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */,
 				3AE3A2EE17ED5B1300DC05A8 /* bold.png in Resources */,
+				3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */,
 				3AE3A2EF17ED5B1300DC05A8 /* bold@2x.png in Resources */,
 				3AE3A2F017ED5B1300DC05A8 /* bullist.png in Resources */,
+				3A5FEA8C17F034B20059FBF2 /* XDColor.plist in Resources */,
 				3AE3A2F117ED5B1300DC05A8 /* bullist@2x.png in Resources */,
 				3AE3A2F217ED5B1300DC05A8 /* button.png in Resources */,
 				3AE3A2F317ED5B1300DC05A8 /* buttoncenter.png in Resources */,
 				3AE3A2F417ED5B1300DC05A8 /* buttoncenterSelected.png in Resources */,
+				3A5FEA8E17F034B20059FBF2 /* XDMood.plist in Resources */,
 				3AE3A2F517ED5B1300DC05A8 /* buttonleft.png in Resources */,
 				3AE3A2F617ED5B1300DC05A8 /* buttonleftSelected.png in Resources */,
 				3AE3A2F717ED5B1300DC05A8 /* buttonright.png in Resources */,
@@ -970,25 +992,6 @@
 				3AE3A32A17ED5B1300DC05A8 /* popoverBg.png in Resources */,
 				3AE3A32B17ED5B1300DC05A8 /* popoverBg@2x.png in Resources */,
 				3AE3A32C17ED5B1300DC05A8 /* popoverBgSimple.png in Resources */,
-				3AE3A33917ED5B1300DC05A8 /* 中雨.png in Resources */,
-				3AE3A33A17ED5B1300DC05A8 /* 中雨转晴.png in Resources */,
-				3AE3A33B17ED5B1300DC05A8 /* 中雪.png in Resources */,
-				3AE3A33C17ED5B1300DC05A8 /* 冰.png in Resources */,
-				3AE3A33D17ED5B1300DC05A8 /* 多云.png in Resources */,
-				3AE3A33E17ED5B1300DC05A8 /* 大雨.png in Resources */,
-				3AE3A33F17ED5B1300DC05A8 /* 大雨转晴.png in Resources */,
-				3AE3A34017ED5B1300DC05A8 /* 大雪.png in Resources */,
-				3AE3A34117ED5B1300DC05A8 /* 天气预报.png in Resources */,
-				3AE3A34217ED5B1300DC05A8 /* 天气预报@2x.gif in Resources */,
-				3AE3A34317ED5B1300DC05A8 /* 小雪.png in Resources */,
-				3AE3A34417ED5B1300DC05A8 /* 晴.png in Resources */,
-				3AE3A34517ED5B1300DC05A8 /* 阴.png in Resources */,
-				3AE3A34617ED5B1300DC05A8 /* 阴转晴.png in Resources */,
-				3AE3A34717ED5B1300DC05A8 /* 雨夹雪.png in Resources */,
-				3AE3A34817ED5B1300DC05A8 /* 雷阵雨.png in Resources */,
-				3AE3A34917ED5B1300DC05A8 /* 雷雨.png in Resources */,
-				3AE3A34A17ED5B1300DC05A8 /* 雾.png in Resources */,
-				3AE3A34B17ED5B1300DC05A8 /* 风.png in Resources */,
 				3AE3A3A417ED5C4E00DC05A8 /* account_contacts@2x.png in Resources */,
 				3AE3A3A517ED5C4E00DC05A8 /* account_contactsSelected@2x.png in Resources */,
 				3AE3A3A617ED5C4E00DC05A8 /* account_email@2x.png in Resources */,
@@ -998,7 +1001,6 @@
 				3AE3A3AA17ED5C4E00DC05A8 /* menu_actionPlanSelected2@2x.png in Resources */,
 				3AE3A3AB17ED5C4E00DC05A8 /* menu_actionPlanSelected@2x.png in Resources */,
 				3AE3A3AC17ED5C4E00DC05A8 /* menu_allPlans@2x.png in Resources */,
-				3AE3A3AD17ED5C4E00DC05A8 /* menu_allPlansSelected@2x.png in Resources */,
 				3AE3A3AE17ED5C4E00DC05A8 /* menu_setting@2x.png in Resources */,
 				3AE3A3AF17ED5C4E00DC05A8 /* menu_settingSelected@2x.png in Resources */,
 				3AE3A3B017ED5C4E00DC05A8 /* menu_todayPlan@2x.png in Resources */,
@@ -1066,29 +1068,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE3A23917ED47A700DC05A8 /* main.m in Sources */,
-				3AE3A24617ED47A700DC05A8 /* XDViewController.m in Sources */,
 				3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */,
+				3A5FEA8F17F034B20059FBF2 /* XDMoodPicker.m in Sources */,
 				3AE3A26217ED5AB400DC05A8 /* XDAllPlansCell.m in Sources */,
 				3AE3A26317ED5AB400DC05A8 /* XDAllPlansViewController.m in Sources */,
+				3A5FEA6C17F0248B0059FBF2 /* XDSettingViewController.m in Sources */,
 				3AE3A26417ED5AB400DC05A8 /* XDNewPlanViewController.m in Sources */,
 				3AE3A2EB17ED5B1300DC05A8 /* JASidePanelController.m in Sources */,
 				3AE3A2EC17ED5B1300DC05A8 /* UIViewController+JASidePanel.m in Sources */,
+				3A5FEA9017F034B20059FBF2 /* XDDataPlanCell.m in Sources */,
 				3AE3A31B17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m in Sources */,
 				3AE3A31C17ED5B1300DC05A8 /* UIFont+RichTextEditor.m in Sources */,
 				3AE3A31D17ED5B1300DC05A8 /* UIView+RichTextEditor.m in Sources */,
+				3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */,
 				3AE3A32D17ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m in Sources */,
 				3AE3A32E17ED5B1300DC05A8 /* WEPopoverContainerView.m in Sources */,
+				3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */,
 				3AE3A32F17ED5B1300DC05A8 /* WEPopoverController.m in Sources */,
 				3AE3A33017ED5B1300DC05A8 /* WETouchableView.m in Sources */,
+				3A5FEA8D17F034B20059FBF2 /* XDColorViewController.m in Sources */,
 				3AE3A33117ED5B1300DC05A8 /* RichTextEditor.m in Sources */,
 				3AE3A33217ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m in Sources */,
 				3AE3A33317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m in Sources */,
+				3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */,
 				3AE3A33417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m in Sources */,
+				3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */,
 				3AE3A33517ED5B1300DC05A8 /* RichTextEditorToggleButton.m in Sources */,
 				3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */,
 				3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */,
 				3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */,
-				3AE3A34C17ED5B1300DC05A8 /* XDWeatherManager.m in Sources */,
 				3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,14 +1112,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3AE3A24717ED47A700DC05A8 /* XDViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AE3A24817ED47A700DC05A8 /* en */,
-			);
-			name = XDViewController.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1124,7 +1124,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1138,6 +1139,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1151,7 +1153,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1159,6 +1162,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1167,10 +1171,12 @@
 		3AE3A24D17ED47A700DC05A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1178,10 +1184,12 @@
 		3AE3A24E17ED47A700DC05A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

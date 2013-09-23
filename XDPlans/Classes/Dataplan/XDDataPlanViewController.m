@@ -1,5 +1,5 @@
 //
-//  XDTodayPlanViewController.m
+//  XDDataPlanViewController.m
 //  XDPlans
 //
 //  Created by xie yajie on 13-9-1.
@@ -7,14 +7,13 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "XDTodayPlanViewController.h"
+#import "XDDataPlanViewController.h"
 
 #import "XDColorViewController.h"
-#import "XDTodayPlanCell.h"
+#import "XDDataPlanCell.h"
 #import "XDMoodPicker.h"
 
 #import "XDManagerHelper.h"
-#import "XDWeatherManager.h"
 #import "XDPlanLocalDefault.h"
 
 #define KTODAY_DATA_TITLE @"title"
@@ -31,16 +30,15 @@
 #define KSECTION_SUMMARY 4
 #define KSECTION_GRADE 5
 
-@interface XDTodayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
+@interface XDDataPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
     NSMutableArray *_dataSource;
+    BOOL _canEdit;
     
     NSDate *_todayDate;
     UILabel *_ymwLabel;
     UILabel *_dayLabel;
-    UIImageView *_weatherImgView;
-    UILabel *_weatherLabel;
-    UILabel *_cityLabel;
+    UILabel *_planContentLabel;
     
     UIButton *_moodButton;
     UITextField *_moodText;
@@ -56,13 +54,13 @@
 
 @end
 
-@implementation XDTodayPlanViewController
+@implementation XDDataPlanViewController
 
 @synthesize sectionHeaderViews = _sectionHeaderViews;
-
 @synthesize headerView = _headerView;
-
 @synthesize hideKeyboardItem = _hideKeyboardItem;
+
+@synthesize planContent = _planContent;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -77,6 +75,16 @@
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日总结", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"SummaryCell", KTODAY_CELL_IDENTIFIER, nil]];
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"给自己今天的表现打个分吧", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"GrandCell", KTODAY_CELL_IDENTIFIER, nil]];
     }
+    return self;
+}
+
+- (id)initWithStyle:(UITableViewStyle)style canEdit:(BOOL)canEdit
+{
+    self = [self initWithStyle:style];
+    if (self) {
+        _canEdit = canEdit;
+    }
+    
     return self;
 }
 
@@ -122,7 +130,7 @@
     if (_headerView == nil) {
         CGFloat viewHeight = 80.0;
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight)];
-        _headerView.backgroundColor = [UIColor clearColor];
+        _headerView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
         
         XDManagerHelper *helper = [XDManagerHelper shareHelper];
         
@@ -139,52 +147,25 @@
         [_headerView addSubview:dateView];
         
         _dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, dateView.frame.size.height)];
-        _dayLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+        _dayLabel.backgroundColor = [UIColor clearColor];
         _dayLabel.textAlignment = KTextAlignmentCenter;
         _dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
         _dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
         _dayLabel.text = [NSString stringWithFormat:@"%i", [helper dayForDate:_todayDate]];
         [dateView addSubview:_dayLabel];
         
-        //weatherView
-        UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
-                                                                       .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width , 60)];
-        weatherView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-        [_headerView addSubview:weatherView];
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.size.width - 1, 0, 1, dateView.frame.size.height)];
+        line.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+        [dateView addSubview:line];
         
-        UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, weatherView.frame.size.height)];
-        leftLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        [weatherView addSubview:leftLine];
-        
-        _weatherImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, weatherView.frame.size.width / 3, weatherView.frame.size.height)];
-        _weatherImgView.contentMode = UIViewContentModeScaleAspectFit;
-        _weatherImgView.backgroundColor = [UIColor redColor];
-        [weatherView addSubview:_weatherImgView];
-        
-        _weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(_weatherImgView.frame.origin.x + _weatherImgView.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
-        _weatherLabel.numberOfLines = 0;
-        _weatherLabel.backgroundColor = [UIColor yellowColor];
-        [weatherView addSubview:_weatherLabel];
-        
-        _cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(_weatherLabel.frame.origin.x + _weatherLabel.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
-        _cityLabel.numberOfLines = 0;
-        _cityLabel.backgroundColor = [UIColor blueColor];
-        [weatherView addSubview:_cityLabel];
-        
-        NSDictionary *weatherDic = [[XDWeatherManager shareWeather] weatherInfo];
-        [[XDWeatherManager shareWeather] updateWeatherInfoWithCompletion:^(BOOL finish){
-            if (!finish) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"定位失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else{
-                NSString *sweather = [[NSString alloc]initWithFormat:@"%@\n%@~%@",[weatherDic objectForKey:KWEATHER_WEATHER], [weatherDic objectForKey:KWEATHER_TEMP_MIN], [weatherDic objectForKey:KWEATHER_TEMP_MAX]];
-                
-                _weatherImgView.image = [weatherDic objectForKey:KWEATHER_IMAGE];
-                _weatherLabel.text = sweather;
-                _cityLabel.text = @"1234";
-            }
-        }];
+        //planContentView
+        _planContentLabel = [[UILabel alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView.frame.size.width + 10, 20, _headerView.frame.size.width - dateView.frame.size.width - 10, dateView.frame.size.height)];
+        _planContentLabel.font = [UIFont boldSystemFontOfSize:15.0];
+        _planContentLabel.numberOfLines = 0;
+        _planContentLabel.backgroundColor = [UIColor clearColor];
+        _planContentLabel.textColor = [UIColor grayColor];
+        _planContentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
+        [_headerView addSubview:_planContentLabel];
     }
     
     return _headerView;
@@ -239,6 +220,14 @@
     return _sectionHeaderViews;
 }
 
+#pragma mark - set
+
+- (void)setPlanContent:(NSString *)content
+{
+    _planContent = content;
+    _planContentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
+}
+
 #pragma mark - notification keyboard
 
 - (void)showKeyboard:(NSNotification *)notification
@@ -269,11 +258,11 @@
 {
     NSDictionary *dic = [_dataSource objectAtIndex:indexPath.section];
     NSString *CellIdentifier = [dic objectForKey:KTODAY_CELL_IDENTIFIER];
-    XDTodayPlanCell *cell = (XDTodayPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    XDDataPlanCell *cell = (XDDataPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[XDTodayPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[XDDataPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -336,14 +325,14 @@
 
 #pragma mark - XDTodayPlayCellDelegate
 
-- (void)planCellSelectedMoodPicker:(XDTodayPlanCell *)planCell
+- (void)planCellSelectedMoodPicker:(XDDataPlanCell *)planCell
 {
     XDMoodPicker *moodPicker = [[XDMoodPicker alloc] initWithTitle:@"选择表情" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     moodPicker.moodDelegate = self;
     [moodPicker showInView:self.view];
 }
 
-- (void)planCellSelectedColorPicker:(XDTodayPlanCell *)planCell
+- (void)planCellSelectedColorPicker:(XDDataPlanCell *)planCell
 {
     XDColorViewController *colorVC = [[XDColorViewController alloc] initWithStyle:UITableViewStylePlain];
     colorVC.callerObject = planCell;
@@ -355,7 +344,7 @@
 
 - (void)colorPickerSlectedColor:(UIColor *)color withCaller:(id)caller
 {
-    XDTodayPlanCell *planCell = (XDTodayPlanCell *)caller;
+    XDDataPlanCell *planCell = (XDDataPlanCell *)caller;
     [planCell updateWithColor:color];
 }
 
@@ -383,7 +372,7 @@
     BOOL selected = button.selected;
     button.selected = !selected;
     NSInteger section = [XDManagerHelper tagDecompileWithInteger:button.tag];
-    XDTodayPlanCell *cell = (XDTodayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    XDDataPlanCell *cell = (XDDataPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     cell.userInteractionEnabled = selected;
 }
 
