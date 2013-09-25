@@ -9,6 +9,7 @@
 #import "XDPlanDetailViewController.h"
 
 #import "XDPlanDetailCell.h"
+#import "XDPlanScrollView.h"
 #import "XDDataPlanViewController.h"
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
@@ -19,6 +20,7 @@
     BOOL _isAction;
     
     XDManagerHelper *_managerHelper;
+    NSMutableArray *_planViews;
 }
 
 @property (nonatomic, strong) UIView *tableHeaderView;
@@ -47,6 +49,8 @@
     if (self) {
         // Custom initialization
         _managerHelper = [XDManagerHelper shareHelper];
+        _planViews = [NSMutableArray array];
+        [self configaturePlanViews];
     }
     return self;
 }
@@ -78,7 +82,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,6 +96,8 @@
     
     // Configure the cell...
     cell.dayStr = [NSString stringWithFormat:@"%i", [_managerHelper dayForDate:[NSDate date]]];
+    cell.yearMonthStr = [_managerHelper year_monthForDate:[NSDate date]];
+    cell.scrollView = [_planViews objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -100,7 +106,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,6 +160,17 @@
 {
     _planContent = content;
     [self.tableView setTableHeaderView:self.tableHeaderView];
+}
+
+#pragma mark - data
+
+- (void)configaturePlanViews
+{
+    for (int i= 0; i < 10; i++) {
+        XDPlanScrollView *detailView = [[XDPlanScrollView alloc] init];
+        [detailView configurationViewWithPlan:nil];
+        [_planViews addObject:detailView];
+    }
 }
 
 @end

@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDPlanDetailCell : UITableViewCell<UIScrollViewDelegate>
+@class XDPlanScrollView;
+@interface XDPlanDetailCell : UITableViewCell
 {
     UILabel *_dayLabel;
-    UIView *_detailView;
-    UIScrollView *_scrollView;
-    UIPageControl *_pageControl;
+    UILabel *_yearMonthLabel;
 }
 
+@property (nonatomic, strong) XDPlanScrollView *scrollView;
+@property (nonatomic, strong) NSString *yearMonthStr;
 @property (nonatomic, strong) NSString *dayStr;
 
 @end

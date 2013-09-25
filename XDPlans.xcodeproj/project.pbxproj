@@ -22,6 +22,7 @@
 		3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
 		3A9AEED617F2A685002E201F /* XDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED517F2A685002E201F /* XDDatePicker.m */; };
+		3A9AEED917F2B08E002E201F /* XDPlanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -208,6 +209,8 @@
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3A9AEED417F2A685002E201F /* XDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDatePicker.h; sourceTree = "<group>"; };
 		3A9AEED517F2A685002E201F /* XDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDatePicker.m; sourceTree = "<group>"; };
+		3A9AEED717F2B08E002E201F /* XDPlanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanScrollView.h; sourceTree = "<group>"; };
+		3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanScrollView.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -478,6 +481,8 @@
 				3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */,
 				3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */,
 				3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */,
+				3A9AEED717F2B08E002E201F /* XDPlanScrollView.h */,
+				3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */,
 			);
 			name = PlanDetail;
 			path = Classes/PlanDetail;
@@ -1104,6 +1109,7 @@
 				3AE3A32F17ED5B1300DC05A8 /* WEPopoverController.m in Sources */,
 				3AE3A33017ED5B1300DC05A8 /* WETouchableView.m in Sources */,
 				3A5FEA8D17F034B20059FBF2 /* XDColorViewController.m in Sources */,
+				3A9AEED917F2B08E002E201F /* XDPlanScrollView.m in Sources */,
 				3AE3A33117ED5B1300DC05A8 /* RichTextEditor.m in Sources */,
 				3A9AEED617F2A685002E201F /* XDDatePicker.m in Sources */,
 				3AE3A33217ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m in Sources */,

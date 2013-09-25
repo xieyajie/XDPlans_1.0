@@ -193,7 +193,7 @@ static int tagBase = 100;
 {
     if (_y_mFormatter == nil) {
         _y_mFormatter = [[NSDateFormatter alloc] init];
-        _y_mFormatter.dateFormat = @"yyyy - MM";
+        _y_mFormatter.dateFormat = @"yyyy-MM";
     }
     
     return _y_mFormatter;
