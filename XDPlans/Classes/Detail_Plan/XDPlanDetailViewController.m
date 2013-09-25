@@ -10,7 +10,7 @@
 
 #import "XDPlanDetailCell.h"
 #import "XDPlanScrollView.h"
-#import "XDDataPlanViewController.h"
+#import "XDDayPlanViewController.h"
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
 
@@ -111,7 +111,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XDDataPlanViewController *dataPlanVC = [[XDDataPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:YES];
+    XDDayPlanViewController *dataPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:YES];
     dataPlanVC.planContent = self.planContent;
     [self.navigationController pushViewController:dataPlanVC animated:YES];
 }

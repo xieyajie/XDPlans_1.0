@@ -1,5 +1,5 @@
 //
-//  XDDataPlanViewController.h
+//  XDDayPlanViewController.h
 //  XDPlans
 //
 //  Created by xie yajie on 13-9-1.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDDataPlanViewController : UITableViewController
+@interface XDDayPlanViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *planContent;
 

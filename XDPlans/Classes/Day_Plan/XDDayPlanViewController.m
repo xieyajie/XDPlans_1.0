@@ -1,5 +1,5 @@
 //
-//  XDDataPlanViewController.m
+//  XDDayPlanViewController.m
 //  XDPlans
 //
 //  Created by xie yajie on 13-9-1.
@@ -7,10 +7,10 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "XDDataPlanViewController.h"
+#import "XDDayPlanViewController.h"
 
 #import "XDColorViewController.h"
-#import "XDDataPlanCell.h"
+#import "XDDayPlanCell.h"
 #import "XDMoodPicker.h"
 
 #import "XDManagerHelper.h"
@@ -30,7 +30,7 @@
 #define KSECTION_SUMMARY 4
 #define KSECTION_GRADE 5
 
-@interface XDDataPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
+@interface XDDayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
     NSMutableArray *_dataSource;
     BOOL _canEdit;
@@ -54,7 +54,7 @@
 
 @end
 
-@implementation XDDataPlanViewController
+@implementation XDDayPlanViewController
 
 @synthesize sectionHeaderViews = _sectionHeaderViews;
 @synthesize headerView = _headerView;
@@ -258,11 +258,11 @@
 {
     NSDictionary *dic = [_dataSource objectAtIndex:indexPath.section];
     NSString *CellIdentifier = [dic objectForKey:KTODAY_CELL_IDENTIFIER];
-    XDDataPlanCell *cell = (XDDataPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    XDDayPlanCell *cell = (XDDayPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[XDDataPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[XDDayPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -325,14 +325,14 @@
 
 #pragma mark - XDTodayPlayCellDelegate
 
-- (void)planCellSelectedMoodPicker:(XDDataPlanCell *)planCell
+- (void)planCellSelectedMoodPicker:(XDDayPlanCell *)planCell
 {
     XDMoodPicker *moodPicker = [[XDMoodPicker alloc] initWithTitle:@"选择表情" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     moodPicker.moodDelegate = self;
     [moodPicker showInView:self.view];
 }
 
-- (void)planCellSelectedColorPicker:(XDDataPlanCell *)planCell
+- (void)planCellSelectedColorPicker:(XDDayPlanCell *)planCell
 {
     XDColorViewController *colorVC = [[XDColorViewController alloc] initWithStyle:UITableViewStylePlain];
     colorVC.callerObject = planCell;
@@ -344,7 +344,7 @@
 
 - (void)colorPickerSlectedColor:(UIColor *)color withCaller:(id)caller
 {
-    XDDataPlanCell *planCell = (XDDataPlanCell *)caller;
+    XDDayPlanCell *planCell = (XDDayPlanCell *)caller;
     [planCell updateWithColor:color];
 }
 
@@ -372,7 +372,7 @@
     BOOL selected = button.selected;
     button.selected = !selected;
     NSInteger section = [XDManagerHelper tagDecompileWithInteger:button.tag];
-    XDDataPlanCell *cell = (XDDataPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    XDDayPlanCell *cell = (XDDayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     cell.userInteractionEnabled = selected;
 }
 

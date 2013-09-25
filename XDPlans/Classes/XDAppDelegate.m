@@ -9,6 +9,7 @@
 #import "XDAppDelegate.h"
 
 #import "XDAllPlansViewController.h"
+#import "XDRootViewController.h"
 
 @implementation XDAppDelegate
 
@@ -16,8 +17,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    XDAllPlansViewController *allPlansViewController = [[XDAllPlansViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:allPlansViewController];
+//    XDAllPlansViewController *allPlansViewController = [[XDAllPlansViewController alloc] initWithStyle:UITableViewStylePlain];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:allPlansViewController];
+    
+    XDRootViewController *rootViewController = [[XDRootViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0]];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];

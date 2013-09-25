@@ -9,28 +9,111 @@
 /* Begin PBXBuildFile section */
 		3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4B17EFD12D0059FBF2 /* Default.png */; };
 		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
-		3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */; };
-		3A5FEA6B17F0248B0059FBF2 /* XDSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */; };
-		3A5FEA6C17F0248B0059FBF2 /* XDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */; };
-		3A5FEA8C17F034B20059FBF2 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA7C17F034B20059FBF2 /* XDColor.plist */; };
-		3A5FEA8D17F034B20059FBF2 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */; };
-		3A5FEA8E17F034B20059FBF2 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8017F034B20059FBF2 /* XDMood.plist */; };
-		3A5FEA8F17F034B20059FBF2 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */; };
-		3A5FEA9017F034B20059FBF2 /* XDDataPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */; };
-		3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */; };
-		3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */; };
-		3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
-		3A9AEED617F2A685002E201F /* XDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED517F2A685002E201F /* XDDatePicker.m */; };
-		3A9AEED917F2B08E002E201F /* XDPlanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */; };
-		3A9AEEE317F2E738002E201F /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEDC17F2E738002E201F /* REMenu.m */; };
-		3A9AEEE417F2E738002E201F /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */; };
-		3A9AEEE517F2E738002E201F /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE017F2E738002E201F /* REMenuItem.m */; };
-		3A9AEEE617F2E738002E201F /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE217F2E738002E201F /* REMenuItemView.m */; };
-		3AADD3D017F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */; };
-		3AADD3DD17F315B4000BEE34 /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3DC17F315B3000BEE34 /* WantPlan.m */; };
-		3AADD3E017F315B4000BEE34 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3DF17F315B4000BEE34 /* User.m */; };
-		3AADD3E317F315B4000BEE34 /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E217F315B4000BEE34 /* DayPlan.m */; };
+		3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E517F31E94000BEE34 /* XDRootViewController.m */; };
+		3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */; };
+		3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */; };
+		3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */; };
+		3AADD49B17F31F1F000BEE34 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */; };
+		3AADD49C17F31F1F000BEE34 /* XDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F517F31F1F000BEE34 /* XDDatePicker.m */; };
+		3AADD49D17F31F1F000BEE34 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F817F31F1F000BEE34 /* JASidePanelController.m */; };
+		3AADD49E17F31F1F000BEE34 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3FA17F31F1F000BEE34 /* UIViewController+JASidePanel.m */; };
+		3AADD49F17F31F1F000BEE34 /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3FD17F31F1F000BEE34 /* REMenu.m */; };
+		3AADD4A017F31F1F000BEE34 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3FF17F31F1F000BEE34 /* REMenuContainerView.m */; };
+		3AADD4A117F31F1F000BEE34 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD40117F31F1F000BEE34 /* REMenuItem.m */; };
+		3AADD4A217F31F1F000BEE34 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD40317F31F1F000BEE34 /* REMenuItemView.m */; };
+		3AADD4A317F31F1F000BEE34 /* backcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40617F31F1F000BEE34 /* backcolor.png */; };
+		3AADD4A417F31F1F000BEE34 /* bold.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40717F31F1F000BEE34 /* bold.png */; };
+		3AADD4A517F31F1F000BEE34 /* bold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40817F31F1F000BEE34 /* bold@2x.png */; };
+		3AADD4A617F31F1F000BEE34 /* bullist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40917F31F1F000BEE34 /* bullist.png */; };
+		3AADD4A717F31F1F000BEE34 /* bullist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40A17F31F1F000BEE34 /* bullist@2x.png */; };
+		3AADD4A817F31F1F000BEE34 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40C17F31F1F000BEE34 /* button.png */; };
+		3AADD4A917F31F1F000BEE34 /* buttoncenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40D17F31F1F000BEE34 /* buttoncenter.png */; };
+		3AADD4AA17F31F1F000BEE34 /* buttoncenterSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40E17F31F1F000BEE34 /* buttoncenterSelected.png */; };
+		3AADD4AB17F31F1F000BEE34 /* buttonleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD40F17F31F1F000BEE34 /* buttonleft.png */; };
+		3AADD4AC17F31F1F000BEE34 /* buttonleftSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41017F31F1F000BEE34 /* buttonleftSelected.png */; };
+		3AADD4AD17F31F1F000BEE34 /* buttonright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41117F31F1F000BEE34 /* buttonright.png */; };
+		3AADD4AE17F31F1F000BEE34 /* buttonrightSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41217F31F1F000BEE34 /* buttonrightSelected.png */; };
+		3AADD4AF17F31F1F000BEE34 /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41317F31F1F000BEE34 /* buttonSelected.png */; };
+		3AADD4B017F31F1F000BEE34 /* dropDownTriangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41417F31F1F000BEE34 /* dropDownTriangle.png */; };
+		3AADD4B117F31F1F000BEE34 /* dropDownTriangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41517F31F1F000BEE34 /* dropDownTriangle@2x.png */; };
+		3AADD4B217F31F1F000BEE34 /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41617F31F1F000BEE34 /* code.png */; };
+		3AADD4B317F31F1F000BEE34 /* colors.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41717F31F1F000BEE34 /* colors.jpg */; };
+		3AADD4B417F31F1F000BEE34 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41817F31F1F000BEE34 /* email.png */; };
+		3AADD4B517F31F1F000BEE34 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41917F31F1F000BEE34 /* file.png */; };
+		3AADD4B617F31F1F000BEE34 /* forecolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41A17F31F1F000BEE34 /* forecolor.png */; };
+		3AADD4B717F31F1F000BEE34 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41B17F31F1F000BEE34 /* image.png */; };
+		3AADD4B817F31F1F000BEE34 /* indent.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41C17F31F1F000BEE34 /* indent.png */; };
+		3AADD4B917F31F1F000BEE34 /* indent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41D17F31F1F000BEE34 /* indent@2x.png */; };
+		3AADD4BA17F31F1F000BEE34 /* italic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41E17F31F1F000BEE34 /* italic.png */; };
+		3AADD4BB17F31F1F000BEE34 /* italic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD41F17F31F1F000BEE34 /* italic@2x.png */; };
+		3AADD4BC17F31F1F000BEE34 /* justifycenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42017F31F1F000BEE34 /* justifycenter.png */; };
+		3AADD4BD17F31F1F000BEE34 /* justifycenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42117F31F1F000BEE34 /* justifycenter@2x.png */; };
+		3AADD4BE17F31F1F000BEE34 /* justifyfull.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42217F31F1F000BEE34 /* justifyfull.png */; };
+		3AADD4BF17F31F1F000BEE34 /* justifyfull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42317F31F1F000BEE34 /* justifyfull@2x.png */; };
+		3AADD4C017F31F1F000BEE34 /* justifyleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42417F31F1F000BEE34 /* justifyleft.png */; };
+		3AADD4C117F31F1F000BEE34 /* justifyleft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42517F31F1F000BEE34 /* justifyleft@2x.png */; };
+		3AADD4C217F31F1F000BEE34 /* justifyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42617F31F1F000BEE34 /* justifyright.png */; };
+		3AADD4C317F31F1F000BEE34 /* justifyright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42717F31F1F000BEE34 /* justifyright@2x.png */; };
+		3AADD4C417F31F1F000BEE34 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42817F31F1F000BEE34 /* link.png */; };
+		3AADD4C517F31F1F000BEE34 /* numlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42917F31F1F000BEE34 /* numlist.png */; };
+		3AADD4C617F31F1F000BEE34 /* numlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42A17F31F1F000BEE34 /* numlist@2x.png */; };
+		3AADD4C717F31F1F000BEE34 /* outdent.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42B17F31F1F000BEE34 /* outdent.png */; };
+		3AADD4C817F31F1F000BEE34 /* outdent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42C17F31F1F000BEE34 /* outdent@2x.png */; };
+		3AADD4C917F31F1F000BEE34 /* redo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42D17F31F1F000BEE34 /* redo.png */; };
+		3AADD4CA17F31F1F000BEE34 /* removeformat.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42E17F31F1F000BEE34 /* removeformat.png */; };
+		3AADD4CB17F31F1F000BEE34 /* strikethrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD42F17F31F1F000BEE34 /* strikethrough.png */; };
+		3AADD4CC17F31F1F000BEE34 /* strikethrough@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43017F31F1F000BEE34 /* strikethrough@2x.png */; };
+		3AADD4CD17F31F1F000BEE34 /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43117F31F1F000BEE34 /* underline.png */; };
+		3AADD4CE17F31F1F000BEE34 /* underline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43217F31F1F000BEE34 /* underline@2x.png */; };
+		3AADD4CF17F31F1F000BEE34 /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43317F31F1F000BEE34 /* undo.png */; };
+		3AADD4D017F31F1F000BEE34 /* unlink.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43417F31F1F000BEE34 /* unlink.png */; };
+		3AADD4D117F31F1F000BEE34 /* NSAttributedString+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD43717F31F1F000BEE34 /* NSAttributedString+RichTextEditor.m */; };
+		3AADD4D217F31F1F000BEE34 /* UIFont+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD43917F31F1F000BEE34 /* UIFont+RichTextEditor.m */; };
+		3AADD4D317F31F1F000BEE34 /* UIView+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD43B17F31F1F000BEE34 /* UIView+RichTextEditor.m */; };
+		3AADD4D417F31F1F000BEE34 /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43E17F31F1F000BEE34 /* popoverArrowDown.png */; };
+		3AADD4D517F31F1F000BEE34 /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD43F17F31F1F000BEE34 /* popoverArrowDown@2x.png */; };
+		3AADD4D617F31F1F000BEE34 /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44017F31F1F000BEE34 /* popoverArrowDownSimple.png */; };
+		3AADD4D717F31F1F000BEE34 /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44117F31F1F000BEE34 /* popoverArrowLeft.png */; };
+		3AADD4D817F31F1F000BEE34 /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44217F31F1F000BEE34 /* popoverArrowLeft@2x.png */; };
+		3AADD4D917F31F1F000BEE34 /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44317F31F1F000BEE34 /* popoverArrowLeftSimple.png */; };
+		3AADD4DA17F31F1F000BEE34 /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44417F31F1F000BEE34 /* popoverArrowRight.png */; };
+		3AADD4DB17F31F1F000BEE34 /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44517F31F1F000BEE34 /* popoverArrowRight@2x.png */; };
+		3AADD4DC17F31F1F000BEE34 /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44617F31F1F000BEE34 /* popoverArrowRightSimple.png */; };
+		3AADD4DD17F31F1F000BEE34 /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44717F31F1F000BEE34 /* popoverArrowUp.png */; };
+		3AADD4DE17F31F1F000BEE34 /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44817F31F1F000BEE34 /* popoverArrowUp@2x.png */; };
+		3AADD4DF17F31F1F000BEE34 /* popoverArrowUpSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44917F31F1F000BEE34 /* popoverArrowUpSimple.png */; };
+		3AADD4E017F31F1F000BEE34 /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44A17F31F1F000BEE34 /* popoverBg.png */; };
+		3AADD4E117F31F1F000BEE34 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44B17F31F1F000BEE34 /* popoverBg@2x.png */; };
+		3AADD4E217F31F1F000BEE34 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD44C17F31F1F000BEE34 /* popoverBgSimple.png */; };
+		3AADD4E317F31F1F000BEE34 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD44E17F31F1F000BEE34 /* UIBarButtonItem+WEPopover.m */; };
+		3AADD4E417F31F1F000BEE34 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45017F31F1F000BEE34 /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AADD4E517F31F1F000BEE34 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45217F31F1F000BEE34 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AADD4E617F31F1F000BEE34 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45517F31F1F000BEE34 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3AADD4E717F31F1F000BEE34 /* RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45717F31F1F000BEE34 /* RichTextEditor.m */; };
+		3AADD4E817F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45917F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m */; };
+		3AADD4E917F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45B17F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m */; };
+		3AADD4EA17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD45D17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m */; };
+		3AADD4EB17F31F1F000BEE34 /* RichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46017F31F1F000BEE34 /* RichTextEditorToggleButton.m */; };
+		3AADD4EC17F31F1F000BEE34 /* RichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46217F31F1F000BEE34 /* RichTextEditorToolbar.m */; };
+		3AADD4ED17F31F1F000BEE34 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD46517F31F1F000BEE34 /* XDColor.plist */; };
+		3AADD4EE17F31F1F000BEE34 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46717F31F1F000BEE34 /* XDColorViewController.m */; };
+		3AADD4EF17F31F1F000BEE34 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD46917F31F1F000BEE34 /* XDMood.plist */; };
+		3AADD4F017F31F1F000BEE34 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46B17F31F1F000BEE34 /* XDMoodPicker.m */; };
+		3AADD4F117F31F1F000BEE34 /* XDDayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46D17F31F1F000BEE34 /* XDDayPlanCell.m */; };
+		3AADD4F217F31F1F000BEE34 /* XDDayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD46F17F31F1F000BEE34 /* XDDayPlanViewController.m */; };
+		3AADD4F317F31F1F000BEE34 /* XDPlanDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47217F31F1F000BEE34 /* XDPlanDetailCell.m */; };
+		3AADD4F417F31F1F000BEE34 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47417F31F1F000BEE34 /* XDPlanDetailViewController.m */; };
+		3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47617F31F1F000BEE34 /* XDPlanScrollView.m */; };
+		3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */; };
+		3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47E17F31F1F000BEE34 /* DayPlan.m */; };
+		3AADD4F817F31F1F000BEE34 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48017F31F1F000BEE34 /* User.m */; };
+		3AADD4F917F31F1F000BEE34 /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48217F31F1F000BEE34 /* WantPlan.m */; };
+		3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */; };
+		3AADD4FB17F31F1F000BEE34 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48717F31F1F000BEE34 /* UIColor+Category.m */; };
+		3AADD4FC17F31F1F000BEE34 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48917F31F1F000BEE34 /* XDManagerHelper.m */; };
+		3AADD4FF17F31F1F000BEE34 /* XDSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD49017F31F1F000BEE34 /* XDSetting.plist */; };
+		3AADD50017F31F1F000BEE34 /* XDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD49217F31F1F000BEE34 /* XDSettingViewController.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -39,88 +122,6 @@
 		3AE3A24117ED47A700DC05A8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A24017ED47A700DC05A8 /* Default@2x.png */; };
 		3AE3A24317ED47A700DC05A8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A24217ED47A700DC05A8 /* Default-568h@2x.png */; };
 		3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */; };
-		3AE3A26217ED5AB400DC05A8 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25D17ED5AB400DC05A8 /* XDAllPlansCell.m */; };
-		3AE3A26317ED5AB400DC05A8 /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */; };
-		3AE3A26417ED5AB400DC05A8 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */; };
-		3AE3A2EB17ED5B1300DC05A8 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A26917ED5B1300DC05A8 /* JASidePanelController.m */; };
-		3AE3A2EC17ED5B1300DC05A8 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A26B17ED5B1300DC05A8 /* UIViewController+JASidePanel.m */; };
-		3AE3A2ED17ED5B1300DC05A8 /* backcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A26E17ED5B1300DC05A8 /* backcolor.png */; };
-		3AE3A2EE17ED5B1300DC05A8 /* bold.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A26F17ED5B1300DC05A8 /* bold.png */; };
-		3AE3A2EF17ED5B1300DC05A8 /* bold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27017ED5B1300DC05A8 /* bold@2x.png */; };
-		3AE3A2F017ED5B1300DC05A8 /* bullist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27117ED5B1300DC05A8 /* bullist.png */; };
-		3AE3A2F117ED5B1300DC05A8 /* bullist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27217ED5B1300DC05A8 /* bullist@2x.png */; };
-		3AE3A2F217ED5B1300DC05A8 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27417ED5B1300DC05A8 /* button.png */; };
-		3AE3A2F317ED5B1300DC05A8 /* buttoncenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27517ED5B1300DC05A8 /* buttoncenter.png */; };
-		3AE3A2F417ED5B1300DC05A8 /* buttoncenterSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27617ED5B1300DC05A8 /* buttoncenterSelected.png */; };
-		3AE3A2F517ED5B1300DC05A8 /* buttonleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27717ED5B1300DC05A8 /* buttonleft.png */; };
-		3AE3A2F617ED5B1300DC05A8 /* buttonleftSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27817ED5B1300DC05A8 /* buttonleftSelected.png */; };
-		3AE3A2F717ED5B1300DC05A8 /* buttonright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27917ED5B1300DC05A8 /* buttonright.png */; };
-		3AE3A2F817ED5B1300DC05A8 /* buttonrightSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27A17ED5B1300DC05A8 /* buttonrightSelected.png */; };
-		3AE3A2F917ED5B1300DC05A8 /* buttonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27B17ED5B1300DC05A8 /* buttonSelected.png */; };
-		3AE3A2FA17ED5B1300DC05A8 /* dropDownTriangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27C17ED5B1300DC05A8 /* dropDownTriangle.png */; };
-		3AE3A2FB17ED5B1300DC05A8 /* dropDownTriangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27D17ED5B1300DC05A8 /* dropDownTriangle@2x.png */; };
-		3AE3A2FC17ED5B1300DC05A8 /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27E17ED5B1300DC05A8 /* code.png */; };
-		3AE3A2FD17ED5B1300DC05A8 /* colors.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A27F17ED5B1300DC05A8 /* colors.jpg */; };
-		3AE3A2FE17ED5B1300DC05A8 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28017ED5B1300DC05A8 /* email.png */; };
-		3AE3A2FF17ED5B1300DC05A8 /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28117ED5B1300DC05A8 /* file.png */; };
-		3AE3A30017ED5B1300DC05A8 /* forecolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28217ED5B1300DC05A8 /* forecolor.png */; };
-		3AE3A30117ED5B1300DC05A8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28317ED5B1300DC05A8 /* image.png */; };
-		3AE3A30217ED5B1300DC05A8 /* indent.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28417ED5B1300DC05A8 /* indent.png */; };
-		3AE3A30317ED5B1300DC05A8 /* indent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28517ED5B1300DC05A8 /* indent@2x.png */; };
-		3AE3A30417ED5B1300DC05A8 /* italic.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28617ED5B1300DC05A8 /* italic.png */; };
-		3AE3A30517ED5B1300DC05A8 /* italic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28717ED5B1300DC05A8 /* italic@2x.png */; };
-		3AE3A30617ED5B1300DC05A8 /* justifycenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28817ED5B1300DC05A8 /* justifycenter.png */; };
-		3AE3A30717ED5B1300DC05A8 /* justifycenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28917ED5B1300DC05A8 /* justifycenter@2x.png */; };
-		3AE3A30817ED5B1300DC05A8 /* justifyfull.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28A17ED5B1300DC05A8 /* justifyfull.png */; };
-		3AE3A30917ED5B1300DC05A8 /* justifyfull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28B17ED5B1300DC05A8 /* justifyfull@2x.png */; };
-		3AE3A30A17ED5B1300DC05A8 /* justifyleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28C17ED5B1300DC05A8 /* justifyleft.png */; };
-		3AE3A30B17ED5B1300DC05A8 /* justifyleft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28D17ED5B1300DC05A8 /* justifyleft@2x.png */; };
-		3AE3A30C17ED5B1300DC05A8 /* justifyright.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28E17ED5B1300DC05A8 /* justifyright.png */; };
-		3AE3A30D17ED5B1300DC05A8 /* justifyright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A28F17ED5B1300DC05A8 /* justifyright@2x.png */; };
-		3AE3A30E17ED5B1300DC05A8 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29017ED5B1300DC05A8 /* link.png */; };
-		3AE3A30F17ED5B1300DC05A8 /* numlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29117ED5B1300DC05A8 /* numlist.png */; };
-		3AE3A31017ED5B1300DC05A8 /* numlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29217ED5B1300DC05A8 /* numlist@2x.png */; };
-		3AE3A31117ED5B1300DC05A8 /* outdent.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29317ED5B1300DC05A8 /* outdent.png */; };
-		3AE3A31217ED5B1300DC05A8 /* outdent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29417ED5B1300DC05A8 /* outdent@2x.png */; };
-		3AE3A31317ED5B1300DC05A8 /* redo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29517ED5B1300DC05A8 /* redo.png */; };
-		3AE3A31417ED5B1300DC05A8 /* removeformat.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29617ED5B1300DC05A8 /* removeformat.png */; };
-		3AE3A31517ED5B1300DC05A8 /* strikethrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29717ED5B1300DC05A8 /* strikethrough.png */; };
-		3AE3A31617ED5B1300DC05A8 /* strikethrough@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29817ED5B1300DC05A8 /* strikethrough@2x.png */; };
-		3AE3A31717ED5B1300DC05A8 /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29917ED5B1300DC05A8 /* underline.png */; };
-		3AE3A31817ED5B1300DC05A8 /* underline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29A17ED5B1300DC05A8 /* underline@2x.png */; };
-		3AE3A31917ED5B1300DC05A8 /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29B17ED5B1300DC05A8 /* undo.png */; };
-		3AE3A31A17ED5B1300DC05A8 /* unlink.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A29C17ED5B1300DC05A8 /* unlink.png */; };
-		3AE3A31B17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A29F17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A31C17ED5B1300DC05A8 /* UIFont+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A117ED5B1300DC05A8 /* UIFont+RichTextEditor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A31D17ED5B1300DC05A8 /* UIView+RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A317ED5B1300DC05A8 /* UIView+RichTextEditor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A31E17ED5B1300DC05A8 /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A617ED5B1300DC05A8 /* popoverArrowDown.png */; };
-		3AE3A31F17ED5B1300DC05A8 /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A717ED5B1300DC05A8 /* popoverArrowDown@2x.png */; };
-		3AE3A32017ED5B1300DC05A8 /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A817ED5B1300DC05A8 /* popoverArrowDownSimple.png */; };
-		3AE3A32117ED5B1300DC05A8 /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2A917ED5B1300DC05A8 /* popoverArrowLeft.png */; };
-		3AE3A32217ED5B1300DC05A8 /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AA17ED5B1300DC05A8 /* popoverArrowLeft@2x.png */; };
-		3AE3A32317ED5B1300DC05A8 /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AB17ED5B1300DC05A8 /* popoverArrowLeftSimple.png */; };
-		3AE3A32417ED5B1300DC05A8 /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AC17ED5B1300DC05A8 /* popoverArrowRight.png */; };
-		3AE3A32517ED5B1300DC05A8 /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AD17ED5B1300DC05A8 /* popoverArrowRight@2x.png */; };
-		3AE3A32617ED5B1300DC05A8 /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AE17ED5B1300DC05A8 /* popoverArrowRightSimple.png */; };
-		3AE3A32717ED5B1300DC05A8 /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2AF17ED5B1300DC05A8 /* popoverArrowUp.png */; };
-		3AE3A32817ED5B1300DC05A8 /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B017ED5B1300DC05A8 /* popoverArrowUp@2x.png */; };
-		3AE3A32917ED5B1300DC05A8 /* popoverArrowUpSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B117ED5B1300DC05A8 /* popoverArrowUpSimple.png */; };
-		3AE3A32A17ED5B1300DC05A8 /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B217ED5B1300DC05A8 /* popoverBg.png */; };
-		3AE3A32B17ED5B1300DC05A8 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B317ED5B1300DC05A8 /* popoverBg@2x.png */; };
-		3AE3A32C17ED5B1300DC05A8 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B417ED5B1300DC05A8 /* popoverBgSimple.png */; };
-		3AE3A32D17ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B617ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A32E17ED5B1300DC05A8 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2B817ED5B1300DC05A8 /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A32F17ED5B1300DC05A8 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2BA17ED5B1300DC05A8 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A33017ED5B1300DC05A8 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2BD17ED5B1300DC05A8 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A33117ED5B1300DC05A8 /* RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2BF17ED5B1300DC05A8 /* RichTextEditor.m */; };
-		3AE3A33217ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2C117ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m */; };
-		3AE3A33317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2C317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m */; };
-		3AE3A33417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2C517ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m */; };
-		3AE3A33517ED5B1300DC05A8 /* RichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2C817ED5B1300DC05A8 /* RichTextEditorToggleButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2CA17ED5B1300DC05A8 /* RichTextEditorToolbar.m */; };
-		3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2CE17ED5B1300DC05A8 /* XDCutImageViewController.m */; };
-		3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */; };
-		3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */; };
 		3AE3A35317ED5C0400DC05A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A35217ED5C0400DC05A8 /* QuartzCore.framework */; };
 		3AE3A35517ED5C0C00DC05A8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A35417ED5C0C00DC05A8 /* CoreText.framework */; };
 		3AE3A35717ED5C1600DC05A8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A35617ED5C1600DC05A8 /* SystemConfiguration.framework */; };
@@ -195,45 +196,152 @@
 /* Begin PBXFileReference section */
 		3A5FEA4B17EFD12D0059FBF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
-		3A5FEA5017F0248B0059FBF2 /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
-		3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAccountLoginViewController.m; sourceTree = "<group>"; };
-		3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSetting.plist; sourceTree = "<group>"; };
-		3A5FEA5917F0248B0059FBF2 /* XDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSettingViewController.h; sourceTree = "<group>"; };
-		3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSettingViewController.m; sourceTree = "<group>"; };
-		3A5FEA7C17F034B20059FBF2 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
-		3A5FEA7D17F034B20059FBF2 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
-		3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
-		3A5FEA8017F034B20059FBF2 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
-		3A5FEA8117F034B20059FBF2 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
-		3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
-		3A5FEA8317F034B20059FBF2 /* XDDataPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDataPlanCell.h; sourceTree = "<group>"; };
-		3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDataPlanCell.m; sourceTree = "<group>"; };
-		3A5FEA8517F034B20059FBF2 /* XDDataPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDataPlanViewController.h; sourceTree = "<group>"; };
-		3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDataPlanViewController.m; sourceTree = "<group>"; };
-		3A5FEA8817F034B20059FBF2 /* XDPlanDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailCell.h; sourceTree = "<group>"; };
-		3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailCell.m; sourceTree = "<group>"; };
-		3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailViewController.h; sourceTree = "<group>"; };
-		3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailViewController.m; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3A9AEED417F2A685002E201F /* XDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDatePicker.h; sourceTree = "<group>"; };
-		3A9AEED517F2A685002E201F /* XDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDatePicker.m; sourceTree = "<group>"; };
-		3A9AEED717F2B08E002E201F /* XDPlanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanScrollView.h; sourceTree = "<group>"; };
-		3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanScrollView.m; sourceTree = "<group>"; };
-		3A9AEEDB17F2E738002E201F /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
-		3A9AEEDC17F2E738002E201F /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
-		3A9AEEDD17F2E738002E201F /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
-		3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
-		3A9AEEDF17F2E738002E201F /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
-		3A9AEEE017F2E738002E201F /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
-		3A9AEEE117F2E738002E201F /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
-		3A9AEEE217F2E738002E201F /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
-		3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
-		3AADD3DB17F315B3000BEE34 /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
-		3AADD3DC17F315B3000BEE34 /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
-		3AADD3DE17F315B4000BEE34 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		3AADD3DF17F315B4000BEE34 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		3AADD3E117F315B4000BEE34 /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
-		3AADD3E217F315B4000BEE34 /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
+		3AADD3E417F31E94000BEE34 /* XDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDRootViewController.h; path = Classes/XDRootViewController.h; sourceTree = "<group>"; };
+		3AADD3E517F31E94000BEE34 /* XDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDRootViewController.m; path = Classes/XDRootViewController.m; sourceTree = "<group>"; };
+		3AADD3E917F31F1F000BEE34 /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
+		3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAccountLoginViewController.m; sourceTree = "<group>"; };
+		3AADD3EC17F31F1F000BEE34 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
+		3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
+		3AADD3EE17F31F1F000BEE34 /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
+		3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
+		3AADD3F017F31F1F000BEE34 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
+		3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
+		3AADD3F417F31F1F000BEE34 /* XDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDatePicker.h; sourceTree = "<group>"; };
+		3AADD3F517F31F1F000BEE34 /* XDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDatePicker.m; sourceTree = "<group>"; };
+		3AADD3F717F31F1F000BEE34 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
+		3AADD3F817F31F1F000BEE34 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
+		3AADD3F917F31F1F000BEE34 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
+		3AADD3FA17F31F1F000BEE34 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
+		3AADD3FC17F31F1F000BEE34 /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		3AADD3FD17F31F1F000BEE34 /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		3AADD3FE17F31F1F000BEE34 /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		3AADD3FF17F31F1F000BEE34 /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		3AADD40017F31F1F000BEE34 /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		3AADD40117F31F1F000BEE34 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		3AADD40217F31F1F000BEE34 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		3AADD40317F31F1F000BEE34 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		3AADD40617F31F1F000BEE34 /* backcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backcolor.png; sourceTree = "<group>"; };
+		3AADD40717F31F1F000BEE34 /* bold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bold.png; sourceTree = "<group>"; };
+		3AADD40817F31F1F000BEE34 /* bold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bold@2x.png"; sourceTree = "<group>"; };
+		3AADD40917F31F1F000BEE34 /* bullist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullist.png; sourceTree = "<group>"; };
+		3AADD40A17F31F1F000BEE34 /* bullist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullist@2x.png"; sourceTree = "<group>"; };
+		3AADD40C17F31F1F000BEE34 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		3AADD40D17F31F1F000BEE34 /* buttoncenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoncenter.png; sourceTree = "<group>"; };
+		3AADD40E17F31F1F000BEE34 /* buttoncenterSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoncenterSelected.png; sourceTree = "<group>"; };
+		3AADD40F17F31F1F000BEE34 /* buttonleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonleft.png; sourceTree = "<group>"; };
+		3AADD41017F31F1F000BEE34 /* buttonleftSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonleftSelected.png; sourceTree = "<group>"; };
+		3AADD41117F31F1F000BEE34 /* buttonright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonright.png; sourceTree = "<group>"; };
+		3AADD41217F31F1F000BEE34 /* buttonrightSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonrightSelected.png; sourceTree = "<group>"; };
+		3AADD41317F31F1F000BEE34 /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
+		3AADD41417F31F1F000BEE34 /* dropDownTriangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropDownTriangle.png; sourceTree = "<group>"; };
+		3AADD41517F31F1F000BEE34 /* dropDownTriangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropDownTriangle@2x.png"; sourceTree = "<group>"; };
+		3AADD41617F31F1F000BEE34 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
+		3AADD41717F31F1F000BEE34 /* colors.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colors.jpg; sourceTree = "<group>"; };
+		3AADD41817F31F1F000BEE34 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		3AADD41917F31F1F000BEE34 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
+		3AADD41A17F31F1F000BEE34 /* forecolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecolor.png; sourceTree = "<group>"; };
+		3AADD41B17F31F1F000BEE34 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		3AADD41C17F31F1F000BEE34 /* indent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indent.png; sourceTree = "<group>"; };
+		3AADD41D17F31F1F000BEE34 /* indent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indent@2x.png"; sourceTree = "<group>"; };
+		3AADD41E17F31F1F000BEE34 /* italic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = italic.png; sourceTree = "<group>"; };
+		3AADD41F17F31F1F000BEE34 /* italic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "italic@2x.png"; sourceTree = "<group>"; };
+		3AADD42017F31F1F000BEE34 /* justifycenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifycenter.png; sourceTree = "<group>"; };
+		3AADD42117F31F1F000BEE34 /* justifycenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifycenter@2x.png"; sourceTree = "<group>"; };
+		3AADD42217F31F1F000BEE34 /* justifyfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyfull.png; sourceTree = "<group>"; };
+		3AADD42317F31F1F000BEE34 /* justifyfull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyfull@2x.png"; sourceTree = "<group>"; };
+		3AADD42417F31F1F000BEE34 /* justifyleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyleft.png; sourceTree = "<group>"; };
+		3AADD42517F31F1F000BEE34 /* justifyleft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyleft@2x.png"; sourceTree = "<group>"; };
+		3AADD42617F31F1F000BEE34 /* justifyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyright.png; sourceTree = "<group>"; };
+		3AADD42717F31F1F000BEE34 /* justifyright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyright@2x.png"; sourceTree = "<group>"; };
+		3AADD42817F31F1F000BEE34 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = "<group>"; };
+		3AADD42917F31F1F000BEE34 /* numlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numlist.png; sourceTree = "<group>"; };
+		3AADD42A17F31F1F000BEE34 /* numlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numlist@2x.png"; sourceTree = "<group>"; };
+		3AADD42B17F31F1F000BEE34 /* outdent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdent.png; sourceTree = "<group>"; };
+		3AADD42C17F31F1F000BEE34 /* outdent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outdent@2x.png"; sourceTree = "<group>"; };
+		3AADD42D17F31F1F000BEE34 /* redo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redo.png; sourceTree = "<group>"; };
+		3AADD42E17F31F1F000BEE34 /* removeformat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeformat.png; sourceTree = "<group>"; };
+		3AADD42F17F31F1F000BEE34 /* strikethrough.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikethrough.png; sourceTree = "<group>"; };
+		3AADD43017F31F1F000BEE34 /* strikethrough@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "strikethrough@2x.png"; sourceTree = "<group>"; };
+		3AADD43117F31F1F000BEE34 /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underline.png; sourceTree = "<group>"; };
+		3AADD43217F31F1F000BEE34 /* underline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "underline@2x.png"; sourceTree = "<group>"; };
+		3AADD43317F31F1F000BEE34 /* undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo.png; sourceTree = "<group>"; };
+		3AADD43417F31F1F000BEE34 /* unlink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlink.png; sourceTree = "<group>"; };
+		3AADD43617F31F1F000BEE34 /* NSAttributedString+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+RichTextEditor.h"; sourceTree = "<group>"; };
+		3AADD43717F31F1F000BEE34 /* NSAttributedString+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+RichTextEditor.m"; sourceTree = "<group>"; };
+		3AADD43817F31F1F000BEE34 /* UIFont+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+RichTextEditor.h"; sourceTree = "<group>"; };
+		3AADD43917F31F1F000BEE34 /* UIFont+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+RichTextEditor.m"; sourceTree = "<group>"; };
+		3AADD43A17F31F1F000BEE34 /* UIView+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RichTextEditor.h"; sourceTree = "<group>"; };
+		3AADD43B17F31F1F000BEE34 /* UIView+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RichTextEditor.m"; sourceTree = "<group>"; };
+		3AADD43E17F31F1F000BEE34 /* popoverArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
+		3AADD43F17F31F1F000BEE34 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
+		3AADD44017F31F1F000BEE34 /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
+		3AADD44117F31F1F000BEE34 /* popoverArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
+		3AADD44217F31F1F000BEE34 /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
+		3AADD44317F31F1F000BEE34 /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
+		3AADD44417F31F1F000BEE34 /* popoverArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
+		3AADD44517F31F1F000BEE34 /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
+		3AADD44617F31F1F000BEE34 /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
+		3AADD44717F31F1F000BEE34 /* popoverArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
+		3AADD44817F31F1F000BEE34 /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
+		3AADD44917F31F1F000BEE34 /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
+		3AADD44A17F31F1F000BEE34 /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
+		3AADD44B17F31F1F000BEE34 /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		3AADD44C17F31F1F000BEE34 /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
+		3AADD44D17F31F1F000BEE34 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
+		3AADD44E17F31F1F000BEE34 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
+		3AADD44F17F31F1F000BEE34 /* WEPopoverContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverContainerView.h; sourceTree = "<group>"; };
+		3AADD45017F31F1F000BEE34 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverContainerView.m; sourceTree = "<group>"; };
+		3AADD45117F31F1F000BEE34 /* WEPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverController.h; sourceTree = "<group>"; };
+		3AADD45217F31F1F000BEE34 /* WEPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverController.m; sourceTree = "<group>"; };
+		3AADD45317F31F1F000BEE34 /* WEPopoverParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverParentView.h; sourceTree = "<group>"; };
+		3AADD45417F31F1F000BEE34 /* WETouchableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETouchableView.h; sourceTree = "<group>"; };
+		3AADD45517F31F1F000BEE34 /* WETouchableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETouchableView.m; sourceTree = "<group>"; };
+		3AADD45617F31F1F000BEE34 /* RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditor.h; sourceTree = "<group>"; };
+		3AADD45717F31F1F000BEE34 /* RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditor.m; sourceTree = "<group>"; };
+		3AADD45817F31F1F000BEE34 /* RichTextEditorColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorColorPickerViewController.h; sourceTree = "<group>"; };
+		3AADD45917F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorColorPickerViewController.m; sourceTree = "<group>"; };
+		3AADD45A17F31F1F000BEE34 /* RichTextEditorFontPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorFontPickerViewController.h; sourceTree = "<group>"; };
+		3AADD45B17F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorFontPickerViewController.m; sourceTree = "<group>"; };
+		3AADD45C17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorFontSizePickerViewController.h; sourceTree = "<group>"; };
+		3AADD45D17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorFontSizePickerViewController.m; sourceTree = "<group>"; };
+		3AADD45E17F31F1F000BEE34 /* RichTextEditorPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorPopover.h; sourceTree = "<group>"; };
+		3AADD45F17F31F1F000BEE34 /* RichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorToggleButton.h; sourceTree = "<group>"; };
+		3AADD46017F31F1F000BEE34 /* RichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorToggleButton.m; sourceTree = "<group>"; };
+		3AADD46117F31F1F000BEE34 /* RichTextEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorToolbar.h; sourceTree = "<group>"; };
+		3AADD46217F31F1F000BEE34 /* RichTextEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorToolbar.m; sourceTree = "<group>"; };
+		3AADD46517F31F1F000BEE34 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
+		3AADD46617F31F1F000BEE34 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
+		3AADD46717F31F1F000BEE34 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
+		3AADD46917F31F1F000BEE34 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
+		3AADD46A17F31F1F000BEE34 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
+		3AADD46B17F31F1F000BEE34 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
+		3AADD46C17F31F1F000BEE34 /* XDDayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDayPlanCell.h; sourceTree = "<group>"; };
+		3AADD46D17F31F1F000BEE34 /* XDDayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDayPlanCell.m; sourceTree = "<group>"; };
+		3AADD46E17F31F1F000BEE34 /* XDDayPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDayPlanViewController.h; sourceTree = "<group>"; };
+		3AADD46F17F31F1F000BEE34 /* XDDayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDayPlanViewController.m; sourceTree = "<group>"; };
+		3AADD47117F31F1F000BEE34 /* XDPlanDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailCell.h; sourceTree = "<group>"; };
+		3AADD47217F31F1F000BEE34 /* XDPlanDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailCell.m; sourceTree = "<group>"; };
+		3AADD47317F31F1F000BEE34 /* XDPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailViewController.h; sourceTree = "<group>"; };
+		3AADD47417F31F1F000BEE34 /* XDPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailViewController.m; sourceTree = "<group>"; };
+		3AADD47517F31F1F000BEE34 /* XDPlanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanScrollView.h; sourceTree = "<group>"; };
+		3AADD47617F31F1F000BEE34 /* XDPlanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanScrollView.m; sourceTree = "<group>"; };
+		3AADD47917F31F1F000BEE34 /* XDCutImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDCutImageViewController.h; sourceTree = "<group>"; };
+		3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCutImageViewController.m; sourceTree = "<group>"; };
+		3AADD47D17F31F1F000BEE34 /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
+		3AADD47E17F31F1F000BEE34 /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
+		3AADD47F17F31F1F000BEE34 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3AADD48017F31F1F000BEE34 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3AADD48117F31F1F000BEE34 /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
+		3AADD48217F31F1F000BEE34 /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
+		3AADD48417F31F1F000BEE34 /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
+		3AADD48617F31F1F000BEE34 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
+		3AADD48717F31F1F000BEE34 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
+		3AADD48817F31F1F000BEE34 /* XDManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDManagerHelper.h; sourceTree = "<group>"; };
+		3AADD48917F31F1F000BEE34 /* XDManagerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDManagerHelper.m; sourceTree = "<group>"; };
+		3AADD49017F31F1F000BEE34 /* XDSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSetting.plist; sourceTree = "<group>"; };
+		3AADD49117F31F1F000BEE34 /* XDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSettingViewController.h; sourceTree = "<group>"; };
+		3AADD49217F31F1F000BEE34 /* XDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSettingViewController.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,112 +354,7 @@
 		3AE3A24217ED47A700DC05A8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3AE3A25817ED59F300DC05A8 /* XDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDAppDelegate.h; path = Classes/XDAppDelegate.h; sourceTree = "<group>"; };
 		3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDAppDelegate.m; path = Classes/XDAppDelegate.m; sourceTree = "<group>"; };
-		3AE3A25C17ED5AB400DC05A8 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
-		3AE3A25D17ED5AB400DC05A8 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
-		3AE3A25E17ED5AB400DC05A8 /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
-		3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
-		3AE3A26017ED5AB400DC05A8 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
-		3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDNewPlanViewController.m; path = ../../../All_plans/XDNewPlanViewController.m; sourceTree = "<group>"; };
 		3AE3A26517ED5AFC00DC05A8 /* XDPlanLocalDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDPlanLocalDefault.h; path = Classes/XDPlanLocalDefault.h; sourceTree = "<group>"; };
-		3AE3A26817ED5B1300DC05A8 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
-		3AE3A26917ED5B1300DC05A8 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
-		3AE3A26A17ED5B1300DC05A8 /* UIViewController+JASidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JASidePanel.h"; sourceTree = "<group>"; };
-		3AE3A26B17ED5B1300DC05A8 /* UIViewController+JASidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JASidePanel.m"; sourceTree = "<group>"; };
-		3AE3A26E17ED5B1300DC05A8 /* backcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backcolor.png; sourceTree = "<group>"; };
-		3AE3A26F17ED5B1300DC05A8 /* bold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bold.png; sourceTree = "<group>"; };
-		3AE3A27017ED5B1300DC05A8 /* bold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bold@2x.png"; sourceTree = "<group>"; };
-		3AE3A27117ED5B1300DC05A8 /* bullist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullist.png; sourceTree = "<group>"; };
-		3AE3A27217ED5B1300DC05A8 /* bullist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullist@2x.png"; sourceTree = "<group>"; };
-		3AE3A27417ED5B1300DC05A8 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
-		3AE3A27517ED5B1300DC05A8 /* buttoncenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoncenter.png; sourceTree = "<group>"; };
-		3AE3A27617ED5B1300DC05A8 /* buttoncenterSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoncenterSelected.png; sourceTree = "<group>"; };
-		3AE3A27717ED5B1300DC05A8 /* buttonleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonleft.png; sourceTree = "<group>"; };
-		3AE3A27817ED5B1300DC05A8 /* buttonleftSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonleftSelected.png; sourceTree = "<group>"; };
-		3AE3A27917ED5B1300DC05A8 /* buttonright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonright.png; sourceTree = "<group>"; };
-		3AE3A27A17ED5B1300DC05A8 /* buttonrightSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonrightSelected.png; sourceTree = "<group>"; };
-		3AE3A27B17ED5B1300DC05A8 /* buttonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSelected.png; sourceTree = "<group>"; };
-		3AE3A27C17ED5B1300DC05A8 /* dropDownTriangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropDownTriangle.png; sourceTree = "<group>"; };
-		3AE3A27D17ED5B1300DC05A8 /* dropDownTriangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropDownTriangle@2x.png"; sourceTree = "<group>"; };
-		3AE3A27E17ED5B1300DC05A8 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
-		3AE3A27F17ED5B1300DC05A8 /* colors.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colors.jpg; sourceTree = "<group>"; };
-		3AE3A28017ED5B1300DC05A8 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
-		3AE3A28117ED5B1300DC05A8 /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file.png; sourceTree = "<group>"; };
-		3AE3A28217ED5B1300DC05A8 /* forecolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecolor.png; sourceTree = "<group>"; };
-		3AE3A28317ED5B1300DC05A8 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		3AE3A28417ED5B1300DC05A8 /* indent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indent.png; sourceTree = "<group>"; };
-		3AE3A28517ED5B1300DC05A8 /* indent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indent@2x.png"; sourceTree = "<group>"; };
-		3AE3A28617ED5B1300DC05A8 /* italic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = italic.png; sourceTree = "<group>"; };
-		3AE3A28717ED5B1300DC05A8 /* italic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "italic@2x.png"; sourceTree = "<group>"; };
-		3AE3A28817ED5B1300DC05A8 /* justifycenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifycenter.png; sourceTree = "<group>"; };
-		3AE3A28917ED5B1300DC05A8 /* justifycenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifycenter@2x.png"; sourceTree = "<group>"; };
-		3AE3A28A17ED5B1300DC05A8 /* justifyfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyfull.png; sourceTree = "<group>"; };
-		3AE3A28B17ED5B1300DC05A8 /* justifyfull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyfull@2x.png"; sourceTree = "<group>"; };
-		3AE3A28C17ED5B1300DC05A8 /* justifyleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyleft.png; sourceTree = "<group>"; };
-		3AE3A28D17ED5B1300DC05A8 /* justifyleft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyleft@2x.png"; sourceTree = "<group>"; };
-		3AE3A28E17ED5B1300DC05A8 /* justifyright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justifyright.png; sourceTree = "<group>"; };
-		3AE3A28F17ED5B1300DC05A8 /* justifyright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justifyright@2x.png"; sourceTree = "<group>"; };
-		3AE3A29017ED5B1300DC05A8 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = "<group>"; };
-		3AE3A29117ED5B1300DC05A8 /* numlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numlist.png; sourceTree = "<group>"; };
-		3AE3A29217ED5B1300DC05A8 /* numlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numlist@2x.png"; sourceTree = "<group>"; };
-		3AE3A29317ED5B1300DC05A8 /* outdent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdent.png; sourceTree = "<group>"; };
-		3AE3A29417ED5B1300DC05A8 /* outdent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outdent@2x.png"; sourceTree = "<group>"; };
-		3AE3A29517ED5B1300DC05A8 /* redo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redo.png; sourceTree = "<group>"; };
-		3AE3A29617ED5B1300DC05A8 /* removeformat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeformat.png; sourceTree = "<group>"; };
-		3AE3A29717ED5B1300DC05A8 /* strikethrough.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strikethrough.png; sourceTree = "<group>"; };
-		3AE3A29817ED5B1300DC05A8 /* strikethrough@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "strikethrough@2x.png"; sourceTree = "<group>"; };
-		3AE3A29917ED5B1300DC05A8 /* underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = underline.png; sourceTree = "<group>"; };
-		3AE3A29A17ED5B1300DC05A8 /* underline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "underline@2x.png"; sourceTree = "<group>"; };
-		3AE3A29B17ED5B1300DC05A8 /* undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo.png; sourceTree = "<group>"; };
-		3AE3A29C17ED5B1300DC05A8 /* unlink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlink.png; sourceTree = "<group>"; };
-		3AE3A29E17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+RichTextEditor.h"; sourceTree = "<group>"; };
-		3AE3A29F17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+RichTextEditor.m"; sourceTree = "<group>"; };
-		3AE3A2A017ED5B1300DC05A8 /* UIFont+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+RichTextEditor.h"; sourceTree = "<group>"; };
-		3AE3A2A117ED5B1300DC05A8 /* UIFont+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+RichTextEditor.m"; sourceTree = "<group>"; };
-		3AE3A2A217ED5B1300DC05A8 /* UIView+RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RichTextEditor.h"; sourceTree = "<group>"; };
-		3AE3A2A317ED5B1300DC05A8 /* UIView+RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RichTextEditor.m"; sourceTree = "<group>"; };
-		3AE3A2A617ED5B1300DC05A8 /* popoverArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
-		3AE3A2A717ED5B1300DC05A8 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
-		3AE3A2A817ED5B1300DC05A8 /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
-		3AE3A2A917ED5B1300DC05A8 /* popoverArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
-		3AE3A2AA17ED5B1300DC05A8 /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
-		3AE3A2AB17ED5B1300DC05A8 /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
-		3AE3A2AC17ED5B1300DC05A8 /* popoverArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
-		3AE3A2AD17ED5B1300DC05A8 /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
-		3AE3A2AE17ED5B1300DC05A8 /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
-		3AE3A2AF17ED5B1300DC05A8 /* popoverArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
-		3AE3A2B017ED5B1300DC05A8 /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
-		3AE3A2B117ED5B1300DC05A8 /* popoverArrowUpSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUpSimple.png; sourceTree = "<group>"; };
-		3AE3A2B217ED5B1300DC05A8 /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
-		3AE3A2B317ED5B1300DC05A8 /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
-		3AE3A2B417ED5B1300DC05A8 /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
-		3AE3A2B517ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
-		3AE3A2B617ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
-		3AE3A2B717ED5B1300DC05A8 /* WEPopoverContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverContainerView.h; sourceTree = "<group>"; };
-		3AE3A2B817ED5B1300DC05A8 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverContainerView.m; sourceTree = "<group>"; };
-		3AE3A2B917ED5B1300DC05A8 /* WEPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverController.h; sourceTree = "<group>"; };
-		3AE3A2BA17ED5B1300DC05A8 /* WEPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverController.m; sourceTree = "<group>"; };
-		3AE3A2BB17ED5B1300DC05A8 /* WEPopoverParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverParentView.h; sourceTree = "<group>"; };
-		3AE3A2BC17ED5B1300DC05A8 /* WETouchableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETouchableView.h; sourceTree = "<group>"; };
-		3AE3A2BD17ED5B1300DC05A8 /* WETouchableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETouchableView.m; sourceTree = "<group>"; };
-		3AE3A2BE17ED5B1300DC05A8 /* RichTextEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditor.h; sourceTree = "<group>"; };
-		3AE3A2BF17ED5B1300DC05A8 /* RichTextEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditor.m; sourceTree = "<group>"; };
-		3AE3A2C017ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorColorPickerViewController.h; sourceTree = "<group>"; };
-		3AE3A2C117ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorColorPickerViewController.m; sourceTree = "<group>"; };
-		3AE3A2C217ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorFontPickerViewController.h; sourceTree = "<group>"; };
-		3AE3A2C317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorFontPickerViewController.m; sourceTree = "<group>"; };
-		3AE3A2C417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorFontSizePickerViewController.h; sourceTree = "<group>"; };
-		3AE3A2C517ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorFontSizePickerViewController.m; sourceTree = "<group>"; };
-		3AE3A2C617ED5B1300DC05A8 /* RichTextEditorPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorPopover.h; sourceTree = "<group>"; };
-		3AE3A2C717ED5B1300DC05A8 /* RichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorToggleButton.h; sourceTree = "<group>"; };
-		3AE3A2C817ED5B1300DC05A8 /* RichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorToggleButton.m; sourceTree = "<group>"; };
-		3AE3A2C917ED5B1300DC05A8 /* RichTextEditorToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorToolbar.h; sourceTree = "<group>"; };
-		3AE3A2CA17ED5B1300DC05A8 /* RichTextEditorToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorToolbar.m; sourceTree = "<group>"; };
-		3AE3A2CD17ED5B1300DC05A8 /* XDCutImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDCutImageViewController.h; sourceTree = "<group>"; };
-		3AE3A2CE17ED5B1300DC05A8 /* XDCutImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCutImageViewController.m; sourceTree = "<group>"; };
-		3AE3A2D017ED5B1300DC05A8 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
-		3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
-		3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDManagerHelper.h; sourceTree = "<group>"; };
-		3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDManagerHelper.m; sourceTree = "<group>"; };
 		3AE3A35217ED5C0400DC05A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AE3A35417ED5C0C00DC05A8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		3AE3A35617ED5C1600DC05A8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -442,120 +445,330 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A5FEA4F17F0248B0059FBF2 /* Account */ = {
+		3AADD3E717F31F1F000BEE34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA5017F0248B0059FBF2 /* XDAccountLoginViewController.h */,
-				3A5FEA5117F0248B0059FBF2 /* XDAccountLoginViewController.m */,
+				3AADD3E817F31F1F000BEE34 /* Account */,
+				3AADD3EB17F31F1F000BEE34 /* All_Plans */,
+				3AADD3F217F31F1F000BEE34 /* CustomControls */,
+				3AADD46317F31F1F000BEE34 /* Day_Plan */,
+				3AADD47017F31F1F000BEE34 /* Detail_Plan */,
+				3AADD47717F31F1F000BEE34 /* Manager */,
+				3AADD48F17F31F1F000BEE34 /* Setting */,
 			);
-			name = Account;
-			path = Classes/Account;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		3A5FEA5717F0248B0059FBF2 /* Setting */ = {
+		3AADD3E817F31F1F000BEE34 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA5817F0248B0059FBF2 /* XDSetting.plist */,
-				3A5FEA5917F0248B0059FBF2 /* XDSettingViewController.h */,
-				3A5FEA5A17F0248B0059FBF2 /* XDSettingViewController.m */,
+				3AADD3E917F31F1F000BEE34 /* XDAccountLoginViewController.h */,
+				3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */,
 			);
-			name = Setting;
-			path = Classes/Setting;
+			path = Account;
 			sourceTree = "<group>";
 		};
-		3A5FEA7A17F034B20059FBF2 /* Dataplan */ = {
+		3AADD3EB17F31F1F000BEE34 /* All_Plans */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA7B17F034B20059FBF2 /* color */,
-				3A5FEA7F17F034B20059FBF2 /* mood */,
-				3A5FEA8317F034B20059FBF2 /* XDDataPlanCell.h */,
-				3A5FEA8417F034B20059FBF2 /* XDDataPlanCell.m */,
-				3A5FEA8517F034B20059FBF2 /* XDDataPlanViewController.h */,
-				3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */,
+				3AADD3EC17F31F1F000BEE34 /* XDAllPlansCell.h */,
+				3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */,
+				3AADD3EE17F31F1F000BEE34 /* XDAllPlansViewController.h */,
+				3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */,
+				3AADD3F017F31F1F000BEE34 /* XDNewPlanViewController.h */,
+				3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */,
 			);
-			name = Dataplan;
-			path = Classes/Dataplan;
+			path = All_Plans;
 			sourceTree = "<group>";
 		};
-		3A5FEA7B17F034B20059FBF2 /* color */ = {
+		3AADD3F217F31F1F000BEE34 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA7C17F034B20059FBF2 /* XDColor.plist */,
-				3A5FEA7D17F034B20059FBF2 /* XDColorViewController.h */,
-				3A5FEA7E17F034B20059FBF2 /* XDColorViewController.m */,
+				3AADD3F317F31F1F000BEE34 /* DatePicker */,
+				3AADD3F617F31F1F000BEE34 /* JASidePanels */,
+				3AADD3FB17F31F1F000BEE34 /* REMenu */,
+				3AADD40417F31F1F000BEE34 /* RichTextEditor */,
 			);
-			path = color;
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
-		3A5FEA7F17F034B20059FBF2 /* mood */ = {
+		3AADD3F317F31F1F000BEE34 /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA8017F034B20059FBF2 /* XDMood.plist */,
-				3A5FEA8117F034B20059FBF2 /* XDMoodPicker.h */,
-				3A5FEA8217F034B20059FBF2 /* XDMoodPicker.m */,
-			);
-			path = mood;
-			sourceTree = "<group>";
-		};
-		3A5FEA8717F034B20059FBF2 /* PlanDetail */ = {
-			isa = PBXGroup;
-			children = (
-				3A5FEA8817F034B20059FBF2 /* XDPlanDetailCell.h */,
-				3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */,
-				3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */,
-				3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */,
-				3A9AEED717F2B08E002E201F /* XDPlanScrollView.h */,
-				3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */,
-			);
-			name = PlanDetail;
-			path = Classes/PlanDetail;
-			sourceTree = "<group>";
-		};
-		3A9AEED017F2938C002E201F /* DatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				3A9AEED417F2A685002E201F /* XDDatePicker.h */,
-				3A9AEED517F2A685002E201F /* XDDatePicker.m */,
+				3AADD3F417F31F1F000BEE34 /* XDDatePicker.h */,
+				3AADD3F517F31F1F000BEE34 /* XDDatePicker.m */,
 			);
 			path = DatePicker;
 			sourceTree = "<group>";
 		};
-		3A9AEEDA17F2E738002E201F /* REMenu */ = {
+		3AADD3F617F31F1F000BEE34 /* JASidePanels */ = {
 			isa = PBXGroup;
 			children = (
-				3A9AEEDB17F2E738002E201F /* REMenu.h */,
-				3A9AEEDC17F2E738002E201F /* REMenu.m */,
-				3A9AEEDD17F2E738002E201F /* REMenuContainerView.h */,
-				3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */,
-				3A9AEEDF17F2E738002E201F /* REMenuItem.h */,
-				3A9AEEE017F2E738002E201F /* REMenuItem.m */,
-				3A9AEEE117F2E738002E201F /* REMenuItemView.h */,
-				3A9AEEE217F2E738002E201F /* REMenuItemView.m */,
+				3AADD3F717F31F1F000BEE34 /* JASidePanelController.h */,
+				3AADD3F817F31F1F000BEE34 /* JASidePanelController.m */,
+				3AADD3F917F31F1F000BEE34 /* UIViewController+JASidePanel.h */,
+				3AADD3FA17F31F1F000BEE34 /* UIViewController+JASidePanel.m */,
+			);
+			path = JASidePanels;
+			sourceTree = "<group>";
+		};
+		3AADD3FB17F31F1F000BEE34 /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD3FC17F31F1F000BEE34 /* REMenu.h */,
+				3AADD3FD17F31F1F000BEE34 /* REMenu.m */,
+				3AADD3FE17F31F1F000BEE34 /* REMenuContainerView.h */,
+				3AADD3FF17F31F1F000BEE34 /* REMenuContainerView.m */,
+				3AADD40017F31F1F000BEE34 /* REMenuItem.h */,
+				3AADD40117F31F1F000BEE34 /* REMenuItem.m */,
+				3AADD40217F31F1F000BEE34 /* REMenuItemView.h */,
+				3AADD40317F31F1F000BEE34 /* REMenuItemView.m */,
 			);
 			path = REMenu;
 			sourceTree = "<group>";
 		};
-		3AADD3C317F3113B000BEE34 /* DataBaseManager */ = {
+		3AADD40417F31F1F000BEE34 /* RichTextEditor */ = {
 			isa = PBXGroup;
 			children = (
-				3AADD3C417F3113B000BEE34 /* model */,
-				3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */,
+				3AADD40517F31F1F000BEE34 /* Assets */,
+				3AADD43517F31F1F000BEE34 /* Categories */,
+				3AADD43C17F31F1F000BEE34 /* iphone Popover */,
+				3AADD45617F31F1F000BEE34 /* RichTextEditor.h */,
+				3AADD45717F31F1F000BEE34 /* RichTextEditor.m */,
+				3AADD45817F31F1F000BEE34 /* RichTextEditorColorPickerViewController.h */,
+				3AADD45917F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m */,
+				3AADD45A17F31F1F000BEE34 /* RichTextEditorFontPickerViewController.h */,
+				3AADD45B17F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m */,
+				3AADD45C17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.h */,
+				3AADD45D17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m */,
+				3AADD45E17F31F1F000BEE34 /* RichTextEditorPopover.h */,
+				3AADD45F17F31F1F000BEE34 /* RichTextEditorToggleButton.h */,
+				3AADD46017F31F1F000BEE34 /* RichTextEditorToggleButton.m */,
+				3AADD46117F31F1F000BEE34 /* RichTextEditorToolbar.h */,
+				3AADD46217F31F1F000BEE34 /* RichTextEditorToolbar.m */,
+			);
+			path = RichTextEditor;
+			sourceTree = "<group>";
+		};
+		3AADD40517F31F1F000BEE34 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD40617F31F1F000BEE34 /* backcolor.png */,
+				3AADD40717F31F1F000BEE34 /* bold.png */,
+				3AADD40817F31F1F000BEE34 /* bold@2x.png */,
+				3AADD40917F31F1F000BEE34 /* bullist.png */,
+				3AADD40A17F31F1F000BEE34 /* bullist@2x.png */,
+				3AADD40B17F31F1F000BEE34 /* buttons */,
+				3AADD41617F31F1F000BEE34 /* code.png */,
+				3AADD41717F31F1F000BEE34 /* colors.jpg */,
+				3AADD41817F31F1F000BEE34 /* email.png */,
+				3AADD41917F31F1F000BEE34 /* file.png */,
+				3AADD41A17F31F1F000BEE34 /* forecolor.png */,
+				3AADD41B17F31F1F000BEE34 /* image.png */,
+				3AADD41C17F31F1F000BEE34 /* indent.png */,
+				3AADD41D17F31F1F000BEE34 /* indent@2x.png */,
+				3AADD41E17F31F1F000BEE34 /* italic.png */,
+				3AADD41F17F31F1F000BEE34 /* italic@2x.png */,
+				3AADD42017F31F1F000BEE34 /* justifycenter.png */,
+				3AADD42117F31F1F000BEE34 /* justifycenter@2x.png */,
+				3AADD42217F31F1F000BEE34 /* justifyfull.png */,
+				3AADD42317F31F1F000BEE34 /* justifyfull@2x.png */,
+				3AADD42417F31F1F000BEE34 /* justifyleft.png */,
+				3AADD42517F31F1F000BEE34 /* justifyleft@2x.png */,
+				3AADD42617F31F1F000BEE34 /* justifyright.png */,
+				3AADD42717F31F1F000BEE34 /* justifyright@2x.png */,
+				3AADD42817F31F1F000BEE34 /* link.png */,
+				3AADD42917F31F1F000BEE34 /* numlist.png */,
+				3AADD42A17F31F1F000BEE34 /* numlist@2x.png */,
+				3AADD42B17F31F1F000BEE34 /* outdent.png */,
+				3AADD42C17F31F1F000BEE34 /* outdent@2x.png */,
+				3AADD42D17F31F1F000BEE34 /* redo.png */,
+				3AADD42E17F31F1F000BEE34 /* removeformat.png */,
+				3AADD42F17F31F1F000BEE34 /* strikethrough.png */,
+				3AADD43017F31F1F000BEE34 /* strikethrough@2x.png */,
+				3AADD43117F31F1F000BEE34 /* underline.png */,
+				3AADD43217F31F1F000BEE34 /* underline@2x.png */,
+				3AADD43317F31F1F000BEE34 /* undo.png */,
+				3AADD43417F31F1F000BEE34 /* unlink.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3AADD40B17F31F1F000BEE34 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD40C17F31F1F000BEE34 /* button.png */,
+				3AADD40D17F31F1F000BEE34 /* buttoncenter.png */,
+				3AADD40E17F31F1F000BEE34 /* buttoncenterSelected.png */,
+				3AADD40F17F31F1F000BEE34 /* buttonleft.png */,
+				3AADD41017F31F1F000BEE34 /* buttonleftSelected.png */,
+				3AADD41117F31F1F000BEE34 /* buttonright.png */,
+				3AADD41217F31F1F000BEE34 /* buttonrightSelected.png */,
+				3AADD41317F31F1F000BEE34 /* buttonSelected.png */,
+				3AADD41417F31F1F000BEE34 /* dropDownTriangle.png */,
+				3AADD41517F31F1F000BEE34 /* dropDownTriangle@2x.png */,
+			);
+			path = buttons;
+			sourceTree = "<group>";
+		};
+		3AADD43517F31F1F000BEE34 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD43617F31F1F000BEE34 /* NSAttributedString+RichTextEditor.h */,
+				3AADD43717F31F1F000BEE34 /* NSAttributedString+RichTextEditor.m */,
+				3AADD43817F31F1F000BEE34 /* UIFont+RichTextEditor.h */,
+				3AADD43917F31F1F000BEE34 /* UIFont+RichTextEditor.m */,
+				3AADD43A17F31F1F000BEE34 /* UIView+RichTextEditor.h */,
+				3AADD43B17F31F1F000BEE34 /* UIView+RichTextEditor.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3AADD43C17F31F1F000BEE34 /* iphone Popover */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD43D17F31F1F000BEE34 /* Assets */,
+				3AADD44D17F31F1F000BEE34 /* UIBarButtonItem+WEPopover.h */,
+				3AADD44E17F31F1F000BEE34 /* UIBarButtonItem+WEPopover.m */,
+				3AADD44F17F31F1F000BEE34 /* WEPopoverContainerView.h */,
+				3AADD45017F31F1F000BEE34 /* WEPopoverContainerView.m */,
+				3AADD45117F31F1F000BEE34 /* WEPopoverController.h */,
+				3AADD45217F31F1F000BEE34 /* WEPopoverController.m */,
+				3AADD45317F31F1F000BEE34 /* WEPopoverParentView.h */,
+				3AADD45417F31F1F000BEE34 /* WETouchableView.h */,
+				3AADD45517F31F1F000BEE34 /* WETouchableView.m */,
+			);
+			path = "iphone Popover";
+			sourceTree = "<group>";
+		};
+		3AADD43D17F31F1F000BEE34 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD43E17F31F1F000BEE34 /* popoverArrowDown.png */,
+				3AADD43F17F31F1F000BEE34 /* popoverArrowDown@2x.png */,
+				3AADD44017F31F1F000BEE34 /* popoverArrowDownSimple.png */,
+				3AADD44117F31F1F000BEE34 /* popoverArrowLeft.png */,
+				3AADD44217F31F1F000BEE34 /* popoverArrowLeft@2x.png */,
+				3AADD44317F31F1F000BEE34 /* popoverArrowLeftSimple.png */,
+				3AADD44417F31F1F000BEE34 /* popoverArrowRight.png */,
+				3AADD44517F31F1F000BEE34 /* popoverArrowRight@2x.png */,
+				3AADD44617F31F1F000BEE34 /* popoverArrowRightSimple.png */,
+				3AADD44717F31F1F000BEE34 /* popoverArrowUp.png */,
+				3AADD44817F31F1F000BEE34 /* popoverArrowUp@2x.png */,
+				3AADD44917F31F1F000BEE34 /* popoverArrowUpSimple.png */,
+				3AADD44A17F31F1F000BEE34 /* popoverBg.png */,
+				3AADD44B17F31F1F000BEE34 /* popoverBg@2x.png */,
+				3AADD44C17F31F1F000BEE34 /* popoverBgSimple.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3AADD46317F31F1F000BEE34 /* Day_Plan */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD46417F31F1F000BEE34 /* color */,
+				3AADD46817F31F1F000BEE34 /* mood */,
+				3AADD46C17F31F1F000BEE34 /* XDDayPlanCell.h */,
+				3AADD46D17F31F1F000BEE34 /* XDDayPlanCell.m */,
+				3AADD46E17F31F1F000BEE34 /* XDDayPlanViewController.h */,
+				3AADD46F17F31F1F000BEE34 /* XDDayPlanViewController.m */,
+			);
+			path = Day_Plan;
+			sourceTree = "<group>";
+		};
+		3AADD46417F31F1F000BEE34 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD46517F31F1F000BEE34 /* XDColor.plist */,
+				3AADD46617F31F1F000BEE34 /* XDColorViewController.h */,
+				3AADD46717F31F1F000BEE34 /* XDColorViewController.m */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		3AADD46817F31F1F000BEE34 /* mood */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD46917F31F1F000BEE34 /* XDMood.plist */,
+				3AADD46A17F31F1F000BEE34 /* XDMoodPicker.h */,
+				3AADD46B17F31F1F000BEE34 /* XDMoodPicker.m */,
+			);
+			path = mood;
+			sourceTree = "<group>";
+		};
+		3AADD47017F31F1F000BEE34 /* Detail_Plan */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD47117F31F1F000BEE34 /* XDPlanDetailCell.h */,
+				3AADD47217F31F1F000BEE34 /* XDPlanDetailCell.m */,
+				3AADD47317F31F1F000BEE34 /* XDPlanDetailViewController.h */,
+				3AADD47417F31F1F000BEE34 /* XDPlanDetailViewController.m */,
+				3AADD47517F31F1F000BEE34 /* XDPlanScrollView.h */,
+				3AADD47617F31F1F000BEE34 /* XDPlanScrollView.m */,
+			);
+			path = Detail_Plan;
+			sourceTree = "<group>";
+		};
+		3AADD47717F31F1F000BEE34 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD47817F31F1F000BEE34 /* cutImage */,
+				3AADD47B17F31F1F000BEE34 /* DataBaseManager */,
+				3AADD48517F31F1F000BEE34 /* UIColor */,
+				3AADD48817F31F1F000BEE34 /* XDManagerHelper.h */,
+				3AADD48917F31F1F000BEE34 /* XDManagerHelper.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		3AADD47817F31F1F000BEE34 /* cutImage */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD47917F31F1F000BEE34 /* XDCutImageViewController.h */,
+				3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */,
+			);
+			path = cutImage;
+			sourceTree = "<group>";
+		};
+		3AADD47B17F31F1F000BEE34 /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD47C17F31F1F000BEE34 /* model */,
+				3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */,
 			);
 			path = DataBaseManager;
 			sourceTree = "<group>";
 		};
-		3AADD3C417F3113B000BEE34 /* model */ = {
+		3AADD47C17F31F1F000BEE34 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				3AADD3E117F315B4000BEE34 /* DayPlan.h */,
-				3AADD3E217F315B4000BEE34 /* DayPlan.m */,
-				3AADD3DE17F315B4000BEE34 /* User.h */,
-				3AADD3DF17F315B4000BEE34 /* User.m */,
-				3AADD3DB17F315B3000BEE34 /* WantPlan.h */,
-				3AADD3DC17F315B3000BEE34 /* WantPlan.m */,
-				3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */,
+				3AADD47D17F31F1F000BEE34 /* DayPlan.h */,
+				3AADD47E17F31F1F000BEE34 /* DayPlan.m */,
+				3AADD47F17F31F1F000BEE34 /* User.h */,
+				3AADD48017F31F1F000BEE34 /* User.m */,
+				3AADD48117F31F1F000BEE34 /* WantPlan.h */,
+				3AADD48217F31F1F000BEE34 /* WantPlan.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		3AADD48517F31F1F000BEE34 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD48617F31F1F000BEE34 /* UIColor+Category.h */,
+				3AADD48717F31F1F000BEE34 /* UIColor+Category.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		3AADD48F17F31F1F000BEE34 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD49017F31F1F000BEE34 /* XDSetting.plist */,
+				3AADD49117F31F1F000BEE34 /* XDSettingViewController.h */,
+				3AADD49217F31F1F000BEE34 /* XDSettingViewController.m */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		3AE3A21D17ED47A700DC05A8 = {
@@ -593,15 +806,11 @@
 		3AE3A23217ED47A700DC05A8 /* XDPlans */ = {
 			isa = PBXGroup;
 			children = (
-				3A5FEA7A17F034B20059FBF2 /* Dataplan */,
-				3A5FEA8717F034B20059FBF2 /* PlanDetail */,
-				3A5FEA4F17F0248B0059FBF2 /* Account */,
-				3A5FEA5717F0248B0059FBF2 /* Setting */,
-				3AE3A26617ED5B1300DC05A8 /* CustomControls */,
-				3AE3A2CB17ED5B1300DC05A8 /* Manager */,
-				3AE3A25B17ED5AB400DC05A8 /* All_plans */,
+				3AADD3E717F31F1F000BEE34 /* Classes */,
 				3AE3A25817ED59F300DC05A8 /* XDAppDelegate.h */,
 				3AE3A25917ED59F300DC05A8 /* XDAppDelegate.m */,
+				3AADD3E417F31E94000BEE34 /* XDRootViewController.h */,
+				3AADD3E517F31E94000BEE34 /* XDRootViewController.m */,
 				3AE3A23317ED47A700DC05A8 /* Supporting Files */,
 			);
 			path = XDPlans;
@@ -621,209 +830,6 @@
 				3AE3A24217ED47A700DC05A8 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3AE3A25B17ED5AB400DC05A8 /* All_plans */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A25C17ED5AB400DC05A8 /* XDAllPlansCell.h */,
-				3AE3A25D17ED5AB400DC05A8 /* XDAllPlansCell.m */,
-				3AE3A25E17ED5AB400DC05A8 /* XDAllPlansViewController.h */,
-				3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */,
-				3AE3A26017ED5AB400DC05A8 /* XDNewPlanViewController.h */,
-			);
-			name = All_plans;
-			path = Classes/All_plans;
-			sourceTree = "<group>";
-		};
-		3AE3A26617ED5B1300DC05A8 /* CustomControls */ = {
-			isa = PBXGroup;
-			children = (
-				3A9AEEDA17F2E738002E201F /* REMenu */,
-				3A9AEED017F2938C002E201F /* DatePicker */,
-				3AE3A26717ED5B1300DC05A8 /* JASidePanels */,
-				3AE3A26C17ED5B1300DC05A8 /* RichTextEditor */,
-			);
-			name = CustomControls;
-			path = Classes/CustomControls;
-			sourceTree = "<group>";
-		};
-		3AE3A26717ED5B1300DC05A8 /* JASidePanels */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A26817ED5B1300DC05A8 /* JASidePanelController.h */,
-				3AE3A26917ED5B1300DC05A8 /* JASidePanelController.m */,
-				3AE3A26A17ED5B1300DC05A8 /* UIViewController+JASidePanel.h */,
-				3AE3A26B17ED5B1300DC05A8 /* UIViewController+JASidePanel.m */,
-			);
-			path = JASidePanels;
-			sourceTree = "<group>";
-		};
-		3AE3A26C17ED5B1300DC05A8 /* RichTextEditor */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A26D17ED5B1300DC05A8 /* Assets */,
-				3AE3A29D17ED5B1300DC05A8 /* Categories */,
-				3AE3A2A417ED5B1300DC05A8 /* iphone Popover */,
-				3AE3A2BE17ED5B1300DC05A8 /* RichTextEditor.h */,
-				3AE3A2BF17ED5B1300DC05A8 /* RichTextEditor.m */,
-				3AE3A2C017ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.h */,
-				3AE3A2C117ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m */,
-				3AE3A2C217ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.h */,
-				3AE3A2C317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m */,
-				3AE3A2C417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.h */,
-				3AE3A2C517ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m */,
-				3AE3A2C617ED5B1300DC05A8 /* RichTextEditorPopover.h */,
-				3AE3A2C717ED5B1300DC05A8 /* RichTextEditorToggleButton.h */,
-				3AE3A2C817ED5B1300DC05A8 /* RichTextEditorToggleButton.m */,
-				3AE3A2C917ED5B1300DC05A8 /* RichTextEditorToolbar.h */,
-				3AE3A2CA17ED5B1300DC05A8 /* RichTextEditorToolbar.m */,
-			);
-			path = RichTextEditor;
-			sourceTree = "<group>";
-		};
-		3AE3A26D17ED5B1300DC05A8 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A26E17ED5B1300DC05A8 /* backcolor.png */,
-				3AE3A26F17ED5B1300DC05A8 /* bold.png */,
-				3AE3A27017ED5B1300DC05A8 /* bold@2x.png */,
-				3AE3A27117ED5B1300DC05A8 /* bullist.png */,
-				3AE3A27217ED5B1300DC05A8 /* bullist@2x.png */,
-				3AE3A27317ED5B1300DC05A8 /* buttons */,
-				3AE3A27E17ED5B1300DC05A8 /* code.png */,
-				3AE3A27F17ED5B1300DC05A8 /* colors.jpg */,
-				3AE3A28017ED5B1300DC05A8 /* email.png */,
-				3AE3A28117ED5B1300DC05A8 /* file.png */,
-				3AE3A28217ED5B1300DC05A8 /* forecolor.png */,
-				3AE3A28317ED5B1300DC05A8 /* image.png */,
-				3AE3A28417ED5B1300DC05A8 /* indent.png */,
-				3AE3A28517ED5B1300DC05A8 /* indent@2x.png */,
-				3AE3A28617ED5B1300DC05A8 /* italic.png */,
-				3AE3A28717ED5B1300DC05A8 /* italic@2x.png */,
-				3AE3A28817ED5B1300DC05A8 /* justifycenter.png */,
-				3AE3A28917ED5B1300DC05A8 /* justifycenter@2x.png */,
-				3AE3A28A17ED5B1300DC05A8 /* justifyfull.png */,
-				3AE3A28B17ED5B1300DC05A8 /* justifyfull@2x.png */,
-				3AE3A28C17ED5B1300DC05A8 /* justifyleft.png */,
-				3AE3A28D17ED5B1300DC05A8 /* justifyleft@2x.png */,
-				3AE3A28E17ED5B1300DC05A8 /* justifyright.png */,
-				3AE3A28F17ED5B1300DC05A8 /* justifyright@2x.png */,
-				3AE3A29017ED5B1300DC05A8 /* link.png */,
-				3AE3A29117ED5B1300DC05A8 /* numlist.png */,
-				3AE3A29217ED5B1300DC05A8 /* numlist@2x.png */,
-				3AE3A29317ED5B1300DC05A8 /* outdent.png */,
-				3AE3A29417ED5B1300DC05A8 /* outdent@2x.png */,
-				3AE3A29517ED5B1300DC05A8 /* redo.png */,
-				3AE3A29617ED5B1300DC05A8 /* removeformat.png */,
-				3AE3A29717ED5B1300DC05A8 /* strikethrough.png */,
-				3AE3A29817ED5B1300DC05A8 /* strikethrough@2x.png */,
-				3AE3A29917ED5B1300DC05A8 /* underline.png */,
-				3AE3A29A17ED5B1300DC05A8 /* underline@2x.png */,
-				3AE3A29B17ED5B1300DC05A8 /* undo.png */,
-				3AE3A29C17ED5B1300DC05A8 /* unlink.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		3AE3A27317ED5B1300DC05A8 /* buttons */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A27417ED5B1300DC05A8 /* button.png */,
-				3AE3A27517ED5B1300DC05A8 /* buttoncenter.png */,
-				3AE3A27617ED5B1300DC05A8 /* buttoncenterSelected.png */,
-				3AE3A27717ED5B1300DC05A8 /* buttonleft.png */,
-				3AE3A27817ED5B1300DC05A8 /* buttonleftSelected.png */,
-				3AE3A27917ED5B1300DC05A8 /* buttonright.png */,
-				3AE3A27A17ED5B1300DC05A8 /* buttonrightSelected.png */,
-				3AE3A27B17ED5B1300DC05A8 /* buttonSelected.png */,
-				3AE3A27C17ED5B1300DC05A8 /* dropDownTriangle.png */,
-				3AE3A27D17ED5B1300DC05A8 /* dropDownTriangle@2x.png */,
-			);
-			path = buttons;
-			sourceTree = "<group>";
-		};
-		3AE3A29D17ED5B1300DC05A8 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A29E17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.h */,
-				3AE3A29F17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m */,
-				3AE3A2A017ED5B1300DC05A8 /* UIFont+RichTextEditor.h */,
-				3AE3A2A117ED5B1300DC05A8 /* UIFont+RichTextEditor.m */,
-				3AE3A2A217ED5B1300DC05A8 /* UIView+RichTextEditor.h */,
-				3AE3A2A317ED5B1300DC05A8 /* UIView+RichTextEditor.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		3AE3A2A417ED5B1300DC05A8 /* iphone Popover */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2A517ED5B1300DC05A8 /* Assets */,
-				3AE3A2B517ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.h */,
-				3AE3A2B617ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m */,
-				3AE3A2B717ED5B1300DC05A8 /* WEPopoverContainerView.h */,
-				3AE3A2B817ED5B1300DC05A8 /* WEPopoverContainerView.m */,
-				3AE3A2B917ED5B1300DC05A8 /* WEPopoverController.h */,
-				3AE3A2BA17ED5B1300DC05A8 /* WEPopoverController.m */,
-				3AE3A2BB17ED5B1300DC05A8 /* WEPopoverParentView.h */,
-				3AE3A2BC17ED5B1300DC05A8 /* WETouchableView.h */,
-				3AE3A2BD17ED5B1300DC05A8 /* WETouchableView.m */,
-			);
-			path = "iphone Popover";
-			sourceTree = "<group>";
-		};
-		3AE3A2A517ED5B1300DC05A8 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2A617ED5B1300DC05A8 /* popoverArrowDown.png */,
-				3AE3A2A717ED5B1300DC05A8 /* popoverArrowDown@2x.png */,
-				3AE3A2A817ED5B1300DC05A8 /* popoverArrowDownSimple.png */,
-				3AE3A2A917ED5B1300DC05A8 /* popoverArrowLeft.png */,
-				3AE3A2AA17ED5B1300DC05A8 /* popoverArrowLeft@2x.png */,
-				3AE3A2AB17ED5B1300DC05A8 /* popoverArrowLeftSimple.png */,
-				3AE3A2AC17ED5B1300DC05A8 /* popoverArrowRight.png */,
-				3AE3A2AD17ED5B1300DC05A8 /* popoverArrowRight@2x.png */,
-				3AE3A2AE17ED5B1300DC05A8 /* popoverArrowRightSimple.png */,
-				3AE3A2AF17ED5B1300DC05A8 /* popoverArrowUp.png */,
-				3AE3A2B017ED5B1300DC05A8 /* popoverArrowUp@2x.png */,
-				3AE3A2B117ED5B1300DC05A8 /* popoverArrowUpSimple.png */,
-				3AE3A2B217ED5B1300DC05A8 /* popoverBg.png */,
-				3AE3A2B317ED5B1300DC05A8 /* popoverBg@2x.png */,
-				3AE3A2B417ED5B1300DC05A8 /* popoverBgSimple.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		3AE3A2CB17ED5B1300DC05A8 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				3AADD3C317F3113B000BEE34 /* DataBaseManager */,
-				3AE3A2CC17ED5B1300DC05A8 /* cutImage */,
-				3AE3A2CF17ED5B1300DC05A8 /* UIColor */,
-				3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */,
-				3AE3A2EA17ED5B1300DC05A8 /* XDManagerHelper.m */,
-			);
-			name = Manager;
-			path = Classes/Manager;
-			sourceTree = "<group>";
-		};
-		3AE3A2CC17ED5B1300DC05A8 /* cutImage */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2CD17ED5B1300DC05A8 /* XDCutImageViewController.h */,
-				3AE3A2CE17ED5B1300DC05A8 /* XDCutImageViewController.m */,
-			);
-			path = cutImage;
-			sourceTree = "<group>";
-		};
-		3AE3A2CF17ED5B1300DC05A8 /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3A2D017ED5B1300DC05A8 /* UIColor+Category.h */,
-				3AE3A2D117ED5B1300DC05A8 /* UIColor+Category.m */,
-			);
-			path = UIColor;
 			sourceTree = "<group>";
 		};
 		3AE3A35A17ED5C4E00DC05A8 /* Images */ = {
@@ -1009,73 +1015,9 @@
 			files = (
 				3AE3A23717ED47A700DC05A8 /* InfoPlist.strings in Resources */,
 				3AE3A24117ED47A700DC05A8 /* Default@2x.png in Resources */,
-				3A5FEA6B17F0248B0059FBF2 /* XDSetting.plist in Resources */,
 				3AE3A24317ED47A700DC05A8 /* Default-568h@2x.png in Resources */,
-				3AE3A2ED17ED5B1300DC05A8 /* backcolor.png in Resources */,
 				3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */,
-				3AE3A2EE17ED5B1300DC05A8 /* bold.png in Resources */,
 				3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */,
-				3AE3A2EF17ED5B1300DC05A8 /* bold@2x.png in Resources */,
-				3AE3A2F017ED5B1300DC05A8 /* bullist.png in Resources */,
-				3A5FEA8C17F034B20059FBF2 /* XDColor.plist in Resources */,
-				3AE3A2F117ED5B1300DC05A8 /* bullist@2x.png in Resources */,
-				3AE3A2F217ED5B1300DC05A8 /* button.png in Resources */,
-				3AE3A2F317ED5B1300DC05A8 /* buttoncenter.png in Resources */,
-				3AE3A2F417ED5B1300DC05A8 /* buttoncenterSelected.png in Resources */,
-				3A5FEA8E17F034B20059FBF2 /* XDMood.plist in Resources */,
-				3AE3A2F517ED5B1300DC05A8 /* buttonleft.png in Resources */,
-				3AE3A2F617ED5B1300DC05A8 /* buttonleftSelected.png in Resources */,
-				3AE3A2F717ED5B1300DC05A8 /* buttonright.png in Resources */,
-				3AE3A2F817ED5B1300DC05A8 /* buttonrightSelected.png in Resources */,
-				3AE3A2F917ED5B1300DC05A8 /* buttonSelected.png in Resources */,
-				3AE3A2FA17ED5B1300DC05A8 /* dropDownTriangle.png in Resources */,
-				3AE3A2FB17ED5B1300DC05A8 /* dropDownTriangle@2x.png in Resources */,
-				3AE3A2FC17ED5B1300DC05A8 /* code.png in Resources */,
-				3AE3A2FD17ED5B1300DC05A8 /* colors.jpg in Resources */,
-				3AE3A2FE17ED5B1300DC05A8 /* email.png in Resources */,
-				3AE3A2FF17ED5B1300DC05A8 /* file.png in Resources */,
-				3AE3A30017ED5B1300DC05A8 /* forecolor.png in Resources */,
-				3AE3A30117ED5B1300DC05A8 /* image.png in Resources */,
-				3AE3A30217ED5B1300DC05A8 /* indent.png in Resources */,
-				3AE3A30317ED5B1300DC05A8 /* indent@2x.png in Resources */,
-				3AE3A30417ED5B1300DC05A8 /* italic.png in Resources */,
-				3AE3A30517ED5B1300DC05A8 /* italic@2x.png in Resources */,
-				3AE3A30617ED5B1300DC05A8 /* justifycenter.png in Resources */,
-				3AE3A30717ED5B1300DC05A8 /* justifycenter@2x.png in Resources */,
-				3AE3A30817ED5B1300DC05A8 /* justifyfull.png in Resources */,
-				3AE3A30917ED5B1300DC05A8 /* justifyfull@2x.png in Resources */,
-				3AE3A30A17ED5B1300DC05A8 /* justifyleft.png in Resources */,
-				3AE3A30B17ED5B1300DC05A8 /* justifyleft@2x.png in Resources */,
-				3AE3A30C17ED5B1300DC05A8 /* justifyright.png in Resources */,
-				3AE3A30D17ED5B1300DC05A8 /* justifyright@2x.png in Resources */,
-				3AE3A30E17ED5B1300DC05A8 /* link.png in Resources */,
-				3AE3A30F17ED5B1300DC05A8 /* numlist.png in Resources */,
-				3AE3A31017ED5B1300DC05A8 /* numlist@2x.png in Resources */,
-				3AE3A31117ED5B1300DC05A8 /* outdent.png in Resources */,
-				3AE3A31217ED5B1300DC05A8 /* outdent@2x.png in Resources */,
-				3AE3A31317ED5B1300DC05A8 /* redo.png in Resources */,
-				3AE3A31417ED5B1300DC05A8 /* removeformat.png in Resources */,
-				3AE3A31517ED5B1300DC05A8 /* strikethrough.png in Resources */,
-				3AE3A31617ED5B1300DC05A8 /* strikethrough@2x.png in Resources */,
-				3AE3A31717ED5B1300DC05A8 /* underline.png in Resources */,
-				3AE3A31817ED5B1300DC05A8 /* underline@2x.png in Resources */,
-				3AE3A31917ED5B1300DC05A8 /* undo.png in Resources */,
-				3AE3A31A17ED5B1300DC05A8 /* unlink.png in Resources */,
-				3AE3A31E17ED5B1300DC05A8 /* popoverArrowDown.png in Resources */,
-				3AE3A31F17ED5B1300DC05A8 /* popoverArrowDown@2x.png in Resources */,
-				3AE3A32017ED5B1300DC05A8 /* popoverArrowDownSimple.png in Resources */,
-				3AE3A32117ED5B1300DC05A8 /* popoverArrowLeft.png in Resources */,
-				3AE3A32217ED5B1300DC05A8 /* popoverArrowLeft@2x.png in Resources */,
-				3AE3A32317ED5B1300DC05A8 /* popoverArrowLeftSimple.png in Resources */,
-				3AE3A32417ED5B1300DC05A8 /* popoverArrowRight.png in Resources */,
-				3AE3A32517ED5B1300DC05A8 /* popoverArrowRight@2x.png in Resources */,
-				3AE3A32617ED5B1300DC05A8 /* popoverArrowRightSimple.png in Resources */,
-				3AE3A32717ED5B1300DC05A8 /* popoverArrowUp.png in Resources */,
-				3AE3A32817ED5B1300DC05A8 /* popoverArrowUp@2x.png in Resources */,
-				3AE3A32917ED5B1300DC05A8 /* popoverArrowUpSimple.png in Resources */,
-				3AE3A32A17ED5B1300DC05A8 /* popoverBg.png in Resources */,
-				3AE3A32B17ED5B1300DC05A8 /* popoverBg@2x.png in Resources */,
-				3AE3A32C17ED5B1300DC05A8 /* popoverBgSimple.png in Resources */,
 				3AE3A3A417ED5C4E00DC05A8 /* account_contacts@2x.png in Resources */,
 				3AE3A3A517ED5C4E00DC05A8 /* account_contactsSelected@2x.png in Resources */,
 				3AE3A3A617ED5C4E00DC05A8 /* account_email@2x.png in Resources */,
@@ -1141,6 +1083,70 @@
 				3AE3A3E317ED5C4F00DC05A8 /* setting_use@2x.png in Resources */,
 				3AE3A3E417ED5C4F00DC05A8 /* userLoginDefault@2x.png in Resources */,
 				3AE3A3E517ED5C4F00DC05A8 /* userLogoutDefault@2x.png in Resources */,
+				3AADD4A317F31F1F000BEE34 /* backcolor.png in Resources */,
+				3AADD4A417F31F1F000BEE34 /* bold.png in Resources */,
+				3AADD4A517F31F1F000BEE34 /* bold@2x.png in Resources */,
+				3AADD4A617F31F1F000BEE34 /* bullist.png in Resources */,
+				3AADD4A717F31F1F000BEE34 /* bullist@2x.png in Resources */,
+				3AADD4A817F31F1F000BEE34 /* button.png in Resources */,
+				3AADD4A917F31F1F000BEE34 /* buttoncenter.png in Resources */,
+				3AADD4AA17F31F1F000BEE34 /* buttoncenterSelected.png in Resources */,
+				3AADD4AB17F31F1F000BEE34 /* buttonleft.png in Resources */,
+				3AADD4AC17F31F1F000BEE34 /* buttonleftSelected.png in Resources */,
+				3AADD4AD17F31F1F000BEE34 /* buttonright.png in Resources */,
+				3AADD4AE17F31F1F000BEE34 /* buttonrightSelected.png in Resources */,
+				3AADD4AF17F31F1F000BEE34 /* buttonSelected.png in Resources */,
+				3AADD4B017F31F1F000BEE34 /* dropDownTriangle.png in Resources */,
+				3AADD4B117F31F1F000BEE34 /* dropDownTriangle@2x.png in Resources */,
+				3AADD4B217F31F1F000BEE34 /* code.png in Resources */,
+				3AADD4B317F31F1F000BEE34 /* colors.jpg in Resources */,
+				3AADD4B417F31F1F000BEE34 /* email.png in Resources */,
+				3AADD4B517F31F1F000BEE34 /* file.png in Resources */,
+				3AADD4B617F31F1F000BEE34 /* forecolor.png in Resources */,
+				3AADD4B717F31F1F000BEE34 /* image.png in Resources */,
+				3AADD4B817F31F1F000BEE34 /* indent.png in Resources */,
+				3AADD4B917F31F1F000BEE34 /* indent@2x.png in Resources */,
+				3AADD4BA17F31F1F000BEE34 /* italic.png in Resources */,
+				3AADD4BB17F31F1F000BEE34 /* italic@2x.png in Resources */,
+				3AADD4BC17F31F1F000BEE34 /* justifycenter.png in Resources */,
+				3AADD4BD17F31F1F000BEE34 /* justifycenter@2x.png in Resources */,
+				3AADD4BE17F31F1F000BEE34 /* justifyfull.png in Resources */,
+				3AADD4BF17F31F1F000BEE34 /* justifyfull@2x.png in Resources */,
+				3AADD4C017F31F1F000BEE34 /* justifyleft.png in Resources */,
+				3AADD4C117F31F1F000BEE34 /* justifyleft@2x.png in Resources */,
+				3AADD4C217F31F1F000BEE34 /* justifyright.png in Resources */,
+				3AADD4C317F31F1F000BEE34 /* justifyright@2x.png in Resources */,
+				3AADD4C417F31F1F000BEE34 /* link.png in Resources */,
+				3AADD4C517F31F1F000BEE34 /* numlist.png in Resources */,
+				3AADD4C617F31F1F000BEE34 /* numlist@2x.png in Resources */,
+				3AADD4C717F31F1F000BEE34 /* outdent.png in Resources */,
+				3AADD4C817F31F1F000BEE34 /* outdent@2x.png in Resources */,
+				3AADD4C917F31F1F000BEE34 /* redo.png in Resources */,
+				3AADD4CA17F31F1F000BEE34 /* removeformat.png in Resources */,
+				3AADD4CB17F31F1F000BEE34 /* strikethrough.png in Resources */,
+				3AADD4CC17F31F1F000BEE34 /* strikethrough@2x.png in Resources */,
+				3AADD4CD17F31F1F000BEE34 /* underline.png in Resources */,
+				3AADD4CE17F31F1F000BEE34 /* underline@2x.png in Resources */,
+				3AADD4CF17F31F1F000BEE34 /* undo.png in Resources */,
+				3AADD4D017F31F1F000BEE34 /* unlink.png in Resources */,
+				3AADD4D417F31F1F000BEE34 /* popoverArrowDown.png in Resources */,
+				3AADD4D517F31F1F000BEE34 /* popoverArrowDown@2x.png in Resources */,
+				3AADD4D617F31F1F000BEE34 /* popoverArrowDownSimple.png in Resources */,
+				3AADD4D717F31F1F000BEE34 /* popoverArrowLeft.png in Resources */,
+				3AADD4D817F31F1F000BEE34 /* popoverArrowLeft@2x.png in Resources */,
+				3AADD4D917F31F1F000BEE34 /* popoverArrowLeftSimple.png in Resources */,
+				3AADD4DA17F31F1F000BEE34 /* popoverArrowRight.png in Resources */,
+				3AADD4DB17F31F1F000BEE34 /* popoverArrowRight@2x.png in Resources */,
+				3AADD4DC17F31F1F000BEE34 /* popoverArrowRightSimple.png in Resources */,
+				3AADD4DD17F31F1F000BEE34 /* popoverArrowUp.png in Resources */,
+				3AADD4DE17F31F1F000BEE34 /* popoverArrowUp@2x.png in Resources */,
+				3AADD4DF17F31F1F000BEE34 /* popoverArrowUpSimple.png in Resources */,
+				3AADD4E017F31F1F000BEE34 /* popoverBg.png in Resources */,
+				3AADD4E117F31F1F000BEE34 /* popoverBg@2x.png in Resources */,
+				3AADD4E217F31F1F000BEE34 /* popoverBgSimple.png in Resources */,
+				3AADD4ED17F31F1F000BEE34 /* XDColor.plist in Resources */,
+				3AADD4EF17F31F1F000BEE34 /* XDMood.plist in Resources */,
+				3AADD4FF17F31F1F000BEE34 /* XDSetting.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1153,45 +1159,46 @@
 			files = (
 				3AE3A23917ED47A700DC05A8 /* main.m in Sources */,
 				3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */,
-				3A9AEEE517F2E738002E201F /* REMenuItem.m in Sources */,
-				3A5FEA8F17F034B20059FBF2 /* XDMoodPicker.m in Sources */,
-				3AE3A26217ED5AB400DC05A8 /* XDAllPlansCell.m in Sources */,
-				3AE3A26317ED5AB400DC05A8 /* XDAllPlansViewController.m in Sources */,
-				3A5FEA6C17F0248B0059FBF2 /* XDSettingViewController.m in Sources */,
-				3AE3A26417ED5AB400DC05A8 /* XDNewPlanViewController.m in Sources */,
-				3AE3A2EB17ED5B1300DC05A8 /* JASidePanelController.m in Sources */,
-				3AE3A2EC17ED5B1300DC05A8 /* UIViewController+JASidePanel.m in Sources */,
-				3A5FEA9017F034B20059FBF2 /* XDDataPlanCell.m in Sources */,
-				3A9AEEE617F2E738002E201F /* REMenuItemView.m in Sources */,
-				3AE3A31B17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m in Sources */,
-				3A9AEEE317F2E738002E201F /* REMenu.m in Sources */,
-				3AE3A31C17ED5B1300DC05A8 /* UIFont+RichTextEditor.m in Sources */,
-				3AE3A31D17ED5B1300DC05A8 /* UIView+RichTextEditor.m in Sources */,
-				3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */,
-				3AE3A32D17ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m in Sources */,
-				3AE3A32E17ED5B1300DC05A8 /* WEPopoverContainerView.m in Sources */,
-				3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */,
-				3AE3A32F17ED5B1300DC05A8 /* WEPopoverController.m in Sources */,
-				3AE3A33017ED5B1300DC05A8 /* WETouchableView.m in Sources */,
-				3A5FEA8D17F034B20059FBF2 /* XDColorViewController.m in Sources */,
-				3A9AEED917F2B08E002E201F /* XDPlanScrollView.m in Sources */,
-				3AE3A33117ED5B1300DC05A8 /* RichTextEditor.m in Sources */,
-				3A9AEED617F2A685002E201F /* XDDatePicker.m in Sources */,
-				3AE3A33217ED5B1300DC05A8 /* RichTextEditorColorPickerViewController.m in Sources */,
-				3AE3A33317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m in Sources */,
-				3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */,
-				3AE3A33417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m in Sources */,
-				3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */,
-				3A9AEEE417F2E738002E201F /* REMenuContainerView.m in Sources */,
-				3AE3A33517ED5B1300DC05A8 /* RichTextEditorToggleButton.m in Sources */,
-				3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */,
-				3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */,
-				3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */,
-				3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */,
-				3AADD3D017F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */,
-				3AADD3DD17F315B4000BEE34 /* WantPlan.m in Sources */,
-				3AADD3E017F315B4000BEE34 /* User.m in Sources */,
-				3AADD3E317F315B4000BEE34 /* DayPlan.m in Sources */,
+				3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */,
+				3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */,
+				3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */,
+				3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */,
+				3AADD49B17F31F1F000BEE34 /* XDNewPlanViewController.m in Sources */,
+				3AADD49C17F31F1F000BEE34 /* XDDatePicker.m in Sources */,
+				3AADD49D17F31F1F000BEE34 /* JASidePanelController.m in Sources */,
+				3AADD49E17F31F1F000BEE34 /* UIViewController+JASidePanel.m in Sources */,
+				3AADD49F17F31F1F000BEE34 /* REMenu.m in Sources */,
+				3AADD4A017F31F1F000BEE34 /* REMenuContainerView.m in Sources */,
+				3AADD4A117F31F1F000BEE34 /* REMenuItem.m in Sources */,
+				3AADD4A217F31F1F000BEE34 /* REMenuItemView.m in Sources */,
+				3AADD4D117F31F1F000BEE34 /* NSAttributedString+RichTextEditor.m in Sources */,
+				3AADD4D217F31F1F000BEE34 /* UIFont+RichTextEditor.m in Sources */,
+				3AADD4D317F31F1F000BEE34 /* UIView+RichTextEditor.m in Sources */,
+				3AADD4E317F31F1F000BEE34 /* UIBarButtonItem+WEPopover.m in Sources */,
+				3AADD4E417F31F1F000BEE34 /* WEPopoverContainerView.m in Sources */,
+				3AADD4E517F31F1F000BEE34 /* WEPopoverController.m in Sources */,
+				3AADD4E617F31F1F000BEE34 /* WETouchableView.m in Sources */,
+				3AADD4E717F31F1F000BEE34 /* RichTextEditor.m in Sources */,
+				3AADD4E817F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m in Sources */,
+				3AADD4E917F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m in Sources */,
+				3AADD4EA17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m in Sources */,
+				3AADD4EB17F31F1F000BEE34 /* RichTextEditorToggleButton.m in Sources */,
+				3AADD4EC17F31F1F000BEE34 /* RichTextEditorToolbar.m in Sources */,
+				3AADD4EE17F31F1F000BEE34 /* XDColorViewController.m in Sources */,
+				3AADD4F017F31F1F000BEE34 /* XDMoodPicker.m in Sources */,
+				3AADD4F117F31F1F000BEE34 /* XDDayPlanCell.m in Sources */,
+				3AADD4F217F31F1F000BEE34 /* XDDayPlanViewController.m in Sources */,
+				3AADD4F317F31F1F000BEE34 /* XDPlanDetailCell.m in Sources */,
+				3AADD4F417F31F1F000BEE34 /* XDPlanDetailViewController.m in Sources */,
+				3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */,
+				3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */,
+				3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */,
+				3AADD4F817F31F1F000BEE34 /* User.m in Sources */,
+				3AADD4F917F31F1F000BEE34 /* WantPlan.m in Sources */,
+				3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */,
+				3AADD4FB17F31F1F000BEE34 /* UIColor+Category.m in Sources */,
+				3AADD4FC17F31F1F000BEE34 /* XDManagerHelper.m in Sources */,
+				3AADD50017F31F1F000BEE34 /* XDSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1312,12 +1319,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */ = {
+		3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */,
+				3AADD48417F31F1F000BEE34 /* XDPlanDatabase.xcdatamodel */,
 			);
-			currentVersion = 3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */;
+			currentVersion = 3AADD48417F31F1F000BEE34 /* XDPlanDatabase.xcdatamodel */;
 			path = XDPlanDatabase.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

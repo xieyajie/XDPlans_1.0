@@ -1,5 +1,5 @@
 //
-//  XDDataPlanCell.h
+//  XDDayPlanCell.h
 //  XDPlans
 //
 //  Created by xieyajie on 13-9-3.
@@ -31,7 +31,7 @@
 
 
 @protocol XDTodayPlayCellDelegate;
-@interface XDDataPlanCell : UITableViewCell
+@interface XDDayPlanCell : UITableViewCell
 
 @property (nonatomic, unsafe_unretained) id<XDTodayPlayCellDelegate>delegate;
 
@@ -60,7 +60,7 @@
 @protocol XDTodayPlayCellDelegate <NSObject>
 
 @optional
-- (void)planCellSelectedMoodPicker:(XDDataPlanCell *)planCell;
-- (void)planCellSelectedColorPicker:(XDDataPlanCell *)planCell;
+- (void)planCellSelectedMoodPicker:(XDDayPlanCell *)planCell;
+- (void)planCellSelectedColorPicker:(XDDayPlanCell *)planCell;
 
 @end

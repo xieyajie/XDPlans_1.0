@@ -1,5 +1,5 @@
 //
-//  XDTodayPlanCell.m
+//  XDDayPlanCell.m
 //  XDPlans
 //
 //  Created by xieyajie on 13-9-3.
@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "XDDataPlanCell.h"
+#import "XDDayPlanCell.h"
 
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
@@ -58,7 +58,7 @@
 
 @end
 
-@interface XDDataPlanCell()<XDSummaryViewDelegate>
+@interface XDDayPlanCell()<XDSummaryViewDelegate>
 {
     UIColor *_color;
 }
@@ -76,7 +76,7 @@
 
 @end
 
-@implementation XDDataPlanCell
+@implementation XDDayPlanCell
 
 @synthesize delegate = _delegate;
 

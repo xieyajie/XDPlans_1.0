@@ -11,7 +11,7 @@
 
 #import "JASidePanelController.h"
 #import "XDAccountLoginViewController.h"
-#import "XDTodayPlanViewController.h"
+#import "XDDayPlanViewController.h"
 #import "XDAllPlansViewController.h"
 #import "XDActionPlanViewController.h"
 #import "XDSettingViewController.h"
