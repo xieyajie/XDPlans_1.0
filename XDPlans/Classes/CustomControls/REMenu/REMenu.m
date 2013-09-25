@@ -52,21 +52,19 @@
     if (!self)
         return nil;
     
-    _containerView = [[REMenuContainerView alloc] init];
-    _menuView = [[UIView alloc] init];
     _menuWrapperView = [[UIView alloc] init];
-    _menuView.layer.masksToBounds = YES;
-    _menuView.layer.shouldRasterize = YES;
-    _menuView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    _menuView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _menuWrapperView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _menuWrapperView.layer.shouldRasterize = YES;
     _menuWrapperView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    
     _containerView = [[REMenuContainerView alloc] init];
+    
     _backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _backgroundButton.accessibilityLabel = NSLocalizedString(@"Menu background", @"Menu background");
     _backgroundButton.accessibilityHint = NSLocalizedString(@"Double tap to close", @"Double tap to close");
     [_backgroundButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+//    _backgroundButton.backgroundColor = [UIColor blackColor];
+//    _backgroundButton.alpha = 0.3;
     
     self.items = items;
     self.itemHeight = 48;
@@ -75,9 +73,9 @@
     
     self.textOffset = CGSizeMake(0, 0);
     self.subtitleTextOffset = CGSizeMake(0, 0);
-    self.font = [UIFont boldSystemFontOfSize:21];
+    self.font = [UIFont boldSystemFontOfSize:20];
     self.subtitleFont = [UIFont systemFontOfSize:14];
-    
+
     self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
     self.separatorColor = [UIColor colorWithPatternImage:self.separatorImage];
     self.textColor = [UIColor colorWithRed:128/255.0 green:126/255.0 blue:124/255.0 alpha:1];
@@ -113,39 +111,8 @@
     
     // Remove item views from superview
     //
-    for (UIView *view in _menuView.subviews)
-        [view removeFromSuperview];
-    
-    // Append new item views to REMenuView
-    //
-    for (REMenuItem *item in _items) {
-        NSInteger index = [_items indexOfObject:item];
-        
-        CGFloat itemHeight = _itemHeight;
-        if (index == _items.count - 1)
-            itemHeight += _cornerRadius;
-        
-        UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                                         index * _itemHeight + (index) * _separatorHeight + 40,
-                                                                         navigationController.navigationBar.frame.size.width,
-                                                                         _separatorHeight)];
-        separatorView.backgroundColor = _separatorColor;
-        separatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [_menuView addSubview:separatorView];
-        
-        REMenuItemView *itemView = [[REMenuItemView alloc] initWithFrame:CGRectMake(0,
-                                                                                    index * _itemHeight + (index+1) * _separatorHeight + 40,
-                                                                                    navigationController.navigationBar.frame.size.width,
-                                                                                    itemHeight)
-                                                                    menu:self
-                                                             hasSubtitle:item.subtitle.length > 0];
-        itemView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        itemView.item = item;
-        item.itemView = itemView;
-        itemView.separatorView = separatorView;
-        itemView.autoresizesSubviews = YES;
-        [_menuView addSubview:itemView];
-    }
+//    for (UIView *view in _menuView.subviews)
+//        [view removeFromSuperview];
     
     // Set up frames
     //
@@ -153,7 +120,8 @@
                                         - self.combinedHeight,
                                         navigationController.navigationBar.frame.size.width,
                                         self.combinedHeight);
-    _menuView.frame = _menuWrapperView.bounds;
+    _menuWrapperView.backgroundColor = [UIColor redColor];
+    self.menuView.frame = _menuWrapperView.bounds;
     _containerView.frame = CGRectMake(0,
                                       navigationController.navigationBar.frame.origin.y + navigationController.navigationBar.frame.size.height,
                                       navigationController.navigationBar.frame.size.width,
@@ -165,7 +133,7 @@
 
     // Add subviews
     //
-    [_menuWrapperView addSubview:_menuView];
+    [_menuWrapperView addSubview:self.menuView];
     [_containerView addSubview:_backgroundButton];
     [_containerView addSubview:_menuWrapperView];
     [navigationController.view addSubview:_containerView];
@@ -184,12 +152,12 @@
 {
     __typeof (&*self) __weak weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
-        CGRect frame = _menuView.frame;
+        CGRect frame = self.menuView.frame;
         frame.origin.y = -20;
         weakSelf.menuWrapperView.frame = frame;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:_animationDuration animations:^{
-            CGRect frame = _menuView.frame;
+            CGRect frame = self.menuView.frame;
             frame.origin.y = - weakSelf.combinedHeight;
             weakSelf.menuWrapperView.frame = frame;
         } completion:^(BOOL finished) {
@@ -213,6 +181,61 @@
 {
     return _items.count * _itemHeight + _items.count  * _separatorHeight + 40 + _cornerRadius;
 }
+
+#pragma mark -
+#pragma mark Getting style
+
+- (UIView *)menuView
+{
+    if(_menuView == nil)
+    {
+        _menuView = [[UIView alloc] init];
+        _menuView.layer.masksToBounds = YES;
+        _menuView.layer.shouldRasterize = YES;
+        _menuView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        _menuView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
+        self.borderWidth = 1;
+        self.borderColor =  [UIColor colorWithRed:28/255.0 green:28/255.0 blue:27/255.0 alpha:1];
+        
+        // Append new item views to REMenuView
+        //
+        for (REMenuItem *item in _items) {
+            NSInteger index = [_items indexOfObject:item];
+            
+            CGFloat itemHeight = _itemHeight;
+            if (index == _items.count - 1)
+            {
+                itemHeight += _cornerRadius;
+            }
+            
+            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                             index * _itemHeight + (index) * _separatorHeight + 40,
+                                                                             _menuView.frame.size.width,
+                                                                             _separatorHeight)];
+            separatorView.backgroundColor = _separatorColor;
+            separatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+            [_menuView addSubview:separatorView];
+            
+            REMenuItemView *itemView = [[REMenuItemView alloc] initWithFrame:CGRectMake(0,
+                                                                                        index * _itemHeight + (index+1) * _separatorHeight + 40,
+                                                                                        _menuView.frame.size.width,
+                                                                                        itemHeight)
+                                                                        menu:self
+                                                                 hasSubtitle:item.subtitle.length > 0];
+            itemView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+            itemView.item = item;
+            item.itemView = itemView;
+            itemView.separatorView = separatorView;
+            itemView.autoresizesSubviews = YES;
+            [_menuView addSubview:itemView];
+        }
+    }
+    
+    return _menuView;
+}
+
 
 #pragma mark -
 #pragma mark Setting style
