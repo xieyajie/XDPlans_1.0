@@ -10,6 +10,7 @@
 #import "XDNewPlanViewController.h"
 
 #import "RichTextEditor.h"
+#import "XDDatePicker.h"
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
 
@@ -17,6 +18,10 @@
 {
     UILabel *_numberLabel;
     UILabel *_dateLabel;
+    
+    XDDatePicker *_datePicker;
+    __block NSDate *_selectedDate;
+    __block NSDateFormatter *_dateFormatter;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -44,8 +49,16 @@
 {
     [super viewDidLoad];;
 	// Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeybord:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeybord:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeKeybord:) name:UIKeyboardDidChangeFrameNotification object:nil];
+    
 //    self.view.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+    _datePicker = [[XDDatePicker alloc] init];
+    _selectedDate = nil;
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
     UIToolbar *topBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     topBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
@@ -124,7 +137,6 @@
     [self.dateView removeFromSuperview];
     if (indexPath.row == 0) {
         [cell.contentView addSubview:self.contentTextView];
-        [self.contentTextView becomeFirstResponder];
     }
     else if (indexPath.row == 1)
     {
@@ -141,7 +153,7 @@
 {
     switch (indexPath.row) {
         case 0:
-            return 110;
+            return 180;
             break;
         case 1:
             return 60;
@@ -151,6 +163,13 @@
             return 0;
             break;
     }
+}
+
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_contentTextView resignFirstResponder];
 }
 
 #pragma mark - UITextViewDelegate
@@ -166,12 +185,39 @@
     }
 }
 
+#pragma mark - notification
+
+- (void)showKeybord:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGSize keyboardSize = [value CGRectValue].size;
+    
+    _tableView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44 - keyboardSize.height);
+}
+
+- (void)hideKeybord:(NSNotification *)notification
+{
+    _tableView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44);
+}
+
+//- (void)changeKeybord:(NSNotification *)notification
+//{
+//    NSDictionary *info = [notification userInfo];
+//    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+//    CGSize keyboardSize = [value CGRectValue].size;
+//    
+//    [UIView animateWithDuration:.5f animations:^{
+//        _tableView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44 - keyboardSize.height);
+//    }];
+//}
+
 #pragma mark - get
 
 - (UITextView *)contentTextView
 {
     if (_contentTextView == nil) {
-        _contentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 100)];
+        _contentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width - 20, 170)];
         _contentTextView.backgroundColor = [UIColor whiteColor];
         _contentTextView.layer.borderWidth = 1.0;
         _contentTextView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -215,9 +261,18 @@
 
 - (void)dateAction:(id)sender
 {
-    [[XDManagerHelper shareHelper] showDatePickerToViewController:self completion:^(NSDate *date){
+    [_contentTextView resignFirstResponder];
+    
+//    DatePickerView *dateView = [[DatePickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 200)];
+    _datePicker.cancelClicked = ^(){
         
-    }];
+    };
+    _datePicker.sureClicked = ^(NSDate *date){
+        _selectedDate = date;
+        _dateLabel.text = [_dateFormatter stringFromDate:date];
+    };
+    [_datePicker selectedDate:_selectedDate];
+    [_datePicker showInView:self.view];
 }
 
 - (void)back:(id)sender

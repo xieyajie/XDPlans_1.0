@@ -48,18 +48,19 @@
         
         //test
         _actionSource = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"写一个自己的项目", KPLANS_CONTENT, [NSNumber numberWithBool:YES], KPLANS_ACTION, nil];
+        [_dataSource setObject:_actionSource forKey:[NSString stringWithFormat:@"%i", 0]];
         
         NSMutableDictionary *eventDic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic1 forKey:[NSString stringWithFormat:@"%i", 0]];
+        [_dataSource setObject:eventDic1 forKey:[NSString stringWithFormat:@"%i", 1]];
         
         NSMutableDictionary *eventDic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic2 forKey:[NSString stringWithFormat:@"%i", 1]];
+        [_dataSource setObject:eventDic2 forKey:[NSString stringWithFormat:@"%i", 2]];
         
         NSMutableDictionary *eventDic3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"游乐园", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic3 forKey:[NSString stringWithFormat:@"%i", 2]];
+        [_dataSource setObject:eventDic3 forKey:[NSString stringWithFormat:@"%i", 3]];
         
         NSMutableDictionary *eventDic4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"泰语", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:YES], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic4 forKey:[NSString stringWithFormat:@"%i", 3]];
+        [_dataSource setObject:eventDic4 forKey:[NSString stringWithFormat:@"%i", 4]];
     }
     return self;
 }
@@ -74,8 +75,12 @@
     
 //    self.tableView.separatorColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1.0];
-    [self.tableView setTableHeaderView:self.tableHeaderView];
+//    [self.tableView setTableHeaderView:self.tableHeaderView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:leftSwipe];
     
     _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.tableView addGestureRecognizer:_longPress];
@@ -156,6 +161,10 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
     return YES;
 }
 
@@ -167,6 +176,10 @@
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    if (toIndexPath.row == 0) {
+        return;
+    }
+    
     NSString *fromKey = [NSString stringWithFormat:@"%i", fromIndexPath.row];
     NSString *toKey = [NSString stringWithFormat:@"%i", toIndexPath.row];
     NSMutableDictionary *fromDic = [_dataSource objectForKey:fromKey];
@@ -188,6 +201,10 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    
     return YES;
 }
 
@@ -240,6 +257,13 @@
 }
 
 #pragma mark - GestureRecognizer
+
+- (void)leftSwipe:(UISwipeGestureRecognizer *)swipe
+{
+    if (swipe.state == UIGestureRecognizerStateEnded) {
+        //
+    }
+}
 
 - (void)longPress:(UILongPressGestureRecognizer *)press
 {
