@@ -23,6 +23,10 @@
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
 		3A9AEED617F2A685002E201F /* XDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED517F2A685002E201F /* XDDatePicker.m */; };
 		3A9AEED917F2B08E002E201F /* XDPlanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */; };
+		3A9AEEE317F2E738002E201F /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEDC17F2E738002E201F /* REMenu.m */; };
+		3A9AEEE417F2E738002E201F /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */; };
+		3A9AEEE517F2E738002E201F /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE017F2E738002E201F /* REMenuItem.m */; };
+		3A9AEEE617F2E738002E201F /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE217F2E738002E201F /* REMenuItemView.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -211,6 +215,14 @@
 		3A9AEED517F2A685002E201F /* XDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDatePicker.m; sourceTree = "<group>"; };
 		3A9AEED717F2B08E002E201F /* XDPlanScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanScrollView.h; sourceTree = "<group>"; };
 		3A9AEED817F2B08E002E201F /* XDPlanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanScrollView.m; sourceTree = "<group>"; };
+		3A9AEEDB17F2E738002E201F /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		3A9AEEDC17F2E738002E201F /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		3A9AEEDD17F2E738002E201F /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		3A9AEEDF17F2E738002E201F /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		3A9AEEE017F2E738002E201F /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		3A9AEEE117F2E738002E201F /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		3A9AEEE217F2E738002E201F /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -497,6 +509,21 @@
 			path = DatePicker;
 			sourceTree = "<group>";
 		};
+		3A9AEEDA17F2E738002E201F /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3A9AEEDB17F2E738002E201F /* REMenu.h */,
+				3A9AEEDC17F2E738002E201F /* REMenu.m */,
+				3A9AEEDD17F2E738002E201F /* REMenuContainerView.h */,
+				3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */,
+				3A9AEEDF17F2E738002E201F /* REMenuItem.h */,
+				3A9AEEE017F2E738002E201F /* REMenuItem.m */,
+				3A9AEEE117F2E738002E201F /* REMenuItemView.h */,
+				3A9AEEE217F2E738002E201F /* REMenuItemView.m */,
+			);
+			path = REMenu;
+			sourceTree = "<group>";
+		};
 		3AE3A21D17ED47A700DC05A8 = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +606,7 @@
 		3AE3A26617ED5B1300DC05A8 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				3A9AEEDA17F2E738002E201F /* REMenu */,
 				3A9AEED017F2938C002E201F /* DatePicker */,
 				3AE3A26717ED5B1300DC05A8 /* JASidePanels */,
 				3AE3A26C17ED5B1300DC05A8 /* RichTextEditor */,
@@ -1091,6 +1119,7 @@
 			files = (
 				3AE3A23917ED47A700DC05A8 /* main.m in Sources */,
 				3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */,
+				3A9AEEE517F2E738002E201F /* REMenuItem.m in Sources */,
 				3A5FEA8F17F034B20059FBF2 /* XDMoodPicker.m in Sources */,
 				3AE3A26217ED5AB400DC05A8 /* XDAllPlansCell.m in Sources */,
 				3AE3A26317ED5AB400DC05A8 /* XDAllPlansViewController.m in Sources */,
@@ -1099,7 +1128,9 @@
 				3AE3A2EB17ED5B1300DC05A8 /* JASidePanelController.m in Sources */,
 				3AE3A2EC17ED5B1300DC05A8 /* UIViewController+JASidePanel.m in Sources */,
 				3A5FEA9017F034B20059FBF2 /* XDDataPlanCell.m in Sources */,
+				3A9AEEE617F2E738002E201F /* REMenuItemView.m in Sources */,
 				3AE3A31B17ED5B1300DC05A8 /* NSAttributedString+RichTextEditor.m in Sources */,
+				3A9AEEE317F2E738002E201F /* REMenu.m in Sources */,
 				3AE3A31C17ED5B1300DC05A8 /* UIFont+RichTextEditor.m in Sources */,
 				3AE3A31D17ED5B1300DC05A8 /* UIView+RichTextEditor.m in Sources */,
 				3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */,
@@ -1117,6 +1148,7 @@
 				3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */,
 				3AE3A33417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m in Sources */,
 				3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */,
+				3A9AEEE417F2E738002E201F /* REMenuContainerView.m in Sources */,
 				3AE3A33517ED5B1300DC05A8 /* RichTextEditorToggleButton.m in Sources */,
 				3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */,
 				3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */,
