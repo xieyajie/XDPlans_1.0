@@ -2,27 +2,28 @@
 //  DayPlan.m
 //  XDPlans
 //
-//  Created by xieyajie on 13-9-25.
+//  Created by xie yajie on 13-9-25.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
 #import "DayPlan.h"
+#import "WantPlan.h"
 
 
 @implementation DayPlan
 
-@dynamic dpId;
-@dynamic wpId;
-@dynamic summary;
 @dynamic content;
+@dynamic date;
+@dynamic dpId;
+@dynamic finishColor;
+@dynamic finishConfidence;
 @dynamic moodImage;
 @dynamic moodText;
+@dynamic score;
+@dynamic summary;
 @dynamic workColor;
 @dynamic workLoad;
-@dynamic finishConfidence;
-@dynamic finishColor;
-@dynamic date;
-@dynamic score;
-@dynamic wanPlan;
+@dynamic wpId;
+@dynamic inWantPlans;
 
 @end

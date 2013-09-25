@@ -2,23 +2,24 @@
 //  WantPlan.m
 //  XDPlans
 //
-//  Created by xieyajie on 13-9-25.
+//  Created by xie yajie on 13-9-25.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
 #import "WantPlan.h"
 #import "DayPlan.h"
+#import "User.h"
 
 
 @implementation WantPlan
 
-@dynamic wpId;
-@dynamic uId;
-@dynamic startDate;
-@dynamic finishDate;
 @dynamic action;
 @dynamic finish;
-@dynamic user;
-@dynamic day;
+@dynamic finishDate;
+@dynamic startDate;
+@dynamic uId;
+@dynamic wpId;
+@dynamic inUser;
+@dynamic dayPlans;
 
 @end

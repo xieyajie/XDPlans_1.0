@@ -2,7 +2,7 @@
 //  User.h
 //  XDPlans
 //
-//  Created by xieyajie on 13-9-25.
+//  Created by xie yajie on 13-9-25.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
@@ -13,12 +13,12 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic) int64_t uId;
-@property (nonatomic, retain) NSString * userName;
-@property (nonatomic, retain) NSString * userEmail;
+@property (nonatomic, retain) NSDate * dayBegin;
+@property (nonatomic, retain) NSDate * dayEnd;
 @property (nonatomic, retain) NSString * password;
-@property (nonatomic) NSTimeInterval dayBegin;
-@property (nonatomic) NSTimeInterval dayEnd;
+@property (nonatomic, retain) NSNumber * uId;
+@property (nonatomic, retain) NSString * userEmail;
+@property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSOrderedSet *wantPlans;
 @end
 

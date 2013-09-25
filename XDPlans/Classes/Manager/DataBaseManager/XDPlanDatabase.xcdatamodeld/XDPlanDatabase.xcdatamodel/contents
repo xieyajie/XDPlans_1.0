@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3394" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DayPlan" representedClassName="DayPlan" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -13,9 +13,8 @@
         <attribute name="workColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workLoad" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="wpId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="wanPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WantPlan" syncable="YES"/>
+        <relationship name="inWantPlans" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WantPlan" inverseName="dayPlans" inverseEntity="WantPlan" syncable="YES"/>
     </entity>
-    <entity name="Setting" syncable="YES"/>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="dayBegin" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dayEnd" optional="YES" attributeType="Date" syncable="YES"/>
@@ -23,22 +22,21 @@
         <attribute name="uId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="wantPlans" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="WantPlan" syncable="YES"/>
+        <relationship name="wantPlans" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="WantPlan" inverseName="inUser" inverseEntity="WantPlan" syncable="YES"/>
     </entity>
-    <entity name="WantPlan" representedClassName="WantPlan" isAbstract="YES" syncable="YES">
+    <entity name="WantPlan" representedClassName="WantPlan" syncable="YES">
         <attribute name="action" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="finish" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="finishDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="uId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="wpId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="day" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DayPlan" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="dayPlans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DayPlan" inverseName="inWantPlans" inverseEntity="DayPlan" syncable="YES"/>
+        <relationship name="inUser" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="wantPlans" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="WantPlan" positionX="-144" positionY="-0" width="128" height="163"/>
-        <element name="DayPlan" positionX="-128" positionY="261" width="128" height="238"/>
-        <element name="User" positionX="-225" positionY="-270" width="128" height="148"/>
-        <element name="Setting" positionX="250" positionY="-225" width="137" height="43"/>
+        <element name="DayPlan" positionX="-180" positionY="-373" width="128" height="240"/>
+        <element name="User" positionX="232" positionY="-423" width="128" height="150"/>
+        <element name="WantPlan" positionX="43" positionY="-99" width="128" height="165"/>
     </elements>
 </model>

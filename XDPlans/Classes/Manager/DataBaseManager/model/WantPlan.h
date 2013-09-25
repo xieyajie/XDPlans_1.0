@@ -2,37 +2,32 @@
 //  WantPlan.h
 //  XDPlans
 //
-//  Created by xieyajie on 13-9-25.
+//  Created by xie yajie on 13-9-25.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DayPlan;
+@class DayPlan, User;
 
 @interface WantPlan : NSManagedObject
 
-@property (nonatomic) int64_t wpId;
-@property (nonatomic) int64_t uId;
-@property (nonatomic) NSTimeInterval startDate;
-@property (nonatomic) NSTimeInterval finishDate;
-@property (nonatomic) BOOL action;
-@property (nonatomic) BOOL finish;
-@property (nonatomic, retain) NSManagedObject *user;
-@property (nonatomic, retain) NSOrderedSet *day;
+@property (nonatomic, retain) NSNumber * action;
+@property (nonatomic, retain) NSNumber * finish;
+@property (nonatomic, retain) NSDate * finishDate;
+@property (nonatomic, retain) NSDate * startDate;
+@property (nonatomic, retain) NSNumber * uId;
+@property (nonatomic, retain) NSNumber * wpId;
+@property (nonatomic, retain) User *inUser;
+@property (nonatomic, retain) NSSet *dayPlans;
 @end
 
 @interface WantPlan (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(DayPlan *)value inDayAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromDayAtIndex:(NSUInteger)idx;
-- (void)insertDay:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeDayAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInDayAtIndex:(NSUInteger)idx withObject:(DayPlan *)value;
-- (void)replaceDayAtIndexes:(NSIndexSet *)indexes withDay:(NSArray *)values;
-- (void)addDayObject:(DayPlan *)value;
-- (void)removeDayObject:(DayPlan *)value;
-- (void)addDay:(NSOrderedSet *)values;
-- (void)removeDay:(NSOrderedSet *)values;
+- (void)addDayPlansObject:(DayPlan *)value;
+- (void)removeDayPlansObject:(DayPlan *)value;
+- (void)addDayPlans:(NSSet *)values;
+- (void)removeDayPlans:(NSSet *)values;
+
 @end
