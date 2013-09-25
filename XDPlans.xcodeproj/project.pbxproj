@@ -20,6 +20,11 @@
 		3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8617F034B20059FBF2 /* XDDataPlanViewController.m */; };
 		3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */; };
 		3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */; };
+		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
+		3A9AEEC517F284D9002E201F /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEC317F284D9002E201F /* XDPlanDatabase.xcdatamodeld */; };
+		3A9AEEC917F28B1F002E201F /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEC817F28B1F002E201F /* DayPlan.m */; };
+		3A9AEECC17F28B20002E201F /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEECB17F28B20002E201F /* WantPlan.m */; };
+		3A9AEECF17F28B20002E201F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEECE17F28B20002E201F /* User.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -203,6 +208,14 @@
 		3A5FEA8917F034B20059FBF2 /* XDPlanDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailCell.m; sourceTree = "<group>"; };
 		3A5FEA8A17F034B20059FBF2 /* XDPlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanDetailViewController.h; sourceTree = "<group>"; };
 		3A5FEA8B17F034B20059FBF2 /* XDPlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanDetailViewController.m; sourceTree = "<group>"; };
+		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3A9AEEC417F284D9002E201F /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
+		3A9AEEC717F28B1F002E201F /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
+		3A9AEEC817F28B1F002E201F /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
+		3A9AEECA17F28B20002E201F /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
+		3A9AEECB17F28B20002E201F /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
+		3A9AEECD17F28B20002E201F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3A9AEECE17F28B20002E201F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -397,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */,
 				3AE3A35917ED5C2000DC05A8 /* CoreLocation.framework in Frameworks */,
 				3AE3A35717ED5C1600DC05A8 /* SystemConfiguration.framework in Frameworks */,
 				3AE3A35517ED5C0C00DC05A8 /* CoreText.framework in Frameworks */,
@@ -477,6 +491,28 @@
 			path = Classes/PlanDetail;
 			sourceTree = "<group>";
 		};
+		3A9AEEC017F28448002E201F /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				3A9AEEC617F28AE7002E201F /* model */,
+				3A9AEEC317F284D9002E201F /* XDPlanDatabase.xcdatamodeld */,
+			);
+			path = DataBaseManager;
+			sourceTree = "<group>";
+		};
+		3A9AEEC617F28AE7002E201F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3A9AEECD17F28B20002E201F /* User.h */,
+				3A9AEECE17F28B20002E201F /* User.m */,
+				3A9AEECA17F28B20002E201F /* WantPlan.h */,
+				3A9AEECB17F28B20002E201F /* WantPlan.m */,
+				3A9AEEC717F28B1F002E201F /* DayPlan.h */,
+				3A9AEEC817F28B1F002E201F /* DayPlan.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		3AE3A21D17ED47A700DC05A8 = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +533,7 @@
 		3AE3A22B17ED47A700DC05A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A9AEEC117F28469002E201F /* CoreData.framework */,
 				3AE3A35817ED5C2000DC05A8 /* CoreLocation.framework */,
 				3AE3A35617ED5C1600DC05A8 /* SystemConfiguration.framework */,
 				3AE3A35417ED5C0C00DC05A8 /* CoreText.framework */,
@@ -715,6 +752,7 @@
 		3AE3A2CB17ED5B1300DC05A8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				3A9AEEC017F28448002E201F /* DataBaseManager */,
 				3AE3A2CC17ED5B1300DC05A8 /* cutImage */,
 				3AE3A2CF17ED5B1300DC05A8 /* UIColor */,
 				3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */,
@@ -1082,6 +1120,8 @@
 				3AE3A31D17ED5B1300DC05A8 /* UIView+RichTextEditor.m in Sources */,
 				3A5FEA9117F034B20059FBF2 /* XDDataPlanViewController.m in Sources */,
 				3AE3A32D17ED5B1300DC05A8 /* UIBarButtonItem+WEPopover.m in Sources */,
+				3A9AEECF17F28B20002E201F /* User.m in Sources */,
+				3A9AEEC517F284D9002E201F /* XDPlanDatabase.xcdatamodeld in Sources */,
 				3AE3A32E17ED5B1300DC05A8 /* WEPopoverContainerView.m in Sources */,
 				3A5FEA9317F034B20059FBF2 /* XDPlanDetailViewController.m in Sources */,
 				3AE3A32F17ED5B1300DC05A8 /* WEPopoverController.m in Sources */,
@@ -1092,11 +1132,13 @@
 				3AE3A33317ED5B1300DC05A8 /* RichTextEditorFontPickerViewController.m in Sources */,
 				3A5FEA6817F0248B0059FBF2 /* XDAccountLoginViewController.m in Sources */,
 				3AE3A33417ED5B1300DC05A8 /* RichTextEditorFontSizePickerViewController.m in Sources */,
+				3A9AEEC917F28B1F002E201F /* DayPlan.m in Sources */,
 				3A5FEA9217F034B20059FBF2 /* XDPlanDetailCell.m in Sources */,
 				3AE3A33517ED5B1300DC05A8 /* RichTextEditorToggleButton.m in Sources */,
 				3AE3A33617ED5B1300DC05A8 /* RichTextEditorToolbar.m in Sources */,
 				3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */,
 				3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */,
+				3A9AEECC17F28B20002E201F /* WantPlan.m in Sources */,
 				3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1216,6 +1258,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A9AEEC317F284D9002E201F /* XDPlanDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A9AEEC417F284D9002E201F /* XDPlanDatabase.xcdatamodel */,
+			);
+			currentVersion = 3A9AEEC417F284D9002E201F /* XDPlanDatabase.xcdatamodel */;
+			path = XDPlanDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3AE3A21F17ED47A700DC05A8 /* Project object */;
 }

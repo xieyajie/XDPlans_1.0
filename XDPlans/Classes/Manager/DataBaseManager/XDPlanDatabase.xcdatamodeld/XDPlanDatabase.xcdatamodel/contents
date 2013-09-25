@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3394" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DayPlan" representedClassName="DayPlan" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dpId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="finishColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="finishConfidence" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="moodImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moodText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workLoad" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="wpId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="wanPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WantPlan" syncable="YES"/>
+    </entity>
+    <entity name="Setting" syncable="YES"/>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="dayBegin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dayEnd" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="wantPlans" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="WantPlan" syncable="YES"/>
+    </entity>
+    <entity name="WantPlan" representedClassName="WantPlan" isAbstract="YES" syncable="YES">
+        <attribute name="action" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="finish" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="finishDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="wpId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="day" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DayPlan" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="WantPlan" positionX="-144" positionY="-0" width="128" height="163"/>
+        <element name="DayPlan" positionX="-128" positionY="261" width="128" height="238"/>
+        <element name="User" positionX="-225" positionY="-270" width="128" height="148"/>
+        <element name="Setting" positionX="250" positionY="-225" width="137" height="43"/>
+    </elements>
+</model>
