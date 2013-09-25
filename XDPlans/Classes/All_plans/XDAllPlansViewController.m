@@ -27,10 +27,7 @@
 
     UIBarButtonItem *_menuItem;
     UIBarButtonItem *_createItem;
-    UIBarButtonItem *_moveItem;
     UIView *_tableHeaderView;
-    
-    UILongPressGestureRecognizer *_longPress;
 }
 
 @property (nonatomic, strong) UIView *tableHeaderView;
@@ -85,9 +82,6 @@
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.tableView addGestureRecognizer:leftSwipe];
-    
-    _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
-    [self.tableView addGestureRecognizer:_longPress];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPlanFinish:) name:KNOTIFICATION_PLANNEWFINISH object:nil];
 }
@@ -165,9 +159,6 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    if (indexPath.row == 0) {
-        return NO;
-    }
     
     return YES;
 }
@@ -175,41 +166,6 @@
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewCellEditingStyleNone;
-}
-
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-    if (toIndexPath.row == 0) {
-        return;
-    }
-    
-    NSString *fromKey = [NSString stringWithFormat:@"%i", fromIndexPath.row];
-    NSString *toKey = [NSString stringWithFormat:@"%i", toIndexPath.row];
-    NSMutableDictionary *fromDic = [_dataSource objectForKey:fromKey];
-    NSMutableDictionary *toDic = [_dataSource objectForKey:toKey];
-    
-    [fromDic setObject:[NSNumber numberWithInteger:toIndexPath.row] forKey:KPLANS_INDEX];
-    [toDic setObject:[NSNumber numberWithInteger:fromIndexPath.row] forKey:KPLANS_INDEX];
-    
-    [_dataSource setObject:fromDic forKey:toKey];
-    [_dataSource setObject:toDic forKey:fromKey];
-    
-    XDAllPlansCell *fromCell = (XDAllPlansCell *)[tableView cellForRowAtIndexPath:fromIndexPath];
-    XDAllPlansCell *toCell = (XDAllPlansCell *)[tableView cellForRowAtIndexPath:toIndexPath];
-    fromCell.index = toIndexPath.row + 1;
-    toCell.index = fromIndexPath.row + 1;
-}
-
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    if (indexPath.row == 0) {
-        return NO;
-    }
-    
-    return YES;
 }
 
 #pragma mark - Table view delegate
@@ -230,19 +186,6 @@
     XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
     planDetailVC.planContent = content;
     [self.navigationController pushViewController:planDetailVC animated:YES];
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex != alertView.cancelButtonIndex) {
-        UITextField *textField = [alertView textFieldAtIndex:0];
-        if (textField.text.length > 0) {
-            [self addEventToSource:textField.text];
-            [self insertEventToTableViewWithRow:0];
-        }
-    }
 }
 
 #pragma mark - notification
@@ -266,19 +209,6 @@
 {
     if (swipe.state == UIGestureRecognizerStateEnded) {
         //
-    }
-}
-
-- (void)longPress:(UILongPressGestureRecognizer *)press
-{
-    if (press.state == UIGestureRecognizerStateEnded) {
-        [self.tableView removeGestureRecognizer:_longPress];
-        
-        if (_moveItem == nil) {
-            _moveItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(stopMove:)];
-        }
-        self.navigationItem.rightBarButtonItem = _moveItem;
-        [self.tableView setEditing:YES animated:YES];
     }
 }
 
@@ -318,6 +248,9 @@
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);
+                                                              self.title = @"想做的事";
+                                                              [_menuItem setImage:[UIImage imageNamed:@"menu_allPlans.png"]];
+                                                              self.navigationItem.rightBarButtonItem = _createItem;
                                                           }];
         
         REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事"
@@ -326,6 +259,9 @@
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
+                                                                 self.title = @"正在进行的事";
+                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_actionPlan.png"]];
+                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
         REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
@@ -334,6 +270,9 @@
                                                     highlightedImage:nil
                                                               action:^(REMenuItem *item) {
                                                                   NSLog(@"Item: %@", item);
+                                                                  self.title = @"今天的计划";
+                                                                  [_menuItem setImage:[UIImage imageNamed:@"menu_todayPlan.png"]];
+                                                                  self.navigationItem.rightBarButtonItem = nil;
                                                               }];
         
         REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"设置"
@@ -341,6 +280,9 @@
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
+                                                                 self.title = @"设置";
+                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_setting.png"]];
+                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
         homeItem.tag = 0;
@@ -385,34 +327,13 @@
     [self.navigationController presentModalViewController:newPlanVC animated:YES];
 }
 
-- (void)stopMove:(id)sender
-{
-    self.navigationItem.rightBarButtonItem = _createItem;
-    [self.tableView setEditing:NO animated:YES];
-    [self.tableView addGestureRecognizer:_longPress];
-}
-
 #pragma mark - manager
 
 - (void)addEventToSource:(NSString *)string
 {
-    NSDictionary *dic = [NSDictionary dictionaryWithDictionary:_dataSource];
-    
-    [_dataSource removeAllObjects];
+    NSInteger index = [_dataSource count];
     NSMutableDictionary *eventDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, string, KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
-    [_dataSource setObject:eventDic forKey:[NSString stringWithFormat:@"%i", 0]];
-    
-    for (NSString *key in dic) {
-        NSInteger index = [key integerValue];
-        index++;
-        
-        NSMutableDictionary *event = [dic objectForKey:key];
-        NSString *newKey = [NSString stringWithFormat:@"%i", index];
-        NSNumber *newIndex = [NSNumber numberWithInteger:index];
-        [event setObject:newIndex forKey:KPLANS_INDEX];
-        
-        [_dataSource setObject:event forKey:newKey];
-    }
+    [_dataSource setObject:eventDic forKey:[NSString stringWithFormat:@"%i", index]];
 }
 
 - (void)deleteEventFromSource:(NSInteger)row
@@ -425,25 +346,12 @@
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:0], nil] withRowAnimation:UITableViewRowAnimationTop];
     [self.tableView endUpdates];
-    
-    [self updateVisibleCell];
 }
 
 - (void)deleteEventToTableViewWithRow:(NSInteger)row
 {
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
-}
-
-- (void)updateVisibleCell
-{
-    NSArray *cells = [self.tableView visibleCells];
-    
-    for (XDAllPlansCell *cell in cells) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
-        cell.index = [[dic objectForKey:KPLANS_INDEX] integerValue] + 1;
-    }
 }
 
 @end

@@ -51,7 +51,6 @@
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeybord:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeybord:) name:UIKeyboardWillHideNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeKeybord:) name:UIKeyboardDidChangeFrameNotification object:nil];
     
 //    self.view.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
@@ -200,17 +199,6 @@
 {
     _tableView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44);
 }
-
-//- (void)changeKeybord:(NSNotification *)notification
-//{
-//    NSDictionary *info = [notification userInfo];
-//    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
-//    CGSize keyboardSize = [value CGRectValue].size;
-//    
-//    [UIView animateWithDuration:.5f animations:^{
-//        _tableView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44 - keyboardSize.height);
-//    }];
-//}
 
 #pragma mark - get
 

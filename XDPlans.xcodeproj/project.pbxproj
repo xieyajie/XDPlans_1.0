@@ -27,6 +27,10 @@
 		3A9AEEE417F2E738002E201F /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEDE17F2E738002E201F /* REMenuContainerView.m */; };
 		3A9AEEE517F2E738002E201F /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE017F2E738002E201F /* REMenuItem.m */; };
 		3A9AEEE617F2E738002E201F /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AEEE217F2E738002E201F /* REMenuItemView.m */; };
+		3AADD3D017F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */; };
+		3AADD3DD17F315B4000BEE34 /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3DC17F315B3000BEE34 /* WantPlan.m */; };
+		3AADD3E017F315B4000BEE34 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3DF17F315B4000BEE34 /* User.m */; };
+		3AADD3E317F315B4000BEE34 /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E217F315B4000BEE34 /* DayPlan.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -223,6 +227,13 @@
 		3A9AEEE017F2E738002E201F /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
 		3A9AEEE117F2E738002E201F /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
 		3A9AEEE217F2E738002E201F /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
+		3AADD3DB17F315B3000BEE34 /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
+		3AADD3DC17F315B3000BEE34 /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
+		3AADD3DE17F315B4000BEE34 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3AADD3DF17F315B4000BEE34 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3AADD3E117F315B4000BEE34 /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
+		3AADD3E217F315B4000BEE34 /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,7 +251,7 @@
 		3AE3A25E17ED5AB400DC05A8 /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
 		3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
 		3AE3A26017ED5AB400DC05A8 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
-		3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
+		3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDNewPlanViewController.m; path = ../../../All_plans/XDNewPlanViewController.m; sourceTree = "<group>"; };
 		3AE3A26517ED5AFC00DC05A8 /* XDPlanLocalDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDPlanLocalDefault.h; path = Classes/XDPlanLocalDefault.h; sourceTree = "<group>"; };
 		3AE3A26817ED5B1300DC05A8 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		3AE3A26917ED5B1300DC05A8 /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
@@ -524,6 +535,29 @@
 			path = REMenu;
 			sourceTree = "<group>";
 		};
+		3AADD3C317F3113B000BEE34 /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD3C417F3113B000BEE34 /* model */,
+				3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */,
+			);
+			path = DataBaseManager;
+			sourceTree = "<group>";
+		};
+		3AADD3C417F3113B000BEE34 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3AADD3E117F315B4000BEE34 /* DayPlan.h */,
+				3AADD3E217F315B4000BEE34 /* DayPlan.m */,
+				3AADD3DE17F315B4000BEE34 /* User.h */,
+				3AADD3DF17F315B4000BEE34 /* User.m */,
+				3AADD3DB17F315B3000BEE34 /* WantPlan.h */,
+				3AADD3DC17F315B3000BEE34 /* WantPlan.m */,
+				3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		3AE3A21D17ED47A700DC05A8 = {
 			isa = PBXGroup;
 			children = (
@@ -597,7 +631,6 @@
 				3AE3A25E17ED5AB400DC05A8 /* XDAllPlansViewController.h */,
 				3AE3A25F17ED5AB400DC05A8 /* XDAllPlansViewController.m */,
 				3AE3A26017ED5AB400DC05A8 /* XDNewPlanViewController.h */,
-				3AE3A26117ED5AB400DC05A8 /* XDNewPlanViewController.m */,
 			);
 			name = All_plans;
 			path = Classes/All_plans;
@@ -765,6 +798,7 @@
 		3AE3A2CB17ED5B1300DC05A8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				3AADD3C317F3113B000BEE34 /* DataBaseManager */,
 				3AE3A2CC17ED5B1300DC05A8 /* cutImage */,
 				3AE3A2CF17ED5B1300DC05A8 /* UIColor */,
 				3AE3A2E917ED5B1300DC05A8 /* XDManagerHelper.h */,
@@ -1154,6 +1188,10 @@
 				3AE3A33717ED5B1300DC05A8 /* XDCutImageViewController.m in Sources */,
 				3AE3A33817ED5B1300DC05A8 /* UIColor+Category.m in Sources */,
 				3AE3A34D17ED5B1300DC05A8 /* XDManagerHelper.m in Sources */,
+				3AADD3D017F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */,
+				3AADD3DD17F315B4000BEE34 /* WantPlan.m in Sources */,
+				3AADD3E017F315B4000BEE34 /* User.m in Sources */,
+				3AADD3E317F315B4000BEE34 /* DayPlan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1310,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3AADD3CB17F3113B000BEE34 /* XDPlanDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */,
+			);
+			currentVersion = 3AADD3CC17F3113B000BEE34 /* XDPlanDatabase.xcdatamodel */;
+			path = XDPlanDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3AE3A21F17ED47A700DC05A8 /* Project object */;
 }
