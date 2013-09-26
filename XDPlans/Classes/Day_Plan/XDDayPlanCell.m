@@ -9,54 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDDayPlanCell.h"
 
+#import "XDSummaryView.h"
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
-
-@implementation XDSummaryView
-
-@synthesize delegate = _delegate;
-
-@synthesize faceButton = _faceButton;
-@synthesize faceTitleLabel = _faceTitleLabel;
-
-@synthesize index = _index;
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        _faceButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 20)];
-        _faceButton.contentMode = UIViewContentModeScaleAspectFit;
-        _faceButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [_faceButton addTarget:self action:@selector(faceAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_faceButton];
-        
-        _faceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _faceButton.frame.origin.y + _faceButton.frame.size.height, self.frame.size.width, 20.0)];
-        _faceTitleLabel.backgroundColor = [UIColor clearColor];
-        _faceTitleLabel.textAlignment = KTextAlignmentCenter;
-        _faceTitleLabel.font = [UIFont systemFontOfSize:14.0];
-        [self addSubview:_faceTitleLabel];
-        
-        self.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
-    }
-    
-    return self;
-}
-
-- (void)faceAction:(id)sender
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(summaryView:didSelectedAtIndex:)]) {
-        [_delegate summaryView:self didSelectedAtIndex:_index];
-    }
-    else{
-        self.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
-        self.layer.borderWidth = 2.0;
-        
-        self.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-    }
-}
-
-@end
 
 @interface XDDayPlanCell()<XDSummaryViewDelegate>
 {
@@ -300,21 +255,25 @@
 
 - (void)configurationGrand
 {
-    NSArray *titles = [NSArray arrayWithObjects:@"太糟糕了", @"一般般", @"还不错", @"非常好", nil];
-    NSInteger count = 4;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"XDSummary" ofType:@"plist"];
+    NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:path];
     CGFloat margin = 5.0;
-    CGFloat width = (self.frame.size.width - 5 * margin) / count;
+    CGFloat width = (self.frame.size.width - 5 * margin) / data.count;
     
-    for (int i = 0; i < count; i++) {
-        XDSummaryView *summaryView = [[XDSummaryView alloc] initWithFrame:CGRectMake(margin + (width + margin) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+    NSInteger count = 0;
+    for (NSString *key in data) {
+        NSDictionary *dic = [data objectForKey:key];
+        XDSummaryView *summaryView = [[XDSummaryView alloc] initWithFrame:CGRectMake(margin + (width + margin) * count, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
         summaryView.delegate = self;
-        summaryView.index = i;
-        NSString *imgName = [NSString stringWithFormat:@"plans_summary_%i", i];
-        [summaryView.faceButton setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-        summaryView.faceTitleLabel.text = [titles objectAtIndex:i];
+        summaryView.key = key;
+        summaryView.index = count;
+        [summaryView.faceButton setImage:[UIImage imageNamed:[dic objectForKey:@"icon"]] forState:UIControlStateNormal];
+        summaryView.faceTitleLabel.text = [dic objectForKey:@"title"];
         
         [self.summaryViews addObject:summaryView];
         [self.contentView addSubview:summaryView];
+        
+        count++;
     }
 }
 
@@ -333,7 +292,6 @@
         XDSummaryView *selectedView = [self.summaryViews objectAtIndex:_selectedSummaryIndex];
         selectedView.layer.borderWidth = 2.0;
         selectedView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-
     }
 }
 

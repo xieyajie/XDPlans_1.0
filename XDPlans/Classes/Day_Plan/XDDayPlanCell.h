@@ -9,27 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RichTextEditor.h"
 
-@protocol XDSummaryViewDelegate;
-
-@interface XDSummaryView : UIView
-
-@property (nonatomic, unsafe_unretained) id<XDSummaryViewDelegate> delegate;
-
-@property (nonatomic, strong) UIButton *faceButton;
-@property (nonatomic, strong) UILabel *faceTitleLabel;
-
-@property (nonatomic) NSInteger index;
-
-@end
-
-@protocol XDSummaryViewDelegate <NSObject>
-
-@required
-- (void)summaryView:(XDSummaryView *)summaryView didSelectedAtIndex:(NSInteger)index;
-
-@end
-
-
 @protocol XDTodayPlayCellDelegate;
 @interface XDDayPlanCell : UITableViewCell
 

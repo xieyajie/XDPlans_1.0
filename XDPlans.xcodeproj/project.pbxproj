@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A281B6F17F3C63C000F301D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3A281B6C17F3C63C000F301D /* .gitignore */; };
+		3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
+		3A281B7317F3D6C6000F301D /* XDSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B7217F3D6C6000F301D /* XDSummaryView.m */; };
+		3A281B7517F3D88C000F301D /* XDSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A281B7417F3D88C000F301D /* XDSummary.plist */; };
 		3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4B17EFD12D0059FBF2 /* Default.png */; };
 		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
@@ -194,6 +198,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A281B6C17F3C63C000F301D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3A281B6D17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = "<group>"; };
+		3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = "<group>"; };
+		3A281B7117F3D6C6000F301D /* XDSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSummaryView.h; sourceTree = "<group>"; };
+		3A281B7217F3D6C6000F301D /* XDSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSummaryView.m; sourceTree = "<group>"; };
+		3A281B7417F3D88C000F301D /* XDSummary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSummary.plist; sourceTree = "<group>"; };
 		3A5FEA4B17EFD12D0059FBF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -445,6 +455,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A281B6B17F3C63C000F301D /* KCOrderedAccessorFix */ = {
+			isa = PBXGroup;
+			children = (
+				3A281B6C17F3C63C000F301D /* .gitignore */,
+				3A281B6D17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.h */,
+				3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */,
+			);
+			path = KCOrderedAccessorFix;
+			sourceTree = "<group>";
+		};
 		3AADD3E717F31F1F000BEE34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +508,8 @@
 				3AADD3F617F31F1F000BEE34 /* JASidePanels */,
 				3AADD3FB17F31F1F000BEE34 /* REMenu */,
 				3AADD40417F31F1F000BEE34 /* RichTextEditor */,
+				3A281B7117F3D6C6000F301D /* XDSummaryView.h */,
+				3A281B7217F3D6C6000F301D /* XDSummaryView.m */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -672,6 +694,7 @@
 				3AADD46D17F31F1F000BEE34 /* XDDayPlanCell.m */,
 				3AADD46E17F31F1F000BEE34 /* XDDayPlanViewController.h */,
 				3AADD46F17F31F1F000BEE34 /* XDDayPlanViewController.m */,
+				3A281B7417F3D88C000F301D /* XDSummary.plist */,
 			);
 			path = Day_Plan;
 			sourceTree = "<group>";
@@ -733,6 +756,7 @@
 		3AADD47B17F31F1F000BEE34 /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
+				3A281B6B17F3C63C000F301D /* KCOrderedAccessorFix */,
 				3AADD47C17F31F1F000BEE34 /* model */,
 				3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */,
 			);
@@ -1042,6 +1066,7 @@
 				3AE3A3BA17ED5C4F00DC05A8 /* MY_ICON_7@2x.png in Resources */,
 				3AE3A3BB17ED5C4F00DC05A8 /* MY_ICON_8@2x.png in Resources */,
 				3AE3A3BC17ED5C4F00DC05A8 /* MY_ICON_9@2x.png in Resources */,
+				3A281B7517F3D88C000F301D /* XDSummary.plist in Resources */,
 				3AE3A3BD17ED5C4F00DC05A8 /* plans_color_0@2x.jpg in Resources */,
 				3AE3A3BE17ED5C4F00DC05A8 /* plans_color_10@2x.jpg in Resources */,
 				3AE3A3BF17ED5C4F00DC05A8 /* plans_color_11@2x.jpg in Resources */,
@@ -1128,6 +1153,7 @@
 				3AADD4CD17F31F1F000BEE34 /* underline.png in Resources */,
 				3AADD4CE17F31F1F000BEE34 /* underline@2x.png in Resources */,
 				3AADD4CF17F31F1F000BEE34 /* undo.png in Resources */,
+				3A281B6F17F3C63C000F301D /* .gitignore in Resources */,
 				3AADD4D017F31F1F000BEE34 /* unlink.png in Resources */,
 				3AADD4D417F31F1F000BEE34 /* popoverArrowDown.png in Resources */,
 				3AADD4D517F31F1F000BEE34 /* popoverArrowDown@2x.png in Resources */,
@@ -1160,6 +1186,7 @@
 				3AE3A23917ED47A700DC05A8 /* main.m in Sources */,
 				3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */,
 				3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */,
+				3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
 				3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */,
 				3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */,
 				3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */,
@@ -1191,6 +1218,7 @@
 				3AADD4F317F31F1F000BEE34 /* XDPlanDetailCell.m in Sources */,
 				3AADD4F417F31F1F000BEE34 /* XDPlanDetailViewController.m in Sources */,
 				3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */,
+				3A281B7317F3D6C6000F301D /* XDSummaryView.m in Sources */,
 				3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */,
 				3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */,
 				3AADD4F817F31F1F000BEE34 /* User.m in Sources */,

@@ -16,10 +16,19 @@
 
 #import "REMenu.h"
 
+#define KMENU_TAG_ALLPLANS 0
+#define KMENU_TAG_DETAILPLANS 1
+#define KMENU_TAG_DAYPLANS 2
+#define KMENU_TAG_SETTING 3
+
 @interface XDRootViewController ()
 {
     UIBarButtonItem *_menuItem;
     UIBarButtonItem *_createItem;
+    
+    NSInteger _currentType;
+    UIView *_currentView;
+    UIView *_wantView;
 }
 
 @property (nonatomic, strong) REMenu *menu;
@@ -53,8 +62,15 @@
     [self addChildViewController:self.dayPlanVC];
     [self addChildViewController:self.settingVC];
     
+    self.allPlansVC.view.frame = self.view.bounds;
+    self.detailPlanVC.view.frame = self.view.bounds;
+    self.dayPlanVC.view.frame = self.view.bounds;
+    self.settingVC.view.frame = self.view.bounds;
+    
     self.title = @"想做的事";
     [self layoutNavigationBar];
+    _currentType = KMENU_TAG_ALLPLANS;
+    _currentView = self.allPlansVC.view;
     [self.view addSubview:self.allPlansVC.view];
 }
 
@@ -96,7 +112,7 @@
 - (XDSettingViewController *)settingVC
 {
     if (_settingVC == nil) {
-        _settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStylePlain];
+        _settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
     }
     
     return _settingVC;
@@ -111,9 +127,10 @@
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);
-                                                              self.title = @"想做的事";
-                                                              [_menuItem setImage:[UIImage imageNamed:@"menu_allPlans.png"]];
-                                                              self.navigationItem.rightBarButtonItem = _createItem;
+                                                              [self menuSelectedItem:item withtype:KMENU_TAG_ALLPLANS];
+//                                                              self.title = @"想做的事";
+//                                                              [_menuItem setImage:[UIImage imageNamed:@"menu_allPlans.png"]];
+//                                                              self.navigationItem.rightBarButtonItem = _createItem;
                                                               
                                                               
                                                           }];
@@ -124,9 +141,10 @@
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
-                                                                 self.title = @"正在进行的事";
-                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_actionPlan.png"]];
-                                                                 self.navigationItem.rightBarButtonItem = nil;
+                                                                 [self menuSelectedItem:item withtype:KMENU_TAG_DETAILPLANS];
+//                                                                 self.title = @"正在进行的事";
+//                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_actionPlan.png"]];
+//                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
         REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
@@ -135,9 +153,10 @@
                                                     highlightedImage:nil
                                                               action:^(REMenuItem *item) {
                                                                   NSLog(@"Item: %@", item);
-                                                                  self.title = @"今天的计划";
-                                                                  [_menuItem setImage:[UIImage imageNamed:@"menu_todayPlan.png"]];
-                                                                  self.navigationItem.rightBarButtonItem = nil;
+                                                                  [self menuSelectedItem:item withtype:KMENU_TAG_DAYPLANS];
+//                                                                  self.title = @"今天的计划";
+//                                                                  [_menuItem setImage:[UIImage imageNamed:@"menu_todayPlan.png"]];
+//                                                                  self.navigationItem.rightBarButtonItem = nil;
                                                               }];
         
         REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"设置"
@@ -145,9 +164,10 @@
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
-                                                                 self.title = @"设置";
-                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_setting.png"]];
-                                                                 self.navigationItem.rightBarButtonItem = nil;
+                                                                 [self menuSelectedItem:item withtype:KMENU_TAG_SETTING];
+//                                                                 self.title = @"设置";
+//                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_setting.png"]];
+//                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
         homeItem.tag = 0;
@@ -206,6 +226,47 @@
     
     XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
     [self.navigationController presentModalViewController:newPlanVC animated:YES];
+}
+
+- (void)menuSelectedItem:(REMenuItem *)item withtype:(NSInteger)type
+{
+    if (_currentType != type) {
+        _currentType = type;
+        
+        switch (type) {
+            case KMENU_TAG_ALLPLANS:
+                _wantView = self.allPlansVC.view;
+                break;
+            case KMENU_TAG_DETAILPLANS:
+                _wantView = self.detailPlanVC.view;
+                break;
+            case KMENU_TAG_DAYPLANS:
+                _wantView = self.dayPlanVC.view;
+                break;
+            case KMENU_TAG_SETTING:
+                _wantView = self.settingVC.view;
+                break;
+                
+            default:
+                break;
+        }
+        
+        [_currentView removeFromSuperview];
+        [self.view addSubview:_wantView];
+        
+        if (type == KMENU_TAG_ALLPLANS) {
+            self.navigationItem.rightBarButtonItem = _createItem;
+        }
+        else{
+            self.navigationItem.rightBarButtonItem = nil;
+        }
+        
+        self.title = item.title;
+        [_menuItem setImage:item.image];
+        
+        _currentView = _wantView;
+        _wantView = nil;
+    }
 }
 
 @end

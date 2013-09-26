@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>toobad</key>
+	<dict>
+		<key>icon</key>
+		<string>plans_summary_0.png</string>
+		<key>title</key>
+		<string>太糟糕了</string>
+	</dict>
+	<key>general</key>
+	<dict>
+		<key>icon</key>
+		<string>plans_summary_1.png</string>
+		<key>title</key>
+		<string>一般般</string>
+	</dict>
+	<key>ok</key>
+	<dict>
+		<key>icon</key>
+		<string>plans_summary_2.png</string>
+		<key>title</key>
+		<string>还不错</string>
+	</dict>
+	<key>verygood</key>
+	<dict>
+		<key>icon</key>
+		<string>plans_summary_3.png</string>
+		<key>title</key>
+		<string>非常好</string>
+	</dict>
+</dict>
+</plist>

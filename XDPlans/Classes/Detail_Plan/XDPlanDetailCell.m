@@ -45,20 +45,26 @@
     _yearMonthLabel.font = [UIFont systemFontOfSize:12.0];
     [self.contentView addSubview:_yearMonthLabel];
     
-    
     _dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 30, 30)];
     _dayLabel.layer.borderWidth = 3.0f;
-    _dayLabel.layer.cornerRadius = 20 / 2;
-    _dayLabel.layer.masksToBounds = YES;
+    _dayLabel.layer.borderColor = [[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0] CGColor];
+    _dayLabel.layer.cornerRadius = 30 / 2;
+//    _dayLabel.layer.shadowOffset = CGSizeMake(5, 5);
+//    _dayLabel.layer.shadowRadius = 2.0;
+//    _dayLabel.layer.shadowOpacity = 2.0;
+//    _dayLabel.layer.shadowColor = [[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0] CGColor];
     _dayLabel.textAlignment = KTextAlignmentCenter;
     _dayLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    _dayLabel.backgroundColor = [UIColor colorWithRed:115 / 255.0 green:166 / 255.0 blue:184 / 255.0 alpha:1.0];
     [self.contentView addSubview:_dayLabel];
     
-    UIView *lineView1 = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + (_dayLabel.frame.size.width / 2 - 2), _dayLabel.frame.origin.y + _dayLabel.frame.size.height + 2, 4, 120 - (_dayLabel.frame.origin.y + _dayLabel.frame.size.height + 2))];
+    UIView *lineView1 = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + (_dayLabel.frame.size.width / 2 - 4), _dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4, 8, 120 - (_dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4))];
+    lineView1.layer.cornerRadius = 4;
     lineView1.backgroundColor = [UIColor grayColor];
     [self.contentView addSubview:lineView1];
     
     UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + _dayLabel.frame.size.width + 1, _dayLabel.frame.origin.y + (_dayLabel.frame.size.width / 2 - 2), 13, 4)];
+    lineView2.layer.cornerRadius = 2;
     lineView2.backgroundColor = [UIColor grayColor];
     [self.contentView addSubview:lineView2];
 }
