@@ -13,10 +13,14 @@
 {
     UILabel *_dayLabel;
     UILabel *_yearMonthLabel;
+    UIView *_lineNext;
 }
 
 @property (nonatomic, strong) XDPlanScrollView *scrollView;
 @property (nonatomic, strong) NSString *yearMonthStr;
 @property (nonatomic, strong) NSString *dayStr;
+
+- (void)hideLine;
+- (void)showLine;
 
 @end

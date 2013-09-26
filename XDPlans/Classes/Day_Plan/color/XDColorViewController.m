@@ -7,8 +7,11 @@
 //
 
 #import "XDColorViewController.h"
+#import "XDColorCell.h"
 
+#define KPLANS_COLOR_DATA_KEY @"key"
 #define KPLANS_COLOR_DATA_NAME @"name"
+#define KPLANS_COLOR_DATA_REMARK @"remark"
 #define KPLANS_COLOR_DATA_IMAGE @"image"
 #define KPLANS_COLOR_DATA_RGB @"rgb"
 #define KPLANS_COLOR_DATA_RED @"red"
@@ -19,7 +22,8 @@
 
 @interface XDColorViewController ()
 {
-    NSArray *_dataSource;
+    NSDictionary *_dataSource;
+    NSArray *_colorArray;
     UIBarButtonItem *_doneItem;
     
     NSInteger _selectedRow;
@@ -33,13 +37,16 @@
 
 @synthesize callerObject = _callerObject;
 
+@synthesize colorKey = _colorKey;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
         NSString *path = [[NSBundle mainBundle] pathForResource:@"XDColor" ofType:@"plist"];
-        _dataSource = [NSArray arrayWithContentsOfFile:path];
+        _dataSource = [NSDictionary dictionaryWithContentsOfFile:path];
+        _colorArray = [_dataSource allValues];
         
         _selectedRow = -1;
     }
@@ -51,7 +58,7 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    self.title = @"选择颜色";
+//    self.title = @"选择颜色";
  
     _doneItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleBordered target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = _doneItem;
@@ -80,25 +87,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ColorCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    XDColorCell *cell = (XDColorCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 180.0)];
-        imageView.tag = KPLANS_COLOR_CELL_IMAGEVIEW;
-        [cell.contentView addSubview:imageView];
+        cell = [[XDColorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    UIImageView *colorView = (UIImageView *)[cell viewWithTag:KPLANS_COLOR_CELL_IMAGEVIEW];
-    if (colorView == nil) {
-        colorView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 180.0)];
-        colorView.tag = KPLANS_COLOR_CELL_IMAGEVIEW;
-        [cell.contentView addSubview:colorView];
-    }
-    
-    colorView.image = [UIImage imageNamed:[[_dataSource objectAtIndex:indexPath.row] objectForKey:KPLANS_COLOR_DATA_IMAGE]];
+    NSDictionary *dic = [_colorArray objectAtIndex:indexPath.row];
+    cell.name = [dic objectForKey:KPLANS_COLOR_DATA_NAME];
+    cell.remark = [dic objectForKey:KPLANS_COLOR_DATA_REMARK];
+    NSDictionary *rgbDic = [dic objectForKey:KPLANS_COLOR_DATA_RGB];
+    UIColor *color = [UIColor colorWithRed:[[rgbDic objectForKey:KPLANS_COLOR_DATA_RED] floatValue] / 255.0 green:[[rgbDic objectForKey:KPLANS_COLOR_DATA_GREEN] floatValue] / 255.0 blue:[[rgbDic objectForKey:KPLANS_COLOR_DATA_BLUE] floatValue] / 255.0 alpha:0.5];
+    cell.contentView.backgroundColor = color;
     
     if (_selectedRow == indexPath.row) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -129,13 +131,22 @@
         
         _selectedRow = indexPath.row;
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.title = [[_dataSource objectAtIndex:indexPath.row] objectForKey:KPLANS_COLOR_DATA_NAME];
+        self.title = [[_colorArray objectAtIndex:indexPath.row] objectForKey:KPLANS_COLOR_DATA_NAME];
     }
     else{
         _selectedRow = -1;
         cell.accessoryType = UITableViewCellAccessoryNone;
         self.title = @"选择颜色";
     }
+}
+
+#pragma mark - setting
+
+- (void)setColorKey:(NSString *)key
+{
+    _colorKey = key;
+    _selectedRow = [_colorArray indexOfObject:[_dataSource objectForKey:key]];
+    self.title = [[_colorArray objectAtIndex:_selectedRow] objectForKey:KPLANS_COLOR_DATA_NAME];
 }
 
 #pragma mark - item action
@@ -147,12 +158,12 @@
         [alertView show];
         return;
     }
-    NSDictionary *rgbDic = [[_dataSource objectAtIndex:_selectedRow] objectForKey:KPLANS_COLOR_DATA_RGB];
+    NSDictionary *rgbDic = [[_colorArray objectAtIndex:_selectedRow] objectForKey:KPLANS_COLOR_DATA_RGB];
     UIColor *color = [UIColor colorWithRed:[[rgbDic objectForKey:KPLANS_COLOR_DATA_RED] integerValue] / 255.0 green:[[rgbDic objectForKey:KPLANS_COLOR_DATA_GREEN] integerValue] / 255.0 blue:[[rgbDic objectForKey:KPLANS_COLOR_DATA_BLUE] integerValue] / 255.0 alpha:0.5];
-    if (_delegate && [_delegate respondsToSelector:@selector(colorPickerSlectedColor:withCaller:)]) {
-        [_delegate colorPickerSlectedColor:color withCaller:_callerObject];
+    if (_delegate && [_delegate respondsToSelector:@selector(colorPickerSlectedColor:key:withCaller:)]) {
+        [_delegate colorPickerSlectedColor:color key:[[_colorArray objectAtIndex:_selectedRow] objectForKey:KPLANS_COLOR_DATA_KEY] withCaller:_callerObject];
     }
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

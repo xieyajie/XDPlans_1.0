@@ -11,6 +11,7 @@
 		3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
 		3A281B7317F3D6C6000F301D /* XDSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B7217F3D6C6000F301D /* XDSummaryView.m */; };
 		3A281B7517F3D88C000F301D /* XDSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A281B7417F3D88C000F301D /* XDSummary.plist */; };
+		3A281B7817F40DD5000F301D /* XDColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B7717F40DD5000F301D /* XDColorCell.m */; };
 		3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4B17EFD12D0059FBF2 /* Default.png */; };
 		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
@@ -204,6 +205,8 @@
 		3A281B7117F3D6C6000F301D /* XDSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSummaryView.h; sourceTree = "<group>"; };
 		3A281B7217F3D6C6000F301D /* XDSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSummaryView.m; sourceTree = "<group>"; };
 		3A281B7417F3D88C000F301D /* XDSummary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSummary.plist; sourceTree = "<group>"; };
+		3A281B7617F40DD5000F301D /* XDColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorCell.h; sourceTree = "<group>"; };
+		3A281B7717F40DD5000F301D /* XDColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorCell.m; sourceTree = "<group>"; };
 		3A5FEA4B17EFD12D0059FBF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -705,6 +708,8 @@
 				3AADD46517F31F1F000BEE34 /* XDColor.plist */,
 				3AADD46617F31F1F000BEE34 /* XDColorViewController.h */,
 				3AADD46717F31F1F000BEE34 /* XDColorViewController.m */,
+				3A281B7617F40DD5000F301D /* XDColorCell.h */,
+				3A281B7717F40DD5000F301D /* XDColorCell.m */,
 			);
 			path = color;
 			sourceTree = "<group>";
@@ -1213,6 +1218,7 @@
 				3AADD4EC17F31F1F000BEE34 /* RichTextEditorToolbar.m in Sources */,
 				3AADD4EE17F31F1F000BEE34 /* XDColorViewController.m in Sources */,
 				3AADD4F017F31F1F000BEE34 /* XDMoodPicker.m in Sources */,
+				3A281B7817F40DD5000F301D /* XDColorCell.m in Sources */,
 				3AADD4F117F31F1F000BEE34 /* XDDayPlanCell.m in Sources */,
 				3AADD4F217F31F1F000BEE34 /* XDDayPlanViewController.m in Sources */,
 				3AADD4F317F31F1F000BEE34 /* XDPlanDetailCell.m in Sources */,

@@ -58,10 +58,11 @@
     _dayLabel.backgroundColor = [UIColor colorWithRed:115 / 255.0 green:166 / 255.0 blue:184 / 255.0 alpha:1.0];
     [self.contentView addSubview:_dayLabel];
     
-    UIView *lineView1 = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + (_dayLabel.frame.size.width / 2 - 4), _dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4, 8, 120 - (_dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4))];
-    lineView1.layer.cornerRadius = 4;
-    lineView1.backgroundColor = [UIColor grayColor];
-    [self.contentView addSubview:lineView1];
+    _lineNext = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + (_dayLabel.frame.size.width / 2 - 4), _dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4, 8, 120 - (_dayLabel.frame.origin.y + _dayLabel.frame.size.height + 4))];
+    _lineNext.layer.cornerRadius = 4;
+    _lineNext.backgroundColor = [UIColor grayColor];
+    _lineNext.hidden = YES;
+    [self.contentView addSubview:_lineNext];
     
     UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(_dayLabel.frame.origin.x + _dayLabel.frame.size.width + 1, _dayLabel.frame.origin.y + (_dayLabel.frame.size.width / 2 - 2), 13, 4)];
     lineView2.layer.cornerRadius = 2;
@@ -90,6 +91,18 @@
     _scrollView.frame = CGRectMake(_dayLabel.frame.origin.x + _dayLabel.frame.size.width + 15, 10, self.frame.size.width - (_dayLabel.frame.origin.x + _dayLabel.frame.size.width + 25), 100);
 //    _scrollView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:_scrollView];
+}
+
+#pragma mark - public
+
+- (void)hideLine
+{
+    _lineNext.hidden = YES;
+}
+
+- (void)showLine
+{
+    _lineNext.hidden = NO;
 }
 
 @end

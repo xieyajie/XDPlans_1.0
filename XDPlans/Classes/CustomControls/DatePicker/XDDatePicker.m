@@ -90,13 +90,17 @@
 {
     self.cancelClicked();
     
-    [self removeFromSuperview];
+    [UIView animateWithDuration:.5f animations:^{
+        [self removeFromSuperview];
+    }];
 }
 -(void)sureButtonClicked
 {
     self.sureClicked(self.datePicker.date);
     
-    [self removeFromSuperview];
+    [UIView animateWithDuration:.5f animations:^{
+        [self removeFromSuperview];
+    }];
 }
 
 #pragma mark - public
@@ -117,8 +121,11 @@
     self.shandowView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
     self.datePicker.frame = CGRectMake(0, view.frame.size.height - 160, view.frame.size.width, 160);
     self.toolBar.frame = CGRectMake(0, view.frame.size.height - self.datePicker.frame.size.height - 44, view.frame.size.width, 44);
-    [view addSubview:self];
-    [view bringSubviewToFront:self];
+    
+    [UIView animateWithDuration:.5f animations:^{
+        [view addSubview:self];
+        [view bringSubviewToFront:self];
+    }];
 }
 
 @end

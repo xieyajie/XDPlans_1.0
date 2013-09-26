@@ -43,6 +43,8 @@
 @synthesize textField = _textField;
 @synthesize textView = _textView;
 
+@synthesize colorKey = _colorKey;
+
 //指数相关
 @synthesize buttons = _buttons;
 
@@ -56,7 +58,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-
+        _colorKey = @"#000000";
     }
     return self;
 }
@@ -68,7 +70,12 @@
     // Configure the view for the selected state
 }
 
-#pragma mark - set
+#pragma mark - setting
+
+- (void)setColorKey:(NSString *)key
+{
+    _colorKey = key;
+}
 
 #pragma mark - get
 

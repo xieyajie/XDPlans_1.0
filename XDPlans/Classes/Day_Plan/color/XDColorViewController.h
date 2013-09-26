@@ -11,7 +11,7 @@
 @protocol XDColorViewControllerDelegate <NSObject>
 
 @required
-- (void)colorPickerSlectedColor:(UIColor *)color withCaller:(id)caller;
+- (void)colorPickerSlectedColor:(UIColor *)color key:(NSString *)key withCaller:(id)caller;
 
 @end
 
@@ -20,5 +20,7 @@
 @property (nonatomic, unsafe_unretained) id<XDColorViewControllerDelegate> delegate;
 
 @property (nonatomic, strong) id callerObject;
+
+@property (nonatomic, strong) NSString *colorKey;
 
 @end

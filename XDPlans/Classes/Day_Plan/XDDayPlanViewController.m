@@ -335,6 +335,7 @@
 - (void)planCellSelectedColorPicker:(XDDayPlanCell *)planCell
 {
     XDColorViewController *colorVC = [[XDColorViewController alloc] initWithStyle:UITableViewStylePlain];
+    colorVC.colorKey = planCell.colorKey;
     colorVC.callerObject = planCell;
     colorVC.delegate = self;
     [self.navigationController pushViewController:colorVC animated:YES];
@@ -342,10 +343,13 @@
 
 #pragma mark - XDColorViewControllerDelegate
 
-- (void)colorPickerSlectedColor:(UIColor *)color withCaller:(id)caller
+- (void)colorPickerSlectedColor:(UIColor *)color key:(NSString *)key withCaller:(id)caller
 {
     XDDayPlanCell *planCell = (XDDayPlanCell *)caller;
-    [planCell updateWithColor:color];
+    if (![planCell.colorKey isEqualToString:key]) {
+        planCell.colorKey = key;
+        [planCell updateWithColor:color];
+    }
 }
 
 #pragma mark - XDMoodPickerDelegate

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
 
+@property (nonatomic, strong) NSString *colorKey;
+
 //心情
 - (void)configurationMood;
 //工作量指数

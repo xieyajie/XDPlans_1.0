@@ -98,6 +98,12 @@
     cell.dayStr = [NSString stringWithFormat:@"%i", [_managerHelper dayForDate:[NSDate date]]];
     cell.yearMonthStr = [_managerHelper year_monthForDate:[NSDate date]];
     cell.scrollView = [_planViews objectAtIndex:indexPath.row];
+    if (indexPath.row == 9) {
+        [cell hideLine];
+    }
+    else{
+        [cell showLine];
+    }
     
     return cell;
 }
