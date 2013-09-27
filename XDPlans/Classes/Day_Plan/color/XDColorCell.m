@@ -8,8 +8,6 @@
 
 #import "XDColorCell.h"
 
-#import "XDPlanLocalDefault.h"
-
 @implementation XDColorCell
 
 @synthesize name = _name;

@@ -9,8 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDCutImageViewController.h"
 
-#import "XDPlanLocalDefault.h"
-
 @interface XDCutImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     UIImage *_originalImage;

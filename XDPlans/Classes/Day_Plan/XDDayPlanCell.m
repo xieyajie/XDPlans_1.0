@@ -11,7 +11,6 @@
 
 #import "XDSummaryView.h"
 #import "XDManagerHelper.h"
-#import "XDPlanLocalDefault.h"
 
 @interface XDDayPlanCell()<XDSummaryViewDelegate>
 {

@@ -13,7 +13,6 @@
 #import "XDPlanDetailViewController.h"
 
 #import "REMenu.h"
-#import "XDPlanLocalDefault.h"
 
 #define KPLANS_INDEX @"index"
 #define KPLANS_CONTENT @"content"
@@ -363,7 +362,7 @@
     }
     
     XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
-    [self.navigationController presentModalViewController:newPlanVC animated:YES];
+    [self.navigationController presentViewController:newPlanVC animated:YES completion:nil];
 }
 
 #pragma mark - manager

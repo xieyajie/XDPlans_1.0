@@ -8,8 +8,6 @@
 
 #import "XDCircleProgressBar.h"
 
-#import "XDPlanLocalDefault.h"
-
 @implementation XDCircleProgressBar
 
 @synthesize color;

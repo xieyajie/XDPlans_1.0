@@ -15,7 +15,6 @@
 
 #import "XDCutImageViewController.h"
 #import "XDManagerHelper.h"
-#import "XDPlanLocalDefault.h"
 
 @interface XDAccountLoginViewController ()<UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {

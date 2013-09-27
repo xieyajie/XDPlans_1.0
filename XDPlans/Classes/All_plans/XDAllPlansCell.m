@@ -10,7 +10,6 @@
 #import "XDAllPlansCell.h"
 
 #import "XDCircleProgressBar.h"
-#import "XDPlanLocalDefault.h"
 
 @interface XDAllPlansCell()
 

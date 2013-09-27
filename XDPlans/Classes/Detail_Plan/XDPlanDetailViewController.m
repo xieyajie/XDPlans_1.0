@@ -12,7 +12,6 @@
 #import "XDPlanScrollView.h"
 #import "XDDayPlanViewController.h"
 #import "XDManagerHelper.h"
-#import "XDPlanLocalDefault.h"
 
 @interface XDPlanDetailViewController ()
 {

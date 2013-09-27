@@ -14,7 +14,6 @@
 #import "XDMoodPicker.h"
 
 #import "XDManagerHelper.h"
-#import "XDPlanLocalDefault.h"
 
 #define KTODAY_DATA_TITLE @"title"
 #define KTODAY_DATA_ICON_NORMAL @"icon_normal"

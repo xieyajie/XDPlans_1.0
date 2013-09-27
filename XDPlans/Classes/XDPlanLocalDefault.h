@@ -20,6 +20,7 @@
 # define KTextAlignmentLeft NSTextAlignmentLeft
 # define KTextAlignmentCenter NSTextAlignmentCenter
 # define KTextAlignmentRight NSTextAlignmentRight
+# define KTextAlignmentJustified NSTextAlignmentJustified
 
 #define KLineBreakModeClip NSLineBreakByClipping
 #endif

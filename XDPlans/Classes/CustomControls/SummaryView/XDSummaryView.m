@@ -8,8 +8,6 @@
 
 #import "XDSummaryView.h"
 
-#import "XDPlanLocalDefault.h"
-
 @implementation XDSummaryView
 
 @synthesize delegate = _delegate;

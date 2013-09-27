@@ -10,7 +10,6 @@
 #import "XDPlanScrollView.h"
 
 #import "XDSummaryView.h"
-#import "XDPlanLocalDefault.h"
 
 @implementation XDPlanScrollView
 

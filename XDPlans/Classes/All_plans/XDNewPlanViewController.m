@@ -12,7 +12,6 @@
 #import "RichTextEditor.h"
 #import "XDDatePicker.h"
 #import "XDManagerHelper.h"
-#import "XDPlanLocalDefault.h"
 
 @interface XDNewPlanViewController ()<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -21,7 +20,7 @@
     
     XDDatePicker *_datePicker;
     __block NSDate *_selectedDate;
-    __block NSDateFormatter *_dateFormatter;
+    NSDateFormatter *_dateFormatter;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -256,7 +255,7 @@
         
     };
     _datePicker.sureClicked = ^(NSDate *date){
-        _selectedDate = date;
+        _selectedDate = [date copy];
         _dateLabel.text = [_dateFormatter stringFromDate:date];
     };
     [_datePicker selectedDate:_selectedDate];
@@ -265,7 +264,7 @@
 
 - (void)back:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)done:(id)sender
@@ -283,7 +282,7 @@
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:[self.contentTextView text]];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 @end

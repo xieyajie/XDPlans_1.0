@@ -211,13 +211,15 @@
 	NSTextAlignment textAlignment;
 	
 	if (sender == self.btnTextAlignmentLeft)
-		textAlignment = NSTextAlignmentLeft;
+		textAlignment = KTextAlignmentLeft;
 	else if (sender == self.btnTextAlignmentCenter)
-		textAlignment = NSTextAlignmentCenter;
+		textAlignment = KTextAlignmentCenter;
 	else if (sender == self.btnTextAlignmentRight)
-		textAlignment = NSTextAlignmentRight;
+		textAlignment = KTextAlignmentRight;
 	else if (sender == self.btnTextAlignmentJustified)
-		textAlignment = NSTextAlignmentJustified;
+		textAlignment = KTextAlignmentJustified;
+    else
+        textAlignment = KTextAlignmentCenter;
 	
 	[self.delegate richTextEditorToolbarDidSelectTextAlignment:textAlignment];
 }

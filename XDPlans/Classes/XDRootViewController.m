@@ -225,7 +225,7 @@
 //    }
     
     XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
-    [self.navigationController presentModalViewController:newPlanVC animated:YES];
+    [self.navigationController presentViewController:newPlanVC animated:YES completion:nil];
 }
 
 - (void)menuSelectedItem:(REMenuItem *)item withtype:(NSInteger)type
