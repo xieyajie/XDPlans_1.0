@@ -86,7 +86,7 @@
 {
     _animating = YES;
     int perc = [newPercentage intValue];
-    if (perc < _percentValue)
+    if (perc <= _percentValue)
     {
         perc++;
     }
@@ -96,7 +96,7 @@
     _oldPercent = perc;
     [self setNeedsLayout];
     
-    if (perc != _percentValue)
+    if (perc <= _percentValue)
     {
         [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:perc] afterDelay:.001];
         [self setNeedsDisplay];
@@ -123,7 +123,7 @@
         return [UIColor greenColor];
     }
     
-    if (_oldPercent > 75 && _oldPercent < 101) {
+    if (_oldPercent > 75) {
         return [UIColor redColor];
     }
     
