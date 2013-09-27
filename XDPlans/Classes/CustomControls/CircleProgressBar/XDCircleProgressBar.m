@@ -37,19 +37,12 @@
     floatPercent = MIN(1, MAX(0, floatPercent));
     CGFloat delta = toRadians(360 * floatPercent);
     
-    CGFloat innerRadius = 62.5;
-    CGFloat outerRadius = 87.5;
+    CGFloat innerRadius = self.frame.size.width / 2 - 8;
+    CGFloat outerRadius = self.frame.size.width / 2;
     
-    if (color) {
-        CGContextSetFillColorWithColor(ctx, color.CGColor);
-    } else {
-        CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:99/256.0 green:183/256.0 blue:70/256.0 alpha:.5].CGColor);
-    }
-    
+    CGContextSetFillColorWithColor(ctx, self.color.CGColor);
     CGContextSetLineWidth(ctx, 1);
-    
     CGContextSetLineCap(ctx, kCGLineCapRound);
-    
     CGContextSetAllowsAntialiasing(ctx, YES);
     
     CGMutablePathRef path = CGPathCreateMutable();
@@ -114,6 +107,28 @@
     }
 }
 
+#pragma mark - getting
+
+- (UIColor *)color
+{
+    if (_oldPercent > 0 && _oldPercent < 26) {
+        return [UIColor purpleColor];
+    }
+    
+    if (_oldPercent > 25 && _oldPercent < 51) {
+        return [UIColor cyanColor];
+    }
+    
+    if (_oldPercent > 50 && _oldPercent < 76) {
+        return [UIColor greenColor];
+    }
+    
+    if (_oldPercent > 75 && _oldPercent < 101) {
+        return [UIColor redColor];
+    }
+    
+    return [UIColor colorWithRed:99/256.0 green:183/256.0 blue:70/256.0 alpha:.5];
+}
 
 #pragma mark - setting
 

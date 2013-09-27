@@ -150,7 +150,7 @@
     cell.content = [dic objectForKey:KPLANS_CONTENT];
     cell.action = [[dic objectForKey:KPLANS_ACTION] boolValue];
 //    cell.finish = [[dic objectForKey:KPLANS_FINISH] boolValue];
-    cell.progressValue = 0.4;
+    cell.progressValue = 0.2 * (indexPath.row + 1);
     
     return cell;
 }
