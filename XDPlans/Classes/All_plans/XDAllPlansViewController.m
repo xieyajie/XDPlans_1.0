@@ -20,7 +20,7 @@
 #define KPLANS_ACTION @"action"
 #define KPLANS_FINISH @"finish"
 
-@interface XDAllPlansViewController ()<UIAlertViewDelegate>
+@interface XDAllPlansViewController ()<UIAlertViewDelegate, XDAllPlansCellDelegate>
 {
     NSMutableDictionary *_actionSource;
     NSMutableDictionary *_dataSource;
@@ -28,6 +28,8 @@
     UIBarButtonItem *_menuItem;
     UIBarButtonItem *_createItem;
     UIView *_tableHeaderView;
+    
+    NSInteger _selectedRow;
 }
 
 @property (nonatomic, strong) UIView *tableHeaderView;
@@ -74,10 +76,7 @@
     self.title = @"想做的事";
     [self layoutNavigationBar];
     
-//    self.tableView.separatorColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
-//    self.tableView.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1.0];
-//    [self.tableView setTableHeaderView:self.tableHeaderView];
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _selectedRow = -1;
     
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -141,7 +140,7 @@
     // Configure the cell...
     if (cell == nil) {
         cell = [[XDAllPlansCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        cell.backgroundColor = [UIColor clearColor];
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
@@ -181,11 +180,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_selectedRow > -1) {
+        XDAllPlansCell *cell = (XDAllPlansCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0]];
+        
+        [cell setEditing:NO];
+        _selectedRow = -1;
+        
+        return;
+    }
+    
     NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
     NSString *content = [dic objectForKey:KPLANS_CONTENT];
     XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
     planDetailVC.planContent = content;
     [self.navigationController pushViewController:planDetailVC animated:YES];
+}
+
+#pragma mark - XDAllPlansCellDelegate
+
+- (void)plansCellFinishAction:(XDAllPlansCell *)cell
+{
+//    cell.progressValue = 1.0;
+}
+
+- (void)plansCellDeleteAction:(XDAllPlansCell *)cell
+{
+    
+}
+
+- (void)plansCellEditAction:(XDAllPlansCell *)cell
+{
+    
 }
 
 #pragma mark - notification
@@ -208,7 +233,21 @@
 - (void)leftSwipe:(UISwipeGestureRecognizer *)swipe
 {
     if (swipe.state == UIGestureRecognizerStateEnded) {
-        //
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[swipe locationInView:self.tableView]];
+        XDAllPlansCell *cell = (XDAllPlansCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        if (cell.editing == YES) {
+            [cell showDapAnimation];
+            return;
+        }
+        
+        if(_selectedRow > -1)
+        {
+            XDAllPlansCell *oldCell = (XDAllPlansCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0]];
+            [oldCell setEditing:NO];
+        }
+        
+        _selectedRow = indexPath.row;
+        [cell setEditing:YES];
     }
 }
 

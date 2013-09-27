@@ -37,8 +37,8 @@
     floatPercent = MIN(1, MAX(0, floatPercent));
     CGFloat delta = toRadians(360 * floatPercent);
     
-    CGFloat innerRadius = self.frame.size.width / 2 - 8;
-    CGFloat outerRadius = self.frame.size.width / 2;
+    CGFloat innerRadius = self.frame.size.width / 2 - 15;
+    CGFloat outerRadius = self.frame.size.width / 2 - 10;
     
     CGContextSetFillColorWithColor(ctx, self.color.CGColor);
     CGContextSetLineWidth(ctx, 1);
@@ -70,6 +70,7 @@
 {
     _animating = NO;
     _percentValue = 0.0;
+    _oldPercent = 0.0;
     
     _percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [_percentLabel setFont:[UIFont fontWithName:@"Futura-CondensedMedium" size:10]];
@@ -99,7 +100,7 @@
     
     if (perc != _percentValue)
     {
-        [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:perc] afterDelay:.01];
+        [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:perc] afterDelay:.001];
     }
     else
     {
@@ -148,7 +149,7 @@
         _percentLabel.text = [NSString stringWithFormat:@"%i%%", _percentValue];
         
         if (animated) {
-            [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:_oldPercent] afterDelay:.01];
+            [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:_oldPercent] afterDelay:.001];
         }
         else {
             _oldPercent = _percentValue;

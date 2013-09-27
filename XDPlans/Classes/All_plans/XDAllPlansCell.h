@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol XDAllPlansCellDelegate;
+
 @class RichTextEditor;
 @class XDCircleProgressBar;
 @interface XDAllPlansCell : UITableViewCell
@@ -17,7 +19,11 @@
     UIView *_operateView;
     
     XDCircleProgressBar *_progressBar;
+    UIButton *_deleteButton;
+    UIButton *_editButton;
 }
+
+@property (nonatomic, unsafe_unretained) id<XDAllPlansCellDelegate> delegate;
 
 @property (nonatomic) NSInteger index;
 @property (nonatomic, strong) NSString *content;
@@ -25,5 +31,16 @@
 //@property (nonatomic) BOOL finish;
 
 @property (nonatomic) CGFloat progressValue;
+
+- (void)showDapAnimation;
+
+@end
+
+@protocol XDAllPlansCellDelegate <NSObject>
+
+@optional
+- (void)plansCellFinishAction:(XDAllPlansCell *)cell;
+- (void)plansCellDeleteAction:(XDAllPlansCell *)cell;
+- (void)plansCellEditAction:(XDAllPlansCell *)cell;
 
 @end

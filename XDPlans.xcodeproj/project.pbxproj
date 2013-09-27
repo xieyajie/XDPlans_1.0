@@ -15,6 +15,8 @@
 		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
 		3A95912917F52AFB00B49D50 /* XDSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95912817F52AFB00B49D50 /* XDSummaryView.m */; };
 		3A95913517F52FD900B49D50 /* XDCircleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95913217F52FD900B49D50 /* XDCircleProgressBar.m */; };
+		3A95914117F5601400B49D50 /* plans_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95913F17F5601400B49D50 /* plans_delete@2x.png */; };
+		3A95914217F5601400B49D50 /* plans_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95914017F5601400B49D50 /* plans_edit@2x.png */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
 		3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E517F31E94000BEE34 /* XDRootViewController.m */; };
 		3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */; };
@@ -212,6 +214,8 @@
 		3A95912817F52AFB00B49D50 /* XDSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSummaryView.m; sourceTree = "<group>"; };
 		3A95913117F52FD900B49D50 /* XDCircleProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDCircleProgressBar.h; sourceTree = "<group>"; };
 		3A95913217F52FD900B49D50 /* XDCircleProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCircleProgressBar.m; sourceTree = "<group>"; };
+		3A95913F17F5601400B49D50 /* plans_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_delete@2x.png"; sourceTree = "<group>"; };
+		3A95914017F5601400B49D50 /* plans_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_edit@2x.png"; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3AADD3E417F31E94000BEE34 /* XDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDRootViewController.h; path = Classes/XDRootViewController.h; sourceTree = "<group>"; };
 		3AADD3E517F31E94000BEE34 /* XDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDRootViewController.m; path = Classes/XDRootViewController.m; sourceTree = "<group>"; };
@@ -944,6 +948,8 @@
 		3AE3A37717ED5C4E00DC05A8 /* plans */ = {
 			isa = PBXGroup;
 			children = (
+				3A95913F17F5601400B49D50 /* plans_delete@2x.png */,
+				3A95914017F5601400B49D50 /* plans_edit@2x.png */,
 				3AE3A37817ED5C4E00DC05A8 /* color */,
 				3AE3A38F17ED5C4E00DC05A8 /* plans_action@2x.png */,
 				3AE3A39017ED5C4E00DC05A8 /* plans_enabled_no@2x.png */,
@@ -1156,6 +1162,7 @@
 				3AADD4B617F31F1F000BEE34 /* forecolor.png in Resources */,
 				3AADD4B717F31F1F000BEE34 /* image.png in Resources */,
 				3AADD4B817F31F1F000BEE34 /* indent.png in Resources */,
+				3A95914217F5601400B49D50 /* plans_edit@2x.png in Resources */,
 				3AADD4B917F31F1F000BEE34 /* indent@2x.png in Resources */,
 				3AADD4BA17F31F1F000BEE34 /* italic.png in Resources */,
 				3AADD4BB17F31F1F000BEE34 /* italic@2x.png in Resources */,
@@ -1182,6 +1189,7 @@
 				3A281B6F17F3C63C000F301D /* .gitignore in Resources */,
 				3AADD4D017F31F1F000BEE34 /* unlink.png in Resources */,
 				3AADD4D417F31F1F000BEE34 /* popoverArrowDown.png in Resources */,
+				3A95914117F5601400B49D50 /* plans_delete@2x.png in Resources */,
 				3AADD4D517F31F1F000BEE34 /* popoverArrowDown@2x.png in Resources */,
 				3AADD4D617F31F1F000BEE34 /* popoverArrowDownSimple.png in Resources */,
 				3AADD4D717F31F1F000BEE34 /* popoverArrowLeft.png in Resources */,

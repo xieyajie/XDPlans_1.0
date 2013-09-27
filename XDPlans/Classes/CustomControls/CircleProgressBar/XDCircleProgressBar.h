@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDCircleProgressBar : UIView
+@interface XDCircleProgressBar : UIControl
 {
     UILabel *_percentLabel;
     
