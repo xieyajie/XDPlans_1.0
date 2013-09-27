@@ -11,6 +11,8 @@
 @interface XDCircleProgressBar : UIControl
 {
     UILabel *_percentLabel;
+    CGFloat _innerRadius;
+    CGFloat _outerRadius;
     
     NSInteger _oldPercent;
     BOOL _animating;

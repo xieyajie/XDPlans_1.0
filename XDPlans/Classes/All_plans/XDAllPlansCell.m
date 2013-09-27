@@ -156,7 +156,7 @@
     _progressValue = value;
     
     NSString *str = [NSString stringWithFormat:@"%.0f", value * 100];
-    [_progressBar setPercent:[str integerValue] animated:NO];
+    [_progressBar setPercent:[str integerValue] animated:YES];
 }
 
 #pragma mark - operate

@@ -37,9 +37,6 @@
     floatPercent = MIN(1, MAX(0, floatPercent));
     CGFloat delta = toRadians(360 * floatPercent);
     
-    CGFloat innerRadius = self.frame.size.width / 2 - 15;
-    CGFloat outerRadius = self.frame.size.width / 2 - 10;
-    
     CGContextSetFillColorWithColor(ctx, self.color.CGColor);
     CGContextSetLineWidth(ctx, 1);
     CGContextSetLineCap(ctx, kCGLineCapRound);
@@ -47,9 +44,9 @@
     
     CGMutablePathRef path = CGPathCreateMutable();
     
-    CGPathAddRelativeArc(path, NULL, center.x, center.y, innerRadius, -(M_PI / 2), delta);
-    CGPathAddRelativeArc(path, NULL, center.x, center.y, outerRadius, delta - (M_PI / 2), -delta);
-    CGPathAddLineToPoint(path, NULL, center.x, center.y-innerRadius);
+    CGPathAddRelativeArc(path, NULL, center.x, center.y, _innerRadius, -(M_PI / 2), delta);
+    CGPathAddRelativeArc(path, NULL, center.x, center.y, _outerRadius, delta - (M_PI / 2), -delta);
+    CGPathAddLineToPoint(path, NULL, center.x, center.y - _innerRadius);
     
     CGContextAddPath(ctx, path);
     CGContextFillPath(ctx);
@@ -60,6 +57,9 @@
 -(void)layoutSubviews
 {
     _percentLabel.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _innerRadius = self.frame.size.width / 2 - 15;
+    _outerRadius = self.frame.size.width / 2 - 10;
+    
     [super layoutSubviews];
 }
 
