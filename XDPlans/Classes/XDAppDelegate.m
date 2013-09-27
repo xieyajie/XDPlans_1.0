@@ -17,6 +17,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+//    [MagicalRecord setupCoreDataStackWithStoreNamed:@"XDPlans_1.sqlite"];
+    
 //    XDAllPlansViewController *allPlansViewController = [[XDAllPlansViewController alloc] initWithStyle:UITableViewStylePlain];
 //    self.navigationController = [[UINavigationController alloc] initWithRootViewController:allPlansViewController];
     
@@ -54,6 +56,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//    [MagicalRecord cleanUp];
 }
 
 @end
