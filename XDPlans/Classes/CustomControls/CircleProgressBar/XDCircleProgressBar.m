@@ -99,6 +99,7 @@
     if (perc != _percentValue)
     {
         [self performSelector:@selector(delayedDraw:) withObject:[NSNumber numberWithInteger:perc] afterDelay:.001];
+        [self setNeedsDisplay];
     }
     else
     {
