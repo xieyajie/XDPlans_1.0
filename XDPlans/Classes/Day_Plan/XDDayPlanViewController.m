@@ -100,6 +100,10 @@
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    headerView.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+    [self.tableView addSubview:headerView];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardDidHideNotification object:nil];
 }

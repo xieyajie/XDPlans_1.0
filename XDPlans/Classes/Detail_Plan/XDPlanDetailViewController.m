@@ -62,6 +62,10 @@
     self.title = @"正在做的事";
     self.tableView.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    headerView.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+    [self.tableView addSubview:headerView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,7 +134,11 @@
         CGFloat height = size.height > 40 ? size.height : 40;
         
         _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, height + 50)];
-        _tableHeaderView.backgroundColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+        _tableHeaderView.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+        _tableHeaderView.layer.shadowOffset = CGSizeMake(0, 5);
+        _tableHeaderView.layer.shadowRadius = 2.0;
+        _tableHeaderView.layer.shadowOpacity = 0.4;
+        _tableHeaderView.layer.shadowColor = [[UIColor blackColor] CGColor];
         
         UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, _tableHeaderView.frame.size.width - 20, height)];
         contentLabel.numberOfLines = 0;

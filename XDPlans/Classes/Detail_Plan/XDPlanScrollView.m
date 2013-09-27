@@ -22,7 +22,7 @@
 //        self.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
         self.layer.shadowOffset = CGSizeMake(5, 5);
         self.layer.shadowRadius = 2.0;
-        self.layer.shadowOpacity = 2.0;
+        self.layer.shadowOpacity = 1.0;
         self.layer.shadowColor = [[UIColor colorWithRed:211 / 255.0 green:209 / 255.0 blue:202 / 255.0 alpha:1.0] CGColor];
         
         _scrollView = [[UIScrollView alloc] init];
