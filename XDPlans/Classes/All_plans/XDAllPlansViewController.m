@@ -77,7 +77,7 @@
 //    self.tableView.separatorColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
 //    self.tableView.backgroundColor = [UIColor colorWithRed:234 / 255.0 green:234 / 255.0 blue:234 / 255.0 alpha:1.0];
 //    [self.tableView setTableHeaderView:self.tableHeaderView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -150,7 +150,7 @@
     cell.content = [dic objectForKey:KPLANS_CONTENT];
     cell.action = [[dic objectForKey:KPLANS_ACTION] boolValue];
 //    cell.finish = [[dic objectForKey:KPLANS_FINISH] boolValue];
-    cell.progressValue = 0.4 * indexPath.row;
+    cell.progressValue = 0.4;
     
     return cell;
 }
@@ -176,7 +176,7 @@
     NSString *content = [dic objectForKey:KPLANS_CONTENT];
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
     CGFloat height = size.height > 40 ? size.height : 40;
-    return height + 20;
+    return height + 10;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

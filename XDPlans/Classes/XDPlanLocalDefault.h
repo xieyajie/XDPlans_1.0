@@ -42,6 +42,10 @@
 #define KSIDESLIP_PERCENT 0.5
 #define KSIDESLIP_CELL_HEIGHT 60.0
 
+//all plans
+#define toRadians(x) ((x)*M_PI / 180.0)
+#define toDegrees(x) ((x)*180.0 / M_PI)
+
 //today
 #define KTODAY_CELL_HEIGHT_NORMAL 80.0
 #define KTODAY_CELL_HEIGHT_CONTENT 150.0

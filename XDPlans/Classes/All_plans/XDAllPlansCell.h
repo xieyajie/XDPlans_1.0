@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class RichTextEditor;
+@class XDCircleProgressBar;
 @interface XDAllPlansCell : UITableViewCell
 {
-    UIView *_mainView;
     UILabel *_contentTextView;
     UIButton *_actionButton;
+    UIView *_operateView;
+    
+    XDCircleProgressBar *_progressBar;
 }
 
 @property (nonatomic) NSInteger index;

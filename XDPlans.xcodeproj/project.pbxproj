@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		3A281B6F17F3C63C000F301D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3A281B6C17F3C63C000F301D /* .gitignore */; };
 		3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */; };
-		3A281B7317F3D6C6000F301D /* XDSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B7217F3D6C6000F301D /* XDSummaryView.m */; };
 		3A281B7517F3D88C000F301D /* XDSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A281B7417F3D88C000F301D /* XDSummary.plist */; };
 		3A281B7817F40DD5000F301D /* XDColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A281B7717F40DD5000F301D /* XDColorCell.m */; };
 		3A5FEA4C17EFD12D0059FBF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4B17EFD12D0059FBF2 /* Default.png */; };
 		3A5FEA4E17EFE0370059FBF2 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */; };
+		3A95912917F52AFB00B49D50 /* XDSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95912817F52AFB00B49D50 /* XDSummaryView.m */; };
+		3A95913517F52FD900B49D50 /* XDCircleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95913217F52FD900B49D50 /* XDCircleProgressBar.m */; };
+		3A95913B17F52FE900B49D50 /* circle_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95913717F52FE900B49D50 /* circle_outline.png */; };
+		3A95913C17F52FE900B49D50 /* circle_outline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95913817F52FE900B49D50 /* circle_outline@2x.png */; };
+		3A95913D17F52FE900B49D50 /* circle_outline_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95913917F52FE900B49D50 /* circle_outline_pressed.png */; };
+		3A95913E17F52FE900B49D50 /* circle_outline_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A95913A17F52FE900B49D50 /* circle_outline_pressed@2x.png */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
 		3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E517F31E94000BEE34 /* XDRootViewController.m */; };
 		3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */; };
@@ -202,13 +207,19 @@
 		3A281B6C17F3C63C000F301D /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		3A281B6D17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectModel+KCOrderedAccessorFix.h"; sourceTree = "<group>"; };
 		3A281B6E17F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectModel+KCOrderedAccessorFix.m"; sourceTree = "<group>"; };
-		3A281B7117F3D6C6000F301D /* XDSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSummaryView.h; sourceTree = "<group>"; };
-		3A281B7217F3D6C6000F301D /* XDSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSummaryView.m; sourceTree = "<group>"; };
 		3A281B7417F3D88C000F301D /* XDSummary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSummary.plist; sourceTree = "<group>"; };
 		3A281B7617F40DD5000F301D /* XDColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorCell.h; sourceTree = "<group>"; };
 		3A281B7717F40DD5000F301D /* XDColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorCell.m; sourceTree = "<group>"; };
 		3A5FEA4B17EFD12D0059FBF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A5FEA4D17EFE0370059FBF2 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		3A95912717F52AFB00B49D50 /* XDSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSummaryView.h; sourceTree = "<group>"; };
+		3A95912817F52AFB00B49D50 /* XDSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSummaryView.m; sourceTree = "<group>"; };
+		3A95913117F52FD900B49D50 /* XDCircleProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDCircleProgressBar.h; sourceTree = "<group>"; };
+		3A95913217F52FD900B49D50 /* XDCircleProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCircleProgressBar.m; sourceTree = "<group>"; };
+		3A95913717F52FE900B49D50 /* circle_outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_outline.png; sourceTree = "<group>"; };
+		3A95913817F52FE900B49D50 /* circle_outline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_outline@2x.png"; sourceTree = "<group>"; };
+		3A95913917F52FE900B49D50 /* circle_outline_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_outline_pressed.png; sourceTree = "<group>"; };
+		3A95913A17F52FE900B49D50 /* circle_outline_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle_outline_pressed@2x.png"; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3AADD3E417F31E94000BEE34 /* XDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDRootViewController.h; path = Classes/XDRootViewController.h; sourceTree = "<group>"; };
 		3AADD3E517F31E94000BEE34 /* XDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDRootViewController.m; path = Classes/XDRootViewController.m; sourceTree = "<group>"; };
@@ -468,6 +479,28 @@
 			path = KCOrderedAccessorFix;
 			sourceTree = "<group>";
 		};
+		3A95912617F52AFB00B49D50 /* SummaryView */ = {
+			isa = PBXGroup;
+			children = (
+				3A95912717F52AFB00B49D50 /* XDSummaryView.h */,
+				3A95912817F52AFB00B49D50 /* XDSummaryView.m */,
+			);
+			path = SummaryView;
+			sourceTree = "<group>";
+		};
+		3A95913017F52FD900B49D50 /* CircleProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				3A95913717F52FE900B49D50 /* circle_outline.png */,
+				3A95913817F52FE900B49D50 /* circle_outline@2x.png */,
+				3A95913917F52FE900B49D50 /* circle_outline_pressed.png */,
+				3A95913A17F52FE900B49D50 /* circle_outline_pressed@2x.png */,
+				3A95913117F52FD900B49D50 /* XDCircleProgressBar.h */,
+				3A95913217F52FD900B49D50 /* XDCircleProgressBar.m */,
+			);
+			path = CircleProgressBar;
+			sourceTree = "<group>";
+		};
 		3AADD3E717F31F1F000BEE34 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,12 +540,12 @@
 		3AADD3F217F31F1F000BEE34 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				3A95913017F52FD900B49D50 /* CircleProgressBar */,
+				3A95912617F52AFB00B49D50 /* SummaryView */,
 				3AADD3F317F31F1F000BEE34 /* DatePicker */,
 				3AADD3F617F31F1F000BEE34 /* JASidePanels */,
 				3AADD3FB17F31F1F000BEE34 /* REMenu */,
 				3AADD40417F31F1F000BEE34 /* RichTextEditor */,
-				3A281B7117F3D6C6000F301D /* XDSummaryView.h */,
-				3A281B7217F3D6C6000F301D /* XDSummaryView.m */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -1050,6 +1083,7 @@
 				3AE3A3A417ED5C4E00DC05A8 /* account_contacts@2x.png in Resources */,
 				3AE3A3A517ED5C4E00DC05A8 /* account_contactsSelected@2x.png in Resources */,
 				3AE3A3A617ED5C4E00DC05A8 /* account_email@2x.png in Resources */,
+				3A95913E17F52FE900B49D50 /* circle_outline_pressed@2x.png in Resources */,
 				3AE3A3A717ED5C4E00DC05A8 /* account_password@2x.png in Resources */,
 				3AE3A3A817ED5C4E00DC05A8 /* menu_actionPlan2@2x.png in Resources */,
 				3AE3A3A917ED5C4E00DC05A8 /* menu_actionPlan@2x.png in Resources */,
@@ -1070,6 +1104,7 @@
 				3AE3A3B917ED5C4F00DC05A8 /* MY_ICON_6@2x.png in Resources */,
 				3AE3A3BA17ED5C4F00DC05A8 /* MY_ICON_7@2x.png in Resources */,
 				3AE3A3BB17ED5C4F00DC05A8 /* MY_ICON_8@2x.png in Resources */,
+				3A95913D17F52FE900B49D50 /* circle_outline_pressed.png in Resources */,
 				3AE3A3BC17ED5C4F00DC05A8 /* MY_ICON_9@2x.png in Resources */,
 				3A281B7517F3D88C000F301D /* XDSummary.plist in Resources */,
 				3AE3A3BD17ED5C4F00DC05A8 /* plans_color_0@2x.jpg in Resources */,
@@ -1123,6 +1158,7 @@
 				3AADD4AA17F31F1F000BEE34 /* buttoncenterSelected.png in Resources */,
 				3AADD4AB17F31F1F000BEE34 /* buttonleft.png in Resources */,
 				3AADD4AC17F31F1F000BEE34 /* buttonleftSelected.png in Resources */,
+				3A95913C17F52FE900B49D50 /* circle_outline@2x.png in Resources */,
 				3AADD4AD17F31F1F000BEE34 /* buttonright.png in Resources */,
 				3AADD4AE17F31F1F000BEE34 /* buttonrightSelected.png in Resources */,
 				3AADD4AF17F31F1F000BEE34 /* buttonSelected.png in Resources */,
@@ -1151,6 +1187,7 @@
 				3AADD4C617F31F1F000BEE34 /* numlist@2x.png in Resources */,
 				3AADD4C717F31F1F000BEE34 /* outdent.png in Resources */,
 				3AADD4C817F31F1F000BEE34 /* outdent@2x.png in Resources */,
+				3A95913B17F52FE900B49D50 /* circle_outline.png in Resources */,
 				3AADD4C917F31F1F000BEE34 /* redo.png in Resources */,
 				3AADD4CA17F31F1F000BEE34 /* removeformat.png in Resources */,
 				3AADD4CB17F31F1F000BEE34 /* strikethrough.png in Resources */,
@@ -1192,6 +1229,7 @@
 				3AE3A25A17ED59F300DC05A8 /* XDAppDelegate.m in Sources */,
 				3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */,
 				3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
+				3A95913517F52FD900B49D50 /* XDCircleProgressBar.m in Sources */,
 				3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */,
 				3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */,
 				3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */,
@@ -1214,6 +1252,7 @@
 				3AADD4E817F31F1F000BEE34 /* RichTextEditorColorPickerViewController.m in Sources */,
 				3AADD4E917F31F1F000BEE34 /* RichTextEditorFontPickerViewController.m in Sources */,
 				3AADD4EA17F31F1F000BEE34 /* RichTextEditorFontSizePickerViewController.m in Sources */,
+				3A95912917F52AFB00B49D50 /* XDSummaryView.m in Sources */,
 				3AADD4EB17F31F1F000BEE34 /* RichTextEditorToggleButton.m in Sources */,
 				3AADD4EC17F31F1F000BEE34 /* RichTextEditorToolbar.m in Sources */,
 				3AADD4EE17F31F1F000BEE34 /* XDColorViewController.m in Sources */,
@@ -1224,7 +1263,6 @@
 				3AADD4F317F31F1F000BEE34 /* XDPlanDetailCell.m in Sources */,
 				3AADD4F417F31F1F000BEE34 /* XDPlanDetailViewController.m in Sources */,
 				3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */,
-				3A281B7317F3D6C6000F301D /* XDSummaryView.m in Sources */,
 				3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */,
 				3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */,
 				3AADD4F817F31F1F000BEE34 /* User.m in Sources */,
