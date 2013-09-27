@@ -23,9 +23,12 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
+        
+        _mainView = [[UIView alloc] init];
         [self addSubview:self.shandowView];
-        [self addSubview:self.toolBar];
-        [self addSubview:self.datePicker];
+        [self addSubview:_mainView];
+        [_mainView addSubview:self.toolBar];
+        [_mainView addSubview:self.datePicker];
     }
     return self;
 }
@@ -45,15 +48,17 @@
 {
     if (_toolBar == nil)
     {
-        _toolBar = [[UIToolbar alloc] init ];//WithFrame: CGRectMake(0, 0, self.frame.size.width, 44)];
+        _toolBar = [[UIToolbar alloc] init];//WithFrame: CGRectMake(0, 0, self.frame.size.width, 44)];
         [_toolBar setTintColor:[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0]];
+        
+        UIBarButtonItem *titleItem = [[UIBarButtonItem alloc] initWithTitle:@"选择结束时间" style:UIBarButtonItemStylePlain target:nil action:nil];
         
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle: @"取消" style: UIBarButtonItemStyleBordered target:self action: @selector(cancelButtonClicked)];
         
         UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle: @"确定" style: UIBarButtonItemStyleDone target:self action: @selector(sureButtonClicked)];
         
         UIBarButtonItem *fexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        NSArray *items = [[NSArray alloc] initWithObjects: fexibleSpace, cancelItem, doneItem, nil];
+        NSArray *items = [[NSArray alloc] initWithObjects: cancelItem, fexibleSpace, titleItem, fexibleSpace, doneItem, nil];
         [_toolBar setItems: items animated: YES];
     }
     return _toolBar;
@@ -78,7 +83,7 @@
     if (_shandowView == nil) {
         _shandowView = [[UIView alloc] init];
         _shandowView.backgroundColor = [UIColor blackColor];
-        _shandowView.alpha = 0.5;
+        _shandowView.alpha = 0.0;
     }
     
     return _shandowView;
@@ -90,16 +95,24 @@
 {
     self.cancelClicked();
     
-    [UIView animateWithDuration:.5f animations:^{
+    [UIView animateWithDuration:.3f animations:^{
+        _mainView.frame = CGRectMake(0, self.shandowView.frame.size.height, self.shandowView.frame.size.width, 204);
+        _shandowView.alpha = 0.0;
+    }completion:^(BOOL finish){
         [self removeFromSuperview];
+        _shandowView.alpha = 0.5;
     }];
 }
 -(void)sureButtonClicked
 {
     self.sureClicked(self.datePicker.date);
     
-    [UIView animateWithDuration:.5f animations:^{
+    [UIView animateWithDuration:.3f animations:^{
+        _mainView.frame = CGRectMake(0, self.shandowView.frame.size.height, self.shandowView.frame.size.width, 204);
+        _shandowView.alpha = 0.0;
+    }completion:^(BOOL finish){
         [self removeFromSuperview];
+        _shandowView.alpha = 0.5;
     }];
 }
 
@@ -119,12 +132,16 @@
 {
     self.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
     self.shandowView.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
-    self.datePicker.frame = CGRectMake(0, view.frame.size.height - 160, view.frame.size.width, 160);
-    self.toolBar.frame = CGRectMake(0, view.frame.size.height - self.datePicker.frame.size.height - 44, view.frame.size.width, 44);
+    self.datePicker.frame = CGRectMake(0, 44, view.frame.size.width, 160);
+    self.toolBar.frame = CGRectMake(0, 0, view.frame.size.width, 44);
+    _shandowView.alpha = 0.0;
     
-    [UIView animateWithDuration:.5f animations:^{
-        [view addSubview:self];
-        [view bringSubviewToFront:self];
+    _mainView.frame = CGRectMake(0, view.frame.size.height, view.frame.size.width, 204);
+    [view addSubview:self];
+    
+    [UIView animateWithDuration:.3f animations:^{
+        _shandowView.alpha = 0.5;
+        _mainView.frame = CGRectMake(0, view.frame.size.height - 204, view.frame.size.width, 204);
     }];
 }
 

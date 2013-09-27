@@ -12,6 +12,9 @@ typedef void (^cancel)();
 typedef void (^sure)(NSDate *date);
 
 @interface XDDatePicker : UIView
+{
+    UIView *_mainView;
+}
 
 @property (nonatomic, strong) UIToolbar *toolBar;
 @property (nonatomic, strong) UIDatePicker *datePicker;
