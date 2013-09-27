@@ -160,6 +160,7 @@
                                                               }];
         
         REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"设置"
+                                                           subtitle:@"调整一下，让使用更加得心应手"
                                                               image:[UIImage imageNamed:@"menu_setting.png"]
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {

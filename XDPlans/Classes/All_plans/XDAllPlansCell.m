@@ -36,6 +36,7 @@
         _actionButton.backgroundColor = [UIColor clearColor];
         _actionButton.frame = CGRectMake(0, 0, 40, 40 + 10);
         _actionButton.contentMode = UIViewContentModeScaleAspectFit;
+        [_actionButton addTarget:self action:@selector(actionClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_actionButton];
         
         _contentTextView = [[UILabel alloc] initWithFrame:CGRectMake(_actionButton.frame.origin.x + _actionButton.frame.size.width, 5, 320 - 90, 40)];
@@ -159,6 +160,13 @@
 }
 
 #pragma mark - operate
+
+- (void)actionClick:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(plansCellActionClick:)]) {
+        [_delegate plansCellActionClick:self];
+    }
+}
 
 - (void)finishAction:(id)sender
 {

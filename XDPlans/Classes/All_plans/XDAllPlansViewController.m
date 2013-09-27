@@ -197,6 +197,24 @@
 
 #pragma mark - XDAllPlansCellDelegate
 
+- (void)plansCellActionClick:(XDAllPlansCell *)cell
+{
+    UIAlertView *alert = nil;
+    if (cell.action) {
+        alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你确定要关闭该事件？若你关闭该事件，今天的已有计划将删除掉。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+    else {
+        if (_actionSource == nil) {
+            //开启该事件
+        }
+        else{
+            alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你已经有正在进行的事情了，如果想开启另外的事件，将先关闭正在进行的事件,今天的已有计划将删除掉。贪多嚼不烂，专心做一件事情吧！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+        }
+    }
+}
+
 - (void)plansCellFinishAction:(XDAllPlansCell *)cell
 {
 //    cell.progressValue = 1.0;

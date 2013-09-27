@@ -39,6 +39,7 @@
 @protocol XDAllPlansCellDelegate <NSObject>
 
 @optional
+- (void)plansCellActionClick:(XDAllPlansCell *)cell;
 - (void)plansCellFinishAction:(XDAllPlansCell *)cell;
 - (void)plansCellDeleteAction:(XDAllPlansCell *)cell;
 - (void)plansCellEditAction:(XDAllPlansCell *)cell;
