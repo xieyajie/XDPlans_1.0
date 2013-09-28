@@ -2,7 +2,7 @@
 //  WantPlan.m
 //  XDPlans
 //
-//  Created by xie yajie on 13-9-25.
+//  Created by xie yajie on 13-9-28.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
@@ -19,7 +19,8 @@
 @dynamic startDate;
 @dynamic uId;
 @dynamic wpId;
-@dynamic inUser;
+@dynamic content;
 @dynamic dayPlans;
+@dynamic inUser;
 
 @end

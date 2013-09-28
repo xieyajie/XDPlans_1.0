@@ -39,10 +39,6 @@
 #define KUSER_HEADERIMAGE_WIDTH 80.0
 #define KUSER_HEADERIMAGE_HEIGHT 80.0
 
-//menu
-#define KSIDESLIP_PERCENT 0.5
-#define KSIDESLIP_CELL_HEIGHT 60.0
-
 //all plans
 #define toRadians(x) ((x)*M_PI / 180.0)
 #define toDegrees(x) ((x)*180.0 / M_PI)
@@ -51,11 +47,9 @@
 #define KTODAY_CELL_HEIGHT_NORMAL 80.0
 #define KTODAY_CELL_HEIGHT_CONTENT 150.0
 
-//weather
-#define KWEATHER_TEMP_MAX @"temp1"
-#define KWEATHER_TEMP_MIN @"temp2"
-#define KWEATHER_WEATHER @"weather"
-#define KWEATHER_IMAGE @"weather_image"
+//database
+
+#define KDATABASE_NAME @"XDPlans_1.sqlite"
 
 
 

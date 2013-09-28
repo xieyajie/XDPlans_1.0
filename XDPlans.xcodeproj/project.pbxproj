@@ -44,6 +44,7 @@
 		3A95919717F5725F00B49D50 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95917A17F5725F00B49D50 /* MagicalRecord+ShorthandSupport.m */; };
 		3A95919817F5725F00B49D50 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A95917C17F5725F00B49D50 /* MagicalRecord.m */; };
 		3A9AEEC217F28469002E201F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9AEEC117F28469002E201F /* CoreData.framework */; };
+		3AA5C8B017F6651B00336E1B /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5C8AF17F6651B00336E1B /* WantPlan.m */; };
 		3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3E517F31E94000BEE34 /* XDRootViewController.m */; };
 		3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */; };
 		3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */; };
@@ -142,7 +143,6 @@
 		3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */; };
 		3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47E17F31F1F000BEE34 /* DayPlan.m */; };
 		3AADD4F817F31F1F000BEE34 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48017F31F1F000BEE34 /* User.m */; };
-		3AADD4F917F31F1F000BEE34 /* WantPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48217F31F1F000BEE34 /* WantPlan.m */; };
 		3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */; };
 		3AADD4FB17F31F1F000BEE34 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48717F31F1F000BEE34 /* UIColor+Category.m */; };
 		3AADD4FC17F31F1F000BEE34 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48917F31F1F000BEE34 /* XDManagerHelper.m */; };
@@ -297,6 +297,8 @@
 		3A95917D17F5725F00B49D50 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		3A95917E17F5725F00B49D50 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		3A9AEEC117F28469002E201F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3AA5C8AE17F6651B00336E1B /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
+		3AA5C8AF17F6651B00336E1B /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
 		3AADD3E417F31E94000BEE34 /* XDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XDRootViewController.h; path = Classes/XDRootViewController.h; sourceTree = "<group>"; };
 		3AADD3E517F31E94000BEE34 /* XDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XDRootViewController.m; path = Classes/XDRootViewController.m; sourceTree = "<group>"; };
 		3AADD3E917F31F1F000BEE34 /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
@@ -432,8 +434,6 @@
 		3AADD47E17F31F1F000BEE34 /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
 		3AADD47F17F31F1F000BEE34 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3AADD48017F31F1F000BEE34 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		3AADD48117F31F1F000BEE34 /* WantPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WantPlan.h; sourceTree = "<group>"; };
-		3AADD48217F31F1F000BEE34 /* WantPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WantPlan.m; sourceTree = "<group>"; };
 		3AADD48417F31F1F000BEE34 /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
 		3AADD48617F31F1F000BEE34 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		3AADD48717F31F1F000BEE34 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
@@ -982,8 +982,8 @@
 				3AADD47E17F31F1F000BEE34 /* DayPlan.m */,
 				3AADD47F17F31F1F000BEE34 /* User.h */,
 				3AADD48017F31F1F000BEE34 /* User.m */,
-				3AADD48117F31F1F000BEE34 /* WantPlan.h */,
-				3AADD48217F31F1F000BEE34 /* WantPlan.m */,
+				3AA5C8AE17F6651B00336E1B /* WantPlan.h */,
+				3AA5C8AF17F6651B00336E1B /* WantPlan.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1461,7 +1461,6 @@
 				3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */,
 				3AADD4F817F31F1F000BEE34 /* User.m in Sources */,
 				3A95918817F5725F00B49D50 /* NSManagedObject+MagicalFinders.m in Sources */,
-				3AADD4F917F31F1F000BEE34 /* WantPlan.m in Sources */,
 				3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */,
 				3AADD4FB17F31F1F000BEE34 /* UIColor+Category.m in Sources */,
 				3A95919017F5725F00B49D50 /* NSPersistentStore+MagicalRecord.m in Sources */,
@@ -1471,6 +1470,7 @@
 				3A95918E17F5725F00B49D50 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				3AADD50017F31F1F000BEE34 /* XDSettingViewController.m in Sources */,
 				3A95918D17F5725F00B49D50 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
+				3AA5C8B017F6651B00336E1B /* WantPlan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1497,8 +1497,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1512,7 +1512,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1526,8 +1527,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1535,7 +1536,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1544,12 +1546,14 @@
 		3AE3A24D17ED47A700DC05A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1557,12 +1561,14 @@
 		3AE3A24E17ED47A700DC05A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

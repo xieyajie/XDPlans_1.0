@@ -13,6 +13,7 @@
 #import "XDPlanDetailViewController.h"
 
 #import "REMenu.h"
+#import "WantPlan.h"
 
 #define KPLANS_INDEX @"index"
 #define KPLANS_CONTENT @"content"
@@ -23,6 +24,9 @@
 {
     NSMutableDictionary *_actionSource;
     NSMutableDictionary *_dataSource;
+    
+    NSMutableArray *_wantPlans;
+    WantPlan *_actionPlan;
 
     UIBarButtonItem *_menuItem;
     UIBarButtonItem *_createItem;
@@ -63,6 +67,15 @@
         
         NSMutableDictionary *eventDic4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"泰语", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:YES], KPLANS_FINISH, nil];
         [_dataSource setObject:eventDic4 forKey:[NSString stringWithFormat:@"%i", 4]];
+        
+        _wantPlans = [NSMutableArray array];
+        NSArray *actionPlans = [WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:YES]];
+        if (actionPlans && [actionPlans count] > 0) {
+            _actionPlan = [actionPlans objectAtIndex:0];
+        }
+        
+        [_wantPlans addObjectsFromArray:actionPlans];
+        [_wantPlans addObjectsFromArray:[WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:NO]]];
     }
     return self;
 }
@@ -75,7 +88,22 @@
     self.title = @"想做的事";
     [self layoutNavigationBar];
     
+//    if ([_wantPlans count] == 0) {
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height)];
+//        view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+//        UILabel *noneLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, view.frame.size.width - 40, 60)];
+//        noneLabel.numberOfLines = 0;
+//        noneLabel.font = [UIFont boldSystemFontOfSize:17.0];
+//        noneLabel.textColor = [UIColor lightGrayColor];
+//        noneLabel.backgroundColor = [UIColor clearColor];
+//        noneLabel.text = @"什么也没有，点击这里或者右上角的“+”，赶快添加一些你想做的是吧！";
+//        [view addSubview:noneLabel];
+//        
+//        [self.view addSubview:view];
+//    }
+    
     _selectedRow = -1;
+    self.tableView.rowHeight = 50.0;
     
     UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipe:)];
     leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -128,7 +156,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_dataSource count];
+    return [_wantPlans count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,10 +171,12 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
+    [cell setEditing:NO];
+    
+    WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
     cell.index = indexPath.row + 1;
-    cell.content = [dic objectForKey:KPLANS_CONTENT];
-    cell.action = [[dic objectForKey:KPLANS_ACTION] boolValue];
+    cell.content = plan.content;
+    cell.action = [plan.action boolValue];
 //    cell.finish = [[dic objectForKey:KPLANS_FINISH] boolValue];
     cell.progressValue = 0.2 * (indexPath.row + 1);
     
@@ -170,8 +200,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
-    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+//    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
+//    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+    WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
+    NSString *content = plan.content;
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
     CGFloat height = size.height > 40 ? size.height : 40;
     return height + 10;
@@ -188,8 +220,10 @@
         return;
     }
     
-    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
-    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+//    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
+//    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+    WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
+    NSString *content = plan.content;
     XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
     planDetailVC.planContent = content;
     [self.navigationController pushViewController:planDetailVC animated:YES];
@@ -222,7 +256,15 @@
 
 - (void)plansCellDeleteAction:(XDAllPlansCell *)cell
 {
+    NSLog(@"Delete");
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (cell.action) {
+        _actionPlan = nil;
+    }
     
+    [self deletePlanFromSource:indexPath.row];
+    [self deletePlanToTableViewWithRow:indexPath.row];
+    [cell setEditing:NO];
 }
 
 - (void)plansCellEditAction:(XDAllPlansCell *)cell
@@ -235,13 +277,12 @@
 - (void)newPlanFinish:(NSNotification *)notification
 {
     id object = [notification object];
-    if ([object isKindOfClass:[NSString class]]) {
-        NSString *str = (NSString *)object;
+    if ([object isKindOfClass:[WantPlan class]]) {
+        WantPlan *plan = (WantPlan *)object;
         
-        if (str.length > 0) {
-            [self addEventToSource:str];
-            [self insertEventToTableViewWithRow:0];
-        }
+        NSInteger insertRow = [_wantPlans count];
+        [self addPlanToSource:plan];
+        [self insertPlanToTableViewWithRow:insertRow];
     }
 }
 
@@ -372,7 +413,7 @@
 
 - (void)createEvent:(id)sender
 {
-    NSInteger count = [_dataSource count] + 1;
+    NSInteger count = [_wantPlans count] + 1;
     if (count > KPLAN_MAXEVENTCOUNT) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"对不起" message:@"你已经添加了20件想做的事，完成这些再添加吧" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
@@ -385,28 +426,34 @@
 
 #pragma mark - manager
 
-- (void)addEventToSource:(NSString *)string
+- (void)addPlanToSource:(WantPlan *)plan
 {
-    NSInteger index = [_dataSource count];
-    NSMutableDictionary *eventDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, string, KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
-    [_dataSource setObject:eventDic forKey:[NSString stringWithFormat:@"%i", index]];
+//    NSInteger index = [_dataSource count];
+//    NSMutableDictionary *eventDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, string, KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
+//    [_dataSource setObject:eventDic forKey:[NSString stringWithFormat:@"%i", index]];
+    [_wantPlans addObject:plan];
 }
 
-- (void)deleteEventFromSource:(NSInteger)row
+- (void)deletePlanFromSource:(NSInteger)row
 {
+    WantPlan *deletePlan = [_wantPlans objectAtIndex:row];
+    [deletePlan MR_deleteEntity];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
+    [_wantPlans removeObjectAtIndex:row];
 }
 
-- (void)insertEventToTableViewWithRow:(NSInteger)row
+- (void)insertPlanToTableViewWithRow:(NSInteger)row
 {
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:0], nil] withRowAnimation:UITableViewRowAnimationTop];
     [self.tableView endUpdates];
 }
 
-- (void)deleteEventToTableViewWithRow:(NSInteger)row
+- (void)deletePlanToTableViewWithRow:(NSInteger)row
 {
     [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:0], nil] withRowAnimation:UITableViewRowAnimationLeft];
     [self.tableView endUpdates];
 }
 

@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDNewPlanViewController.h"
 
+#import "WantPlan.h"
 #import "RichTextEditor.h"
 #import "XDDatePicker.h"
 #import "XDManagerHelper.h"
@@ -19,13 +20,15 @@
     UILabel *_dateLabel;
     
     XDDatePicker *_datePicker;
-    __block NSDate *_selectedDate;
     NSDateFormatter *_dateFormatter;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIButton *dateView;
+
+@property (nonatomic, strong) UILabel *dateLabel;
+@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
 
@@ -34,6 +37,9 @@
 @synthesize tableView = _tableView;
 @synthesize contentTextView = _contentTextView;
 @synthesize dateView = _dateView;
+
+@synthesize dateLabel = _dateLabel;
+@synthesize selectedDate = _selectedDate;
 
 - (id)init
 {
@@ -254,9 +260,11 @@
     _datePicker.cancelClicked = ^(){
         
     };
+    
+    __weak XDNewPlanViewController *weakSelf = self;
     _datePicker.sureClicked = ^(NSDate *date){
-        _selectedDate = [date copy];
-        _dateLabel.text = [_dateFormatter stringFromDate:date];
+        weakSelf.selectedDate = [date copy];
+        weakSelf.dateLabel.text = [_dateFormatter stringFromDate:date];
     };
     [_datePicker selectedDate:_selectedDate];
     [_datePicker showInView:self.view];
@@ -281,7 +289,15 @@
         return;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:[self.contentTextView text]];
+    WantPlan *newPlan = [WantPlan MR_createEntity];
+    newPlan.action = [NSNumber numberWithBool:NO];
+    newPlan.finish = [NSNumber numberWithBool:NO];
+    newPlan.startDate = [NSDate date];
+    newPlan.finishDate = _selectedDate;
+    newPlan.content = self.contentTextView.text;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:newPlan];
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

@@ -2,7 +2,7 @@
 //  WantPlan.h
 //  XDPlans
 //
-//  Created by xie yajie on 13-9-25.
+//  Created by xie yajie on 13-9-28.
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
@@ -19,8 +19,9 @@
 @property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSNumber * uId;
 @property (nonatomic, retain) NSNumber * wpId;
-@property (nonatomic, retain) User *inUser;
+@property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSSet *dayPlans;
+@property (nonatomic, retain) User *inUser;
 @end
 
 @interface WantPlan (CoreDataGeneratedAccessors)
