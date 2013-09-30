@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class WantPlan;
 @interface XDManagerHelper : NSObject
+
+@property (nonatomic, strong) WantPlan *actionPlan;
 
 + (id)shareHelper;
 

@@ -12,7 +12,7 @@
 #import "XDPlanDetailViewController.h"
 #import "XDDayPlanViewController.h"
 #import "XDSettingViewController.h"
-#import "XDNewPlanViewController.h"
+#import "XDPostPlanViewController.h"
 
 #import "REMenu.h"
 
@@ -218,15 +218,7 @@
 
 - (void)createEvent:(id)sender
 {
-//    NSInteger count = [_dataSource count] + 1;
-//    if (count > KPLAN_MAXEVENTCOUNT) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"对不起" message:@"你已经添加了20件想做的事，完成这些再添加吧" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [alertView show];
-//        return;
-//    }
-    
-    XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
-    [self.navigationController presentViewController:newPlanVC animated:YES completion:nil];
+    [self.allPlansVC createEvent:sender];
 }
 
 - (void)menuSelectedItem:(REMenuItem *)item withtype:(NSInteger)type

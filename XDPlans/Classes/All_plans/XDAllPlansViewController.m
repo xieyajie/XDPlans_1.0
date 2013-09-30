@@ -9,8 +9,9 @@
 #import "XDAllPlansViewController.h"
 
 #import "XDAllPlansCell.h"
-#import "XDNewPlanViewController.h"
+#import "XDPostPlanViewController.h"
 #import "XDPlanDetailViewController.h"
+#import "XDManagerHelper.h"
 
 #import "REMenu.h"
 #import "WantPlan.h"
@@ -22,9 +23,6 @@
 
 @interface XDAllPlansViewController ()<UIAlertViewDelegate, XDAllPlansCellDelegate>
 {
-    NSMutableDictionary *_actionSource;
-    NSMutableDictionary *_dataSource;
-    
     NSMutableArray *_wantPlans;
     WantPlan *_actionPlan;
 
@@ -50,31 +48,13 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _dataSource = [NSMutableDictionary dictionary];
-        
-        //test
-        _actionSource = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"写一个自己的项目", KPLANS_CONTENT, [NSNumber numberWithBool:YES], KPLANS_ACTION, nil];
-        [_dataSource setObject:_actionSource forKey:[NSString stringWithFormat:@"%i", 0]];
-        
-        NSMutableDictionary *eventDic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山爬山", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic1 forKey:[NSString stringWithFormat:@"%i", 1]];
-        
-        NSMutableDictionary *eventDic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉睡觉", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic2 forKey:[NSString stringWithFormat:@"%i", 2]];
-        
-        NSMutableDictionary *eventDic3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"游乐园", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:NO], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic3 forKey:[NSString stringWithFormat:@"%i", 3]];
-        
-        NSMutableDictionary *eventDic4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, @"泰语", KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, [NSNumber numberWithBool:YES], KPLANS_FINISH, nil];
-        [_dataSource setObject:eventDic4 forKey:[NSString stringWithFormat:@"%i", 4]];
         
         _wantPlans = [NSMutableArray array];
-        NSArray *actionPlans = [WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:YES]];
-        if (actionPlans && [actionPlans count] > 0) {
-            _actionPlan = [actionPlans objectAtIndex:0];
+        _actionPlan = [[XDManagerHelper shareHelper] actionPlan];
+        if (_actionPlan != nil) {
+            [_wantPlans addObject:_actionPlan];
         }
-        
-        [_wantPlans addObjectsFromArray:actionPlans];
+
         [_wantPlans addObjectsFromArray:[WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:NO]]];
     }
     return self;
@@ -110,39 +90,13 @@
     [self.tableView addGestureRecognizer:leftSwipe];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPlanFinish:) name:KNOTIFICATION_PLANNEWFINISH object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editPlanFinish:) name:KNOTIFICATION_PLANEDITFINISH object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (UIView *)tableHeaderView
-{
-    if (_tableHeaderView == nil) {
-        static NSString *CellIdentifier = @"ActionCell";
-        XDAllPlansCell *cell = [[XDAllPlansCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = [UIColor clearColor];
-        cell.content = [_actionSource objectForKey:KPLANS_CONTENT];
-        cell.action = [[_actionSource objectForKey:KPLANS_ACTION] boolValue];
-        cell.progressValue = 0.6;
-        
-        NSString *content = [_actionSource objectForKey:KPLANS_CONTENT];
-        CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
-        CGFloat height = size.height > 40 ? size.height : 40;
-        height += 20;
-        
-        _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableHeaderView.frame.size.width, height)];
-        _tableHeaderView.backgroundColor = [UIColor colorWithRed:195 / 255.0 green:221 / 255.0 blue:223 / 255.0 alpha:1.0];
-        [_tableHeaderView addSubview:cell];
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionPlan:)];
-        [_tableHeaderView addGestureRecognizer:tap];
-    }
-    
-    return _tableHeaderView;
 }
 
 #pragma mark - Table view data source
@@ -200,8 +154,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
-//    NSString *content = [dic objectForKey:KPLANS_CONTENT];
     WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
     NSString *content = plan.content;
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByClipping];
@@ -220,8 +172,6 @@
         return;
     }
     
-//    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
-//    NSString *content = [dic objectForKey:KPLANS_CONTENT];
     WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
     NSString *content = plan.content;
     XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
@@ -239,7 +189,7 @@
         [alert show];
     }
     else {
-        if (_actionSource == nil) {
+        if (_actionPlan == nil) {
             //开启该事件
         }
         else{
@@ -269,7 +219,12 @@
 
 - (void)plansCellEditAction:(XDAllPlansCell *)cell
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
+    _selectedRow = indexPath.row;
     
+    XDPostPlanViewController *editPlanVC = [[XDPostPlanViewController alloc] initWithEditPlan:plan];
+    [self.navigationController presentViewController:editPlanVC animated:YES completion:nil];
 }
 
 #pragma mark - notification
@@ -284,6 +239,11 @@
         [self addPlanToSource:plan];
         [self insertPlanToTableViewWithRow:insertRow];
     }
+}
+
+- (void)editPlanFinish:(NSNotification *)notification
+{
+    [self updateTableViewWithRow:_selectedRow];
 }
 
 #pragma mark - GestureRecognizer
@@ -313,7 +273,7 @@
 {
     if (tap.state == UIGestureRecognizerStateEnded) {
         XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
-        planDetailVC.planContent = [_actionSource objectForKey:KPLANS_CONTENT];
+        planDetailVC.planContent = _actionPlan.content;
         [self.navigationController pushViewController:planDetailVC animated:YES];
     }
 }
@@ -408,7 +368,6 @@
     }
     
     [self.menu showFromNavigationController:self.navigationController];
-
 }
 
 - (void)createEvent:(id)sender
@@ -420,7 +379,7 @@
         return;
     }
     
-    XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
+    XDPostPlanViewController *newPlanVC = [[XDPostPlanViewController alloc] initWithCreateNew];
     [self.navigationController presentViewController:newPlanVC animated:YES completion:nil];
 }
 
@@ -428,9 +387,6 @@
 
 - (void)addPlanToSource:(WantPlan *)plan
 {
-//    NSInteger index = [_dataSource count];
-//    NSMutableDictionary *eventDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:0], KPLANS_INDEX, string, KPLANS_CONTENT, [NSNumber numberWithBool:NO], KPLANS_ACTION, nil];
-//    [_dataSource setObject:eventDic forKey:[NSString stringWithFormat:@"%i", index]];
     [_wantPlans addObject:plan];
 }
 
@@ -454,6 +410,13 @@
 {
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:0], nil] withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView endUpdates];
+}
+
+- (void)updateTableViewWithRow:(NSInteger)row
+{
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:row inSection:0], nil] withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
 }
 

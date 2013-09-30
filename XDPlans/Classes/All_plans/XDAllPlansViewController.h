@@ -10,4 +10,6 @@
 
 @interface XDAllPlansViewController : UITableViewController
 
+- (void)createEvent:(id)sender;
+
 @end

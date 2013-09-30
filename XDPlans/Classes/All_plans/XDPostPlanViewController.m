@@ -1,5 +1,5 @@
 //
-//  XDNewPlanViewController.m
+//  XDPostPlanViewController.m
 //  XDPlans
 //
 //  Created by xieyajie on 13-9-15.
@@ -7,46 +7,80 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "XDNewPlanViewController.h"
+#import "XDPostPlanViewController.h"
 
 #import "WantPlan.h"
 #import "RichTextEditor.h"
 #import "XDDatePicker.h"
 #import "XDManagerHelper.h"
 
-@interface XDNewPlanViewController ()<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface XDPostPlanViewController ()<UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     UILabel *_numberLabel;
-    UILabel *_dateLabel;
-    
     XDDatePicker *_datePicker;
-    NSDateFormatter *_dateFormatter;
+    
+    BOOL _isNew;
+    WantPlan *_editPlan;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIButton *dateView;
 
-@property (nonatomic, strong) UILabel *dateLabel;
+@property (nonatomic, strong)  NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSDate *selectedDate;
+
+@property (nonatomic, strong) UIBarButtonItem *titleItem;
+@property (nonatomic, strong) UIBarButtonItem *doneItem;
+@property (nonatomic, strong) UILabel *dateLabel;
 
 @end
 
-@implementation XDNewPlanViewController
+@implementation XDPostPlanViewController
 
 @synthesize tableView = _tableView;
 @synthesize contentTextView = _contentTextView;
 @synthesize dateView = _dateView;
 
-@synthesize dateLabel = _dateLabel;
+@synthesize dateFormatter = _dateFormatter;
 @synthesize selectedDate = _selectedDate;
+
+@synthesize titleItem = _titleItem;
+@synthesize doneItem = _doneItem;
+@synthesize dateLabel = _dateLabel;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Custom initialization
+        _datePicker = [[XDDatePicker alloc] init];
+        _selectedDate = nil;
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
+    return self;
+}
+
+- (id)initWithCreateNew
+{
+    self = [self init];
+    if (self) {
+        _isNew = YES;
+        _editPlan = nil;
+    }
+    
+    return self;
+}
+
+- (id)initWithEditPlan:(WantPlan *)plan
+{
+    self = [self init];
+    if (self) {
+        _isNew = NO;
+        _editPlan = plan;
+    }
+    
     return self;
 }
 
@@ -59,20 +93,32 @@
     
 //    self.view.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
-    _datePicker = [[XDDatePicker alloc] init];
-    _selectedDate = nil;
-    _dateFormatter = [[NSDateFormatter alloc] init];
-    [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
     UIToolbar *topBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     topBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
     [self.view addSubview:topBar];
     
+    if (!_isNew) {
+        self.titleItem.title = @"修改内容";
+        self.doneItem.title = @"完成";
+        
+        if (_editPlan) {
+            _selectedDate = _editPlan.finishDate;
+            self.contentTextView.text = _editPlan.content;
+            if(self.dateView)
+            {
+                _dateLabel.text = [_dateFormatter stringFromDate:_selectedDate];
+            }
+        }
+    }
+    else{
+        self.titleItem.title = @"创建想做的事";
+        self.doneItem.title = @"添加";
+    }
+    
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(back:)];
-    UIBarButtonItem *titleItem = [[UIBarButtonItem alloc] initWithTitle:@"添加想做的事" style:UIBarButtonItemStylePlain target:nil action:nil];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
-    [topBar setItems:[NSArray arrayWithObjects:backItem, flexibleItem, titleItem, flexibleItem, doneItem, nil] animated:YES];
+    [topBar setItems:[NSArray arrayWithObjects:backItem, flexibleItem, _titleItem, flexibleItem, _doneItem, nil] animated:YES];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44)];
     _tableView.delegate = self;
@@ -207,6 +253,24 @@
 
 #pragma mark - get
 
+- (UIBarButtonItem *)titleItem
+{
+    if (_titleItem == nil) {
+        _titleItem = [[UIBarButtonItem alloc] initWithTitle:@"添加想做的事" style:UIBarButtonItemStylePlain target:nil action:nil];
+    }
+    
+    return _titleItem;
+}
+
+- (UIBarButtonItem *)doneItem
+{
+    if (_doneItem == nil) {
+        _doneItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
+    }
+    
+    return _doneItem;
+}
+
 - (UITextView *)contentTextView
 {
     if (_contentTextView == nil) {
@@ -250,21 +314,36 @@
     return _dateView;
 }
 
+#pragma mark - set
+
+- (void)setContent:(NSString *)str
+{
+    self.contentTextView.text = str;
+}
+
+- (void)setEndDate:(NSDate *)date
+{
+    _selectedDate = date;
+    if(self.dateView)
+    {
+        _dateLabel.text = [_dateFormatter stringFromDate:date];
+    }
+}
+
 #pragma mark - items action
 
 - (void)dateAction:(id)sender
 {
     [_contentTextView resignFirstResponder];
-    
-//    DatePickerView *dateView = [[DatePickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 200)];
+
     _datePicker.cancelClicked = ^(){
         
     };
     
-    __weak XDNewPlanViewController *weakSelf = self;
+    __weak XDPostPlanViewController *weakSelf = self;
     _datePicker.sureClicked = ^(NSDate *date){
         weakSelf.selectedDate = [date copy];
-        weakSelf.dateLabel.text = [_dateFormatter stringFromDate:date];
+        weakSelf.dateLabel.text = [weakSelf.dateFormatter stringFromDate:date];
     };
     [_datePicker selectedDate:_selectedDate];
     [_datePicker showInView:self.view];
@@ -289,15 +368,25 @@
         return;
     }
     
-    WantPlan *newPlan = [WantPlan MR_createEntity];
-    newPlan.action = [NSNumber numberWithBool:NO];
-    newPlan.finish = [NSNumber numberWithBool:NO];
-    newPlan.startDate = [NSDate date];
-    newPlan.finishDate = _selectedDate;
-    newPlan.content = self.contentTextView.text;
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    if (_isNew) {
+        WantPlan *newPlan = [WantPlan MR_createEntity];
+        newPlan.action = [NSNumber numberWithBool:NO];
+        newPlan.finish = [NSNumber numberWithBool:NO];
+        newPlan.startDate = [NSDate date];
+        newPlan.finishDate = _selectedDate;
+        newPlan.content = self.contentTextView.text;
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:newPlan];
+    }
+    else{
+        _editPlan.content = self.contentTextView.text;
+        _editPlan.finishDate = _selectedDate;
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANEDITFINISH object:nil];
+    }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANNEWFINISH object:newPlan];
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

@@ -49,7 +49,7 @@
 		3AADD49817F31F1F000BEE34 /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EA17F31F1F000BEE34 /* XDAccountLoginViewController.m */; };
 		3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */; };
 		3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */; };
-		3AADD49B17F31F1F000BEE34 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */; };
+		3AADD49B17F31F1F000BEE34 /* XDPostPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F117F31F1F000BEE34 /* XDPostPlanViewController.m */; };
 		3AADD49C17F31F1F000BEE34 /* XDDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F517F31F1F000BEE34 /* XDDatePicker.m */; };
 		3AADD49D17F31F1F000BEE34 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3F817F31F1F000BEE34 /* JASidePanelController.m */; };
 		3AADD49E17F31F1F000BEE34 /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD3FA17F31F1F000BEE34 /* UIViewController+JASidePanel.m */; };
@@ -307,8 +307,8 @@
 		3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
 		3AADD3EE17F31F1F000BEE34 /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
 		3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
-		3AADD3F017F31F1F000BEE34 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
-		3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
+		3AADD3F017F31F1F000BEE34 /* XDPostPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPostPlanViewController.h; sourceTree = "<group>"; };
+		3AADD3F117F31F1F000BEE34 /* XDPostPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPostPlanViewController.m; sourceTree = "<group>"; };
 		3AADD3F417F31F1F000BEE34 /* XDDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDDatePicker.h; sourceTree = "<group>"; };
 		3AADD3F517F31F1F000BEE34 /* XDDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDDatePicker.m; sourceTree = "<group>"; };
 		3AADD3F717F31F1F000BEE34 /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
@@ -704,8 +704,8 @@
 				3AADD3ED17F31F1F000BEE34 /* XDAllPlansCell.m */,
 				3AADD3EE17F31F1F000BEE34 /* XDAllPlansViewController.h */,
 				3AADD3EF17F31F1F000BEE34 /* XDAllPlansViewController.m */,
-				3AADD3F017F31F1F000BEE34 /* XDNewPlanViewController.h */,
-				3AADD3F117F31F1F000BEE34 /* XDNewPlanViewController.m */,
+				3AADD3F017F31F1F000BEE34 /* XDPostPlanViewController.h */,
+				3AADD3F117F31F1F000BEE34 /* XDPostPlanViewController.m */,
 			);
 			path = All_Plans;
 			sourceTree = "<group>";
@@ -1413,7 +1413,7 @@
 				3A95918517F5725F00B49D50 /* NSString+MagicalDataImport.m in Sources */,
 				3AADD49917F31F1F000BEE34 /* XDAllPlansCell.m in Sources */,
 				3AADD49A17F31F1F000BEE34 /* XDAllPlansViewController.m in Sources */,
-				3AADD49B17F31F1F000BEE34 /* XDNewPlanViewController.m in Sources */,
+				3AADD49B17F31F1F000BEE34 /* XDPostPlanViewController.m in Sources */,
 				3AADD49C17F31F1F000BEE34 /* XDDatePicker.m in Sources */,
 				3A95917F17F5725F00B49D50 /* MagicalImportFunctions.m in Sources */,
 				3A95919117F5725F00B49D50 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
@@ -1497,8 +1497,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1512,8 +1512,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1527,8 +1527,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1536,8 +1536,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1546,14 +1546,14 @@
 		3AE3A24D17ED47A700DC05A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1561,14 +1561,14 @@
 		3AE3A24E17ED47A700DC05A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yubin lee (QYT45P952J)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yubin lee (QYT45P952J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangning zhang (NHVQ3SY4K2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4C46952-D366-409B-87D9-00AF0D91AAED";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C46952-D366-409B-87D9-00AF0D91AAED";
+				PROVISIONING_PROFILE = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C5F82489-9F46-4F5A-8836-25DC3BBC3830";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 #import "XDManagerHelper.h"
+#import "WantPlan.h"
 
 static XDManagerHelper *helper = nil;
 
@@ -50,6 +51,24 @@ static XDManagerHelper *helper = nil;
     
     return _datePicker;
 }
+
+- (WantPlan *)actionPlan
+{
+    if (_actionPlan == nil) {
+        NSArray *actionPlans = [WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:YES]];
+        if (actionPlans && [actionPlans count] > 0) {
+            _actionPlan = [actionPlans objectAtIndex:0];
+        }
+        else{
+            _actionPlan = nil;
+        }
+    }
+    
+    return _actionPlan;
+}
+
+#pragma mark - set
+
 
 #pragma mark - 正则表达式 验证格式
 
