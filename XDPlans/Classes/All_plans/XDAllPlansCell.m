@@ -20,8 +20,6 @@
 @synthesize delegate = _delegate;
 
 @synthesize index = _index;
-@synthesize content;
-@synthesize action;
 //@synthesize finish;
 
 @synthesize progressValue = _progressValue;
@@ -115,6 +113,7 @@
 
 - (void)setContent:(NSString *)aContent
 {
+    _content = aContent;
     _contentTextView.text = aContent;
     CGSize size = [aContent sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByWordWrapping];
     CGFloat height = size.height > 40 ? size.height : 40;
@@ -132,6 +131,7 @@
 
 - (void)setAction:(BOOL)aAction
 {
+    _action = aAction;
     if (aAction) {
         [_actionButton setImage:[UIImage imageNamed:@"plans_action.png"] forState:UIControlStateNormal];
         [_actionButton setTintColor:[UIColor redColor]];

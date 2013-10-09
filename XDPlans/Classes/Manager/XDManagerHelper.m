@@ -54,14 +54,12 @@ static XDManagerHelper *helper = nil;
 
 - (WantPlan *)actionPlan
 {
-    if (_actionPlan == nil) {
-        NSArray *actionPlans = [WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:YES]];
-        if (actionPlans && [actionPlans count] > 0) {
-            _actionPlan = [actionPlans objectAtIndex:0];
-        }
-        else{
-            _actionPlan = nil;
-        }
+    NSArray *actionPlans = [WantPlan MR_findByAttribute:@"action" withValue:[NSNumber numberWithBool:YES]];
+    if (actionPlans && [actionPlans count] > 0) {
+        _actionPlan = [actionPlans objectAtIndex:0];
+    }
+    else{
+        _actionPlan = nil;
     }
     
     return _actionPlan;

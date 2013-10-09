@@ -14,6 +14,7 @@
 #import "XDSettingViewController.h"
 #import "XDPostPlanViewController.h"
 
+#import "XDManagerHelper.h"
 #import "REMenu.h"
 
 #define KMENU_TAG_ALLPLANS 0
@@ -29,6 +30,9 @@
     NSInteger _currentType;
     UIView *_currentView;
     UIView *_wantView;
+    
+    REMenuItem *_actionItem;
+    REMenuItem *_todayItem;
 }
 
 @property (nonatomic, strong) REMenu *menu;
@@ -121,67 +125,63 @@
 - (REMenu *)menu
 {
     if (_menu == nil) {
-        REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"想做的事"
+        REMenuItem *wantItem = [[REMenuItem alloc] initWithTitle:@"想做的事"
                                                         subtitle:@"有很多想做的事情，先来几件排个队"
                                                            image:[UIImage imageNamed:@"menu_allPlans.png"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               NSLog(@"Item: %@", item);
                                                               [self menuSelectedItem:item withtype:KMENU_TAG_ALLPLANS];
-//                                                              self.title = @"想做的事";
-//                                                              [_menuItem setImage:[UIImage imageNamed:@"menu_allPlans.png"]];
-//                                                              self.navigationItem.rightBarButtonItem = _createItem;
-                                                              
-                                                              
                                                           }];
         
-        REMenuItem *exploreItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事"
+        _actionItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事"
                                                            subtitle:@"贪多嚼不烂哦，专心做一件事情吧"
                                                               image:[UIImage imageNamed:@"menu_actionPlan.png"]
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
                                                                  [self menuSelectedItem:item withtype:KMENU_TAG_DETAILPLANS];
-//                                                                 self.title = @"正在进行的事";
-//                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_actionPlan.png"]];
-//                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
-        REMenuItem *activityItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
+        _todayItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
                                                             subtitle:@"想做些什么呢？坚持进行下去吧"
                                                                image:[UIImage imageNamed:@"menu_todayPlan.png"]
                                                     highlightedImage:nil
                                                               action:^(REMenuItem *item) {
                                                                   NSLog(@"Item: %@", item);
                                                                   [self menuSelectedItem:item withtype:KMENU_TAG_DAYPLANS];
-//                                                                  self.title = @"今天的计划";
-//                                                                  [_menuItem setImage:[UIImage imageNamed:@"menu_todayPlan.png"]];
-//                                                                  self.navigationItem.rightBarButtonItem = nil;
                                                               }];
         
-        REMenuItem *profileItem = [[REMenuItem alloc] initWithTitle:@"设置"
+        REMenuItem *settingItem = [[REMenuItem alloc] initWithTitle:@"设置"
                                                            subtitle:@"调整一下，让使用更加得心应手"
                                                               image:[UIImage imageNamed:@"menu_setting.png"]
                                                    highlightedImage:nil
                                                              action:^(REMenuItem *item) {
                                                                  NSLog(@"Item: %@", item);
                                                                  [self menuSelectedItem:item withtype:KMENU_TAG_SETTING];
-//                                                                 self.title = @"设置";
-//                                                                 [_menuItem setImage:[UIImage imageNamed:@"menu_setting.png"]];
-//                                                                 self.navigationItem.rightBarButtonItem = nil;
                                                              }];
         
-        homeItem.tag = 0;
-        exploreItem.tag = 1;
-        activityItem.tag = 2;
-        profileItem.tag = 3;
+        wantItem.tag = 0;
+        _actionItem.tag = 1;
+        _todayItem.tag = 2;
+        settingItem.tag = 3;
         
-        _menu = [[REMenu alloc] initWithItems:@[homeItem, exploreItem, activityItem, profileItem]];
+        _menu = [[REMenu alloc] initWithItems:@[wantItem, _actionItem, _todayItem, settingItem]];
         _menu.cornerRadius = 4;
         _menu.shadowColor = [UIColor blackColor];
         _menu.shadowOffset = CGSizeMake(0, 1);
         _menu.shadowOpacity = 1;
         _menu.imageOffset = CGSizeMake(5, -1);
+    }
+    
+    WantPlan *actionPlan = [[XDManagerHelper shareHelper] actionPlan];
+    if (actionPlan == nil) {
+        _actionItem.enabled = NO;
+        _todayItem.enabled = NO;
+    }
+    else{
+        _actionItem.enabled = YES;
+        _todayItem.enabled = YES;
     }
     
     return _menu;

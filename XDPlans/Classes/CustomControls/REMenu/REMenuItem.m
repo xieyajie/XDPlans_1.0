@@ -87,5 +87,10 @@
     _itemView.imageView.image = image;
 }
 
+-(void)setEnabled:(BOOL)enabled
+{
+    _itemView.userInteractionEnabled = enabled;
+}
+
 
 @end

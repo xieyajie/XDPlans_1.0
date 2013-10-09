@@ -16,10 +16,8 @@
 #import "REMenu.h"
 #import "WantPlan.h"
 
-#define KPLANS_INDEX @"index"
-#define KPLANS_CONTENT @"content"
-#define KPLANS_ACTION @"action"
-#define KPLANS_FINISH @"finish"
+#define KPLANS_ALERTVIEW_TAG_CLOSE 100
+#define KPLANS_ALERTVIEW_TAG_OPEN 99
 
 @interface XDAllPlansViewController ()<UIAlertViewDelegate, XDAllPlansCellDelegate>
 {
@@ -48,7 +46,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
         _wantPlans = [NSMutableArray array];
         _actionPlan = [[XDManagerHelper shareHelper] actionPlan];
         if (_actionPlan != nil) {
@@ -131,7 +128,6 @@
     cell.index = indexPath.row + 1;
     cell.content = plan.content;
     cell.action = [plan.action boolValue];
-//    cell.finish = [[dic objectForKey:KPLANS_FINISH] boolValue];
     cell.progressValue = 0.2 * (indexPath.row + 1);
     
     return cell;
@@ -179,21 +175,78 @@
     [self.navigationController pushViewController:planDetailVC animated:YES];
 }
 
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.cancelButtonIndex != buttonIndex)
+    {
+        XDAllPlansCell *cell = (XDAllPlansCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0]];
+        
+        if (alertView.tag == KPLANS_ALERTVIEW_TAG_CLOSE) {
+            _actionPlan.action = [NSNumber numberWithBool:NO];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        
+            cell.action = NO;
+            _actionPlan = nil;
+        }
+        else if (alertView.tag == KPLANS_ALERTVIEW_TAG_OPEN)
+        {
+            _actionPlan.action = [NSNumber numberWithBool:NO];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            XDAllPlansCell *oldCell = (XDAllPlansCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            oldCell.action = NO;
+            
+            _actionPlan = [_wantPlans objectAtIndex:_selectedRow];
+            _actionPlan.action = [NSNumber numberWithBool:YES];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            
+            cell.action = YES;
+            
+            if (index != 0) {
+                [_wantPlans replaceObjectAtIndex:0 withObject:_actionPlan];
+                
+                [self.tableView beginUpdates];
+                [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [self.tableView endUpdates];
+            }
+
+        }
+    }
+}
+
 #pragma mark - XDAllPlansCellDelegate
 
 - (void)plansCellActionClick:(XDAllPlansCell *)cell
 {
+    NSIndexPath *index = [self.tableView indexPathForCell:cell];
+    _selectedRow = index.row;
+    
     UIAlertView *alert = nil;
     if (cell.action) {
         alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你确定要关闭该事件？若你关闭该事件，今天的已有计划将删除掉。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = KPLANS_ALERTVIEW_TAG_CLOSE;
         [alert show];
     }
     else {
         if (_actionPlan == nil) {
             //开启该事件
+            _actionPlan = [_wantPlans objectAtIndex:index.row];
+            _actionPlan.action = [NSNumber numberWithBool:YES];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+            cell.action = YES;
+            
+            if (index != 0) {
+                [_wantPlans replaceObjectAtIndex:0 withObject:_actionPlan];
+                
+                [self.tableView beginUpdates];
+                [self.tableView moveRowAtIndexPath:index toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [self.tableView endUpdates];
+            }
         }
         else{
-            alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你已经有正在进行的事情了，如果想开启另外的事件，将先关闭正在进行的事件,今天的已有计划将删除掉。贪多嚼不烂，专心做一件事情吧！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert = [[UIAlertView alloc] initWithTitle:@"你已经有正在进行的事情了" message:@"若想开启另外的事件，将自动关闭正在进行的事件,今天的已有计划将删除掉。\n贪多嚼不烂，专心做一件事情吧！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.tag = KPLANS_ALERTVIEW_TAG_OPEN;
             [alert show];
         }
     }
