@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class DayPlan;
 @interface XDDayPlanViewController : UITableViewController
 
 @property (nonatomic, strong) NSString *planContent;
+@property (nonatomic, strong) DayPlan *dayPlan;
 
 + (id)defaultToday;
 
 - (id)initWithStyle:(UITableViewStyle)style canEdit:(BOOL)canEdit;
-
-
 
 @end

@@ -263,6 +263,11 @@ static XDDayPlanViewController *todayPlan = nil;
     _planContentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
 }
 
+- (void)setDayPlan:(DayPlan *)plan
+{
+    _dayPlan = plan;
+}
+
 #pragma mark - notification keyboard
 
 - (void)showKeyboard:(NSNotification *)notification
@@ -338,22 +343,25 @@ static XDDayPlanViewController *todayPlan = nil;
         
         switch (indexPath.section) {
             case KSECTION_MOOD:
-                
+                cell.moodImage = nil;
+                cell.moodText = @"天气不错";
                 break;
             case KSECTION_WORKLOAD:
-                
+                cell.color = [UIColor greenColor];
+                cell.workloadCount = 3;
                 break;
             case KSECTION_FINISHFAITH:
-                
+                cell.color = [UIColor redColor];
+                cell.finishCount = 5;
                 break;
             case KSECTION_PLAN:
-                
+                cell.planContent = @"123";
                 break;
             case KSECTION_SUMMARY:
-                
+                cell.summaryContent = @"456";
                 break;
             case KSECTION_GRADE:
-                
+                cell.summaryKey = @"verygood";
                 break;
                 
             default:

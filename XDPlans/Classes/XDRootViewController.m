@@ -175,6 +175,8 @@
             _actionMenu.shadowOffset = CGSizeMake(0, 1);
             _actionMenu.shadowOpacity = 1;
             _actionMenu.imageOffset = CGSizeMake(5, -1);
+            
+            _actionMenu.textColor = [UIColor whiteColor];
         }
         if (_unactionMenu == nil) {
             _unactionMenu = [[REMenu alloc] initWithItems:@[wantItem, settingItem]];
@@ -183,6 +185,8 @@
             _unactionMenu.shadowOffset = CGSizeMake(0, 1);
             _unactionMenu.shadowOpacity = 1;
             _unactionMenu.imageOffset = CGSizeMake(5, -1);
+            
+            _unactionMenu.textColor = [UIColor whiteColor];
         }
     }
     

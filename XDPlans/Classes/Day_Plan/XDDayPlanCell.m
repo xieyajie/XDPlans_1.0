@@ -14,7 +14,8 @@
 
 @interface XDDayPlanCell()<XDSummaryViewDelegate>
 {
-    UIColor *_color;
+    UIButton *_colorButton;
+    UIView *_buttonsView;
 }
 
 @property (nonatomic, strong) UITextField *moodField;
@@ -107,6 +108,29 @@
     return _buttons;
 }
 
+- (UIButton *)colorButton
+{
+    if (_colorButton == nil) {
+        _colorButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+        _colorButton.contentMode = UIViewContentModeScaleAspectFit;
+        [_colorButton setImage:[UIImage imageNamed:@"plans_paint_normal.png"] forState:UIControlStateNormal];
+        [_colorButton setImage:[UIImage imageNamed:@"plans_paint_selected.png"] forState:UIControlStateHighlighted];
+        [_colorButton addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _colorButton;
+}
+
+- (UIView *)buttonsView
+{
+    if (_buttonsView == nil) {
+        _buttonsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240, KTODAY_CELL_HEIGHT_NORMAL)];
+        _buttonsView.backgroundColor = [UIColor clearColor];
+    }
+    
+    return _buttonsView;
+}
+
 #pragma mark - private
 
 - (void)colorAction:(id)sender
@@ -158,6 +182,17 @@
     [self.contentView addSubview:_moodField];
 }
 
+- (void)setMoodImage:(UIImage *)image
+{
+    [_moodButton setImage:image forState:UIControlStateNormal];
+}
+
+- (void)setMoodText:(NSString *)text
+{
+    _moodField.borderStyle = UITextBorderStyleNone;
+    _moodField.text = text;
+}
+
 #pragma mark - 工作量指数
 
 - (void)configurationWordload
@@ -173,16 +208,12 @@
         UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
         [button setImage:image forState: UIControlStateSelected];
         [button addTarget:self action:@selector(wordloadButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:button];
+        [self.buttonsView addSubview:button];
         [self.buttons addObject:button];
     }
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
-    button.contentMode = UIViewContentModeScaleAspectFit;
-    [button setImage:[UIImage imageNamed:@"plans_paint_normal.png"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"plans_paint_selected.png"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:button];
+    [self.contentView addSubview:self.buttonsView];
+    [self.contentView addSubview:self.colorButton];
 }
 
 - (void)wordloadButtonAction:(id)sender
@@ -190,6 +221,27 @@
     UIButton *button = (UIButton *)sender;
     BOOL selected = button.selected;
     button.selected = !selected;
+}
+
+- (void)setWorkloadCount:(NSInteger)count
+{
+    self.colorButton.hidden = YES;
+    self.buttonsView.frame = CGRectMake(40, 0, 240, KTODAY_CELL_HEIGHT_NORMAL);
+    
+    if (count < 0) {
+        count = 0;
+    }
+    
+    if (count > 5) {
+        count = 5;
+    }
+    
+    UIImage *img = [UIImage imageNamed:@"plans_workload.png"];
+    UIImage *newImage = [XDManagerHelper colorizeImage:img withColor:self.color];
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        [button setImage:newImage forState: UIControlStateNormal];
+    }
 }
 
 #pragma mark - 完成信心指数
@@ -207,16 +259,12 @@
         UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_finish.png"] withColor:_color];
         [button setImage:image forState: UIControlStateSelected];
         [button addTarget:self action:@selector(finishButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:button];
+        [self.buttonsView addSubview:button];
         [self.buttons addObject:button];
     }
-    
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
-    button.contentMode = UIViewContentModeScaleAspectFit;
-    [button setImage:[UIImage imageNamed:@"plans_paint_normal.png"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"plans_paint_selected.png"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:button];
+
+    [self.contentView addSubview:self.buttonsView];
+    [self.contentView addSubview:self.colorButton];
 }
 
 - (void)finishButtonAction:(id)sender
@@ -224,6 +272,27 @@
     UIButton *button = (UIButton *)sender;
     BOOL selected = button.selected;
     button.selected = !selected;
+}
+
+- (void)setFinishCount:(NSInteger)count
+{
+    self.colorButton.hidden = YES;
+    self.buttonsView.frame = CGRectMake(40, 0, 240, KTODAY_CELL_HEIGHT_NORMAL);
+    
+    if (count < 0) {
+        count = 0;
+    }
+    
+    if (count > 5) {
+        count = 5;
+    }
+    
+    UIImage *img = [UIImage imageNamed:@"plans_finish.png"];
+    UIImage *newImage = [XDManagerHelper colorizeImage:img withColor:self.color];
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        [button setImage:newImage forState: UIControlStateNormal];
+    }
 }
 
 #pragma mark - 今日安排
@@ -234,6 +303,12 @@
     [self.contentView addSubview:self.textEditor];
 }
 
+- (void)setPlanContent:(NSString *)content
+{
+    self.textEditor.layer.borderColor = [[UIColor clearColor] CGColor];
+    self.textEditor.text = content;
+}
+
 #pragma mark - 今日总结
 
 - (void)configurationSummary
@@ -242,12 +317,13 @@
     [self.contentView addSubview:self.textEditor];
 }
 
-#pragma mark - 评价表现
+- (void)setSummaryContent:(NSString *)content
+{
+    self.textEditor.layer.borderColor = [[UIColor clearColor] CGColor];
+    self.textEditor.text = content;
+}
 
-//- (NSArray *)summaryInfo
-//{
-//    
-//}
+#pragma mark - 评价表现
 
 - (NSArray *)summaryViews
 {
@@ -280,6 +356,24 @@
         [self.contentView addSubview:summaryView];
         
         count++;
+    }
+}
+
+- (void)setSummaryKey:(NSString *)key
+{
+    if (key && key.length > 0) {
+        NSInteger index = 2;
+        XDSummaryView *summaryView = nil;
+        
+        for (XDSummaryView *view in self.summaryViews) {
+            if ([view.key isEqualToString:key]) {
+                summaryView = view;
+                index = view.index;
+                break;
+            }
+        }
+        
+        [self summaryView:summaryView didSelectedAtIndex:index];
     }
 }
 
