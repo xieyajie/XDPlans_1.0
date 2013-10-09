@@ -13,6 +13,7 @@
 #import "XDDayPlanCell.h"
 #import "XDMoodPicker.h"
 
+#import "WantPlan.h"
 #import "XDManagerHelper.h"
 
 #define KTODAY_DATA_TITLE @"title"
@@ -29,10 +30,11 @@
 #define KSECTION_SUMMARY 4
 #define KSECTION_GRADE 5
 
+static XDDayPlanViewController *todayPlan = nil;
+
 @interface XDDayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
     NSMutableArray *_dataSource;
-    BOOL _canEdit;
     
     NSDate *_todayDate;
     UILabel *_ymwLabel;
@@ -51,6 +53,8 @@
 
 @property (nonatomic, strong) UIBarButtonItem *hideKeyboardItem;
 
+@property (nonatomic) BOOL canEdit;
+
 @end
 
 @implementation XDDayPlanViewController
@@ -58,6 +62,8 @@
 @synthesize sectionHeaderViews = _sectionHeaderViews;
 @synthesize headerView = _headerView;
 @synthesize hideKeyboardItem = _hideKeyboardItem;
+
+@synthesize canEdit = _canEdit;
 
 @synthesize planContent = _planContent;
 
@@ -77,11 +83,29 @@
     return self;
 }
 
++ (id)defaultToday
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        todayPlan = [[XDDayPlanViewController alloc] initWithStyle:UITableViewStylePlain canEdit:YES];
+    });
+    
+    todayPlan.canEdit = YES;
+    
+    return todayPlan;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style canEdit:(BOOL)canEdit
 {
     self = [self initWithStyle:style];
     if (self) {
         _canEdit = canEdit;
+        
+        WantPlan *actionPlan = [[XDManagerHelper shareHelper] actionPlan];
+        _planContent = @"暂无";
+        if (actionPlan) {
+            _planContent = actionPlan.content;
+        }
     }
     
     return self;
@@ -92,7 +116,13 @@
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    self.title = @"今日计划";
+    if (_canEdit) {
+        self.title = @"今日计划";
+    }
+    else{
+        self.title = @"计划详情";
+    }
+    
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     _todayDate = [NSDate date];
     
@@ -209,12 +239,14 @@
             label.text = [dic objectForKey:KTODAY_DATA_TITLE];
             [view addSubview:label];
             
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(view.frame.size.width - 40, 0, 30, view.frame.size.height)];
-            button.tag = [XDManagerHelper tagCompileWithInteger:i];
-            [button setImage:[UIImage imageNamed:@"plans_enabled_yes.png"] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:@"plans_enabled_no.png"] forState:UIControlStateSelected];
-            [button addTarget:self action:@selector(sectionEnabledAction:) forControlEvents:UIControlEventTouchUpInside];
-            [view addSubview:button];
+            if (_canEdit) {
+                UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(view.frame.size.width - 40, 0, 30, view.frame.size.height)];
+                button.tag = [XDManagerHelper tagCompileWithInteger:i];
+                [button setImage:[UIImage imageNamed:@"plans_enabled_yes.png"] forState:UIControlStateNormal];
+                [button setImage:[UIImage imageNamed:@"plans_enabled_no.png"] forState:UIControlStateSelected];
+                [button addTarget:self action:@selector(sectionEnabledAction:) forControlEvents:UIControlEventTouchUpInside];
+                [view addSubview:button];
+            }
             
             [_sectionHeaderViews addObject:view];
         }
@@ -294,6 +326,34 @@
                 break;
             case KSECTION_GRADE:
                 [cell configurationGrand];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    if (!_canEdit) {
+        cell.userInteractionEnabled = NO;
+        
+        switch (indexPath.section) {
+            case KSECTION_MOOD:
+                
+                break;
+            case KSECTION_WORKLOAD:
+                
+                break;
+            case KSECTION_FINISHFAITH:
+                
+                break;
+            case KSECTION_PLAN:
+                
+                break;
+            case KSECTION_SUMMARY:
+                
+                break;
+            case KSECTION_GRADE:
+                
                 break;
                 
             default:

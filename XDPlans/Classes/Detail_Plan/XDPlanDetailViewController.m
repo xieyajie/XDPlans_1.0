@@ -121,7 +121,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XDDayPlanViewController *dataPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:YES];
+    XDDayPlanViewController *dataPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:NO];
     dataPlanVC.planContent = self.planContent;
     [self.navigationController pushViewController:dataPlanVC animated:YES];
 }

@@ -31,8 +31,8 @@
     UIView *_currentView;
     UIView *_wantView;
     
-    REMenuItem *_actionItem;
-    REMenuItem *_todayItem;
+    REMenu *_actionMenu;
+    REMenu *_unactionMenu;
 }
 
 @property (nonatomic, strong) REMenu *menu;
@@ -107,7 +107,7 @@
 - (XDDayPlanViewController *)dayPlanVC
 {
     if (_dayPlanVC == nil) {
-        _dayPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewStylePlain canEdit:YES];
+        _dayPlanVC = [XDDayPlanViewController defaultToday];
     }
     
     return _dayPlanVC;
@@ -134,7 +134,7 @@
                                                               [self menuSelectedItem:item withtype:KMENU_TAG_ALLPLANS];
                                                           }];
         
-        _actionItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事"
+        REMenuItem *actionItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事"
                                                            subtitle:@"贪多嚼不烂哦，专心做一件事情吧"
                                                               image:[UIImage imageNamed:@"menu_actionPlan.png"]
                                                    highlightedImage:nil
@@ -143,7 +143,7 @@
                                                                  [self menuSelectedItem:item withtype:KMENU_TAG_DETAILPLANS];
                                                              }];
         
-        _todayItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
+        REMenuItem *todayItem = [[REMenuItem alloc] initWithTitle:@"今天的计划"
                                                             subtitle:@"想做些什么呢？坚持进行下去吧"
                                                                image:[UIImage imageNamed:@"menu_todayPlan.png"]
                                                     highlightedImage:nil
@@ -161,30 +161,38 @@
                                                                  [self menuSelectedItem:item withtype:KMENU_TAG_SETTING];
                                                              }];
         
-        wantItem.tag = 0;
-        _actionItem.tag = 1;
-        _todayItem.tag = 2;
-        settingItem.tag = 3;
+        wantItem.tag = KMENU_TAG_ALLPLANS;
+        actionItem.tag = KMENU_TAG_DETAILPLANS;
+        todayItem.tag = KMENU_TAG_DAYPLANS;
+        settingItem.tag = KMENU_TAG_SETTING;
         
-        _menu = [[REMenu alloc] initWithItems:@[wantItem, _actionItem, _todayItem, settingItem]];
-        _menu.cornerRadius = 4;
-        _menu.shadowColor = [UIColor blackColor];
-        _menu.shadowOffset = CGSizeMake(0, 1);
-        _menu.shadowOpacity = 1;
-        _menu.imageOffset = CGSizeMake(5, -1);
+        
+        
+        if (_actionMenu == nil) {
+            _actionMenu = [[REMenu alloc] initWithItems:@[wantItem, actionItem, todayItem, settingItem]];
+            _actionMenu.cornerRadius = 4;
+            _actionMenu.shadowColor = [UIColor blackColor];
+            _actionMenu.shadowOffset = CGSizeMake(0, 1);
+            _actionMenu.shadowOpacity = 1;
+            _actionMenu.imageOffset = CGSizeMake(5, -1);
+        }
+        if (_unactionMenu == nil) {
+            _unactionMenu = [[REMenu alloc] initWithItems:@[wantItem, settingItem]];
+            _unactionMenu.cornerRadius = 4;
+            _unactionMenu.shadowColor = [UIColor blackColor];
+            _unactionMenu.shadowOffset = CGSizeMake(0, 1);
+            _unactionMenu.shadowOpacity = 1;
+            _unactionMenu.imageOffset = CGSizeMake(5, -1);
+        }
     }
     
     WantPlan *actionPlan = [[XDManagerHelper shareHelper] actionPlan];
     if (actionPlan == nil) {
-        _actionItem.enabled = NO;
-        _todayItem.enabled = NO;
+        return _unactionMenu;
     }
     else{
-        _actionItem.enabled = YES;
-        _todayItem.enabled = YES;
+        return _actionMenu;
     }
-    
-    return _menu;
 }
 
 #pragma mark - layouts

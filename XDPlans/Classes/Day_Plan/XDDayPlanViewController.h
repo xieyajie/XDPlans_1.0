@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString *planContent;
 
++ (id)defaultToday;
+
 - (id)initWithStyle:(UITableViewStyle)style canEdit:(BOOL)canEdit;
 
 
