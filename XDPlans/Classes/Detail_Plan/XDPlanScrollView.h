@@ -19,7 +19,6 @@
     UIView *_evaluationView;
     
     UIButton *_moodImage;
-    UILabel *_moodLabel;
     UIImageView *_workImage;
     UILabel *_workLabel;
     UIImageView *_finishImage;

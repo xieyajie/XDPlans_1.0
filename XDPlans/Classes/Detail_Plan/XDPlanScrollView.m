@@ -60,21 +60,17 @@
         _evaluationView = [[UIView alloc] init];
         _evaluationView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _evaluationView.backgroundColor = [UIColor clearColor];
-//        _evaluationView.layer.borderColor = [[UIColor blueColor] CGColor];
-//        _evaluationView.layer.borderWidth = 2.0;
+        _evaluationView.layer.borderColor = [[UIColor blueColor] CGColor];
+        _evaluationView.layer.borderWidth = 2.0;
         [_scrollView addSubview:_evaluationView];
         
-        _moodImage = [[UIButton alloc] init];
+        _moodImage = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 50, 50)];
         _moodImage.enabled = NO;
-        _moodImage.imageView.contentMode = UIViewContentModeScaleAspectFit | UIViewContentModeCenter;
+        _moodImage.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _moodImage.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 //        _moodImage.backgroundColor = [UIColor blueColor];
         [_evaluationView addSubview:_moodImage];
-        
-        _moodLabel = [[UILabel alloc] init];
-        _moodLabel.textAlignment = KTextAlignmentCenter;
-        _moodLabel.backgroundColor = [UIColor clearColor];
-        [_evaluationView addSubview:_moodLabel];
-        
+
         _workImage = [[UIImageView alloc] init];
 //        _workImage.backgroundColor = [UIColor darkTextColor];
         _workImage.contentMode = UIViewContentModeScaleAspectFit | UIViewContentModeCenter;
@@ -124,13 +120,13 @@
     _pageControl.frame = CGRectMake(frame.size.width - 100, _scrollView.frame.origin.y + _scrollView.frame.size.height + 5, 90, 15);
     
     if (frame.size.width != oldWidth) {
-        _doneLabel.frame = CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
-        _summaryLabel.frame = CGRectMake(_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+        _doneLabel.frame = CGRectMake(10, 0, _scrollView.frame.size.width - 20, _scrollView.frame.size.height);
+        _summaryLabel.frame = CGRectMake(_scrollView.frame.size.width + 10, 0, _scrollView.frame.size.width - 20, _scrollView.frame.size.height);
         _evaluationView.frame = CGRectMake(_scrollView.frame.size.width * 2, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
         
         CGFloat evaluationWidth = _evaluationView.frame.size.width / 3;
-        _moodImage.frame = CGRectMake(0, 0, evaluationWidth, _evaluationView.frame.size.height / 2);
-        _moodLabel.frame = CGRectMake(0, _moodImage.frame.origin.y + _moodImage.frame.size.height, evaluationWidth, _evaluationView.frame.size.height - (_moodImage.frame.origin.y + _moodImage.frame.size.height));
+        CGFloat moodWidth = evaluationWidth > 50 ? 50 : evaluationWidth;
+        _moodImage.frame = CGRectMake((evaluationWidth - moodWidth) / 2, 0, moodWidth, _evaluationView.frame.size.height);
         _workImage.frame = CGRectMake(evaluationWidth, 10, evaluationWidth / 2, _evaluationView.frame.size.height / 2 - 10);
         _workLabel.frame = CGRectMake(evaluationWidth + evaluationWidth / 2, 0, evaluationWidth / 2, _evaluationView.frame.size.height / 2);
         _finishImage.frame = CGRectMake(evaluationWidth, _evaluationView.frame.size.height / 2 + 10 , evaluationWidth / 2, _evaluationView.frame.size.height / 2 - 10);
@@ -155,7 +151,6 @@
     _summaryLabel.text = @"总结：完成的不错";
     
     [_moodImage setImage:[UIImage imageNamed:@"MY_ICON_0.png"] forState:UIControlStateNormal];
-    _moodLabel.text = @"很开心";
     
     _workLabel.text = @"3";
     _finishLabel.text = @"4";
