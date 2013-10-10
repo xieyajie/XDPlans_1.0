@@ -150,6 +150,50 @@ static int tagBase = 100;
 
 #pragma mark - 图片混合
 
++ (UIImage *)colorizeImage:(UIImage *)baseImage withHexColorString:(NSString *)hexString
+{
+    NSScanner *scanner = [NSScanner scannerWithString: hexString];
+    
+    unsigned convertNum;
+    //scanHexInt:扫描16进制到int
+    if (![scanner scanHexInt: &convertNum])
+    {
+        return nil;
+    }
+    int r = (convertNum >> 16) & 0xFF;
+	int g = (convertNum >> 8) & 0xFF;
+	int b = (convertNum) & 0xFF;
+	
+	UIColor *theColor = [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+    
+    UIGraphicsBeginImageContext(baseImage.size);//创建一个基于位图的图形上下文并使其成为当前上下文。
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();//返回  当前图形上下文
+    //这里取到的不是UIImageView类型的,况且也没有UIImageView那个东西..这里取到的是UIImage对应的赋值给它的那个图片的大小...
+    CGRect area = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+    
+    CGContextScaleCTM(ctx, 1, -1);//改变用户的规模坐标系统....(X.Y)..
+    CGContextTranslateCTM(ctx, 0, -area.size.height);//更改用户的上下文中的坐标原点系统。
+    
+    CGContextSaveGState(ctx);
+    CGContextClipToMask(ctx, area, baseImage.CGImage);
+    
+    [theColor set];
+    CGContextFillRect(ctx, area);
+    
+    CGContextRestoreGState(ctx);
+    
+    CGContextSetBlendMode(ctx, kCGBlendModeColorBurn);
+    
+    CGContextDrawImage(ctx, area, baseImage.CGImage);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 + (UIImage *)colorizeImage:(UIImage *)baseImage withColor:(UIColor *)theColor
 {
     UIGraphicsBeginImageContext(baseImage.size);//创建一个基于位图的图形上下文并使其成为当前上下文。
@@ -220,8 +264,20 @@ static int tagBase = 100;
 {
     if (_ymdFormatter == nil) {
         _ymdFormatter = [[NSDateFormatter alloc] init];
-        _ymdFormatter.dateFormat = @"yyyyMMDD";
     }
+    
+    _ymdFormatter.dateFormat = @"yyyyMMdd";
+    
+    return _ymdFormatter;
+}
+
+- (NSDateFormatter *)y_m_dFormatter
+{
+    if (_ymdFormatter == nil) {
+        _ymdFormatter = [[NSDateFormatter alloc] init];
+    }
+    
+    _ymdFormatter.dateFormat = @"yyyy-MM-dd";
     
     return _ymdFormatter;
 }
@@ -259,6 +315,18 @@ static int tagBase = 100;
 - (NSString *)ymdForDate:(NSDate *)date
 {
     return [self.ymdFormatter stringFromDate:date];
+}
+
+- (NSString *)y_m_dForDate:(NSDate *)date
+{
+    return [[self y_m_dFormatter] stringFromDate:date];
+}
+
+- (NSDate *)convertDateToY_M_D:(NSDate *)date
+{
+    NSString *str = [self y_m_dForDate:date];
+//    NSDate *d = [[self y_m_dFormatter] dateFromString:str];
+    return [[self y_m_dFormatter] dateFromString:str];
 }
 
 #pragma mark - 显示菜单

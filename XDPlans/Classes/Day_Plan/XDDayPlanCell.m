@@ -77,6 +77,33 @@
     _colorKey = key;
 }
 
+- (void)setMoodImageName:(NSString *)imageName
+{
+    _moodImageName = imageName;
+    [_moodButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+}
+
+- (void)setExponent:(NSInteger)count
+{
+    self.colorButton.hidden = YES;
+    self.buttonsView.frame = CGRectMake(40, 0, 240, KTODAY_CELL_HEIGHT_NORMAL);
+    
+    if (count < 0) {
+        count = 0;
+    }
+    
+    if (count > 5) {
+        count = 5;
+    }
+    
+    UIImage *img = [[self.buttons objectAtIndex:0] imageForState:UIControlStateNormal];
+    UIImage *newImage = [XDManagerHelper colorizeImage:img withColor:self.color];
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        [button setImage:newImage forState: UIControlStateNormal];
+    }
+}
+
 #pragma mark - get
 
 - (RichTextEditor *)textEditor
@@ -131,6 +158,26 @@
     return _buttonsView;
 }
 
+- (NSInteger)exponent
+{
+    NSInteger count = 0;
+    
+    for (int i = 0; i < [self.buttons count]; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        if (button.selected) {
+            count++;
+        }
+    }
+    
+    return count > 5 ? 5 : count;
+}
+
+- (NSString *)summaryKey
+{
+    XDSummaryView *selectedView = [self.summaryViews objectAtIndex:_selectedSummaryIndex];
+    return selectedView.key;
+}
+
 #pragma mark - private
 
 - (void)colorAction:(id)sender
@@ -182,11 +229,6 @@
     [self.contentView addSubview:_moodField];
 }
 
-- (void)setMoodImage:(UIImage *)image
-{
-    [_moodButton setImage:image forState:UIControlStateNormal];
-}
-
 - (void)setMoodText:(NSString *)text
 {
     _moodField.borderStyle = UITextBorderStyleNone;
@@ -223,27 +265,6 @@
     button.selected = !selected;
 }
 
-- (void)setWorkloadCount:(NSInteger)count
-{
-    self.colorButton.hidden = YES;
-    self.buttonsView.frame = CGRectMake(40, 0, 240, KTODAY_CELL_HEIGHT_NORMAL);
-    
-    if (count < 0) {
-        count = 0;
-    }
-    
-    if (count > 5) {
-        count = 5;
-    }
-    
-    UIImage *img = [UIImage imageNamed:@"plans_workload.png"];
-    UIImage *newImage = [XDManagerHelper colorizeImage:img withColor:self.color];
-    for (int i = 0; i < count; i++) {
-        UIButton *button = [self.buttons objectAtIndex:i];
-        [button setImage:newImage forState: UIControlStateNormal];
-    }
-}
-
 #pragma mark - 完成信心指数
 
 - (void)configurationFinishFaith
@@ -272,27 +293,6 @@
     UIButton *button = (UIButton *)sender;
     BOOL selected = button.selected;
     button.selected = !selected;
-}
-
-- (void)setFinishCount:(NSInteger)count
-{
-    self.colorButton.hidden = YES;
-    self.buttonsView.frame = CGRectMake(40, 0, 240, KTODAY_CELL_HEIGHT_NORMAL);
-    
-    if (count < 0) {
-        count = 0;
-    }
-    
-    if (count > 5) {
-        count = 5;
-    }
-    
-    UIImage *img = [UIImage imageNamed:@"plans_finish.png"];
-    UIImage *newImage = [XDManagerHelper colorizeImage:img withColor:self.color];
-    for (int i = 0; i < count; i++) {
-        UIButton *button = [self.buttons objectAtIndex:i];
-        [button setImage:newImage forState: UIControlStateNormal];
-    }
 }
 
 #pragma mark - 今日安排

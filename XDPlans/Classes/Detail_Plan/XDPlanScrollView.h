@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class XDSummaryView;
+@class DayPlan;
 @interface XDPlanScrollView : UIView<UIScrollViewDelegate>
 {
+    DayPlan *_plan;
+    
     UIScrollView *_scrollView;
     UIPageControl *_pageControl;
     
@@ -24,8 +27,10 @@
     UIImageView *_finishImage;
     UILabel *_finishLabel;
     XDSummaryView *_summaryView;
+    
+    UILabel *_addTodayLabel;
 }
 
-- (void)configurationViewWithPlan:(id)info;
+- (void)configurationViewWithPlan:(DayPlan *)plan;
 
 @end

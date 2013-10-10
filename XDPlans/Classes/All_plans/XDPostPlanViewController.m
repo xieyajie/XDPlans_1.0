@@ -372,8 +372,8 @@
         WantPlan *newPlan = [WantPlan MR_createEntity];
         newPlan.action = [NSNumber numberWithBool:NO];
         newPlan.finish = [NSNumber numberWithBool:NO];
-        newPlan.startDate = [NSDate date];
-        newPlan.finishDate = _selectedDate;
+        newPlan.startDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
+        newPlan.finishDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:_selectedDate];
         newPlan.content = self.contentTextView.text;
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
@@ -381,7 +381,7 @@
     }
     else{
         _editPlan.content = self.contentTextView.text;
-        _editPlan.finishDate = _selectedDate;
+        _editPlan.finishDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:_selectedDate];
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANEDITFINISH object:nil];

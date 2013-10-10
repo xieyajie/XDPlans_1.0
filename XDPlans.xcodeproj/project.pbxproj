@@ -141,13 +141,13 @@
 		3AADD4F417F31F1F000BEE34 /* XDPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47417F31F1F000BEE34 /* XDPlanDetailViewController.m */; };
 		3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47617F31F1F000BEE34 /* XDPlanScrollView.m */; };
 		3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */; };
-		3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD47E17F31F1F000BEE34 /* DayPlan.m */; };
 		3AADD4F817F31F1F000BEE34 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48017F31F1F000BEE34 /* User.m */; };
 		3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48317F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld */; };
 		3AADD4FB17F31F1F000BEE34 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48717F31F1F000BEE34 /* UIColor+Category.m */; };
 		3AADD4FC17F31F1F000BEE34 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD48917F31F1F000BEE34 /* XDManagerHelper.m */; };
 		3AADD4FF17F31F1F000BEE34 /* XDSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AADD49017F31F1F000BEE34 /* XDSetting.plist */; };
 		3AADD50017F31F1F000BEE34 /* XDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AADD49217F31F1F000BEE34 /* XDSettingViewController.m */; };
+		3ACDD17A18067FE2008B730A /* DayPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDD17918067FE2008B730A /* DayPlan.m */; };
 		3AE3A22D17ED47A700DC05A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22C17ED47A700DC05A8 /* UIKit.framework */; };
 		3AE3A22F17ED47A700DC05A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A22E17ED47A700DC05A8 /* Foundation.framework */; };
 		3AE3A23117ED47A700DC05A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE3A23017ED47A700DC05A8 /* CoreGraphics.framework */; };
@@ -430,8 +430,6 @@
 		3AADD47617F31F1F000BEE34 /* XDPlanScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPlanScrollView.m; sourceTree = "<group>"; };
 		3AADD47917F31F1F000BEE34 /* XDCutImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDCutImageViewController.h; sourceTree = "<group>"; };
 		3AADD47A17F31F1F000BEE34 /* XDCutImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDCutImageViewController.m; sourceTree = "<group>"; };
-		3AADD47D17F31F1F000BEE34 /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
-		3AADD47E17F31F1F000BEE34 /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
 		3AADD47F17F31F1F000BEE34 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3AADD48017F31F1F000BEE34 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3AADD48417F31F1F000BEE34 /* XDPlanDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XDPlanDatabase.xcdatamodel; sourceTree = "<group>"; };
@@ -442,6 +440,8 @@
 		3AADD49017F31F1F000BEE34 /* XDSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSetting.plist; sourceTree = "<group>"; };
 		3AADD49117F31F1F000BEE34 /* XDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDSettingViewController.h; sourceTree = "<group>"; };
 		3AADD49217F31F1F000BEE34 /* XDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSettingViewController.m; sourceTree = "<group>"; };
+		3ACDD17818067FE2008B730A /* DayPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPlan.h; sourceTree = "<group>"; };
+		3ACDD17918067FE2008B730A /* DayPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPlan.m; sourceTree = "<group>"; };
 		3AE3A22817ED47A700DC05A8 /* XDPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XDPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE3A22C17ED47A700DC05A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AE3A22E17ED47A700DC05A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -978,8 +978,8 @@
 		3AADD47C17F31F1F000BEE34 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				3AADD47D17F31F1F000BEE34 /* DayPlan.h */,
-				3AADD47E17F31F1F000BEE34 /* DayPlan.m */,
+				3ACDD17818067FE2008B730A /* DayPlan.h */,
+				3ACDD17918067FE2008B730A /* DayPlan.m */,
 				3AADD47F17F31F1F000BEE34 /* User.h */,
 				3AADD48017F31F1F000BEE34 /* User.m */,
 				3AA5C8AE17F6651B00336E1B /* WantPlan.h */,
@@ -1404,6 +1404,7 @@
 				3AADD3E617F31E94000BEE34 /* XDRootViewController.m in Sources */,
 				3A95918C17F5725F00B49D50 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				3A95918617F5725F00B49D50 /* NSManagedObject+MagicalAggregation.m in Sources */,
+				3ACDD17A18067FE2008B730A /* DayPlan.m in Sources */,
 				3A95919517F5725F00B49D50 /* MagicalRecord+Options.m in Sources */,
 				3A95919717F5725F00B49D50 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				3A281B7017F3C63C000F301D /* NSManagedObjectModel+KCOrderedAccessorFix.m in Sources */,
@@ -1458,7 +1459,6 @@
 				3AADD4F517F31F1F000BEE34 /* XDPlanScrollView.m in Sources */,
 				3A95918317F5725F00B49D50 /* NSObject+MagicalDataImport.m in Sources */,
 				3AADD4F617F31F1F000BEE34 /* XDCutImageViewController.m in Sources */,
-				3AADD4F717F31F1F000BEE34 /* DayPlan.m in Sources */,
 				3AADD4F817F31F1F000BEE34 /* User.m in Sources */,
 				3A95918817F5725F00B49D50 /* NSManagedObject+MagicalFinders.m in Sources */,
 				3AADD4FA17F31F1F000BEE34 /* XDPlanDatabase.xcdatamodeld in Sources */,

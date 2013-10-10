@@ -14,6 +14,7 @@
 #import "XDMoodPicker.h"
 
 #import "WantPlan.h"
+#import "DayPlan.h"
 #import "XDManagerHelper.h"
 
 #define KTODAY_DATA_TITLE @"title"
@@ -34,7 +35,8 @@ static XDDayPlanViewController *todayPlan = nil;
 
 @interface XDDayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
-    NSMutableArray *_dataSource;
+    NSMutableArray *_configurationSource;
+    NSString *_planContent;
     
     NSDate *_todayDate;
     UILabel *_ymwLabel;
@@ -51,6 +53,7 @@ static XDDayPlanViewController *todayPlan = nil;
 
 @property (nonatomic, strong) UIView *headerView;
 
+@property (nonatomic, strong) UIBarButtonItem *saveItem;
 @property (nonatomic, strong) UIBarButtonItem *hideKeyboardItem;
 
 @property (nonatomic) BOOL canEdit;
@@ -61,24 +64,21 @@ static XDDayPlanViewController *todayPlan = nil;
 
 @synthesize sectionHeaderViews = _sectionHeaderViews;
 @synthesize headerView = _headerView;
-@synthesize hideKeyboardItem = _hideKeyboardItem;
 
 @synthesize canEdit = _canEdit;
-
-@synthesize planContent = _planContent;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _dataSource = [NSMutableArray array];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"心情", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"MoodCell", KTODAY_CELL_IDENTIFIER, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日工作量指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"WordloadCell", KTODAY_CELL_IDENTIFIER, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"完成信心指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"FinishCell", KTODAY_CELL_IDENTIFIER, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日安排", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:1], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"PlanCell", KTODAY_CELL_IDENTIFIER, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日总结", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"SummaryCell", KTODAY_CELL_IDENTIFIER, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"给自己今天的表现打个分吧", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"GrandCell", KTODAY_CELL_IDENTIFIER, nil]];
+        _configurationSource = [NSMutableArray array];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"心情", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"MoodCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日工作量指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"WordloadCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"完成信心指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"FinishCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日安排", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:1], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"PlanCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日总结", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"SummaryCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_configurationSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"给自己今天的表现打个分吧", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"GrandCell", KTODAY_CELL_IDENTIFIER, nil]];
     }
     return self;
 }
@@ -101,10 +101,10 @@ static XDDayPlanViewController *todayPlan = nil;
     if (self) {
         _canEdit = canEdit;
         
-        WantPlan *actionPlan = [[XDManagerHelper shareHelper] actionPlan];
+        _actionPlan = [[XDManagerHelper shareHelper] actionPlan];
         _planContent = @"暂无";
-        if (actionPlan) {
-            _planContent = actionPlan.content;
+        if (_actionPlan) {
+            _planContent = _actionPlan.content;
         }
     }
     
@@ -123,6 +123,7 @@ static XDDayPlanViewController *todayPlan = nil;
         self.title = @"计划详情";
     }
     
+    [self.navigationItem setRightBarButtonItem:self.saveItem animated:YES];
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     _todayDate = [NSDate date];
     
@@ -213,13 +214,22 @@ static XDDayPlanViewController *todayPlan = nil;
     return _hideKeyboardItem;
 }
 
+- (UIBarButtonItem *)saveItem
+{
+    if (_saveItem == nil) {
+        _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveAction:)];
+    }
+    
+    return _saveItem;
+}
+
 - (NSMutableArray *)sectionHeaderViews
 {
     if (_sectionHeaderViews == nil) {
         _sectionHeaderViews = [[NSMutableArray alloc] init];
         
-        for (int i= 0; i < [_dataSource count]; i++) {
-            NSDictionary *dic = [_dataSource objectAtIndex:i];
+        for (int i= 0; i < [_configurationSource count]; i++) {
+            NSDictionary *dic = [_configurationSource objectAtIndex:i];
             UIColor *color = [dic objectForKey:KTODAY_CELL_COLOR];
             if (color == nil || ![color isKindOfClass:[UIColor class]]) {
                 color = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
@@ -257,10 +267,13 @@ static XDDayPlanViewController *todayPlan = nil;
 
 #pragma mark - set
 
-- (void)setPlanContent:(NSString *)content
+- (void)setActionPlan:(WantPlan *)plan
 {
-    _planContent = content;
-    _planContentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
+    _actionPlan = plan;
+    if (_actionPlan) {
+        _planContent = _actionPlan.content;
+        _planContentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
+    }
 }
 
 - (void)setDayPlan:(DayPlan *)plan
@@ -277,7 +290,7 @@ static XDDayPlanViewController *todayPlan = nil;
 
 - (void)hideKeyboard:(NSNotification *)notification
 {
-    [self.navigationItem setRightBarButtonItem:nil animated:YES];
+    [self.navigationItem setRightBarButtonItem:self.saveItem animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -285,7 +298,7 @@ static XDDayPlanViewController *todayPlan = nil;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [_dataSource count];
+    return [_configurationSource count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -296,7 +309,7 @@ static XDDayPlanViewController *todayPlan = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = [_dataSource objectAtIndex:indexPath.section];
+    NSDictionary *dic = [_configurationSource objectAtIndex:indexPath.section];
     NSString *CellIdentifier = [dic objectForKey:KTODAY_CELL_IDENTIFIER];
     XDDayPlanCell *cell = (XDDayPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -343,16 +356,16 @@ static XDDayPlanViewController *todayPlan = nil;
         
         switch (indexPath.section) {
             case KSECTION_MOOD:
-                cell.moodImage = nil;
+                cell.moodImageName = nil;
                 cell.moodText = @"天气不错";
                 break;
             case KSECTION_WORKLOAD:
                 cell.color = [UIColor greenColor];
-                cell.workloadCount = 3;
+                cell.exponent = 3;
                 break;
             case KSECTION_FINISHFAITH:
                 cell.color = [UIColor redColor];
-                cell.finishCount = 5;
+                cell.exponent = 5;
                 break;
             case KSECTION_PLAN:
                 cell.planContent = @"123";
@@ -386,7 +399,7 @@ static XDDayPlanViewController *todayPlan = nil;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger type = [[[_dataSource objectAtIndex:indexPath.section] objectForKey:KTODAY_CELL_LAYOUTTYPE] integerValue];
+    NSInteger type = [[[_configurationSource objectAtIndex:indexPath.section] objectForKey:KTODAY_CELL_LAYOUTTYPE] integerValue];
     if (type == 0) {
         return KTODAY_CELL_HEIGHT_NORMAL;
     }
@@ -439,6 +452,31 @@ static XDDayPlanViewController *todayPlan = nil;
     [_moodText resignFirstResponder];
     [_planText resignFirstResponder];
     [_summaryText resignFirstResponder];
+}
+
+- (void)saveAction:(id)sender
+{
+    [self hideKeyboardAction:sender];
+    
+    XDDayPlanCell *moodCell = (XDDayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KSECTION_MOOD]];
+    _dayPlan.moodImage = moodCell.moodImageName;
+    _dayPlan.moodText = _moodText.text;
+    
+    XDDayPlanCell *workCell = (XDDayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KSECTION_WORKLOAD]];
+    _dayPlan.workColor = workCell.colorKey;
+    _dayPlan.workLoad = [NSNumber numberWithInteger:workCell.exponent];
+    
+    XDDayPlanCell *finishCell = (XDDayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KSECTION_FINISHFAITH]];
+    _dayPlan.finishColor = finishCell.colorKey;
+    _dayPlan.finishConfidence = [NSNumber numberWithInteger:finishCell.exponent];
+    
+    _dayPlan.content = _planText.text;
+    _dayPlan.summary = _summaryText.text;
+    
+    XDDayPlanCell *scoreCell = (XDDayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KSECTION_GRADE]];
+    _dayPlan.scoreKey = scoreCell.summaryKey;
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 - (void)sectionEnabledAction:(id)sender

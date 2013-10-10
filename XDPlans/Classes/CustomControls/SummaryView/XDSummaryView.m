@@ -46,8 +46,8 @@
 {
     [super setFrame:frame];
     
-    _faceButton.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 3 * 2);
-    _faceTitleLabel.frame = CGRectMake(0, _faceButton.frame.origin.y + _faceButton.frame.size.height, self.frame.size.width, self.frame.size.height / 3);
+    _faceButton.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height / 2);
+    _faceTitleLabel.frame = CGRectMake(0, _faceButton.frame.origin.y + _faceButton.frame.size.height, self.frame.size.width, self.frame.size.height / 2);
 }
 
 - (void)faceAction:(id)sender

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class WantPlan;
 @interface XDPlanDetailViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *planContent;
+@property (nonatomic, strong) WantPlan *basePlan;
 
 - (id)initWithStyle:(UITableViewStyle)style action:(BOOL)isAction;
+
 
 @end

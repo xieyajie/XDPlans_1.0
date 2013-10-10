@@ -19,18 +19,15 @@
 @property (nonatomic, strong) UITextView *textView;
 
 @property (nonatomic, strong) NSString *colorKey;
+@property (nonatomic, strong) UIColor *color;
 
 //不可编辑状态下，显示的内容
-@property (nonatomic, strong) UIImage *moodImage;
+@property (nonatomic, strong) NSString *moodImageName;
 @property (nonatomic, strong) NSString *moodText;
 
-@property (nonatomic, strong) UIColor *color;
-@property (nonatomic) NSInteger workloadCount;
-
-@property (nonatomic) NSInteger finishCount;
+@property (nonatomic) NSInteger exponent;//指数
 
 @property (nonatomic, strong) NSString *planContent;
-
 @property (nonatomic, strong) NSString *summaryContent;
 
 @property (nonatomic, strong) NSString *summaryKey;

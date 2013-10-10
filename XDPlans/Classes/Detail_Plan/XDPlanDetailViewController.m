@@ -12,12 +12,18 @@
 #import "XDPlanDetailCell.h"
 #import "XDPlanScrollView.h"
 #import "XDDayPlanViewController.h"
+
+#import "DayPlan.h"
+#import "WantPlan.h"
 #import "XDManagerHelper.h"
 
 @interface XDPlanDetailViewController ()
 {
+    NSMutableArray *_dayPlans;
+    
     UIView *_tableHeaderView;
     BOOL _isAction;
+    NSString *_planContent;
     
     XDManagerHelper *_managerHelper;
     NSMutableArray *_planViews;
@@ -30,8 +36,6 @@
 @implementation XDPlanDetailViewController
 
 @synthesize tableHeaderView = _tableHeaderView;
-
-@synthesize planContent = _planContent;
 
 - (id)initWithStyle:(UITableViewStyle)style action:(BOOL)isAction
 {
@@ -50,7 +54,7 @@
         // Custom initialization
         _managerHelper = [XDManagerHelper shareHelper];
         _planViews = [NSMutableArray array];
-        [self configaturePlanViews];
+        _dayPlans = [NSMutableArray array];
     }
     return self;
 }
@@ -60,7 +64,13 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    self.title = @"正在做的事";
+    if (_isAction) {
+        self.title = @"正在做的事";
+    }
+    else{
+        self.title = @"事件流程";
+    }
+    
     self.tableView.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -86,7 +96,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return [_dayPlans count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,14 +109,18 @@
     }
     
     // Configure the cell...
-    cell.dayStr = [NSString stringWithFormat:@"%i", [_managerHelper dayForDate:[NSDate date]]];
-    cell.yearMonthStr = [_managerHelper year_monthForDate:[NSDate date]];
-    cell.scrollView = [_planViews objectAtIndex:indexPath.row];
-    if (indexPath.row == 9) {
-        [cell hideLine];
-    }
-    else{
-        [cell showLine];
+    DayPlan *dayPlan = [_dayPlans objectAtIndex:indexPath.row];
+    if (dayPlan) {
+        cell.dayStr = [NSString stringWithFormat:@"%i", [_managerHelper dayForDate:dayPlan.date]];
+        cell.yearMonthStr = [_managerHelper year_monthForDate:dayPlan.date];
+        cell.scrollView = [_planViews objectAtIndex:indexPath.row];
+        
+        if (indexPath.row == [_dayPlans count] - 1) {
+            [cell hideLine];
+        }
+        else{
+            [cell showLine];
+        }
     }
     
     return cell;
@@ -121,8 +135,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XDDayPlanViewController *dataPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:NO];
-    dataPlanVC.planContent = self.planContent;
+    XDDayPlanViewController *dataPlanVC = nil;
+    
+    if (indexPath.row == 0 && _isAction) {
+        dataPlanVC = [XDDayPlanViewController defaultToday];
+        dataPlanVC.dayPlan = [_dayPlans objectAtIndex:0];
+    }
+    else{
+        dataPlanVC = [[XDDayPlanViewController alloc] initWithStyle:UITableViewCellStyleDefault canEdit:NO];
+    }
+    
+    dataPlanVC.actionPlan = _basePlan;
     [self.navigationController pushViewController:dataPlanVC animated:YES];
 }
 
@@ -149,19 +172,19 @@
         contentLabel.text = [NSString stringWithFormat:@"想做的事：%@", _planContent];
         [_tableHeaderView addSubview:contentLabel];
         
-        UILabel *dateCount = [[UILabel alloc] initWithFrame:CGRectMake(10, _tableHeaderView.frame.size.height - 30, (_tableHeaderView.frame.size.width - 20) / 2, 20)];
-        dateCount.font = [UIFont systemFontOfSize:15.0];
-        dateCount.textColor = [UIColor grayColor];
-        dateCount.backgroundColor = [UIColor clearColor];
-        dateCount.text = @"已进行 2 天";
-        [_tableHeaderView addSubview:dateCount];
+//        UILabel *dateCount = [[UILabel alloc] initWithFrame:CGRectMake(10, _tableHeaderView.frame.size.height - 30, (_tableHeaderView.frame.size.width - 20) / 2, 20)];
+//        dateCount.font = [UIFont systemFontOfSize:15.0];
+//        dateCount.textColor = [UIColor grayColor];
+//        dateCount.backgroundColor = [UIColor clearColor];
+//        dateCount.text = @"已进行 2 天";
+//        [_tableHeaderView addSubview:dateCount];
         
         UILabel *dateTime = [[UILabel alloc] initWithFrame:CGRectMake(_tableHeaderView.frame.size.width / 2, _tableHeaderView.frame.size.height - 30, (_tableHeaderView.frame.size.width - 20) / 2, 20)];
         dateTime.font = [UIFont systemFontOfSize:15.0];
         dateTime.textColor = [UIColor grayColor];
         dateTime.backgroundColor = [UIColor clearColor];
         dateTime.textAlignment = KTextAlignmentRight;
-        dateTime.text = @"结束：2013/11/26";
+        dateTime.text = [NSString stringWithFormat:@"结束：%@", [[XDManagerHelper shareHelper] y_m_dForDate:_basePlan.finishDate]];
         [_tableHeaderView addSubview:dateTime];
     }
     
@@ -170,19 +193,49 @@
 
 #pragma mark - set
 
-- (void)setPlanContent:(NSString *)content
+- (void)setBasePlan:(WantPlan *)aPlan
 {
-    _planContent = content;
-    [self.tableView setTableHeaderView:self.tableHeaderView];
+    if (aPlan) {
+        _basePlan = aPlan;
+        
+        [self configaturePlansSource];
+        
+        _planContent = _basePlan.content;
+        [self.tableView setTableHeaderView:self.tableHeaderView];
+    }
 }
 
 #pragma mark - data
 
+- (void)configaturePlansSource
+{
+    [_dayPlans removeAllObjects];
+    
+    NSArray *todayPlans = [DayPlan MR_findByAttribute:@"date" withValue:[NSDate date]];
+    if (todayPlans.count == 0) {
+        if (_isAction) {
+            DayPlan *todayPlan = [DayPlan MR_createEntity];
+            todayPlan.date = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
+            todayPlan.inWantPlans = _basePlan;
+        }
+    }
+    
+//    if (_isAction) {
+//        DayPlan *todayPlan = [DayPlan MR_createEntity];
+//        todayPlan.date = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
+//        todayPlan.inWantPlans = _basePlan;
+//    }
+    
+    [_dayPlans addObjectsFromArray:[DayPlan MR_findByAttribute:@"inWantPlans" withValue:_basePlan andOrderBy:@"date" ascending:NO]];
+    
+    [self configaturePlanViews];
+}
+
 - (void)configaturePlanViews
 {
-    for (int i= 0; i < 10; i++) {
+    for (int i = 0; i < [_dayPlans count]; i++) {
         XDPlanScrollView *detailView = [[XDPlanScrollView alloc] init];
-        [detailView configurationViewWithPlan:nil];
+        [detailView configurationViewWithPlan:[_dayPlans objectAtIndex:i]];
         [_planViews addObject:detailView];
     }
 }

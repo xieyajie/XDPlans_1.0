@@ -39,14 +39,14 @@
 	
 	UIButton *btnClose = [[UIButton alloc] initWithFrame:CGRectMake(5, 5, 60, 30)];
 	[btnClose addTarget:self action:@selector(closeSelected:) forControlEvents:UIControlEventTouchUpInside];
-	[btnClose.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+	[btnClose.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
 	[btnClose setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	[btnClose setTitle:@"Close" forState:UIControlStateNormal];
 	[self.view addSubview:btnClose];
 	
 	UIButton *btnDone = [[UIButton alloc] initWithFrame:CGRectMake(65, 5, 60, 30)];
 	[btnDone addTarget:self action:@selector(doneSelected:) forControlEvents:UIControlEventTouchUpInside];
-	[btnDone.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
+	[btnDone.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
 	[btnDone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	[btnDone setTitle:@"Done" forState:UIControlStateNormal];
 	[self.view addSubview:btnDone];

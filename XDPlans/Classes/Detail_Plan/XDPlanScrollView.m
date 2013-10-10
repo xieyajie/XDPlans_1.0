@@ -9,7 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDPlanScrollView.h"
 
+#import "DayPlan.h"
 #import "XDSummaryView.h"
+#import "XDManagerHelper.h"
 
 @implementation XDPlanScrollView
 
@@ -60,8 +62,8 @@
         _evaluationView = [[UIView alloc] init];
         _evaluationView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _evaluationView.backgroundColor = [UIColor clearColor];
-        _evaluationView.layer.borderColor = [[UIColor blueColor] CGColor];
-        _evaluationView.layer.borderWidth = 2.0;
+//        _evaluationView.layer.borderColor = [[UIColor blueColor] CGColor];
+//        _evaluationView.layer.borderWidth = 2.0;
         [_scrollView addSubview:_evaluationView];
         
         _moodImage = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 50, 50)];
@@ -97,18 +99,17 @@
         _summaryView.userInteractionEnabled = NO;
         _summaryView.backgroundColor = [UIColor clearColor];
         [_evaluationView addSubview:_summaryView];
+        
+        _addTodayLabel = [[UILabel alloc] init];
+        _addTodayLabel.clipsToBounds = YES;
+        _addTodayLabel.layer.cornerRadius = 5;
+        _addTodayLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+        _addTodayLabel.textAlignment = KTextAlignmentCenter;
+        _addTodayLabel.textColor = [UIColor grayColor];
+        _addTodayLabel.text = @"+ 点击添加今天的计划";
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 - (void)setFrame:(CGRect)frame
 {
@@ -118,6 +119,7 @@
     _scrollView.frame = CGRectMake(0, 0, frame.size.width, 80);
     _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width * 3, _scrollView.frame.size.height);
     _pageControl.frame = CGRectMake(frame.size.width - 100, _scrollView.frame.origin.y + _scrollView.frame.size.height + 5, 90, 15);
+    _addTodayLabel.frame = CGRectMake(0, 10, frame.size.width, 60);
     
     if (frame.size.width != oldWidth) {
         _doneLabel.frame = CGRectMake(10, 0, _scrollView.frame.size.width - 20, _scrollView.frame.size.height);
@@ -145,22 +147,39 @@
 
 #pragma mark - public
 
-- (void)configurationViewWithPlan:(id)info
+- (void)configurationViewWithPlan:(DayPlan *)plan
 {
-    _doneLabel.text = @"完成： 确定写些什么";
-    _summaryLabel.text = @"总结：完成的不错";
+    _plan = plan;
     
-    [_moodImage setImage:[UIImage imageNamed:@"MY_ICON_0.png"] forState:UIControlStateNormal];
-    
-    _workLabel.text = @"3";
-    _finishLabel.text = @"4";
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"XDSummary" ofType:@"plist"];
-    NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSDictionary *dic = [data objectForKey:@"ok"];
-    _summaryView.key = @"ok";
-    [_summaryView.faceButton setImage:[UIImage imageNamed:[dic objectForKey:@"icon"]] forState:UIControlStateNormal];
-    _summaryView.faceTitleLabel.text = [dic objectForKey:@"title"];
+    if (_plan.content && _plan.content.length > 0) {
+         _pageControl.hidden = NO;
+        _scrollView.hidden = NO;
+        [_addTodayLabel removeFromSuperview];
+        
+        _doneLabel.text = [NSString stringWithFormat:@"工作：%@", _plan.content];
+        _summaryLabel.text = [NSString stringWithFormat:@"总结：%@", _plan.summary];
+        
+        [_moodImage setImage:[UIImage imageNamed:_plan.moodImage] forState:UIControlStateNormal];
+        
+        _workImage.image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withHexColorString:_plan.workColor];
+        _workLabel.text = [_plan.workLoad stringValue];
+        
+        _finishImage.image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_finish.png"] withHexColorString:_plan.finishColor];
+        _finishLabel.text = [_plan.finishConfidence stringValue];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"XDSummary" ofType:@"plist"];
+        NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:path];
+        NSString *scoreKey = _plan.scoreKey;
+        NSDictionary *dic = [data objectForKey:scoreKey];
+        _summaryView.key = scoreKey;
+        [_summaryView.faceButton setImage:[UIImage imageNamed:[dic objectForKey:@"icon"]] forState:UIControlStateNormal];
+        _summaryView.faceTitleLabel.text = [dic objectForKey:@"title"];
+    }
+    else{
+        _pageControl.hidden = YES;
+        _scrollView.hidden = YES;
+        [self addSubview:_addTodayLabel];
+    }
 }
 
 @end

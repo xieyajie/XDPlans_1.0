@@ -169,9 +169,8 @@
     }
     
     WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
-    NSString *content = plan.content;
-    XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
-    planDetailVC.planContent = content;
+    XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:[plan.action boolValue]];
+    planDetailVC.basePlan = plan;
     [self.navigationController pushViewController:planDetailVC animated:YES];
 }
 
@@ -319,15 +318,6 @@
         
         _selectedRow = indexPath.row;
         [cell setEditing:YES];
-    }
-}
-
-- (void)tapActionPlan:(UITapGestureRecognizer *)tap
-{
-    if (tap.state == UIGestureRecognizerStateEnded) {
-        XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:NO];
-        planDetailVC.planContent = _actionPlan.content;
-        [self.navigationController pushViewController:planDetailVC animated:YES];
     }
 }
 

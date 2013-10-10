@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class WantPlan;
 @class DayPlan;
 @interface XDDayPlanViewController : UITableViewController
 
-@property (nonatomic, strong) NSString *planContent;
+@property (nonatomic, strong) WantPlan *actionPlan;
 @property (nonatomic, strong) DayPlan *dayPlan;
 
 + (id)defaultToday;
