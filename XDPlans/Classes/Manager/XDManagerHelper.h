@@ -8,6 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+@interface XDDateHelper : NSObject
+
++ (id)defaultHelper;
+
+//时间偏移
+- (NSDate *)date:(NSDate *)date offsetMonth:(int)numMonths;
+- (NSDate *)date:(NSDate *)date offsetDay:(int)numDays;
+
+//时间转换
+- (NSInteger)dayForDate:(NSDate *)date;
+- (NSInteger)monthForDate:(NSDate *)date;
+- (NSInteger)yearForDate:(NSDate *)date;
+- (NSString *)weekForDate:(NSDate *)date;
+
+- (NSString *)year_monthForDate:(NSDate *)date;
+- (NSString *)ymdForDate:(NSDate *)date;
+- (NSString *)y_m_dForDate:(NSDate *)date;
+
+- (NSDate *)convertDateToY_M_D:(NSDate *)date;
+- (NSDate *)convertDateToMorning:(NSDate *)date;
+
+@end
+
+
+
 @class WantPlan;
 @interface XDManagerHelper : NSObject
 
@@ -26,18 +51,6 @@
 //图片混合
 + (UIImage *)colorizeImage:(UIImage *)baseImage withHexColorString:(NSString *)hexString;
 + (UIImage *)colorizeImage:(UIImage *)baseImage withColor:(UIColor *)theColor;
-
-//时间转换
-- (NSInteger)dayForDate:(NSDate *)date;
-- (NSInteger)monthForDate:(NSDate *)date;
-- (NSInteger)yearForDate:(NSDate *)date;
-- (NSString *)weekForDate:(NSDate *)date;
-
-- (NSString *)year_monthForDate:(NSDate *)date;
-- (NSString *)ymdForDate:(NSDate *)date;
-- (NSString *)y_m_dForDate:(NSDate *)date;
-
-- (NSDate *)convertDateToY_M_D:(NSDate *)date;
 
 //显示菜单
 - (void)showMenuToViewController:(UIViewController *)viewController completion: (void (^)(NSDate *))completion;

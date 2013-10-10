@@ -27,7 +27,7 @@
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIButton *dateView;
 
-@property (nonatomic, strong)  NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) XDDateHelper *dateHelper;
 @property (nonatomic, strong) NSDate *selectedDate;
 
 @property (nonatomic, strong) UIBarButtonItem *titleItem;
@@ -42,7 +42,7 @@
 @synthesize contentTextView = _contentTextView;
 @synthesize dateView = _dateView;
 
-@synthesize dateFormatter = _dateFormatter;
+@synthesize dateHelper = _dateHelper;
 @synthesize selectedDate = _selectedDate;
 
 @synthesize titleItem = _titleItem;
@@ -54,10 +54,9 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        _dateHelper = [XDDateHelper defaultHelper];
         _datePicker = [[XDDatePicker alloc] init];
         _selectedDate = nil;
-        _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     return self;
 }
@@ -107,7 +106,7 @@
             self.contentTextView.text = _editPlan.content;
             if(self.dateView)
             {
-                _dateLabel.text = [_dateFormatter stringFromDate:_selectedDate];
+                _dateLabel.text = [_dateHelper y_m_dForDate:_selectedDate];
             }
         }
     }
@@ -326,7 +325,7 @@
     _selectedDate = date;
     if(self.dateView)
     {
-        _dateLabel.text = [_dateFormatter stringFromDate:date];
+        _dateLabel.text = [_dateHelper y_m_dForDate:date];
     }
 }
 
@@ -343,7 +342,7 @@
     __weak XDPostPlanViewController *weakSelf = self;
     _datePicker.sureClicked = ^(NSDate *date){
         weakSelf.selectedDate = [date copy];
-        weakSelf.dateLabel.text = [weakSelf.dateFormatter stringFromDate:date];
+        weakSelf.dateLabel.text = [weakSelf.dateHelper y_m_dForDate:date];
     };
     [_datePicker selectedDate:_selectedDate];
     [_datePicker showInView:self.view];
@@ -372,8 +371,9 @@
         WantPlan *newPlan = [WantPlan MR_createEntity];
         newPlan.action = [NSNumber numberWithBool:NO];
         newPlan.finish = [NSNumber numberWithBool:NO];
-        newPlan.startDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
-        newPlan.finishDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:_selectedDate];
+        newPlan.startDate = [_dateHelper convertDateToY_M_D:[NSDate date]];
+        NSDate *finishDate = [_dateHelper date:_selectedDate offsetDay:1];
+        newPlan.finishDate = [_dateHelper convertDateToY_M_D:finishDate];
         newPlan.content = self.contentTextView.text;
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
@@ -381,7 +381,7 @@
     }
     else{
         _editPlan.content = self.contentTextView.text;
-        _editPlan.finishDate = [[XDManagerHelper shareHelper] convertDateToY_M_D:_selectedDate];
+        _editPlan.finishDate = [_dateHelper convertDateToY_M_D:_selectedDate];
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_PLANEDITFINISH object:nil];

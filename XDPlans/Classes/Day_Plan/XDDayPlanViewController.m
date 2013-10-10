@@ -36,6 +36,7 @@ static XDDayPlanViewController *todayPlan = nil;
 @interface XDDayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
     NSMutableArray *_configurationSource;
+    XDDateHelper *_dateHelper;
     NSString *_planContent;
     
     NSDate *_todayDate;
@@ -100,6 +101,7 @@ static XDDayPlanViewController *todayPlan = nil;
     self = [self initWithStyle:style];
     if (self) {
         _canEdit = canEdit;
+        _dateHelper = [XDDateHelper defaultHelper];
         
         _actionPlan = [[XDManagerHelper shareHelper] actionPlan];
         _planContent = @"暂无";
@@ -147,13 +149,12 @@ static XDDayPlanViewController *todayPlan = nil;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    XDManagerHelper *helper = [XDManagerHelper shareHelper];
-    NSString *oldStr = [helper ymdForDate:_todayDate];
-    NSString *newStr = [helper ymdForDate:[NSDate date]];
+    NSString *oldStr = [_dateHelper ymdForDate:_todayDate];
+    NSString *newStr = [_dateHelper ymdForDate:[NSDate date]];
     if (![oldStr isEqualToString:newStr]) {
         
-        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [helper year_monthForDate:_todayDate], [helper weekForDate:_todayDate]];
-        _dayLabel.text = [NSString stringWithFormat:@"%i", [helper dayForDate:_todayDate]];
+        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [_dateHelper year_monthForDate:_todayDate], [_dateHelper weekForDate:_todayDate]];
+        _dayLabel.text = [NSString stringWithFormat:@"%i", [_dateHelper dayForDate:_todayDate]];
     }
 }
 
@@ -166,13 +167,11 @@ static XDDayPlanViewController *todayPlan = nil;
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight)];
         _headerView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
         
-        XDManagerHelper *helper = [XDManagerHelper shareHelper];
-        
         _ymwLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
         _ymwLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         _ymwLabel.font = [UIFont systemFontOfSize:14.0];
         _ymwLabel.textColor = [UIColor whiteColor];
-        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [helper year_monthForDate:_todayDate], [helper weekForDate:_todayDate]];
+        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [_dateHelper year_monthForDate:_todayDate], [_dateHelper weekForDate:_todayDate]];
         [_headerView addSubview:_ymwLabel];
         
         //dateView
@@ -185,7 +184,7 @@ static XDDayPlanViewController *todayPlan = nil;
         _dayLabel.textAlignment = KTextAlignmentCenter;
         _dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
         _dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
-        _dayLabel.text = [NSString stringWithFormat:@"%i", [helper dayForDate:_todayDate]];
+        _dayLabel.text = [NSString stringWithFormat:@"%i", [_dateHelper dayForDate:_todayDate]];
         [dateView addSubview:_dayLabel];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.size.width - 1, 0, 1, dateView.frame.size.height)];

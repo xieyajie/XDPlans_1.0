@@ -9,25 +9,198 @@
 #import "XDManagerHelper.h"
 #import "WantPlan.h"
 
-static XDManagerHelper *helper = nil;
-
-@interface XDManagerHelper()
+static XDDateHelper *dateHelper = nil;
+@interface XDDateHelper()
 
 @property (nonatomic, strong) NSArray *weeksArray;
 @property (nonatomic, strong) NSCalendar *calendar;
+@property (nonatomic, strong) NSDateComponents *offsetComponents;
+
 @property (nonatomic, strong) NSDateFormatter *y_mFormatter;
 @property (nonatomic, strong) NSDateFormatter *ymdFormatter;
+@property (nonatomic, strong) NSDateFormatter *y_m_dFormatter;
+@property (nonatomic, strong) NSDateFormatter *morningFormatter;
+
+@end
+
+@implementation XDDateHelper
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        //
+    }
+    
+    return self;
+}
+
++ (id)defaultHelper
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateHelper = [[XDDateHelper alloc] init];
+    });
+    
+    return dateHelper;
+}
+
+#pragma mark - get
+
+- (NSArray *)weeksArray
+{
+    if (_weeksArray == nil) {
+        _weeksArray = [[NSArray alloc] initWithObjects:@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
+    }
+    
+    return _weeksArray;
+}
+
+- (NSCalendar *)calendar
+{
+    if (_calendar == nil) {
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        /*
+         设定每周的第一天从星期几开始，比如:
+         .  如需设定从星期日开始，则value传入1
+         .  如需设定从星期一开始，则value传入2
+         */
+        [_calendar setFirstWeekday:2];
+    }
+    
+    return _calendar;
+}
+
+- (NSDateComponents *)offsetComponents
+{
+    if (_offsetComponents == nil) {
+        _offsetComponents = [[NSDateComponents alloc] init];
+    }
+    
+    return _offsetComponents;
+}
+
+- (NSDateFormatter *)y_mFormatter
+{
+    if (_y_mFormatter == nil) {
+        _y_mFormatter = [[NSDateFormatter alloc] init];
+        _y_mFormatter.dateFormat = @"yyyy-MM";
+    }
+    
+    return _y_mFormatter;
+}
+
+- (NSDateFormatter *)ymdFormatter
+{
+    if (_ymdFormatter == nil) {
+        _ymdFormatter = [[NSDateFormatter alloc] init];
+        _ymdFormatter.dateFormat = @"yyyyMMdd";
+    }
+    
+    return _ymdFormatter;
+}
+
+- (NSDateFormatter *)y_m_dFormatter
+{
+    if (_y_m_dFormatter == nil) {
+        _y_m_dFormatter = [[NSDateFormatter alloc] init];
+        _y_m_dFormatter.dateFormat = @"yyyy-MM-dd";
+    }
+    
+    return _y_m_dFormatter;
+}
+
+- (NSDateFormatter *)morningFormatter
+{
+    if (_morningFormatter == nil) {
+        _morningFormatter = [[NSDateFormatter alloc] init];
+        _morningFormatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+    }
+    
+    return _morningFormatter;
+}
+
+#pragma mark - public
+
+- (NSDate *)date:(NSDate *)date offsetMonth:(int)numMonths
+{
+    [self.offsetComponents setMonth: numMonths];
+    
+    return [self.calendar dateByAddingComponents:_offsetComponents toDate:date options:0];
+}
+
+- (NSDate *)date:(NSDate *)date offsetDay:(int)numDays
+{
+    [self.offsetComponents setDay:numDays];
+    
+    return [self.calendar dateByAddingComponents:_offsetComponents toDate:date options:0];
+}
+
+- (NSInteger)dayForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSDayCalendarUnit fromDate:date];
+    return [component day];
+}
+
+- (NSString *)weekForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSWeekdayCalendarUnit fromDate:date];
+    NSInteger week = [component weekday] - 1;
+    return [self.weeksArray objectAtIndex:week];
+}
+
+- (NSInteger)monthForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSMonthCalendarUnit fromDate:date];
+    return [component month];
+}
+
+- (NSInteger)yearForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSYearCalendarUnit fromDate:date];
+    return [component year];
+}
+
+- (NSString *)year_monthForDate:(NSDate *)date
+{
+    return [self.y_mFormatter stringFromDate:date];
+}
+
+- (NSString *)ymdForDate:(NSDate *)date
+{
+    return [self.ymdFormatter stringFromDate:date];
+}
+
+- (NSString *)y_m_dForDate:(NSDate *)date
+{
+    return [[self y_m_dFormatter] stringFromDate:date];
+}
+
+- (NSDate *)convertDateToY_M_D:(NSDate *)date
+{
+    NSString *str = [self y_m_dForDate:date];
+    NSDate *d = [self.y_m_dFormatter dateFromString:str];
+    return [self.y_m_dFormatter dateFromString:str];
+}
+
+- (NSDate *)convertDateToMorning:(NSDate *)date
+{
+    NSDate *d = [self.morningFormatter ];
+    return [[self y_m_dFormatter] dateFromString:str];
+}
+
+@end
+
+
+static XDManagerHelper *helper = nil;
+
+@interface XDManagerHelper()
 
 @property (nonatomic, strong) UIDatePicker *datePicker;
 
 @end
 
 @implementation XDManagerHelper
-
-@synthesize weeksArray = _weeksArray;
-@synthesize calendar = _calendar;
-@synthesize y_mFormatter = _y_mFormatter;
-@synthesize ymdFormatter = _ymdFormatter;
 
 @synthesize datePicker = _datePicker;
 
@@ -222,111 +395,6 @@ static int tagBase = 100;
     UIGraphicsEndImageContext();
     
     return newImage;
-}
-
-#pragma mark - 时间转换
-
-- (NSArray *)weeksArray
-{
-    if (_weeksArray == nil) {
-        _weeksArray = [[NSArray alloc] initWithObjects:@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
-    }
-    
-    return _weeksArray;
-}
-
-- (NSCalendar *)calendar
-{
-    if (_calendar == nil) {
-        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        /*
-         设定每周的第一天从星期几开始，比如:
-         .  如需设定从星期日开始，则value传入1
-         .  如需设定从星期一开始，则value传入2
-         */
-        [_calendar setFirstWeekday:2];
-    }
-    
-    return _calendar;
-}
-
-- (NSDateFormatter *)y_mFormatter
-{
-    if (_y_mFormatter == nil) {
-        _y_mFormatter = [[NSDateFormatter alloc] init];
-        _y_mFormatter.dateFormat = @"yyyy-MM";
-    }
-    
-    return _y_mFormatter;
-}
-
-- (NSDateFormatter *)ymdFormatter
-{
-    if (_ymdFormatter == nil) {
-        _ymdFormatter = [[NSDateFormatter alloc] init];
-    }
-    
-    _ymdFormatter.dateFormat = @"yyyyMMdd";
-    
-    return _ymdFormatter;
-}
-
-- (NSDateFormatter *)y_m_dFormatter
-{
-    if (_ymdFormatter == nil) {
-        _ymdFormatter = [[NSDateFormatter alloc] init];
-    }
-    
-    _ymdFormatter.dateFormat = @"yyyy-MM-dd";
-    
-    return _ymdFormatter;
-}
-
-- (NSInteger)dayForDate:(NSDate *)date
-{
-    NSDateComponents *component = [self.calendar components:NSDayCalendarUnit fromDate:date];
-    return [component day];
-}
-
-- (NSString *)weekForDate:(NSDate *)date
-{
-    NSDateComponents *component = [self.calendar components:NSWeekdayCalendarUnit fromDate:date];
-    NSInteger week = [component weekday] - 1;
-    return [self.weeksArray objectAtIndex:week];
-}
-
-- (NSInteger)monthForDate:(NSDate *)date
-{
-    NSDateComponents *component = [self.calendar components:NSMonthCalendarUnit fromDate:date];
-    return [component month];
-}
-
-- (NSInteger)yearForDate:(NSDate *)date
-{
-    NSDateComponents *component = [self.calendar components:NSYearCalendarUnit fromDate:date];
-    return [component year];
-}
-
-- (NSString *)year_monthForDate:(NSDate *)date
-{
-    return [self.y_mFormatter stringFromDate:date];
-}
-
-- (NSString *)ymdForDate:(NSDate *)date
-{
-    return [self.ymdFormatter stringFromDate:date];
-}
-
-- (NSString *)y_m_dForDate:(NSDate *)date
-{
-    return [[self y_m_dFormatter] stringFromDate:date];
-}
-
-- (NSDate *)convertDateToY_M_D:(NSDate *)date
-{
-    NSString *str = [self y_m_dForDate:date];
-//    NSDate *d = [[self y_m_dFormatter] dateFromString:str];
-    return [[self y_m_dFormatter] dateFromString:str];
 }
 
 #pragma mark - 显示菜单

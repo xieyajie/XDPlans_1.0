@@ -25,7 +25,7 @@
     BOOL _isAction;
     NSString *_planContent;
     
-    XDManagerHelper *_managerHelper;
+    XDDateHelper *_dateHelper;
     NSMutableArray *_planViews;
 }
 
@@ -52,7 +52,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _managerHelper = [XDManagerHelper shareHelper];
+        _dateHelper = [XDDateHelper defaultHelper];
         _planViews = [NSMutableArray array];
         _dayPlans = [NSMutableArray array];
     }
@@ -111,8 +111,8 @@
     // Configure the cell...
     DayPlan *dayPlan = [_dayPlans objectAtIndex:indexPath.row];
     if (dayPlan) {
-        cell.dayStr = [NSString stringWithFormat:@"%i", [_managerHelper dayForDate:dayPlan.date]];
-        cell.yearMonthStr = [_managerHelper year_monthForDate:dayPlan.date];
+        cell.dayStr = [NSString stringWithFormat:@"%i", [_dateHelper dayForDate:dayPlan.date]];
+        cell.yearMonthStr = [_dateHelper year_monthForDate:dayPlan.date];
         cell.scrollView = [_planViews objectAtIndex:indexPath.row];
         
         if (indexPath.row == [_dayPlans count] - 1) {
@@ -211,18 +211,19 @@
 {
     [_dayPlans removeAllObjects];
     
-    NSArray *todayPlans = [DayPlan MR_findByAttribute:@"date" withValue:[NSDate date]];
+    NSDate *date = [_dateHelper convertDateToY_M_D:[NSDate date]];
+    NSArray *todayPlans = [DayPlan MR_findByAttribute:@"date" withValue:date];
     if (todayPlans.count == 0) {
         if (_isAction) {
             DayPlan *todayPlan = [DayPlan MR_createEntity];
-            todayPlan.date = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
+            todayPlan.date = date;
             todayPlan.inWantPlans = _basePlan;
         }
     }
     
 //    if (_isAction) {
 //        DayPlan *todayPlan = [DayPlan MR_createEntity];
-//        todayPlan.date = [[XDManagerHelper shareHelper] convertDateToY_M_D:[NSDate date]];
+//        todayPlan.date = [_dateHelper convertDateToY_M_D:[NSDate date]];
 //        todayPlan.inWantPlans = _basePlan;
 //    }
     
