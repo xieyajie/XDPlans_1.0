@@ -119,7 +119,6 @@
     else {
         _viewControllers = nil;
     }
-
 }
 
 #pragma mark - custom methods
