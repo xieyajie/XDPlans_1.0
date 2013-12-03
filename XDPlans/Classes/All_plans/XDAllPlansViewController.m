@@ -170,7 +170,7 @@
     
     WantPlan *plan = [_wantPlans objectAtIndex:indexPath.row];
     XDPlanDetailViewController *planDetailVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:[plan.action boolValue]];
-    planDetailVC.basePlan = plan;
+//    planDetailVC.basePlan = plan;
     [self.navigationController pushViewController:planDetailVC animated:YES];
 }
 

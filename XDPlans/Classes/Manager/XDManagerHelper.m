@@ -185,8 +185,8 @@ static XDDateHelper *dateHelper = nil;
 
 - (NSDate *)convertDateToMorning:(NSDate *)date
 {
-    NSDate *d = [self.morningFormatter ];
-    return [[self y_m_dFormatter] dateFromString:str];
+//    NSDate *d = [self.morningFormatter ];
+//    return [[self y_m_dFormatter] dateFromString:str];
 }
 
 @end
