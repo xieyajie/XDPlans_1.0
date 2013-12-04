@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "XDTableViewController.h"
 
 @class WantPlan;
-@interface XDPlanDetailViewController : UITableViewController
+@interface XDPlanDetailViewController : XDTableViewController
 
 @property (nonatomic, strong) WantPlan *basePlan;
 

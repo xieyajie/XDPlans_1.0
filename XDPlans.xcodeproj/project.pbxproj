@@ -100,9 +100,9 @@
 		3A7453C1184D89DA00A7D517 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A745355184D89DA00A7D517 /* popoverBg@2x.png */; };
 		3A7453C2184D89DA00A7D517 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A745356184D89DA00A7D517 /* popoverBgSimple.png */; };
 		3A7453C3184D89DA00A7D517 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A745358184D89DA00A7D517 /* UIBarButtonItem+WEPopover.m */; };
-		3A7453C4184D89DA00A7D517 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535A184D89DA00A7D517 /* WEPopoverContainerView.m */; };
-		3A7453C5184D89DA00A7D517 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535C184D89DA00A7D517 /* WEPopoverController.m */; };
-		3A7453C6184D89DA00A7D517 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535F184D89DA00A7D517 /* WETouchableView.m */; };
+		3A7453C4184D89DA00A7D517 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535A184D89DA00A7D517 /* WEPopoverContainerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A7453C5184D89DA00A7D517 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535C184D89DA00A7D517 /* WEPopoverController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3A7453C6184D89DA00A7D517 /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74535F184D89DA00A7D517 /* WETouchableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3A7453C7184D89DA00A7D517 /* RichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A745361184D89DA00A7D517 /* RichTextEditor.m */; };
 		3A7453C8184D89DA00A7D517 /* RichTextEditorColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A745363184D89DA00A7D517 /* RichTextEditorColorPickerViewController.m */; };
 		3A7453C9184D89DA00A7D517 /* RichTextEditorFontPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A745365184D89DA00A7D517 /* RichTextEditorFontPickerViewController.m */; };

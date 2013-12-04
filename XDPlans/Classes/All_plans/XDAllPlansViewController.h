@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "XDTableViewController.h"
 
-@interface XDAllPlansViewController : UITableViewController
+@interface XDAllPlansViewController : XDTableViewController
 
 - (void)createEvent:(id)sender;
 

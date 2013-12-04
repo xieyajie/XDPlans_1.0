@@ -15,3 +15,32 @@
 
     #import "XDPlanLocalDefault.h"
 #endif
+
+#if __IPHONE_6_0 // iOS6 and later
+
+#   define KTextAlignmentCenter    NSTextAlignmentCenter
+#   define KTextAlignmentLeft      NSTextAlignmentLeft
+#   define KTextAlignmentRight     NSTextAlignmentRight
+#   define KTextAlignmentJustified NSTextAlignmentJustified
+
+#   define KTextLineBreakByWordWrapping      NSLineBreakByWordWrapping
+#   define KTextLineBreakByCharWrapping      NSLineBreakByCharWrapping
+#   define KTextLineBreakByClipping          NSLineBreakByClipping
+#   define KTextLineBreakByTruncatingHead    NSLineBreakByTruncatingHead
+#   define KTextLineBreakByTruncatingTail    NSLineBreakByTruncatingTail
+#   define KTextLineBreakByTruncatingMiddle  NSLineBreakByTruncatingMiddle
+
+#else // older versions
+
+#   define KTextAlignmentCenter    UITextAlignmentCenter
+#   define KTextAlignmentLeft      UITextAlignmentLeft
+#   define KTextAlignmentRight     UITextAlignmentRight
+
+#   define KTextLineBreakByWordWrapping       UILineBreakModeWordWrap
+#   define KTextLineBreakByCharWrapping       UILineBreakModeCharacterWrap
+#   define KTextLineBreakByClipping           UILineBreakModeClip
+#   define KTextLineBreakByTruncatingHead     UILineBreakModeHeadTruncation
+#   define KTextLineBreakByTruncatingTail     UILineBreakModeTailTruncation
+#   define KTextLineBreakByTruncatingMiddle   UILineBreakModeMiddleTruncation
+
+#endif

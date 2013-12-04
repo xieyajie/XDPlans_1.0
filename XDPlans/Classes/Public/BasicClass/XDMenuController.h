@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class REMenuItem;
 @interface XDMenuController : UIViewController
 
 @property (nonatomic, readonly) int currentSelectedIndex;
 @property (nonatomic, strong)  NSArray *viewControllers;
+
+- (void)menuSelectedItem:(REMenuItem *)item withtype:(NSInteger)type;
 
 @end

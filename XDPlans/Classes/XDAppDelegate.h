@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class XDNavigationController;
 @interface XDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) UINavigationController *navigationController;
+@property (strong, nonatomic) XDNavigationController *navigationController;
 
 @end

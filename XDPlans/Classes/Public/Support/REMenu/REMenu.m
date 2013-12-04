@@ -210,22 +210,15 @@
                 itemHeight += _cornerRadius;
             }
             
-            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                                             index * _itemHeight + (index) * _separatorHeight + 40,
-                                                                             _menuView.frame.size.width,
-                                                                             _separatorHeight)];
+            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(0, index * _itemHeight + (index) * _separatorHeight + 40, _menuView.frame.size.width, _separatorHeight)];
             separatorView.backgroundColor = _separatorColor;
             separatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [_menuView addSubview:separatorView];
             
-            REMenuItemView *itemView = [[REMenuItemView alloc] initWithFrame:CGRectMake(0,
-                                                                                        index * _itemHeight + (index+1) * _separatorHeight + 40,
-                                                                                        _menuView.frame.size.width,
-                                                                                        itemHeight)
-                                                                        menu:self
-                                                                 hasSubtitle:item.subtitle.length > 0];
+            REMenuItemView *itemView = [[REMenuItemView alloc] initWithFrame:CGRectMake(0, index * _itemHeight + (index+1) * _separatorHeight + 40, _menuView.frame.size.width, itemHeight) menu:self hasSubtitle:item.subtitle.length > 0];
             itemView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             itemView.item = item;
+            itemView.tag = index;
             item.itemView = itemView;
             itemView.separatorView = separatorView;
             itemView.autoresizesSubviews = YES;

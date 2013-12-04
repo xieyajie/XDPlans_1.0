@@ -9,22 +9,6 @@
 #ifndef XDPlans_XDPlanLocalDefault_h
 #define XDPlans_XDPlanLocalDefault_h
 
-#if !defined __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
-# define KTextAlignmentLeft UITextAlignmentLeft
-# define KTextAlignmentCenter UITextAlignmentCenter
-# define KTextAlignmentRight UITextAlignmentRight
-
-#define KLineBreakModeClip UILineBreakModeClip
-
-#else
-# define KTextAlignmentLeft NSTextAlignmentLeft
-# define KTextAlignmentCenter NSTextAlignmentCenter
-# define KTextAlignmentRight NSTextAlignmentRight
-# define KTextAlignmentJustified NSTextAlignmentJustified
-
-#define KLineBreakModeClip NSLineBreakByClipping
-#endif
-
 #define KPLAN_MAXEVENTCOUNT 20
 #define KPLAN_CONTENT_MAXLENGHT 100
 

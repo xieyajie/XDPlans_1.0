@@ -8,8 +8,14 @@
 
 #import "XDAppDelegate.h"
 
-#import "XDAllPlansViewController.h"
 #import "XDRootViewController.h"
+#import "XDNavigationController.h"
+#import "XDMenuController.h"
+#import "XDAllPlansViewController.h"
+#import "XDPlanDetailViewController.h"
+#import "XDDayPlanViewController.h"
+#import "XDSettingViewController.h"
+#import "REMenuItem.h"
 
 @implementation XDAppDelegate
 
@@ -19,13 +25,39 @@
     // Override point for customization after application launch.
     [MagicalRecord setupCoreDataStackWithStoreNamed:KDATABASE_NAME];
     
+//    XDMenuController *menuController = [[XDMenuController alloc] init];
 //    XDAllPlansViewController *allPlansViewController = [[XDAllPlansViewController alloc] initWithStyle:UITableViewStylePlain];
-//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:allPlansViewController];
+//    allPlansViewController.menuItem = [[REMenuItem alloc] initWithTitle:@"想做的事" subtitle:@"有很多想做的事情，先来几件排个队" image:[UIImage imageNamed:@"menu_allPlans.png"] highlightedImage:nil action:^(REMenuItem *item) {
+//        NSLog(@"Item: %@", item);
+//        [menuController menuSelectedItem:item withtype:0];
+//    }];
+//    
+//    XDPlanDetailViewController *detailPlanVC = [[XDPlanDetailViewController alloc] initWithStyle:UITableViewStylePlain action:YES];
+//    detailPlanVC.menuItem = [[REMenuItem alloc] initWithTitle:@"正在进行的事" subtitle:@"贪多嚼不烂哦，专心做一件事情吧" image:[UIImage imageNamed:@"menu_actionPlan.png"] highlightedImage:nil action:^(REMenuItem *item) {
+//        NSLog(@"Item: %@", item);
+//        [menuController menuSelectedItem:item withtype:1];
+//    }];
+//    
+//    XDDayPlanViewController *dayPlanVC = [XDDayPlanViewController defaultToday];
+//    dayPlanVC.menuItem = [[REMenuItem alloc] initWithTitle:@"今天的计划" subtitle:@"想做些什么呢？坚持进行下去吧" image:[UIImage imageNamed:@"menu_todayPlan.png"] highlightedImage:nil action:^(REMenuItem *item) {
+//        NSLog(@"Item: %@", item);
+//        [menuController menuSelectedItem:item withtype:2];
+//    }];
+//    
+//    XDSettingViewController *settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    settingVC.menuItem = [[REMenuItem alloc] initWithTitle:@"设置" subtitle:@"调整一下，让使用更加得心应手" image:[UIImage imageNamed:@"menu_setting.png"] highlightedImage:nil action:^(REMenuItem *item) {
+//        NSLog(@"Item: %@", item);
+//        [menuController menuSelectedItem:item withtype:3];
+//    }];
+//    
+//    menuController.viewControllers = @[allPlansViewController, detailPlanVC, dayPlanVC, settingVC];
+//    
+//    self.navigationController = [[XDNavigationController alloc] initWithRootViewController:menuController];
     
     XDRootViewController *rootViewController = [[XDRootViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    
+    self.navigationController = [[XDNavigationController alloc] initWithRootViewController:rootViewController];
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0]];
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

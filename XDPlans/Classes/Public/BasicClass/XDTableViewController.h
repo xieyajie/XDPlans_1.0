@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class REMenuItem;
 @interface XDTableViewController : UITableViewController
+
+@property (strong, nonatomic) REMenuItem *menuItem;
+@property (strong, nonatomic) UIBarButtonItem *rightItem;
 
 - (void)configurationNavigationBar;
 

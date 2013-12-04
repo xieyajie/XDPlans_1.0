@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "XDTableViewController.h"
 
-@interface XDSettingViewController : UITableViewController
+@interface XDSettingViewController : XDTableViewController
 
 @end

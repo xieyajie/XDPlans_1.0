@@ -10,7 +10,11 @@
 
 #define kSELECTOR_BACK @selector(back:)
 
+@class REMenuItem;
 @interface XDViewController : UIViewController
+
+@property (strong, nonatomic) REMenuItem *menuItem;
+@property (strong, nonatomic) UIBarButtonItem *rightItem;
 
 @property (nonatomic) CGRect viewFrame;
 @property (nonatomic) CGFloat originY;

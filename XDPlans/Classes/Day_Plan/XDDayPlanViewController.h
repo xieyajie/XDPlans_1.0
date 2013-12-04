@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "XDTableViewController.h"
 
 @class WantPlan;
 @class DayPlan;
-@interface XDDayPlanViewController : UITableViewController
+@interface XDDayPlanViewController : XDTableViewController
 
 @property (nonatomic, strong) WantPlan *actionPlan;
 @property (nonatomic, strong) DayPlan *dayPlan;
